@@ -14,7 +14,9 @@ class SecondActivity : AppCompatActivity() {
         var intent = intent
         var id = intent.getStringExtra("id")
         var user = intent.getParcelableExtra<User>("user");
-        textView.setText(id+ "name: " +user.name + ",pwd:" + user.pwd)
+        textView.setText("time: "+System.currentTimeMillis()+","+id+ "name: " +user.name + ",pwd:" + user.pwd)
+
+
 
     }
 }

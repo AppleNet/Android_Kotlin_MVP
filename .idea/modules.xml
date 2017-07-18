@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Android_Kotlin_MVP.iml" filepath="$PROJECT_DIR$/Android_Kotlin_MVP.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vlayout/vlayout.iml" filepath="$PROJECT_DIR$/vlayout/vlayout.iml" />
     </modules>
   </component>
 </project>
