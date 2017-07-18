@@ -1,16 +1,16 @@
-package com.example.llcgs.android_kotlin.bean
+package com.example.llcgs.android_kotlin.first.bean
 
 import android.os.Parcel
 import android.os.Parcelable
 
 /**
- * com.example.llcgs.android_kotlin.bean.User
+ * User
  * @author liulongchao
  * @since 2017/5/18
  */
 
 
-data class User (var name:String, var pwd:String) : Parcelable{
+data class User (var name:String, var pwd:String) : Parcelable {
 
     fun User() {}
 

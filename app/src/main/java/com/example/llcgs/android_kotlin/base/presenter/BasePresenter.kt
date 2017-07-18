@@ -1,19 +1,19 @@
-package com.example.llcgs.android_kotlin.base
+package com.example.llcgs.android_kotlin.base.presenter
 
 import java.lang.ref.Reference
 import java.lang.ref.WeakReference
 
 /**
- * com.example.llcgs.android_kotlin.base.BasePresenter
+ * com.example.llcgs.android_kotlin.base.presenter.BasePresenter
  * @author liulongchao
  * @since 2017/5/18
  */
 
 
-open class BasePresenter<V> {
+open class BasePresenter<V> : SuperPresenter{
 
 
-    lateinit var views:Reference<V>
+    lateinit var views: Reference<V>
 
     fun isAttacthView():Boolean{
         return views != null && views.get() != null
