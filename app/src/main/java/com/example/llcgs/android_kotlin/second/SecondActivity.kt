@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.second
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.example.llcgs.android_kotlin.R
@@ -7,7 +8,9 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.first.bean.User
 import com.example.llcgs.android_kotlin.second.presenter.impl.SecondPresenter
 import com.example.llcgs.android_kotlin.second.view.SecondView
+import com.example.llcgs.android_kotlin.third.ThirdActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -45,6 +48,11 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
         // 使用字符串模板
         // ${} 表示字符串模板，进行字符串的拼接于替换
         textView.text = "time: ${System.currentTimeMillis()}, id: ${id}, name: ${user.name}, pwd${user.pwd}"
+
+        RxView.clicks(textView).subscribe {
+            startActivity(Intent(this@SecondActivity, ThirdActivity::class.java))
+        }
+
 
         // 使用条件表达式
         if (user.name.equals("McGrady", true)){

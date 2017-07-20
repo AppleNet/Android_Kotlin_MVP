@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.second.presenter.impl
 
 import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
+import com.example.llcgs.android_kotlin.second.presenter.ISecondPresenter
 import com.example.llcgs.android_kotlin.second.view.SecondView
 
 /**
@@ -10,7 +11,7 @@ import com.example.llcgs.android_kotlin.second.view.SecondView
  */
 
 
-class SecondPresenter:BasePresenter<SecondView>() {
+class SecondPresenter:BasePresenter<SecondView>(), ISecondPresenter {
 
 
 
