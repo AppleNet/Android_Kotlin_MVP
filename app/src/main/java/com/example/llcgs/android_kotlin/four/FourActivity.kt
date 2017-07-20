@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.four
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.classandextends.FiveActivity
 import com.example.llcgs.android_kotlin.four.bean.Dot
 import com.example.llcgs.android_kotlin.four.presenter.impl.FourPresenter
 import com.example.llcgs.android_kotlin.four.view.FourView
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_four.*
 
 /**
  * 编码规范
@@ -23,6 +27,10 @@ class FourActivity : BaseActivity<FourView, FourPresenter>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_four)
 
+        RxView.clicks(button2).subscribe{
+            startActivity(Intent(this@FourActivity, FiveActivity::class.java))
+        }
+
         // 冒号
         // 类型和超类型之间的冒号前要有⼀个空格，⽽实例和类型之间的冒号前不要有空格
         var f = object : Foo<String>{
@@ -30,9 +38,6 @@ class FourActivity : BaseActivity<FourView, FourPresenter>() {
                 return a.toString()
             }
         }
-
-
-
 
     }
 
