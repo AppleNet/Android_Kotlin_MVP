@@ -1,9 +1,11 @@
 package com.example.llcgs.android_kotlin.third
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.four.FourActivity
 import com.example.llcgs.android_kotlin.third.bean.MySingleton
 import com.example.llcgs.android_kotlin.third.bean.NBA
 import com.example.llcgs.android_kotlin.third.bean.NBAWith
@@ -11,6 +13,8 @@ import com.example.llcgs.android_kotlin.third.kt.prefix
 import com.example.llcgs.android_kotlin.third.presenter.impl.ThirdPresenter
 import com.example.llcgs.android_kotlin.third.view.ThirdView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_third.*
 
 /**
  * 习惯用法
@@ -63,6 +67,10 @@ class ThirdActivity : BaseActivity<ThirdView, ThirdPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
+
+        RxView.clicks(textView3).subscribe{
+            startActivity(Intent(this@ThirdActivity, FourActivity::class.java))
+        }
 
     // 创建DTOs（POJOs/POCOs）数据类
         val nba: NBA = NBA("Kobe", 32)
