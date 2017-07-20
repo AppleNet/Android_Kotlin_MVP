@@ -23,9 +23,7 @@ class CBA constructor(){
     init{
         name = "李根"
         age = "26"
-        // 这里也可以直接生成CBA对象的实例
-        var cba = CBA()
-
+        // 这里也可以直接生成CBA对象的实例，编译没问题 但是 运行报错 堆栈溢出
     }
 
     // 次构造函数必须继承this() 次构造函数可以声明一个或者多个
