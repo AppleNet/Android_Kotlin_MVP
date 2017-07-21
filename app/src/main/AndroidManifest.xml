@@ -20,7 +20,8 @@
         <activity android:name=".third.ThirdActivity" />
         <activity android:name=".four.FourActivity" />
         <activity android:name=".classandobject.classandextends.FiveActivity" />
-        <activity android:name=".classandobject.propertyandfield.SixActivity"></activity>
+        <activity android:name=".classandobject.propertyandfield.SixActivity" />
+        <activity android:name=".classandobject.interfaces.SevenActivity"></activity>
     </application>
 
 </manifest>
