@@ -19,7 +19,8 @@
         <activity android:name=".second.SecondActivity" />
         <activity android:name=".third.ThirdActivity" />
         <activity android:name=".four.FourActivity" />
-        <activity android:name=".classandobject.classandextends.FiveActivity"></activity>
+        <activity android:name=".classandobject.classandextends.FiveActivity" />
+        <activity android:name=".classandobject.propertyandfield.SixActivity"></activity>
     </application>
 
 </manifest>

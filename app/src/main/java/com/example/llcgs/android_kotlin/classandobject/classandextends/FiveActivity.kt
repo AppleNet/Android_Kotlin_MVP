@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.classandobject.classandextends
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
@@ -8,6 +9,7 @@ import com.example.llcgs.android_kotlin.classandobject.classandextends.bean.CBA1
 import com.example.llcgs.android_kotlin.classandobject.classandextends.bean.FootBa
 import com.example.llcgs.android_kotlin.classandobject.classandextends.presenter.impl.FivePresenter
 import com.example.llcgs.android_kotlin.classandobject.classandextends.view.FiveView
+import com.example.llcgs.android_kotlin.classandobject.propertyandfield.SixActivity
 import com.gomejr.myf.core.kotlin.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_five.*
@@ -32,7 +34,7 @@ class FiveActivity : BaseActivity<FiveView, FivePresenter>() {
         setContentView(R.layout.activity_five)
 
         RxView.clicks(button3).subscribe {
-
+            startActivity(Intent(this@FiveActivity, SixActivity::class.java))
         }
         /*
         * 类
