@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_eight.*
  *  3.模块
  * */
 
-class EightActivity : BaseActivity<EightView, EightPresenter>() {
+class EightActivity : BaseActivity<EightView, EightPresenter>(), EightView {
 
     override fun createPresenter()= EightPresenter()
 

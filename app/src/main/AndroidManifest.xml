@@ -23,7 +23,8 @@
         <activity android:name=".classandobject.propertyandfield.SixActivity" />
         <activity android:name=".classandobject.interfaces.SevenActivity" />
         <activity android:name=".classandobject.modifier.EightActivity" />
-        <activity android:name=".classandobject.extensions.NineActivity"></activity>
+        <activity android:name=".classandobject.extensions.NineActivity" />
+        <activity android:name=".classandobject.dataclass.TenActivity"></activity>
     </application>
 
 </manifest>

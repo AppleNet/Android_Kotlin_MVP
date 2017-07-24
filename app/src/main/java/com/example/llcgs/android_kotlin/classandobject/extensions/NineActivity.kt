@@ -1,10 +1,16 @@
 package com.example.llcgs.android_kotlin.classandobject.extensions
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity
+import com.example.llcgs.android_kotlin.classandobject.extensions.presenter.impl.NinePresenter
+import com.example.llcgs.android_kotlin.classandobject.extensions.view.NineView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_nine.*
 
 /**
  * 扩展
@@ -18,11 +24,17 @@ import com.gomejr.myf.core.kotlin.logD
  *  8.动机
  * */
 
-class NineActivity : AppCompatActivity() {
+class NineActivity : BaseActivity<NineView, NinePresenter>(),NineView {
+
+    override fun createPresenter()= NinePresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nine)
+
+        RxView.clicks(button7).subscribe {
+            startActivity(Intent(this@NineActivity, TenActivity::class.java))
+        }
 
     // 一。扩展函数
         // 声明⼀个扩展函数，我们需要⽤⼀个接收者类型 也就是被扩展的类型来作为他的前缀
