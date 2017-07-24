@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.classandobject.interfaces.SevenActivity">
+    tools:context="com.example.llcgs.android_kotlin.classandobject.extensions.NineActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="接口" />
+        android:text="扩展" />
 </LinearLayout>

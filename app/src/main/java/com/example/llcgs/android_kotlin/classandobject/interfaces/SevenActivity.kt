@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.classandobject.interfaces
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.interfaces.presenter.impl.SevenPresenter
 import com.example.llcgs.android_kotlin.classandobject.interfaces.view.SevenView
+import com.example.llcgs.android_kotlin.classandobject.modifier.EightActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_seven.*
 
 /**
  * 接口
@@ -21,6 +25,10 @@ class SevenActivity : BaseActivity<SevenView, SevenPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seven)
+
+        RxView.clicks(button5).subscribe {
+            startActivity(Intent(this@SevenActivity, EightActivity::class.java))
+        }
 
         // 接口定义
         // 使用interface关键字定义接口
