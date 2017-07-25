@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.classandobject.dataclass
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.dataclass.bean.User
 import com.example.llcgs.android_kotlin.classandobject.dataclass.presenter.impl.TenPreseneter
 import com.example.llcgs.android_kotlin.classandobject.dataclass.view.TenView
+import com.example.llcgs.android_kotlin.classandobject.sealedclass.ElevenActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_ten.*
 
 /**
  *  数据类
@@ -22,6 +26,10 @@ class TenActivity : BaseActivity<TenView, TenPreseneter>(), TenView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ten)
+
+        RxView.clicks(button8).subscribe {
+            startActivity(Intent(this@TenActivity, ElevenActivity::class.java))
+        }
 
     // 数据类的声明
         // data修饰的类 kotlin中称为数据类

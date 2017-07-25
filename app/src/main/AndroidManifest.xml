@@ -24,7 +24,9 @@
         <activity android:name=".classandobject.interfaces.SevenActivity" />
         <activity android:name=".classandobject.modifier.EightActivity" />
         <activity android:name=".classandobject.extensions.NineActivity" />
-        <activity android:name=".classandobject.dataclass.TenActivity"></activity>
+        <activity android:name=".classandobject.dataclass.TenActivity" />
+        <activity android:name=".classandobject.sealedclass.ElevenActivity" />
+        <activity android:name=".classandobject.genericity.TwelveActivity"></activity>
     </application>
 
 </manifest>
