@@ -1,8 +1,10 @@
 package com.example.llcgs.android_kotlin.classandobject.sealedclass
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.genericity.TwelveActivity
 import com.example.llcgs.android_kotlin.classandobject.sealedclass.presenter.ElevenPresenter
 import com.example.llcgs.android_kotlin.classandobject.sealedclass.view.ElevenView
 import com.jakewharton.rxbinding2.view.RxView
@@ -23,7 +25,7 @@ class ElevenActivity : BaseActivity<ElevenView, ElevenPresenter>(),ElevenView {
         setContentView(R.layout.activity_eleven)
 
         RxView.clicks(button9).subscribe {
-
+            startActivity(Intent(this@ElevenActivity, TwelveActivity::class.java))
         }
 
     // 密封类

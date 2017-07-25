@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.first.bean.User
 import com.example.llcgs.android_kotlin.first.presenter.impl.LoginPresneter
 import com.example.llcgs.android_kotlin.first.view.LoginView
-import com.example.llcgs.android_kotlin.second.SecondActivity
+import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {

@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.classandobject.interfaces.presenter.imp
 
 import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
 import com.example.llcgs.android_kotlin.classandobject.interfaces.view.SevenView
-import com.example.llcgs.android_kotlin.second.presenter.ISecondPresenter
+import com.example.llcgs.android_kotlin.basicsyntax.presenter.ISecondPresenter
 
 /**
  * com.example.llcgs.android_kotlin.classandobject.interfaces.presenter.impl.SevenPresenter
