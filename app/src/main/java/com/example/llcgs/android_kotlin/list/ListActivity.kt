@@ -1,0 +1,99 @@
+package com.example.llcgs.android_kotlin.list
+
+import android.content.Intent
+import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.widget.LinearLayout
+import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
+import com.example.llcgs.android_kotlin.classandobject.classandextends.FiveActivity
+import com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity
+import com.example.llcgs.android_kotlin.classandobject.enumclass.FourteenActivity
+import com.example.llcgs.android_kotlin.classandobject.extensions.NineActivity
+import com.example.llcgs.android_kotlin.classandobject.genericity.TwelveActivity
+import com.example.llcgs.android_kotlin.classandobject.interfaces.SevenActivity
+import com.example.llcgs.android_kotlin.classandobject.modifier.EightActivity
+import com.example.llcgs.android_kotlin.classandobject.nestclass.ThirteenActivity
+import com.example.llcgs.android_kotlin.classandobject.propertyandfield.SixActivity
+import com.example.llcgs.android_kotlin.classandobject.sealedclass.ElevenActivity
+import com.example.llcgs.android_kotlin.codestandards.FourActivity
+import com.example.llcgs.android_kotlin.idiom.ThirdActivity
+import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
+import com.example.llcgs.android_kotlin.list.presenter.impl.ListPresenter
+import com.example.llcgs.android_kotlin.list.view.ListView
+import kotlinx.android.synthetic.main.activity_list.*
+
+class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
+
+    override fun createPresenter()= ListPresenter(this)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_list)
+        initRecyclerView()
+        // 获取数据
+        mPresenter.getListData()
+    }
+
+    private fun initRecyclerView() {
+        // 初始化LayoutManager
+        val manager = LinearLayoutManager(this)
+        manager.orientation = LinearLayout.VERTICAL
+        recyclerview.setHasFixedSize(true)
+        recyclerview.layoutManager = manager
+    }
+
+    override fun onGetListSuccess(list: List<String>) {
+        val listAdapter = MyListAdapter(list)
+        recyclerview.adapter = listAdapter
+        listAdapter.setOnClickListener(object : MyListAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                when(position){
+                    0 ->{
+                        startActivity(Intent(this@ListActivity, SecondActivity::class.java))
+                    }
+                    1 ->{
+                        startActivity(Intent(this@ListActivity, ThirdActivity::class.java))
+                    }
+                    2 ->{
+                        startActivity(Intent(this@ListActivity, FourActivity::class.java))
+                    }
+                    3 ->{
+                        startActivity(Intent(this@ListActivity, FiveActivity::class.java))
+                    }
+                    4 ->{
+                        startActivity(Intent(this@ListActivity, SixActivity::class.java))
+                    }
+                    5 ->{
+                        startActivity(Intent(this@ListActivity, SevenActivity::class.java))
+                    }
+                    6 ->{
+                        startActivity(Intent(this@ListActivity, EightActivity::class.java))
+                    }
+                    7 ->{
+                        startActivity(Intent(this@ListActivity, NineActivity::class.java))
+                    }
+                    8 ->{
+                        startActivity(Intent(this@ListActivity, TenActivity::class.java))
+                    }
+                    9 ->{
+                        startActivity(Intent(this@ListActivity, ElevenActivity::class.java))
+                    }
+                    10 ->{
+                        startActivity(Intent(this@ListActivity, TwelveActivity::class.java))
+                    }
+                    11 ->{
+                        startActivity(Intent(this@ListActivity, ThirteenActivity::class.java))
+                    }
+                    12 ->{
+                        startActivity(Intent(this@ListActivity, FourteenActivity::class.java))
+                    }
+                    13 ->{
+
+                    }
+                }
+            }
+        })
+    }
+}

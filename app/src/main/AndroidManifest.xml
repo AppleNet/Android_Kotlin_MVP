@@ -12,10 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".base.app.KotlinApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".first.MainActivity">
+        <activity android:name=".home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,7 +32,9 @@
         <activity android:name=".classandobject.dataclass.TenActivity" />
         <activity android:name=".classandobject.sealedclass.ElevenActivity" />
         <activity android:name=".classandobject.genericity.TwelveActivity" />
-        <activity android:name=".classandobject.nestclass.ThirteenActivity"></activity>
+        <activity android:name=".classandobject.nestclass.ThirteenActivity" />
+        <activity android:name=".classandobject.enumclass.FourteenActivity" />
+        <activity android:name=".list.ListActivity" />
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
-package com.example.llcgs.android_kotlin.first.presenter
+package com.example.llcgs.android_kotlin.home.presenter
 
-import com.example.llcgs.android_kotlin.first.bean.User
+import com.example.llcgs.android_kotlin.home.bean.User
 
 /**
  * ILoginPresenter

@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.first
+package com.example.llcgs.android_kotlin.home
 
 import android.app.Activity
 import android.content.Intent
@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
-import com.example.llcgs.android_kotlin.first.bean.User
-import com.example.llcgs.android_kotlin.first.presenter.impl.LoginPresneter
-import com.example.llcgs.android_kotlin.first.view.LoginView
 import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
+import com.example.llcgs.android_kotlin.home.bean.User
+import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresneter
+import com.example.llcgs.android_kotlin.home.view.LoginView
+import com.example.llcgs.android_kotlin.list.ListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
     }
 
     override fun doLoginSuccess() {
-        var intent = Intent(this, SecondActivity::class.java)
+        var intent = Intent(this, ListActivity::class.java)
         var name = editText.text.toString()
         var pwd = editText2.text.toString()
         var user = User(name, pwd)

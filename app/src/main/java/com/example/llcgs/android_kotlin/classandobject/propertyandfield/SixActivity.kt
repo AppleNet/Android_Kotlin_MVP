@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.classandobject.propertyandfield
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.interfaces.SevenActivity
 import com.example.llcgs.android_kotlin.classandobject.propertyandfield.bean.NBAGS
 import com.example.llcgs.android_kotlin.classandobject.propertyandfield.presenter.SixPresenter
 import com.example.llcgs.android_kotlin.classandobject.propertyandfield.view.SixView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_six.*
 
 /**
  * 属性和字段
@@ -28,6 +32,10 @@ class SixActivity : BaseActivity<SixView, SixPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_six)
+
+        RxView.clicks(button4).subscribe {
+            startActivity(Intent(this@SixActivity, SevenActivity::class.java))
+        }
 
         // 声明属性
         var kobe: String? = null

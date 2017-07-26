@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_array">
+        <item>基本语法</item>
+        <item>习惯语法</item>
+        <item>编码规范</item>
+        <item>类和继承</item>
+        <item>属性和字段</item>
+        <item>接口</item>
+        <item>可见性修饰符</item>
+        <item>扩展</item>
+        <item>数据类</item>
+        <item>密封类</item>
+        <item>泛型</item>
+        <item>嵌套类</item>
+        <item>枚举类</item>
+        <item>对象表达式和对象声明</item>
+    </string-array>
+
+</resources>

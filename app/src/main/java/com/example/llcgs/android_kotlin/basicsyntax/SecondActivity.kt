@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.basicsyntax.presenter.impl.SecondPresenter
 import com.example.llcgs.android_kotlin.basicsyntax.view.SecondView
-import com.example.llcgs.android_kotlin.first.bean.User
+import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.idiom.ThirdActivity
 import com.gomejr.myf.core.kotlin.logD
 import com.jakewharton.rxbinding2.view.RxView

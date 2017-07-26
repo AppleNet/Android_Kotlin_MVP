@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.classandobject.nestclass
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.enumclass.FourteenActivity
 import com.example.llcgs.android_kotlin.classandobject.nestclass.presenter.impl.ThirteenPresenter
 import com.example.llcgs.android_kotlin.classandobject.nestclass.view.ThirteenView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_thirteen.*
 
 /**
  *  嵌套类
@@ -23,6 +27,10 @@ class ThirteenActivity : BaseActivity<ThirteenView, ThirteenPresenter>(), Thirte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thirteen)
+
+        RxView.clicks(button11).subscribe {
+            startActivity(Intent(this@ThirteenActivity, FourteenActivity::class.java))
+        }
 
         // 嵌套类
         // 在kotlin中 类也可以嵌套在其他类中。

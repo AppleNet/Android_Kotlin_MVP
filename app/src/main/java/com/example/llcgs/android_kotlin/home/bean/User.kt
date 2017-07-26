@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.first.bean
+package com.example.llcgs.android_kotlin.home.bean
 
 import android.os.Parcel
 import android.os.Parcelable
