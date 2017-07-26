@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
+import com.example.llcgs.android_kotlin.classandobject.`object`.FifteenActivity
 import com.example.llcgs.android_kotlin.classandobject.classandextends.FiveActivity
 import com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity
 import com.example.llcgs.android_kotlin.classandobject.enumclass.FourteenActivity
@@ -90,7 +91,7 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                         startActivity(Intent(this@ListActivity, FourteenActivity::class.java))
                     }
                     13 ->{
-
+                        startActivity(Intent(this@ListActivity, FifteenActivity::class.java))
                     }
                 }
             }

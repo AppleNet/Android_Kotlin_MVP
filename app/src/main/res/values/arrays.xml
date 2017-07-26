@@ -16,6 +16,8 @@
         <item>嵌套类</item>
         <item>枚举类</item>
         <item>对象表达式和对象声明</item>
+        <item>委托</item>
+        <item>委托属性</item>
     </string-array>
 
 </resources>
