@@ -10,6 +10,7 @@ import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
 import com.example.llcgs.android_kotlin.classandobject.`object`.FifteenActivity
 import com.example.llcgs.android_kotlin.classandobject.classandextends.FiveActivity
 import com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity
+import com.example.llcgs.android_kotlin.classandobject.delegation.SixteenActivity
 import com.example.llcgs.android_kotlin.classandobject.enumclass.FourteenActivity
 import com.example.llcgs.android_kotlin.classandobject.extensions.NineActivity
 import com.example.llcgs.android_kotlin.classandobject.genericity.TwelveActivity
@@ -19,10 +20,12 @@ import com.example.llcgs.android_kotlin.classandobject.nestclass.ThirteenActivit
 import com.example.llcgs.android_kotlin.classandobject.propertyandfield.SixActivity
 import com.example.llcgs.android_kotlin.classandobject.sealedclass.ElevenActivity
 import com.example.llcgs.android_kotlin.codestandards.FourActivity
+import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.idiom.ThirdActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.list.presenter.impl.ListPresenter
 import com.example.llcgs.android_kotlin.list.view.ListView
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_list.*
 
 class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
@@ -50,9 +53,13 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
         recyclerview.adapter = listAdapter
         listAdapter.setOnClickListener(object : MyListAdapter.OnItemClickListener{
             override fun onItemClick(position: Int) {
+                position.logD()
                 when(position){
                     0 ->{
-                        startActivity(Intent(this@ListActivity, SecondActivity::class.java))
+                        startActivity(Intent(this@ListActivity, SecondActivity::class.java).apply {
+                            putExtra("id", "id")
+                            putExtra("user", User("McGrady", "123456"))
+                        })
                     }
                     1 ->{
                         startActivity(Intent(this@ListActivity, ThirdActivity::class.java))
@@ -92,6 +99,9 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                     }
                     13 ->{
                         startActivity(Intent(this@ListActivity, FifteenActivity::class.java))
+                    }
+                    15 ->{
+                        startActivity(Intent(this@ListActivity, SixteenActivity::class.java))
                     }
                 }
             }

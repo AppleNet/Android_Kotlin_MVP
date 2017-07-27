@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.classandobject.`object`
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,6 +8,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.`object`.presenter.impl.FifteenPresenter
 import com.example.llcgs.android_kotlin.classandobject.`object`.view.FifteenView
+import com.example.llcgs.android_kotlin.classandobject.delegation.SixteenActivity
 import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_fifteen.*
 
@@ -31,7 +33,7 @@ class FifteenActivity : BaseActivity<FifteenView, FifteenPresenter>(), FifteenVi
         // 声明一个对象表达式
         button13.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View) {
-
+                startActivity(Intent(this@FifteenActivity, SixteenActivity::class.java))
             }
         })
 
