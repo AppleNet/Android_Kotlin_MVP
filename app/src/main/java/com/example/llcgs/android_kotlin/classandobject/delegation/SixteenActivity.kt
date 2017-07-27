@@ -1,18 +1,21 @@
 package com.example.llcgs.android_kotlin.classandobject.delegation
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.delegation.presenter.impl.SixteenPresenter
 import com.example.llcgs.android_kotlin.classandobject.delegation.view.SixteenView
+import com.example.llcgs.android_kotlin.classandobject.propertydelegate.SeventeenActivity
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_sixteen.*
 
 /**
  * 委托
  *   类委托
  *
  * */
-
 class SixteenActivity : BaseActivity<SixteenView, SixteenPresenter>() {
 
     override fun createPresenter()= SixteenPresenter()
@@ -20,6 +23,10 @@ class SixteenActivity : BaseActivity<SixteenView, SixteenPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sixteen)
+
+        RxView.clicks(button14).subscribe {
+            startActivity(Intent(this@SixteenActivity, SeventeenActivity::class.java))
+        }
 
     // 委托模式已经证明是实现继承的⼀个很好的替代⽅式， ⽽Kotlin可以零样板代码地原⽣⽀持它。 类Derived可以继承⼀个接口Base ，并将其所有共有的方法委托给⼀个指定的对象
         val b = BaseImpl(100)

@@ -27,11 +27,7 @@ class MyListAdapter(list: List<String>): RecyclerView.Adapter<MyListAdapter.List
 
     override fun onBindViewHolder(holder: ListHolder, position: Int) {
         holder.textView.text = list.get(position)
-        view.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                onItemClickListener.onItemClick(position)
-            }
-        })
+        view.setOnClickListener { onItemClickListener.onItemClick(position) }
     }
 
     override fun getItemCount(): Int {

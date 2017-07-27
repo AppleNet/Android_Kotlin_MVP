@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.classandobject.delegation.SixteenActivity">
+    tools:context="com.example.llcgs.android_kotlin.classandobject.propertydelegate.SeventeenActivity">
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/button15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="委托" />
+        android:text="委托属性" />
 </LinearLayout>

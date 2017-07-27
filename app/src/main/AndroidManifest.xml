@@ -36,7 +36,8 @@
         <activity android:name=".classandobject.enumclass.FourteenActivity" />
         <activity android:name=".list.ListActivity" />
         <activity android:name=".classandobject.object.FifteenActivity" />
-        <activity android:name=".classandobject.delegation.SixteenActivity"></activity>
+        <activity android:name=".classandobject.delegation.SixteenActivity" />
+        <activity android:name=".classandobject.propertydelegate.SeventeenActivity"></activity>
     </application>
 
 </manifest>
