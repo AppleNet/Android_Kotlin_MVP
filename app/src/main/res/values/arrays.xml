@@ -18,6 +18,7 @@
         <item>对象表达式和对象声明</item>
         <item>委托</item>
         <item>委托属性</item>
+        <item>函数</item>
     </string-array>
 
 </resources>

@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.classandobject.propertydelegate
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.propertydelegate.presenter.impl.SeventeenPresenter
 import com.example.llcgs.android_kotlin.classandobject.propertydelegate.view.SeventeenView
+import com.example.llcgs.android_kotlin.functionandlambda.function.EighteenActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_seventenn.*
 import kotlin.properties.Delegates
 import kotlin.properties.ReadOnlyProperty
 import kotlin.properties.ReadWriteProperty
@@ -29,6 +33,10 @@ class SeventeenActivity : BaseActivity<SeventeenView, SeventeenPresenter>(), Sev
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seventenn)
+
+        RxView.clicks(button15).subscribe {
+            startActivity(Intent(this@SeventeenActivity, EighteenActivity::class.java))
+        }
 
     // 委托属性
         // 延迟属性（lazy properties）: 其值只在⾸次访问时计算

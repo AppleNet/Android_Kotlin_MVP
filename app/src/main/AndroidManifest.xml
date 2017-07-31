@@ -37,7 +37,8 @@
         <activity android:name=".list.ListActivity" />
         <activity android:name=".classandobject.object.FifteenActivity" />
         <activity android:name=".classandobject.delegation.SixteenActivity" />
-        <activity android:name=".classandobject.propertydelegate.SeventeenActivity"></activity>
+        <activity android:name=".classandobject.propertydelegate.SeventeenActivity" />
+        <activity android:name=".functionandlambda.function.EighteenActivity"></activity>
     </application>
 
 </manifest>
