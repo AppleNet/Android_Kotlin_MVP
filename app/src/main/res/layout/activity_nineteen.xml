@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.functionandlambda.function.EighteenActivity">
+    tools:context="com.example.llcgs.android_kotlin.functionandlambda.lambda.NineteenActivity">
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/button17"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="函数" />
+        android:text="高阶函数和lambda表达式" />
 </LinearLayout>

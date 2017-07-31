@@ -22,6 +22,7 @@ import com.example.llcgs.android_kotlin.classandobject.propertydelegate.Seventee
 import com.example.llcgs.android_kotlin.classandobject.sealedclass.ElevenActivity
 import com.example.llcgs.android_kotlin.codestandards.FourActivity
 import com.example.llcgs.android_kotlin.functionandlambda.function.EighteenActivity
+import com.example.llcgs.android_kotlin.functionandlambda.lambda.NineteenActivity
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.idiom.ThirdActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
@@ -110,6 +111,9 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                     }
                     16 ->{
                         startActivity(Intent(this@ListActivity, EighteenActivity::class.java))
+                    }
+                    17 ->{
+                        startActivity(Intent(this@ListActivity, NineteenActivity::class.java))
                     }
                 }
             }

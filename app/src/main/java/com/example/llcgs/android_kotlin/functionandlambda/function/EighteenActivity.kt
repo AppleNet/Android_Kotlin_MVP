@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.functionandlambda.function
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.functionandlambda.function.presenter.impl.EighteenPresenter
 import com.example.llcgs.android_kotlin.functionandlambda.function.view.EighteenView
+import com.example.llcgs.android_kotlin.functionandlambda.lambda.NineteenActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_eighteen.*
 
 /**
  *  函数
@@ -36,6 +40,9 @@ class EighteenActivity : BaseActivity<EighteenView, EighteenPresenter>(), Eighte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eighteen)
+        RxView.clicks(button16).subscribe {
+            startActivity(Intent(this@EighteenActivity, NineteenActivity::class.java))
+        }
     // 函数声明
         double(1)
     // 函数用法

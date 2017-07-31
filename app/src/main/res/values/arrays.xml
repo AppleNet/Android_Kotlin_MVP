@@ -19,6 +19,7 @@
         <item>委托</item>
         <item>委托属性</item>
         <item>函数</item>
+        <item>高阶函数和lambda表达式</item>
     </string-array>
 
 </resources>
