@@ -39,7 +39,8 @@
         <activity android:name=".classandobject.delegation.SixteenActivity" />
         <activity android:name=".classandobject.propertydelegate.SeventeenActivity" />
         <activity android:name=".functionandlambda.function.EighteenActivity" />
-        <activity android:name=".functionandlambda.lambda.NineteenActivity"></activity>
+        <activity android:name=".functionandlambda.lambda.NineteenActivity" />
+        <activity android:name=".functionandlambda.inline.TwentyActivity"></activity>
     </application>
 
 </manifest>

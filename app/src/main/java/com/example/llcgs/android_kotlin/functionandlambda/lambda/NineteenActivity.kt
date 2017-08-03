@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.functionandlambda.lambda
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.functionandlambda.inline.TwentyActivity
 import com.example.llcgs.android_kotlin.functionandlambda.lambda.presenter.impl.NineteenPresenter
 import com.example.llcgs.android_kotlin.functionandlambda.lambda.view.NineteenView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_nineteen.*
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.locks.Condition
 import java.util.concurrent.locks.Lock
@@ -33,6 +37,10 @@ class NineteenActivity : BaseActivity<NineteenView, NineteenPresenter>(), Ninete
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nineteen)
+
+        RxView.clicks(button17).subscribe {
+            startActivity(Intent(this@NineteenActivity, TwentyActivity::class.java))
+        }
 
     // 高阶函数
         // 高阶函数是将函数用作参数或者返回值，这种函数的一个很好例子是lock(),它接受一个对象和一个函数，获取锁，运行函数并释放锁
