@@ -33,7 +33,7 @@ class SevenActivity : BaseActivity<SevenView, SevenPresenter>() {
         // 接口定义
         // 使用interface关键字定义接口
         // Kotlin 的接⼝与 Java 8 类似，既包含抽象⽅法的声明，也包含实现。与抽象类不同的是，接⼝⽆法保存状态。它可以有 属性但必须声明为抽象或提供访问器实现
-        var sevenInterface = object : SevenInterface{
+        val sevenInterface = object : SevenInterface{
             override fun one(): String {
                 return "Kobe"
             }
@@ -83,10 +83,10 @@ interface SevenInterface{
     // 接口中不能有幕后字段 否则编译期报 property in an interface cannot have a backing field
     var name: String
         get() {
-            return name
+           return ""
         }
         set(value) {
-            name = value
+
         }
 
 }
