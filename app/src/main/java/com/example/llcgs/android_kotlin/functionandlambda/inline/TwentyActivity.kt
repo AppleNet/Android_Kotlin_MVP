@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.functionandlambda.inline
 
+import android.app.Activity
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
@@ -9,12 +10,38 @@ import com.gomejr.myf.core.kotlin.logD
 
 /**
  *  内联函数
- *    1.禁用内联
- *    2.非局部返回
- *    3.具体化的类型参数
- *    4.内联属性
+ *    1.禁用内联 noinline
+ *    2.非局部返回 crossinline
+ *    3.具体化的类型参数 reified
+ *    4.内联属性 inline property
  * */
 class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
+
+    // 当存在幕后字段的时候， inline不能修饰get/set和字段
+    // 当inline修饰的时候，get/set方法必须同时都要提供出来，否则就会默认使用幕后字段
+    // inline property cannot have backing field
+    var name: String
+        get (){
+            return "Kobe"
+        }
+        inline set(value){
+
+        }
+    var age: Int
+        inline get() {
+            return 32
+        }
+        set(value) {
+
+        }
+    inline var hobby: String
+        get() {
+            return "basketBall"
+        }
+        set(value) {
+
+        }
+
 
     override fun createPresenter()= TwentyPresenter()
 
@@ -51,7 +78,6 @@ class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
         // 但是如果 lambda 表达式传给的函数是内联的，该 return 也可以内联，所以它是允许的
         val hasZeros = hasZeros(intMutablelist)
         hasZeros.logD()
-
         // 请注意，⼀些内联函数可能调用传给它们的不是直接来自函数体、而是来自另⼀个执行上下文的lambda表达式参数，例如来自局部对象或嵌套函数。在
         // 这种情况下，该lambda表达式中也不允许非局部控制流。为了标识这种情况，该lambda表达式参数需要，用crossinline修饰符标记
         f {
@@ -60,9 +86,27 @@ class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
             }
         }
 
+        // 具体化的类型参数(类型参数的具体化)
+        // 使⽤ reified 修饰符来限定类型参数
+        // reified关键字的使用 必须结合内联函数
+        val findParentOfType = findParentOfType(Activity::class.java)
+        findParentOfType?.logD()
+        useReified { mutablelist }.forEach { it.logD() }
+        // 我们使⽤ reified 修饰符来限定类型参数，现在可以在函数内部访问它了，几乎就像是⼀个普通的类⼀样。由于函数是内联的，不需要反射，正常的操作符如!is和as现在都能用了
+        val membersOf = membersOf<StringBuilder>()
+        membersOf.logD()
+
+        // 内联属性
+        // inline 修饰符可用于没有幕后字段的属性的访问器
+        // 在调用处，内联访问器如同内联函数一样内联
+        // inline可以修饰 单个的get set方法 也可以直接修饰属性 将set/get方法都内联
+        name.logD()
+        age.logD()
+        hobby.logD()
+
     }
 
-    // 声明一个内联函数
+    // 声明一个内联函数 不使用reified关键字
     inline fun <T> useInline(body:()-> List<T>):List<T>{
         val list = ArrayList<T>()
         body().forEach {
@@ -99,4 +143,24 @@ class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
         }
         f.run()
     }
+
+    // 实例(类型参数-泛型) 默认情况下
+    fun <T> findParentOfType(clazz: Class<T>): T?{
+        var p = parent
+        while (p != null && !clazz.isInstance(p)){
+            p = p.parent
+        }
+        return p as T // 此时会提示一个异常 Unchecked cast：Activity! to T 并且调用的时候也比较不美观
+    }
+
+    // 声明一个reified 内联函数
+    inline fun <reified T> useReified(body:()-> List<T>):List<T>{
+        val list = ArrayList<T>()
+        body().forEach {
+            list.add("content value: $it" as T)
+        }
+        return list
+    }
+    // 使用reified的时候 还可以继续使用反射
+    inline fun <reified T> membersOf() = T::class.java.name
 }
