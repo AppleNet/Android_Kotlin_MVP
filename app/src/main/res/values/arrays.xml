@@ -21,6 +21,7 @@
         <item>函数</item>
         <item>高阶函数和lambda表达式</item>
         <item>内联函数</item>
+        <item>解构声明</item>
     </string-array>
 
 </resources>

@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.functionandlambda.inline
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.functionandlambda.inline.presenter.impl.TwentyPresenter
 import com.example.llcgs.android_kotlin.functionandlambda.inline.view.TwentyView
+import com.example.llcgs.android_kotlin.other.structdeclarations.TwentyOneActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty.*
 
 /**
  *  内联函数
@@ -48,6 +52,10 @@ class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty)
+
+        RxView.clicks(button18).subscribe {
+            startActivity(Intent(this@TwentyActivity, TwentyOneActivity::class.java))
+        }
 
         // 内联函数
         // 声明一个内联函数 使用inline关键字 减少内存开销
