@@ -142,15 +142,17 @@ class TwentyActivity : BaseActivity<TwentyView, TwentyPresenter>(), TwentyView {
     }
 
     // crossinline
-    // 如果声明了一个无返回值的函数作为参数，此时必须使用crossinline修饰
-    // 否则会报一个错误 can not inline body here it may contain non-local return 局部返回不能包含在inline函数中
-    // 因为body是无返回值的 这个函数中可能会含有一个return字段，所有编译器报错，不能局部返回
+    // 请注意，⼀些内联函数可能调⽤传给它们的不是直接来⾃函数体、⽽是来⾃另⼀个执⾏ 上下⽂的 lambda 表达式参数，例如来⾃局部对象或嵌套函数。在
+    // 这种情况下，该 lambda 表达式中 也不允许⾮局部控制流。为了标识这种情况，该 lambda 表达式参数需要 ⽤ crossinline 修饰符标记
     inline fun f(crossinline body:()-> Unit){
+        // 声明一个局部对象
         val f = object :Runnable{
             override fun run()= body()
         }
         f.run()
+        // 嵌套函数暂时还不知道怎么用
     }
+
 
     // 实例(类型参数-泛型) 默认情况下
     fun <T> findParentOfType(clazz: Class<T>): T?{

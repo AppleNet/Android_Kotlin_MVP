@@ -1,13 +1,17 @@
 package com.example.llcgs.android_kotlin.other.structdeclarations
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.other.gather.TwentyTwoActivity
 import com.example.llcgs.android_kotlin.other.structdeclarations.bean.Person
 import com.example.llcgs.android_kotlin.other.structdeclarations.bean.User
 import com.example.llcgs.android_kotlin.other.structdeclarations.presenter.impl.TwentyOnePresenter
 import com.example.llcgs.android_kotlin.other.structdeclarations.view.TwentyOneView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_one.*
 
 /**
  *  解构声明
@@ -25,6 +29,11 @@ class TwentyOneActivity : BaseActivity<TwentyOneView, TwentyOnePresenter>(), Twe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_one)
+
+        RxView.clicks(button19).subscribe {
+            val intent = Intent(this@TwentyOneActivity, TwentyTwoActivity::class.java)
+            startActivity(intent)
+        }
 
     // 解构声明
         // 把一个对象解构成很多变量
@@ -109,8 +118,6 @@ class TwentyOneActivity : BaseActivity<TwentyOneView, TwentyOnePresenter>(), Twe
         map.mapValues { entry: Map.Entry<Int, String> -> "NBA star: " + entry.value }
         // 单个指定类型
         map.mapValues { (k: Int, v: String)-> "" }
-
-
 
     }
 
