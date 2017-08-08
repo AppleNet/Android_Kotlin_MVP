@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.other.gather
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.other.gather.presenter.impl.TwentyTwoPresenter
 import com.example.llcgs.android_kotlin.other.gather.view.TwentyTwoView
+import com.example.llcgs.android_kotlin.other.interval.TwentyThreeActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_two.*
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -24,6 +28,10 @@ class TwentyTwoActivity : BaseActivity<TwentyTwoView, TwentyTwoPresenter>(), Twe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_two)
+
+        RxView.clicks(button20).subscribe {
+            startActivity(Intent(this@TwentyTwoActivity, TwentyThreeActivity::class.java))
+        }
 
         // 集合
         // 与大多数语言不同，Kotlin区分可变集合和不可变集合（lists、sets、maps等）。精确控制什么时候集合可编辑有助于消除bug和设计良好的API

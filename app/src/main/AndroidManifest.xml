@@ -42,7 +42,8 @@
         <activity android:name=".functionandlambda.lambda.NineteenActivity" />
         <activity android:name=".functionandlambda.inline.TwentyActivity" />
         <activity android:name=".other.structdeclarations.TwentyOneActivity" />
-        <activity android:name=".other.gather.TwentyTwoActivity"></activity>
+        <activity android:name=".other.gather.TwentyTwoActivity" />
+        <activity android:name=".other.interval.TwentyThreeActivity"></activity>
     </application>
 
 </manifest>
