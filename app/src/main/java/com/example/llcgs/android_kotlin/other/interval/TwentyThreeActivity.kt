@@ -68,6 +68,19 @@ class TwentyThreeActivity : BaseActivity<TwentyThreeView, TwentyThreePresenter>(
 
         // 数列是 Iterable<N> 的子类型，其中N分别为 Int 、 Long 或者 Char ，所以它可用于 for-循环以及像 map 、filter 等函数中
 
-        //
+        // 一些使用函数
+        // rangTo
+        // 排序
+        val rangeTo = 1.rangeTo(2)
+        rangeTo.first.logD()
+        rangeTo.forEach {
+            it.logD()
+        }
+
+        // reversed() 反转 IntProgression的拓展函数
+        for (i in (1..10).reversed()){
+            i.logD()
+        }
+
     }
 }
