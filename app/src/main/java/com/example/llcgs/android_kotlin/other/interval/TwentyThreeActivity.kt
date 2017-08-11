@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.other.interval
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.other.interval.presenter.impl.TwentyThreePresenter
 import com.example.llcgs.android_kotlin.other.interval.view.TwentyThreeView
+import com.example.llcgs.android_kotlin.other.typecheckchange.TwentyFourActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_three.*
 
 /**
  *  区间
@@ -25,6 +29,10 @@ class TwentyThreeActivity : BaseActivity<TwentyThreeView, TwentyThreePresenter>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_three)
+
+        RxView.clicks(button21).subscribe {
+            startActivity(Intent(this@TwentyThreeActivity, TwentyFourActivity::class.java))
+        }
 
     // 区间
         // 区间表达式由具有操作符形式 .. 的 rangeTo 函数辅以 in 和 !in 形成。 区间是为任何可比较类型定义的，但对于整型原生类型，它有⼀个优化的实现

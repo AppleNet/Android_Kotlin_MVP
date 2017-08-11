@@ -24,6 +24,7 @@
         <item>解构声明</item>
         <item>集合</item>
         <item>区间</item>
+        <item>类型的检查与转换</item>
     </string-array>
 
 </resources>
