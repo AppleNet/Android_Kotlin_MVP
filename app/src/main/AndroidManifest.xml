@@ -45,7 +45,8 @@
         <activity android:name=".other.gather.TwentyTwoActivity" />
         <activity android:name=".other.interval.TwentyThreeActivity" />
         <activity android:name=".other.typecheckchange.TwentyFourActivity" />
-        <activity android:name=".other.thisexperssion.TwentyFiveActivity"></activity>
+        <activity android:name=".other.thisexperssion.TwentyFiveActivity" />
+        <activity android:name=".other.equals.TwentySixActivity"></activity>
     </application>
 
 </manifest>

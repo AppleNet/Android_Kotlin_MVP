@@ -29,6 +29,7 @@ import com.example.llcgs.android_kotlin.idiom.ThirdActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.list.presenter.impl.ListPresenter
 import com.example.llcgs.android_kotlin.list.view.ListView
+import com.example.llcgs.android_kotlin.other.equals.TwentySixActivity
 import com.example.llcgs.android_kotlin.other.gather.TwentyTwoActivity
 import com.example.llcgs.android_kotlin.other.interval.TwentyThreeActivity
 import com.example.llcgs.android_kotlin.other.structdeclarations.TwentyOneActivity
@@ -138,6 +139,9 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                     }
                     23 ->{
                         startActivity(Intent(this@ListActivity, TwentyFiveActivity::class.java))
+                    }
+                    24 ->{
+                        startActivity(Intent(this@ListActivity, TwentySixActivity::class.java))
                     }
                 }
             }

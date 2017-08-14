@@ -26,6 +26,7 @@
         <item>区间</item>
         <item>类型的检查与转换</item>
         <item>this表达式</item>
+        <item>相等性</item>
     </string-array>
 
 </resources>

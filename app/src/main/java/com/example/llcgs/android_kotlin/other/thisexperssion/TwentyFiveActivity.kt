@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.other.thisexperssion
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.other.equals.TwentySixActivity
 import com.example.llcgs.android_kotlin.other.thisexperssion.presenter.impl.TwentyFivePresenter
 import com.example.llcgs.android_kotlin.other.thisexperssion.view.TwentyFiveView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_five.*
 
 /**
  *  this表达式
@@ -20,6 +24,10 @@ class TwentyFiveActivity : BaseActivity<TwentyFiveView, TwentyFivePresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_five)
+
+        RxView.clicks(button23).subscribe {
+            startActivity(Intent(this@TwentyFiveActivity, TwentySixActivity::class.java))
+        }
 
     // This表达式
         // 为了表⽰当前的  接收者 我们使⽤ this 表达式
