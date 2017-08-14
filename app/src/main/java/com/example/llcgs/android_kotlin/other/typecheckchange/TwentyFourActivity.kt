@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.other.typecheckchange
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.other.thisexperssion.TwentyFiveActivity
 import com.example.llcgs.android_kotlin.other.typecheckchange.bean.Person
 import com.example.llcgs.android_kotlin.other.typecheckchange.presenter.impl.TwentyFourPresenter
 import com.example.llcgs.android_kotlin.other.typecheckchange.view.TwentyFourView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_four.*
 
 /**
  *  类型的检查与转换
@@ -33,6 +37,10 @@ class TwentyFourActivity : BaseActivity<TwentyFourView, TwentyFourPresenter>(), 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_four)
+
+        RxView.clicks(button22).subscribe {
+            startActivity(Intent(this@TwentyFourActivity, TwentyFiveActivity::class.java))
+        }
 
     // is和!is操作符
         // 我们可以在运⾏时通过使⽤ is 操作符或其否定形式 !is 来检查对象是否符合给定类型

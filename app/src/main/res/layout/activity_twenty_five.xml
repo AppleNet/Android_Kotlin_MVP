@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.other.typecheckchange.TwentyFourActivity">
+    tools:context="com.example.llcgs.android_kotlin.other.thisexperssion.TwentyFiveActivity">
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/button23"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="类型的检查与转换" />
+        android:text="this表达式" />
 </LinearLayout>

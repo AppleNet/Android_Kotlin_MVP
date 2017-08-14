@@ -25,6 +25,7 @@
         <item>集合</item>
         <item>区间</item>
         <item>类型的检查与转换</item>
+        <item>this表达式</item>
     </string-array>
 
 </resources>
