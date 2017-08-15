@@ -1,12 +1,16 @@
 package com.example.llcgs.android_kotlin.other.equals
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.other.equals.bean.Equals
 import com.example.llcgs.android_kotlin.other.equals.presenter.impl.TwentySixPresenter
 import com.example.llcgs.android_kotlin.other.equals.view.TwentySixView
+import com.example.llcgs.android_kotlin.other.operator.TwentySevenActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_six.*
 
 /**
  * 相等性
@@ -21,6 +25,10 @@ class TwentySixActivity : BaseActivity<TwentySixView, TwentySixPresenter>(), Twe
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_six)
+
+        RxView.clicks(button24).subscribe {
+            startActivity(Intent(this@TwentySixActivity, TwentySevenActivity::class.java))
+        }
 
     // 相等性
         // 引用相等

@@ -27,6 +27,7 @@
         <item>类型的检查与转换</item>
         <item>this表达式</item>
         <item>相等性</item>
+        <item>操作符重载</item>
     </string-array>
 
 </resources>
