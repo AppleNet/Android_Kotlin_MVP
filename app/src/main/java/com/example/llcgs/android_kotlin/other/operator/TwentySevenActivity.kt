@@ -1,9 +1,11 @@
 package com.example.llcgs.android_kotlin.other.operator
 
+import android.content.Intent
 import android.graphics.Point
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.other.airsafety.TwentyEightActivity
 import com.example.llcgs.android_kotlin.other.operator.bean.Person
 import com.example.llcgs.android_kotlin.other.operator.presenter.impl.TwentySevenPresenter
 import com.example.llcgs.android_kotlin.other.operator.view.TwentySevenView
@@ -32,7 +34,7 @@ class TwentySevenActivity : BaseActivity<TwentySevenView, TwentySevenPresenter>(
         setContentView(R.layout.activity_twenty_seven)
 
         RxView.clicks(button25).subscribe {
-
+            startActivity(Intent(this@TwentySevenActivity, TwentyEightActivity::class.java))
         }
 
     // 操作符重载

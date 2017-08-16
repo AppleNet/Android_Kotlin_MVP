@@ -28,6 +28,7 @@
         <item>this表达式</item>
         <item>相等性</item>
         <item>操作符重载</item>
+        <item>空安全</item>
     </string-array>
 
 </resources>
