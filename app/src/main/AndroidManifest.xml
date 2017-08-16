@@ -48,7 +48,8 @@
         <activity android:name=".other.thisexperssion.TwentyFiveActivity" />
         <activity android:name=".other.equals.TwentySixActivity" />
         <activity android:name=".other.operator.TwentySevenActivity" />
-        <activity android:name=".other.airsafety.TwentyEightActivity"></activity>
+        <activity android:name=".other.airsafety.TwentyEightActivity" />
+        <activity android:name=".other.exception.TwentyNineActivity"></activity>
     </application>
 
 </manifest>

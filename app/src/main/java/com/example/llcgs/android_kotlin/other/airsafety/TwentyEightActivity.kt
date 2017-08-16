@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.other.airsafety
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
@@ -7,7 +8,10 @@ import com.example.llcgs.android_kotlin.other.airsafety.bean.Employee
 import com.example.llcgs.android_kotlin.other.airsafety.bean.Person
 import com.example.llcgs.android_kotlin.other.airsafety.presenter.impl.TwentyEightPresenter
 import com.example.llcgs.android_kotlin.other.airsafety.view.TwentyEightView
+import com.example.llcgs.android_kotlin.other.exception.TwentyNineActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_eight.*
 
 /**
  *  空安全
@@ -27,6 +31,8 @@ class TwentyEightActivity : BaseActivity<TwentyEightView, TwentyEightPresenter>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_eight)
+
+        RxView.clicks(button26).subscribe { startActivity(Intent(this@TwentyEightActivity, TwentyNineActivity::class.java)) }
 
     // 可空类型和非空类型
         // Kotlin的类型系统旨在消除来自代码空引用的危险
@@ -139,6 +145,7 @@ class TwentyEightActivity : BaseActivity<TwentyEightView, TwentyEightPresenter>(
     }
 
     //
+
     fun strLenghtSafe(s:String?) = s?.length ?: 0
 
     // throw 结合 猫王表达式使用
