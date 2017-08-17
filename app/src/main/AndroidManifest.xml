@@ -49,7 +49,8 @@
         <activity android:name=".other.equals.TwentySixActivity" />
         <activity android:name=".other.operator.TwentySevenActivity" />
         <activity android:name=".other.airsafety.TwentyEightActivity" />
-        <activity android:name=".other.exception.TwentyNineActivity"></activity>
+        <activity android:name=".other.exception.TwentyNineActivity" />
+        <activity android:name=".other.annotation.ThirtyActivity"></activity>
     </application>
 
 </manifest>

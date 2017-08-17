@@ -1,11 +1,15 @@
 package com.example.llcgs.android_kotlin.other.exception
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.other.annotation.ThirtyActivity
 import com.example.llcgs.android_kotlin.other.exception.presenter.impl.TwentyNinePresenter
 import com.example.llcgs.android_kotlin.other.exception.view.TwentyNineView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_twenty_nine.*
 import java.io.BufferedReader
 import java.io.StringReader
 
@@ -24,6 +28,8 @@ class TwentyNineActivity : BaseActivity<TwentyNineView, TwentyNinePresenter>(), 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_nine)
+
+        RxView.clicks(button27).subscribe { startActivity(Intent(this@TwentyNineActivity, ThirtyActivity::class.java)) }
 
     // 异常类
         // Kotlin 中所有异常类都是 Throwable 类的⼦孙类。 每个异常都有消息、堆栈回溯信息和可选的原因
