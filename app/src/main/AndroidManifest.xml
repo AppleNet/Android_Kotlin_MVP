@@ -6,6 +6,9 @@
         android:name="android.software.leanback"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".base.app.KotlinApplication"
         android:allowBackup="true"
@@ -50,7 +53,8 @@
         <activity android:name=".other.operator.TwentySevenActivity" />
         <activity android:name=".other.airsafety.TwentyEightActivity" />
         <activity android:name=".other.exception.TwentyNineActivity" />
-        <activity android:name=".other.annotation.ThirtyActivity"></activity>
+        <activity android:name=".other.annotation.ThirtyActivity" />
+        <activity android:name=".other.reflect.ThirtyOneActivity"></activity>
     </application>
 
 </manifest>

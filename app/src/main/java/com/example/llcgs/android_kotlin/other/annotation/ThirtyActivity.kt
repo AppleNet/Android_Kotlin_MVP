@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.other.annotation
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting
 import com.example.llcgs.android_kotlin.R
@@ -8,7 +9,10 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.classandextends.bean.Inject
 import com.example.llcgs.android_kotlin.other.annotation.presenter.impl.ThirtyPresenter
 import com.example.llcgs.android_kotlin.other.annotation.view.ThirtyView
+import com.example.llcgs.android_kotlin.other.reflect.ThirtyOneActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_thirty.*
 import kotlin.reflect.KClass
 
 /**
@@ -29,6 +33,8 @@ class ThirtyActivity : BaseActivity<ThirtyView, ThirtyPresenter>(),ThirtyView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thirty)
+
+        RxView.clicks(button28).subscribe { startActivity(Intent(this@ThirtyActivity, ThirtyOneActivity::class.java)) }
 
     // 注解声明
         // 注解是将元数据附加到代码的方法。要声明注解，将annotation注解放到类的前面
