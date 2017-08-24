@@ -47,7 +47,7 @@ class MyListAdapter(list: List<String>): RecyclerView.Adapter<MyListAdapter.List
 
 
     class ListHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textView: TextView = itemView.findViewById(R.id.textView4) as TextView
+        var textView: TextView = itemView.findViewById(R.id.textView4)
     }
 
     interface OnItemClickListener{

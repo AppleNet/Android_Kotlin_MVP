@@ -1,0 +1,24 @@
+dependencies {
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    // ---Rx---
+    compile project(':vlayout')
+    testCompile 'junit:junit:4.12'
+    compile libs.appcompat_v7
+    compile libs.constraint_layout
+    compile libs.rxbinding2
+    compile libs.rxbinding_support_v4
+    compile libs.rxbinding_appcompat_v7
+    compile libs.rxbinding_design
+    compile libs.rxbinding_recyclerview_v7
+    compile libs.leakcanary_release
+    compile libs.rxandroid2
+    compile libs.rxjava2
+    compile libs.kotlin_reflect
+    compile libs.replugin_host
+    compile libs.rxpermission2
+}

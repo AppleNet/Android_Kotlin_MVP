@@ -9,8 +9,11 @@ import com.example.llcgs.android_kotlin.other.reflect.bean.User
 import com.example.llcgs.android_kotlin.other.reflect.presenter.impl.ThirtyOnePresenter
 import com.example.llcgs.android_kotlin.other.reflect.view.ThirtyOneView
 import com.gomejr.myf.core.kotlin.logD
+import kotlin.reflect.KClass
 import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.memberProperties
+import kotlin.reflect.jvm.javaField
+import kotlin.reflect.jvm.javaGetter
 
 /**
  *  反射 -- 一种在运行时动态的访问对象属性和方法的方式，不需要确定这些属性是什么
@@ -26,6 +29,7 @@ import kotlin.reflect.full.memberProperties
  * */
 class ThirtyOneActivity : BaseActivity<ThirtyOneView, ThirtyOnePresenter>(), ThirtyOneView {
 
+    var x = 1
     override fun createPresenter()= ThirtyOnePresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,9 +105,66 @@ class ThirtyOneActivity : BaseActivity<ThirtyOneView, ThirtyOnePresenter>(), Thi
         val oldLength = compose(::isOdd, ::length)
         val strings = listOf("a", "ab", "abc")
         strings.filter(oldLength).forEach { it.logD() }
+
+        // 属性引用
+        // 要把属性作为Kotlin中的一等对象来访问，我们也可以使⽤ :: 运算符：
+        ThirtyOneActivity::x.get(this).logD()
+        ThirtyOneActivity::x.set(this, 2)
+        x.logD()
+        // 表达式 ::x 求值为KProperty<Int>类型的属性对象，它允许我们使用get()读取它的值，或者使用name属性来获取属性名
+        // 对于可变属性，例如var y = 1，::y 返回 KMutableProperty<Int> 类型的⼀个值， 该类型有⼀个 set() 方法
+        // 属性引用可以用在不需要参数的函数处
+        val strs = listOf("1","12","123")
+        strs.map(String::length).forEach { it.logD() }
+        strs.map(String::toInt).forEach { it.logD() }
+        // 等价于 strs.map(String::toInt).forEach { it.logD() }
+        strs.map { it.toInt() }.forEach { it.logD() }
+
+        // 要访问属于类的成员的属性，我们这样限定它
+        val prop = A::p
+        prop.get(A(1)).logD()
+
+        // 对于扩展属性
+        //String::lastChar.get("Kobe").logD()
+
+        // 与 Java反射的互操作性
+        // 在Java平台上，标准库包含反射类的扩展，它提供了与Java反射对象之间映射（参⻅ kotlin.reflect.jvm 包）。 例如，要查找⼀个用作Kotlin属性
+        // getter的幕后字段或Java⽅法，可以这样写
+        A::p.javaGetter.toString().logD() // 输出 "public final int A.getP()"
+        A::p.javaField.toString().logD() // 输出 "private final int A.p"
+        A::p.javaClass.name.logD()
+
+        // 要获得对应于 Java 类的 Kotlin 类，请使⽤ .kotlin 扩展属性
+        fun getKClass(o:Any):KClass<Any> = o.javaClass.kotlin
+        getKClass("Kobe").isFinal.logD()
+
+        // 构造函数引用
+        // 构造函数可以像方法和属性那样引用。他们可以用于期待这样的函数类型对象的任何地方：它与该构造函数接受相同参数并且返回相应类型的对象。通过
+        // 使⽤ :: 操作符并添加类名来引用构造函数。考虑下面的函数， 它期待⼀个无参并返回Foo类型的函数参数
+
+        fun func(factory:() ->Foo){
+            val x :Foo = factory()
+            x.logD()
+        }
+        // 反射Foo的构造函数
+        // 使⽤ ::Foo ，类 Foo 的零参数构造函数，我们可以这样简单地调用它：
+        func(::Foo)
+
+        // 绑定的函数与属性引⽤（⾃ 1.1 起）
+        // 你可以引用特定对象的实例方法
+
+
     }
+
+    // 声明一个扩展属性
+    val String.lastChar: Char
+        get() = this[length - 1]
 
     companion object ThirtyOne{
         val id = 1
     }
+
+    class A(val p:Int)
+
+    class Foo
 }
