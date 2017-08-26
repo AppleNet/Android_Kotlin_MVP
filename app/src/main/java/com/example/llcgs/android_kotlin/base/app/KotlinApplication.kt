@@ -2,11 +2,19 @@ package com.example.llcgs.android_kotlin.base.app
 
 import android.content.Context
 import android.content.Intent
-import android.os.Environment
+import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
+import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
+import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
+import com.example.llcgs.android_kotlin.base.router.verify.RePluginVerification
 import com.example.llcgs.android_kotlin.utils.BaseUtil
 import com.gomejr.myf.core.kotlin.logD
+import com.lzh.nonview.router.RouterConfiguration
+import com.lzh.nonview.router.anno.RouteConfig
+import com.lzh.nonview.router.host.RouterHostService
+import com.lzh.router.replugin.host.HostRouterConfiguration
 import com.qihoo360.replugin.*
-import java.io.File
+
+
 
 
 /**
@@ -15,22 +23,26 @@ import java.io.File
  * @since 2017/7/26
  */
 
-
+@RouteConfig(baseUrl = "host://")
 class KotlinApplication: RePluginApplication() {
 
     override fun onCreate() {
         super.onCreate()
         BaseUtil.init(this)
-        //initPlugin()
+        initRouter()
     }
 
-    fun initPlugin(){
-        val pi = RePlugin.install(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "GomeXG" + File.separator + "app-debug.apk")
-        "pi != null result:  ${pi != null}".logD()
-        if (pi != null){
-            val preload = RePlugin.preload(pi)
-            "load result:  ${preload}".logD()
-        }
+    private fun initRouter(){
+        // 启动远程路由前。加入安全验证器
+        RouterHostService.setVerify(RePluginVerification())
+        // 添加路由规则
+        RouterConfiguration.get().addRouteCreator(RouterRuleCreator())
+
+        // 初始化Config
+        HostRouterConfiguration.init("com.example.llcgs.android_kotlin", this)
+        HostRouterConfiguration.get().setCallback(KPluginCallback())
+        HostRouterConfiguration.get().setRouteCallback(KRouterCallBack())
+
     }
 
     override fun attachBaseContext(base: Context?) {

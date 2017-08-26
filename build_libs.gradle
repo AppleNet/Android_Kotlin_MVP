@@ -27,6 +27,12 @@ ext {
             multidex          : "1.0.1",
             leakcanary        : "1.4",
             flexbox           : "0.2.6",
+            router_version    : "2.4.3",
+            parceler_version  : "1.1.4",
+            butterknife_version : "8.8.1",
+            updateplugin_version : "2.4.3",
+            router_replugin_version : "0.3",
+            replugin_host_version : "2.2.0",
     ]
     libs = [
             junit                : "junit:junit:4.12",
@@ -85,7 +91,11 @@ ext {
             leakcanary_release   : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",
             matisse              : "com.zhihu.android:matisse:0.5.0-alpha4",
 
-            replugin_host        : "com.qihoo360.replugin:replugin-host-lib:2.1.7"
+            replugin_host        : "com.qihoo360.replugin:replugin-host-lib:${versions.replugin_host_version}",
+            router_host          : "com.github.yjfnypeu.Router:router-host:${versions.router_version}",
+            router_replugin_host : "com.github.yjfnypeu.Router-RePlugin:host:${versions.router_replugin_version}",
+            parceler             : "org.lzh.compiler.parceler:parceler-api:${versions.parceler_version}",
+            update_plugin        : "org.lzh.nonview.updateplugin:UpdatePlugin:${versions.updateplugin_version}"
 
     ]
 

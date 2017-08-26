@@ -17,12 +17,15 @@ import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresneter
 import com.example.llcgs.android_kotlin.home.view.LoginView
 import com.example.llcgs.android_kotlin.list.ListActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.lzh.nonview.router.Router
+import com.lzh.nonview.router.anno.RouterRule
 import com.qihoo360.replugin.RePlugin
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
-
+// 因为指定了baseUrl。 所以这里会使用baseUrl做组合。
+@RouterRule("main")
 class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
 
 
@@ -41,6 +44,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
                     initPlugin()
                 }
         button30.setOnClickListener{
+            Router.create("android_router_lcplugin://main").open(this)
+        }
+        button31.setOnClickListener {
             RePlugin.startActivity(this@MainActivity, RePlugin.createIntent("com.llc.android_lcplugin", "com.llc.android_lcplugin.PluginMainActivity"))
         }
     }
@@ -62,7 +68,7 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
         if (file.exists()){
             "file exists start install".logD()
             val pi = RePlugin.install(path)
-            "pi == null result:  ${pi != null}".logD()
+            "pi == null result:  ${pi == null}".logD()
             if (pi != null){
                 val preload = RePlugin.preload(pi)
                 "load result:  ${preload}".logD()
