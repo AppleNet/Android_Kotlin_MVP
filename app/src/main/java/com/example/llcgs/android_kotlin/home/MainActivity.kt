@@ -44,10 +44,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
                     initPlugin()
                 }
         button30.setOnClickListener{
-            Router.create("android_router_lcplugin://main").open(this)
+            Router.create("plugin://main").open(this)
         }
         button31.setOnClickListener {
-            RePlugin.startActivity(this@MainActivity, RePlugin.createIntent("com.llc.android_lcplugin", "com.llc.android_lcplugin.PluginMainActivity"))
+            RePlugin.startActivity(this@MainActivity, RePlugin.createIntent("plugin", "com.llc.android_lcplugin.PluginMainActivity"))
         }
     }
 
@@ -63,7 +63,7 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
     }
 
     fun initPlugin(){
-        val path = Environment.getExternalStorageDirectory().absolutePath + File.separator + "android_lcplugin.apk"
+        val path = Environment.getExternalStorageDirectory().absolutePath + File.separator + "plugin.apk"
         val file = File(path)
         if (file.exists()){
             "file exists start install".logD()
