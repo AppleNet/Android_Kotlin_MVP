@@ -31,4 +31,6 @@ dependencies {
     compile libs.parceler
     // 聚美优品的远程更新插件
     compile libs.update_plugin
+    // fastJson
+    compile libs.fastjson
 }
