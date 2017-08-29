@@ -27,7 +27,6 @@ import org.lzh.framework.updatepluginlib.UpdateConfig
 import org.lzh.framework.updatepluginlib.model.CheckEntity
 import org.lzh.framework.updatepluginlib.model.HttpMethod
 import org.lzh.framework.updatepluginlib.model.Update
-import org.lzh.framework.updatepluginlib.model.UpdateParser
 
 
 /**
@@ -105,12 +104,10 @@ class KotlinApplication: RePluginApplication() {
                         "appType" to "1"
                 )))
                 // 必填：用于从数据更新接口获取的数据response中。解析出Update实例。以便框架内部处理
-                .jsonParser(object : UpdateParser{
-                    override fun parse(httpResponse: String?): Update {
-                        httpResponse?.logD()
-                        return JSON.parseObject(httpResponse, Update::class.java)
-                    }
-                })
+                .jsonParser { httpResponse ->
+                    httpResponse?.logD()
+                    JSON.parseObject(httpResponse, Update::class.java)
+                }
         UpdateBuilder.create().check()
     }
 

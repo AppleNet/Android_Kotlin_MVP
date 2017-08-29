@@ -13,10 +13,9 @@ import org.lzh.framework.updatepluginlib.model.HttpMethod
 
 class HostUpdateCombine: IUpdateCombine {
     override fun combine(alias: String?): CheckEntity {
-        // http://10.143.117.45:8081/sm-api/updateVersion/query?version=3.0.14&phoneType=1&appType=1
         val check = CheckEntity()
         check.method = HttpMethod.POST
-        check.url = "http://10.143.117.45:8081/sm-api/updateVersion/query"
+        check.url = /**此处方式更新的url*/""
         val params = mapOf(
                 "version" to "3.0.14",
                 "phoneType" to "1",
