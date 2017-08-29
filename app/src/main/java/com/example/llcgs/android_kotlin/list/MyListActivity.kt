@@ -41,15 +41,24 @@ import com.example.llcgs.android_kotlin.other.structdeclarations.TwentyOneActivi
 import com.example.llcgs.android_kotlin.other.thisexperssion.TwentyFiveActivity
 import com.example.llcgs.android_kotlin.other.typecheckchange.TwentyFourActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_list.*
 
-class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
+@RouterRule("list")
+class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
 
     override fun createPresenter()= ListPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        val intent = intent
+        val bundle = intent.extras
+        val id = bundle.get("id")
+        val user:User = bundle.getParcelable("user")
+        id.logD()
+        user.name.logD()
+        user.pwd.logD()
         initRecyclerView()
         // 获取数据
         mPresenter.getListData()
@@ -71,97 +80,97 @@ class ListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                 position.logD()
                 when(position){
                     0 ->{
-                        startActivity(Intent(this@ListActivity, SecondActivity::class.java).apply {
+                        startActivity(Intent(this@MyListActivity, SecondActivity::class.java).apply {
                             putExtra("id", "id")
                             putExtra("user", User("McGrady", "123456"))
                         })
                     }
                     1 ->{
-                        startActivity(Intent(this@ListActivity, ThirdActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, ThirdActivity::class.java))
                     }
                     2 ->{
-                        startActivity(Intent(this@ListActivity, FourActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, FourActivity::class.java))
                     }
                     3 ->{
-                        startActivity(Intent(this@ListActivity, FiveActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, FiveActivity::class.java))
                     }
                     4 ->{
-                        startActivity(Intent(this@ListActivity, SixActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, SixActivity::class.java))
                     }
                     5 ->{
-                        startActivity(Intent(this@ListActivity, SevenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, SevenActivity::class.java))
                     }
                     6 ->{
-                        startActivity(Intent(this@ListActivity, EightActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, EightActivity::class.java))
                     }
                     7 ->{
-                        startActivity(Intent(this@ListActivity, NineActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, NineActivity::class.java))
                     }
                     8 ->{
-                        startActivity(Intent(this@ListActivity, TenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TenActivity::class.java))
                     }
                     9 ->{
-                        startActivity(Intent(this@ListActivity, ElevenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, ElevenActivity::class.java))
                     }
                     10 ->{
-                        startActivity(Intent(this@ListActivity, TwelveActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwelveActivity::class.java))
                     }
                     11 ->{
-                        startActivity(Intent(this@ListActivity, ThirteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, ThirteenActivity::class.java))
                     }
                     12 ->{
-                        startActivity(Intent(this@ListActivity, FourteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, FourteenActivity::class.java))
                     }
                     13 ->{
-                        startActivity(Intent(this@ListActivity, FifteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, FifteenActivity::class.java))
                     }
                     14 ->{
-                        startActivity(Intent(this@ListActivity, SixteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, SixteenActivity::class.java))
                     }
                     15 ->{
-                        startActivity(Intent(this@ListActivity, SeventeenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, SeventeenActivity::class.java))
                     }
                     16 ->{
-                        startActivity(Intent(this@ListActivity, EighteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, EighteenActivity::class.java))
                     }
                     17 ->{
-                        startActivity(Intent(this@ListActivity, NineteenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, NineteenActivity::class.java))
                     }
                     18 ->{
-                        startActivity(Intent(this@ListActivity, TwentyActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyActivity::class.java))
                     }
                     19 ->{
-                        startActivity(Intent(this@ListActivity, TwentyOneActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyOneActivity::class.java))
                     }
                     20 ->{
-                        startActivity(Intent(this@ListActivity, TwentyTwoActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyTwoActivity::class.java))
                     }
                     21 ->{
-                        startActivity(Intent(this@ListActivity, TwentyThreeActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyThreeActivity::class.java))
                     }
                     22 ->{
-                        startActivity(Intent(this@ListActivity, TwentyFourActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyFourActivity::class.java))
                     }
                     23 ->{
-                        startActivity(Intent(this@ListActivity, TwentyFiveActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyFiveActivity::class.java))
                     }
                     24 ->{
-                        startActivity(Intent(this@ListActivity, TwentySixActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentySixActivity::class.java))
                     }
                     25 ->{
-                        startActivity(Intent(this@ListActivity, TwentySevenActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentySevenActivity::class.java))
                     }
                     26 ->{
-                        startActivity(Intent(this@ListActivity, TwentyEightActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyEightActivity::class.java))
                     }
                     27 ->{
-                        startActivity(Intent(this@ListActivity, TwentyNineActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, TwentyNineActivity::class.java))
                     }
                     28 ->{
-                        startActivity(Intent(this@ListActivity, ThirtyActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, ThirtyActivity::class.java))
                     }
                     29 ->{
-                        startActivity(Intent(this@ListActivity, ThirtyOneActivity::class.java))
+                        startActivity(Intent(this@MyListActivity, ThirtyOneActivity::class.java))
                     }
                 }
             }

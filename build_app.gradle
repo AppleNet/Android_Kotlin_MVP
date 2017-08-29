@@ -33,4 +33,6 @@ dependencies {
     compile libs.update_plugin
     // fastJson
     compile libs.fastjson
+    //
+    compile libs.adapter_helper
 }

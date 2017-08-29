@@ -30,4 +30,7 @@ repluginHostConfig {
     // 可以在这里自定义常驻进程的名字
     // persistentName = ":XXXXService"
 }
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}
 

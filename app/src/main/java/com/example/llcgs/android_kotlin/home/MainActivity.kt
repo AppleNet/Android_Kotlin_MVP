@@ -2,7 +2,6 @@ package com.example.llcgs.android_kotlin.home
 
 import android.Manifest
 import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -15,7 +14,6 @@ import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresneter
 import com.example.llcgs.android_kotlin.home.view.LoginView
-import com.example.llcgs.android_kotlin.list.ListActivity
 import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule
@@ -43,9 +41,18 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
                 .subscribe {
                     initPlugin()
                 }
+        // 最基本方式启动Activity
         button30.setOnClickListener{
-            Router.create("plugin://main").open(this)
+            val name = editText.text.toString()
+            val pwd = editText2.text.toString()
+            val user = User(name, pwd)
+            val bundle = Bundle()
+            bundle.putString("id", "001")
+            bundle.putParcelable("user",user)
+            Router.create("host://plugin").activityRoute.addExtras(bundle).open(this)
         }
+
+        // Replugin方式启动Activity
         button31.setOnClickListener {
             RePlugin.startActivity(this@MainActivity, RePlugin.createIntent("plugin", "com.llc.android_lcplugin.PluginMainActivity"))
         }
@@ -78,13 +85,13 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
     }
 
     override fun doLoginSuccess() {
-        val intent = Intent(this, ListActivity::class.java)
         val name = editText.text.toString()
         val pwd = editText2.text.toString()
         val user = User(name, pwd)
-        intent.putExtra("id", "id")
-        intent.putExtra("user", user)
-        startActivity(intent)
+        val bundle = Bundle()
+        bundle.putString("id", "id")
+        bundle.putParcelable("user",user)
+        Router.create("host://list").activityRoute.addExtras(bundle).requestCode(100).open(this)
     }
 
     override fun doLoginFail() {

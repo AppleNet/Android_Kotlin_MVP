@@ -37,7 +37,7 @@
         <activity android:name=".classandobject.genericity.TwelveActivity" />
         <activity android:name=".classandobject.nestclass.ThirteenActivity" />
         <activity android:name=".classandobject.enumclass.FourteenActivity" />
-        <activity android:name=".list.ListActivity" />
+        <activity android:name=".list.MyListActivity" />
         <activity android:name=".classandobject.object.FifteenActivity" />
         <activity android:name=".classandobject.delegation.SixteenActivity" />
         <activity android:name=".classandobject.propertydelegate.SeventeenActivity" />
@@ -54,7 +54,8 @@
         <activity android:name=".other.airsafety.TwentyEightActivity" />
         <activity android:name=".other.exception.TwentyNineActivity" />
         <activity android:name=".other.annotation.ThirtyActivity" />
-        <activity android:name=".other.reflect.ThirtyOneActivity"></activity>
+        <activity android:name=".other.reflect.ThirtyOneActivity" />
+        <activity android:name=".plugin.PluginActivity"></activity>
     </application>
 
 </manifest>

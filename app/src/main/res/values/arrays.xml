@@ -34,4 +34,13 @@
         <item>反射</item>
     </string-array>
 
+    <string-array name="plugin_array">
+        <item>基本启动方式</item>
+        <item>只添加额外数据</item>
+        <item>只添加拦截器</item>
+        <item>触发页面路由事件</item>
+        <item>单次回调监听器</item>
+        <item>触发动作路由</item>
+    </string-array>
+
 </resources>

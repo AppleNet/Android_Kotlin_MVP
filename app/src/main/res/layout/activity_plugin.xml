@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.llcgs.android_kotlin.list.MyListActivity">
+    tools:context="com.example.llcgs.android_kotlin.plugin.PluginActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:background="@color/colorAccent"
-        android:text="语法列表" />
+        android:text="路由语法列表" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

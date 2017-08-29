@@ -6,6 +6,7 @@ import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
 import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
+import com.example.llcgs.android_kotlin.base.router.interceptor.DefaultInterceptor
 import com.example.llcgs.android_kotlin.base.router.update.HostUpdateCombine
 import com.example.llcgs.android_kotlin.base.router.update.JsonParser
 import com.example.llcgs.android_kotlin.base.router.update.PluginChecker
@@ -50,6 +51,8 @@ class KotlinApplication: RePluginApplication() {
         RouterHostService.setVerify(RePluginVerification())
         // 添加路由规则
         RouterConfiguration.get().addRouteCreator(RouterRuleCreator())
+        // 添加全局拦截器
+        RouterConfiguration.get().interceptor = DefaultInterceptor()
         // 初始化Config
         HostRouterConfiguration.init("com.example.llcgs.android_kotlin", this)
         HostRouterConfiguration.get().setCallback(KPluginCallback())
@@ -98,7 +101,7 @@ class KotlinApplication: RePluginApplication() {
                 // 数据更新接口数据，此时默认为使用GET请求
                 //.url()
                 // 类似url方法。CheckEntity方法可填写url,params,method。可在此设置为使用post请求
-                .checkEntity(CheckEntity().setUrl(/*此处放置url*/"").setMethod(HttpMethod.POST).setParams(mapOf(
+                .checkEntity(CheckEntity().setUrl(/*此处放置url*/"http://10.143.117.45:8081/sm-api/").setMethod(HttpMethod.POST).setParams(mapOf(
                         "version" to "3.0.13",
                         "phoneType" to "1",
                         "appType" to "1"
