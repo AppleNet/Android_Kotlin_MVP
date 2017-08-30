@@ -23,3 +23,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.lzh.nonview.router.**{*;}
+-keep class com.lzh.router.replugin.**{*;}
+-keep class * extends com.lzh.nonview.router.route.ActionSupport{*;}
+-keep class * implements com.lzh.nonview.router.interceptors.RouteInterceptor{*;}
+-keep class * implements com.lzh.nonview.router.route.RouteCallback{*;}

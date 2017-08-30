@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.plugin
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -107,7 +109,30 @@ class PluginActivity : BaseActivity<PluginView, PluginPresenter>(), PluginView {
                     // 启动 WebView
                     Router.create("https://www.baidu.com").open(this)
                 }
+                7 ->{
+                    // 设置请求码 需要在宿主或者其他页面 接收onActivityResult() 回调
+                    Router.create("plugin://main").activityRoute.requestCode(100).open(this)
+                }
+                8 ->{
+                    // 设置转场动画
+                    Router.create("plugin://main").activityRoute.setAnim(R.anim.anim_fade_in, R.anim.anim_fade_out).open(this)
+                }
+                9 ->{
+                    // 设置Intent Flags
+                    Router.create("plugin://main").activityRoute.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).open(this)
+                }
             }
         }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == 100){
+            val name = data?.getStringExtra("name")
+            name?.logD()
+            val pwd = data?.getStringExtra("pwd")
+            pwd?.logD()
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

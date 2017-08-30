@@ -42,6 +42,9 @@
         <item>触发动作路由</item>
         <item>单次回调监听器</item>
         <item>启动WebView</item>
+        <item>设置请求码</item>
+        <item>设置转场动画</item>
+        <item>设置intent flags</item>
     </string-array>
 
 </resources>
