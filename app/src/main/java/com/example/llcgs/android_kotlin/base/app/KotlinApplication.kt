@@ -7,6 +7,7 @@ import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
 import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
 import com.example.llcgs.android_kotlin.base.router.interceptor.DefaultInterceptor
+import com.example.llcgs.android_kotlin.base.router.remotefactory.HostRemoteFactory
 import com.example.llcgs.android_kotlin.base.router.update.HostUpdateCombine
 import com.example.llcgs.android_kotlin.base.router.update.JsonParser
 import com.example.llcgs.android_kotlin.base.router.update.PluginChecker
@@ -48,13 +49,26 @@ class KotlinApplication: RePluginApplication() {
 
     private fun initRouter(){
         // 启动远程路由前。加入安全验证器
+        // 安全验证接口只存在于route-host依赖中。用于对启动的远程路由数据提供服务进行安全验证。避免被外部app随意连接，重置注册到远程服务中的路由表
         RouterHostService.setVerify(RePluginVerification())
         // 添加路由规则
         RouterConfiguration.get().addRouteCreator(RouterRuleCreator())
         // 添加全局拦截器
         RouterConfiguration.get().interceptor = DefaultInterceptor()
+
+        // 当默认的动作路由启动方式不能满足你项目需要时。通过定制此接口来做替换
+//        RouterConfiguration.get().setActionLauncher(CustomActionLauncher.class);
+        // 当默认的页面路由启动方式不能满足你项目需要时，通过定制此接口来做替换
+//        RouterConfiguration.get().setActivityLauncher(CustomActivityLauncher.class);
+
         // 初始化Config
         HostRouterConfiguration.init("com.example.llcgs.android_kotlin", this)
+        // 远程数据提供者
+        // 此接口用于对远程路由服务提供额外数据支持。
+        // 当插件使用RouterConfiguration#startHostService启动远程路由服务并注册成功的时候。
+        // 将会针对当前插件的每一条路由，生成对应的额外数据提供给其他插件使用。
+        // 一般是用于定制插件间页面跳转使用
+        RouterConfiguration.get().remoteFactory = HostRemoteFactory()
         HostRouterConfiguration.get().setCallback(KPluginCallback())
         HostRouterConfiguration.get().setRouteCallback(KRouterCallBack())
     }
@@ -68,11 +82,11 @@ class KotlinApplication: RePluginApplication() {
     override fun createConfig(): RePluginConfig {
         val c = RePluginConfig()
         // 允许“插件使用宿主类”。默认为“关闭”
-        c.setUseHostClassIfNotFound(true)
+        c.isUseHostClassIfNotFound = true
         // RePlugin默认会对安装的外置插件进行签名校验，这里先关掉，避免调试时出现签名错误
-        c.setVerifySign(false)
+        c.verifySign = false
         // 针对“安装失败”等情况来做进一步的事件处理
-        c.setEventCallbacks(HostEventCallbacks(this))
+        c.eventCallbacks = HostEventCallbacks(this)
         // 若宿主为Release，则此处应加上您认为"合法"的插件的签名，例如，可以写上"宿主"自己的。
         return c
     }
