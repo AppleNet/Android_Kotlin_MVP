@@ -54,7 +54,7 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
 
         // Replugin方式启动Activity
         button31.setOnClickListener {
-            RePlugin.startActivity(this@MainActivity, RePlugin.createIntent("plugin", "com.llc.android_lcplugin.PluginMainActivity"))
+            Router.create("host://listPlugin").activityRoute.open(this)
         }
     }
 
@@ -75,6 +75,18 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
         if (file.exists()){
             "file exists start install".logD()
             val pi = RePlugin.install(path)
+            "pi == null result:  ${pi == null}".logD()
+            if (pi != null){
+                val preload = RePlugin.preload(pi)
+                "load result:  ${preload}".logD()
+                pi.name.logD()
+            }
+        }
+        val path1 = Environment.getExternalStorageDirectory().absolutePath + File.separator + "demo1.apk"
+        val file1 = File(path1)
+        if (file1.exists()){
+            "file1 exists start install".logD()
+            val pi = RePlugin.install(path1)
             "pi == null result:  ${pi == null}".logD()
             if (pi != null){
                 val preload = RePlugin.preload(pi)

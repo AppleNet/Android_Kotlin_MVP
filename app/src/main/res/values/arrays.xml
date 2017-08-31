@@ -47,4 +47,11 @@
         <item>设置intent flags</item>
     </string-array>
 
+    <string-array name="plugin_demo">
+        <item>以别名打开</item>
+        <item>以包名打开</item>
+        <item>启动外置插件</item>
+        <item>打开插件中的Fragment</item>
+    </string-array>
+
 </resources>

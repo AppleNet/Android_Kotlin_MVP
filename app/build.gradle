@@ -35,7 +35,7 @@ repluginHostConfig {
     // persistentName = ":XXXXService"
 }
 
-task makeJar(type: Jar){
+task makeJar(type: Jar) {
     from file('build/intermediates/classes/release')
     baseName = 'plugin'
     destinationDir = file('build/libs')
