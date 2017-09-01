@@ -80,11 +80,11 @@ class PluginActivity : BaseActivity<PluginView, PluginPresenter>(), PluginView {
                 3 ->{
                     // 触发页面路由事件
                     // getActivityRoute() 获取页面路由 来触发相关事件
-                    Router.create("plugin://main").activityRoute.open(this)
+                    Router.create("plugin1://main").activityRoute.open(this)
                 }
                 4 ->{
-                    // 触发动作路由事件
-                    Router.create("plugin://action").actionRoute.open(this)
+                    // 触发页面路由事件
+                    Router.create("plugin2://main").activityRoute.open(this)
                 }
                 5 ->{
                     // 单次回调监听

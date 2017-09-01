@@ -49,6 +49,7 @@ task makeJar(type: Jar) {
     //指定打包的class
     include "com/example/llcgs/android_kotlin/plugin/interceptor/*.class"
     include "com/example/llcgs/android_kotlin/home/bean/*.class"
+    include "com/example/llcgs/android_kotlin/base/spreferences/SharedPreferencesHelper.class"
 }
 makeJar.dependsOn(build)
 
