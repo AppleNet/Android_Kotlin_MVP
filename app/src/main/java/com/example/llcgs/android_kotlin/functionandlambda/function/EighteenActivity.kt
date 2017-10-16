@@ -2,9 +2,13 @@ package com.example.llcgs.android_kotlin.functionandlambda.function
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.functionandlambda.function.model.showoff
 import com.example.llcgs.android_kotlin.functionandlambda.function.presenter.impl.EighteenPresenter
+import com.example.llcgs.android_kotlin.functionandlambda.function.presenter.impl.getPresenter
 import com.example.llcgs.android_kotlin.functionandlambda.function.view.EighteenView
 import com.example.llcgs.android_kotlin.functionandlambda.lambda.NineteenActivity
 import com.gomejr.myf.core.kotlin.logD
@@ -33,6 +37,11 @@ import kotlinx.android.synthetic.main.activity_eighteen.*
  *    8.尾递归函数
  *
  * */
+/**
+ *   函数--> 语句和表达式
+ *     语句和表达式的区别在于：表达式有值，并且能够作为另一个表达式的一部分使用，而语句总是包围着它的代码块中的顶层元素，并且没有自己的值
+ * */
+
 class EighteenActivity : BaseActivity<EighteenView, EighteenPresenter>(), EighteenView {
 
     override fun createPresenter()= EighteenPresenter()
@@ -64,12 +73,19 @@ class EighteenActivity : BaseActivity<EighteenView, EighteenPresenter>(), Eighte
         paramters("Wade")
 
         // 默认参数
-        // 函数参数可以有默认值，当省略相应的参数时使⽤默认值。与其他语⾔相⽐，这可以减少 重载数量
+        // 函数参数可以有默认值，当省略相应的参数时使用默认值。与其他语言相⽐，这可以减少 重载数量
         // 覆盖方法总是使用与基类型方法相同的默认参数值。 当覆盖⼀个带有默认参数值的方法时，必须从签名中省略默认参数值
+        // TODO 参数的默认值是被编码到被调用的函数中，而不是调用的地方。如果你改变了参数的默认值并重新编译这个函数，没有给参数重新赋值的调用者，将会开始使用新的默认值
+        reformat()
+        reformat("1", false, false, true, 'k')
+        reformat()
+
+
 
         // 命名参数
         // 调用参数的 并且赋值的形式调用 称为命名参数，这样可以不用给所有的参数赋值，减少了方法的重载。
-        // 请注意，在调⽤ Java 函数时不能使⽤命名参数语法，因为 Java 字节码并不 总是保留函数参数的名称
+        // 如果再调用一个函数时，指明了一个参数名称，为了避免混淆，那它之后的所有参数都需要标明名称
+        // 请注意，在调用Java 函数时不能使用命名参数语法，因为 Java 字节码并不 总是保留函数参数的名称
         reformat(str = "", normalizeCase = false)
 
         // 返回Unit的函数
@@ -112,6 +128,18 @@ class EighteenActivity : BaseActivity<EighteenView, EighteenPresenter>(), Eighte
         // 内联函数
 
         // 扩展函数
+        // 给别人的类添加方法。就说一个类的成员函数，不过定义在类的外面
+        // 扩展函数并不允许打破它的封装性，扩展函数不能访问私有的或者受保护的成员
+        // 扩展函数不能被子类重写
+        mPresenter.getPresenter()
+        // 调用一个kotlin中带有的扩展函数
+        val list = listOf("kobe","james","wade")
+        // joinTo 就是一个扩展函数
+        // list.joinTo("")
+        // TODO 不能被重写的扩展函数，Kotlin把它当作静态函数对待
+        val view: View = Button(this)
+        view.showoff()
+
 
         // 高阶函数和lambda表达式
 
@@ -146,11 +174,27 @@ class EighteenActivity : BaseActivity<EighteenView, EighteenPresenter>(), Eighte
     }
 
     // 命名参数
-    fun reformat(str: String,
+    fun reformat(str: String = "",
                  normalizeCase: Boolean = true,
                  upperCaseFirstLetter: Boolean = true,
                  divideByCamelHumps: Boolean = false,
                  wordSeparator: Char = ' '){
+        str.logD()
+        normalizeCase.logD()
+        upperCaseFirstLetter.logD()
+        divideByCamelHumps.logD()
+        wordSeparator.logD()
+    }
+
+    fun reformat(str: String = "aaa",
+                 normalizeCase: Boolean = false,
+                 upperCaseFirstLetter: Boolean = false,
+                 divideByCamelHumps: Boolean = true){
+
+        str.logD()
+        normalizeCase.logD()
+        upperCaseFirstLetter.logD()
+        divideByCamelHumps.logD()
 
     }
 

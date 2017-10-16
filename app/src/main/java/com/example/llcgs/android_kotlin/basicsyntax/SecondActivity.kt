@@ -95,6 +95,8 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
         }
 
         // 使用when表达式替代for循环查找
+        // when结构中可以使用任意对象
+        // 如果没给给when表达式提供参数，分支条件就是任意的布尔型表达式。优点是不会创建额外的对象
         when{
             "kobe" in items -> Log.d("MainActivity", "id: "+items.indexOf("kobe"))
         }

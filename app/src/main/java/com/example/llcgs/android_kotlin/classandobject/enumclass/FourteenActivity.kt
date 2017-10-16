@@ -1,13 +1,17 @@
 package com.example.llcgs.android_kotlin.classandobject.enumclass
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.`object`.FifteenActivity
 import com.example.llcgs.android_kotlin.classandobject.enumclass.bean.ProtocolStates
 import com.example.llcgs.android_kotlin.classandobject.enumclass.bean.User
 import com.example.llcgs.android_kotlin.classandobject.enumclass.presenter.impl.FourteenPresenter
 import com.example.llcgs.android_kotlin.classandobject.enumclass.view.FourteenView
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_fourteen.*
 
 /**
  *  枚举类
@@ -22,6 +26,14 @@ class FourteenActivity : BaseActivity<FourteenView, FourteenPresenter>(), Fourte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fourteen)
+
+        RxView.clicks(button12).subscribe {
+            startActivity(Intent().apply {
+                setClass(this@FourteenActivity, FifteenActivity::class.java)
+            })
+        }
+
+        // 在kotlin中enum是一个所谓的软关键字：只有当它出现在class前面时才有特殊的意义，在其他地方可以把它当作普通的名称使用
 
     // 枚举类
         // 枚举类的基本用法是实现类型安全的枚举
@@ -45,6 +57,13 @@ class FourteenActivity : BaseActivity<FourteenView, FourteenPresenter>(), Fourte
 
 
         User.KOBE.printAllValues<User>()
+        // 使用when处理枚举类
+        when(user){
+            User.KOBE.user->{}
+            User.ANTHDOY.user ->{}
+            User.BOSH.user ->{}
+
+        }
 
     }
 }

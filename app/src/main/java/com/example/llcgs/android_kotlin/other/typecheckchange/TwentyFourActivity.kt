@@ -50,6 +50,9 @@ class TwentyFourActivity : BaseActivity<TwentyFourView, TwentyFourPresenter>(), 
         }
 
     // 智能转换
+        // 在kotlin中，编译器帮你完成了这些工作，如果你检查过一个变量是某种类型，后面就不需要在转换它，可以把它当作你检查过的类型使用。编译器为你执行了类型转换
+        // TODO 智能转换只在变量经过is检查且之后不会在发生变化的情况下有效
+        // TODO 当对一个类的属性进行智能转换的时候，这个属性必须是一个val属性，而且不能有自定义的访问器
         // 在许多情况下，不需要在Kotlin中使用显式转换操作符，因为编译器跟踪不可变值的 is -检查，并在需要时自动插⼊（安全的）转换
         demo(1)
         demo("McGrady")
