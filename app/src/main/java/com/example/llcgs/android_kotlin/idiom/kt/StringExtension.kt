@@ -10,3 +10,12 @@ fun String.prefix(index: Int): String{
     return this.substring(index)
 }
 
+// TODO 扩展属性
+var StringBuilder.lastChar: Char
+ get() {
+     return get(length - 1)
+ }
+ set(value) {
+     this.setCharAt(length-1, value)
+ }
+

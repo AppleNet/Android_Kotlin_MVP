@@ -8,6 +8,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity
 import com.example.llcgs.android_kotlin.classandobject.extensions.presenter.impl.NinePresenter
 import com.example.llcgs.android_kotlin.classandobject.extensions.view.NineView
+import com.example.llcgs.android_kotlin.idiom.kt.lastChar
 import com.gomejr.myf.core.kotlin.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_nine.*
@@ -69,6 +70,11 @@ class NineActivity : BaseActivity<NineView, NinePresenter>(),NineView {
         // 注意：由于扩展没有实际的将成员插入类中，因此幕后字段对于扩展是无效的。这既是扩展属性为什么不能有初始化气，他们的行为只能由显示提供的getter/setter定义
         mutablelist.size.logD()
         mutablelist.lastIndex.logD()
+        //
+        val sb = StringBuilder("Kotlin?")
+        sb.lastChar.logD()
+        sb.lastChar = '!'
+        sb.logD()
 
     // 五。伴生对象的扩展
         // 如果一个类定义有一个伴生对象，完全可以给这个伴生对象定义扩展
@@ -175,4 +181,6 @@ class NineActivity : BaseActivity<NineView, NinePresenter>(),NineView {
             f.foo()// 调用扩展函数
         }
     }
+
+
 }
