@@ -40,6 +40,7 @@ import com.example.llcgs.android_kotlin.other.reflect.ThirtyOneActivity
 import com.example.llcgs.android_kotlin.other.structdeclarations.TwentyOneActivity
 import com.example.llcgs.android_kotlin.other.thisexperssion.TwentyFiveActivity
 import com.example.llcgs.android_kotlin.other.typecheckchange.TwentyFourActivity
+import com.example.llcgs.android_kotlin.stringandregex.ThirtyTwoActivity
 import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_list.*
@@ -171,6 +172,9 @@ class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                     }
                     29 ->{
                         startActivity(Intent(this@MyListActivity, ThirtyOneActivity::class.java))
+                    }
+                    30 ->{
+                        startActivity(Intent(this@MyListActivity, ThirtyTwoActivity::class.java))
                     }
                 }
             }

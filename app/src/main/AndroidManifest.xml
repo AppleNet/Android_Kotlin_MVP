@@ -55,8 +55,9 @@
         <activity android:name=".other.exception.TwentyNineActivity" />
         <activity android:name=".other.annotation.ThirtyActivity" />
         <activity android:name=".other.reflect.ThirtyOneActivity" />
+        <activity android:name=".stringandregex.ThirtyTwoActivity"/>
         <activity android:name=".plugin.PluginActivity" />
-        <activity android:name=".pluginlist.PluginListActivity"></activity>
+        <activity android:name=".pluginlist.PluginListActivity"/>
         <activity android:name=".pluginlist.PluginListFragmentActivity"/>
     </application>
 

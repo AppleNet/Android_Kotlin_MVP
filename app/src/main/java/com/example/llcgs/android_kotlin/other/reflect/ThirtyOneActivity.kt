@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.other.reflect
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -8,7 +9,10 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.other.reflect.bean.User
 import com.example.llcgs.android_kotlin.other.reflect.presenter.impl.ThirtyOnePresenter
 import com.example.llcgs.android_kotlin.other.reflect.view.ThirtyOneView
+import com.example.llcgs.android_kotlin.stringandregex.ThirtyTwoActivity
 import com.gomejr.myf.core.kotlin.logD
+import com.jakewharton.rxbinding2.view.RxView
+import kotlinx.android.synthetic.main.activity_thirty_one.*
 import kotlin.reflect.KClass
 import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.memberProperties
@@ -35,6 +39,11 @@ class ThirtyOneActivity : BaseActivity<ThirtyOneView, ThirtyOnePresenter>(), Thi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thirty_one)
+
+        RxView.clicks(button29).subscribe {
+            startActivity(Intent(this, ThirtyTwoActivity::class.java))
+        }
+
         // 在kotlin中使用反射，有两种方式
            // 1. 标准的Java反射，定义在java.lang.reflect中
            // 2. 标准的kotlin反射，定义在kotlin.reflect中
