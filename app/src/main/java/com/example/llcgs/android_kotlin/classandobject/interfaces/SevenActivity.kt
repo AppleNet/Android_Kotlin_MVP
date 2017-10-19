@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.classandobject.interfaces.model.SevenModel
 import com.example.llcgs.android_kotlin.classandobject.interfaces.presenter.impl.SevenPresenter
 import com.example.llcgs.android_kotlin.classandobject.interfaces.view.SevenView
 import com.example.llcgs.android_kotlin.classandobject.modifier.EightActivity
@@ -19,8 +20,18 @@ import kotlinx.android.synthetic.main.activity_seven.*
  *
  * **/
 
-class SevenActivity : BaseActivity<SevenView, SevenPresenter>() {
+class SevenActivity : BaseActivity<SevenView, SevenPresenter>(), (SevenInterface) -> Unit, SevenInterface {
 
+    override fun one(): String {
+        return "one"
+    }
+
+    override fun invoke(sevenInterface: SevenInterface) {
+        val one = sevenInterface.one()
+        one.logD()
+        val two = sevenInterface.two()
+        two.logD()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +69,16 @@ class SevenActivity : BaseActivity<SevenView, SevenPresenter>() {
         sevenInterface.name.logD()
 
         // 解决覆盖冲突
+        val button = Button()
+        button.click()
+        button.showOff()
+        button.setFocus(true)
 
+        // 高级接口
+        setOnSevenInterfaceOne(this)
+        onSevenInterfaceOne?.let {
+            it(this)
+        }
 
     }
 
@@ -97,4 +117,38 @@ class SubSeven: SevenInterface{
     override fun one(): String {
         return ""
     }
+}
+
+private var onClickListener: ((sevenModel: SevenModel)-> Unit)? = null
+
+fun setOnClickListener(listener: (sevenModel: SevenModel)-> Unit){
+
+}
+
+// 点击的时候 将一个对象或者接口返回的高级写法
+private var onSevenInterfaceOne: ((sevenInterface: SevenInterface)->Unit)? = null
+
+fun setOnSevenInterfaceOne(listener: (sevenInterface: SevenInterface)->Unit){
+    onSevenInterfaceOne = listener
+}
+
+interface Clickable{
+    fun click()
+    fun showOff() = "I am clickable!".logD()
+}
+
+interface Focusable{
+    fun setFocus(b: Boolean) = "I ${if(b) "got" else "lost"} focus.".logD()
+    fun showOff() = "I am focusable".logD()
+}
+
+class Button: Clickable, Focusable{
+    override fun click() = "I was clicked".logD()
+    // TODO Button 任何一个都不会实现。如果没有显式实现showOff，会得到编译错误
+    // The class 'Button' must override public open fun showOff() because it inherits many implementations of it
+    override fun showOff() {
+        super<Clickable>.showOff()
+        super<Focusable>.showOff()
+    }
+
 }
