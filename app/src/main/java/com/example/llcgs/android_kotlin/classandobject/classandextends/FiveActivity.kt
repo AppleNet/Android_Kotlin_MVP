@@ -72,7 +72,7 @@ class FiveActivity : BaseActivity<FiveView, FivePresenter>() {
         // 对象声明 object(生成一个单例)
         // 对象表达式 一般用来生成接口实例
         // 伴生对象 类型类中的静态方法调用 可以通过类名.方法名
-        FootBa.palyerFootBasketBall("Jodn").logD()
+        FootBa.palyFootBasketBall("Jodn").logD()
 
     }
 

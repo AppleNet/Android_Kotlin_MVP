@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.classandobject.enumclass.FourteenActivity
+import com.example.llcgs.android_kotlin.classandobject.nestclass.bean.Button
 import com.example.llcgs.android_kotlin.classandobject.nestclass.presenter.impl.ThirteenPresenter
 import com.example.llcgs.android_kotlin.classandobject.nestclass.view.ThirteenView
 import com.gomejr.myf.core.kotlin.logD
@@ -42,7 +43,13 @@ class ThirteenActivity : BaseActivity<ThirteenView, ThirteenPresenter>(), Thirte
         // 内部类的 调用方式
         val inn = ThirteenActivity().ThieteenActivityInner().getNameOuter()
         inn?.logD()
+
+        val button = Button()
+        val currentState = button.currentState as Button.ButtonState
+        currentState.name.logD()
     }
+
+    // TODO 嵌套类不持有外部类的引用，内部类使用inner修饰后 就会持有外部类的引用。
 
     // 嵌套类
 
@@ -57,8 +64,10 @@ class ThirteenActivity : BaseActivity<ThirteenView, ThirteenPresenter>(), Thirte
         fun onCreate(savedInstanceState: Bundle?){
 
         }
-        // 没有使用inner关键字 不能访问外部的成员变量
+        // TODO 这个类不能访问外部类的实例
+        // TODO 没有使用inner关键字 不能访问外部的成员变量
         //fun getNameOuter() = nameOuter
+
     }
 
     // 声明一个内部类
