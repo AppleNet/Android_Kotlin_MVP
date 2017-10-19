@@ -46,9 +46,12 @@ class BasketBall: Ball,Water {
         get() = "Kobe"
         set(value) {}
 
-    override fun drink() {
+    // 重写的方法 也是open的  要想这个方法 不被子类使用，将其修改为final类型的
+    // 禁止重写
+    override final fun drink() {
         super.drink()
         super.aa()
+
     }
 
 
