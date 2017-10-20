@@ -11,7 +11,7 @@ import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_eleven.*
 
 /**
- *  密封类
+ *  密封类 TODO 定义受限的类继承结构
  *     1.同一文件中的子类
  *     2.密封类与数据类
  * */
