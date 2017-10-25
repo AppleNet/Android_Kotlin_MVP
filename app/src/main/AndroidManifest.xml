@@ -9,6 +9,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".base.app.KotlinApplication"
         android:allowBackup="true"
@@ -55,10 +60,11 @@
         <activity android:name=".other.exception.TwentyNineActivity" />
         <activity android:name=".other.annotation.ThirtyActivity" />
         <activity android:name=".other.reflect.ThirtyOneActivity" />
-        <activity android:name=".stringandregex.ThirtyTwoActivity"/>
+        <activity android:name=".stringandregex.ThirtyTwoActivity" />
         <activity android:name=".plugin.PluginActivity" />
-        <activity android:name=".pluginlist.PluginListActivity"/>
-        <activity android:name=".pluginlist.PluginListFragmentActivity"/>
+        <activity android:name=".pluginlist.PluginListActivity" />
+        <activity android:name=".pluginlist.PluginListFragmentActivity" />
+        <activity android:name=".mvvm.MvvmActivity"/>
     </application>
 
 </manifest>

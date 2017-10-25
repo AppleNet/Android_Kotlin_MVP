@@ -23,6 +23,13 @@ android {
         abortOnError false
     }
 
+    dataBinding{
+        enabled = true
+    }
+
+//    kapt {
+//        generateStubs = true
+//    }
 }
 
 apply from: '../build_app.gradle'
@@ -52,4 +59,5 @@ task makeJar(type: Jar) {
     include "com/example/llcgs/android_kotlin/base/spreferences/SharedPreferencesHelper.class"
 }
 makeJar.dependsOn(build)
+
 

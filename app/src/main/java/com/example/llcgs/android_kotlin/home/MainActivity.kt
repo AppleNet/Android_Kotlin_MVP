@@ -56,6 +56,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
         button31.setOnClickListener {
             Router.create("host://listPlugin").activityRoute.open(this)
         }
+
+        button35.setOnClickListener{
+            Router.create("host://mvvm").activityRoute.open(this)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
