@@ -64,7 +64,7 @@
         <activity android:name=".plugin.PluginActivity" />
         <activity android:name=".pluginlist.PluginListActivity" />
         <activity android:name=".pluginlist.PluginListFragmentActivity" />
-        <activity android:name=".mvvm.MvvmActivity"/>
+        <activity android:name=".mvvm.login.MvvmActivity"/>
     </application>
 
 </manifest>

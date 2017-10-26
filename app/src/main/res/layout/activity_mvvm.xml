@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.llcgs.android_kotlin.mvvm.viewmodel.HomeViewModel"/>
+            type="com.example.llcgs.android_kotlin.mvvm.login.viewmodel.HomeViewModel"/>
     </data>
 
     <LinearLayout
@@ -14,10 +14,44 @@
         android:background="#FFFFFF"
         android:orientation="vertical">
 
+        <include
+            layout="@layout/view_title"/>
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_gray"/>
+
+        <EditText
+            android:id="@+id/userName"
+            android:labelFor="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:inputType="text"
+            android:text="@={viewModel.user.userName}"/>
+
+        <EditText
+            android:id="@+id/userPwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:labelFor="@+id/userPwd"
+            android:inputType="text"
+            android:text="@={viewModel.user.userPwd}"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="点击"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:padding="10dp"
+            android:text="登录"
             bind:onClickListener="@{viewModel.onClickLoadData}"/>
 
     </LinearLayout>

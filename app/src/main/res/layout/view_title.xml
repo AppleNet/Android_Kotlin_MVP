@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/pluginBackIV"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@mipmap/back"
+        android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/pluginTitleTV"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="标题"
+        android:textStyle="bold"
+        android:textColor="@color/basic_text"
+        android:textSize="@dimen/textsize_18" />
+
+    <TextView
+        android:id="@+id/pluginNextTV"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="标题"
+        android:textColor="@color/main_red_end"
+        android:visibility="gone"
+        android:textSize="@dimen/textsize_15" />
+</RelativeLayout>
