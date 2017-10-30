@@ -35,7 +35,6 @@ dependencies {
     compile libs.retrofit2_converter
     compile libs.retrofit2_adapter
     compile libs.multidex
-    compile libs.mvvmLight
 
     // RouterHost
     compile libs.router_host

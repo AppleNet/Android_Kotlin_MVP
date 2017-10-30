@@ -1,16 +1,12 @@
 package com.example.llcgs.android_kotlin.mvvm.list.viewmodel
 
-import android.databinding.ObservableArrayList
-import android.databinding.ObservableList
-import com.example.llcgs.android_kotlin.BR
-import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.network.BaseFactory
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.list.model.Student
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import me.tatarka.bindingcollectionadapter.ItemView
+import java.util.*
 
 /**
  * com.example.llcgs.android_kotlin.mvvm.list.viewmodel.MvvmListViewModel
@@ -23,18 +19,14 @@ class MvvmListViewModel : BaseViewModel() {
     private val compositeDisposable = CompositeDisposable()
     var peopleList = ArrayList<Student>()
 
-    val itemView: ItemView = ItemView.of(BR.viewModel, R.layout.view_item_list)
-    val itemViewModel: ObservableList<ItemListViewModel> = ObservableArrayList<ItemListViewModel>()
-
     fun fetchStudentList() {
         compositeDisposable.add(BaseFactory.create().fetchPeople(BaseFactory.RANDOM_USER_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     this.peopleList = it.peopleList as ArrayList<Student>
-                    peopleList.forEach {
-                        itemViewModel.add(ItemListViewModel().apply { setStudents(it) })
-                    }
+                    setChanged()
+                    notifyObservers()
                 })
     }
 }

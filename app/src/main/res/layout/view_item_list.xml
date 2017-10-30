@@ -15,7 +15,7 @@
     <RelativeLayout
         android:id="@+id/item_people"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:onClick="@{viewmodel.onItemClickListener}"
         android:padding="@dimen/custom_list_1">
@@ -24,8 +24,7 @@
             android:id="@+id/image_people"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            bind:placeholderImageRes="@{R.mipmap.ic_launcher}"
-            bind:uri="@{viewmodel.imageUrl}"/>
+            />
 
         <TextView
             android:id="@+id/label_name"
@@ -33,7 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/image_people"
             android:layout_marginStart="@dimen/custom_list_1"
-            android:layout_marginTop="@dimen/custom_list_1"
             android:layout_toEndOf="@+id/image_people"
             android:text="@{viewmodel.student.fullName}"
             android:textColor="@color/basic_text"
@@ -63,6 +61,12 @@
             android:textSize="@dimen/textsize_14"
             tools:text="gary.allen@gmail.com"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:layout_below="@+id/label_mail"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/gray_6"/>
     </RelativeLayout>
 
 </layout>

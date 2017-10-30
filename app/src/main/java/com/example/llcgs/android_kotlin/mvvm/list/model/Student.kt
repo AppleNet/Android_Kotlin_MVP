@@ -37,6 +37,7 @@ class Student: Serializable {
 
     @SerializedName("fullName")
     var fullName: String = ""
+        get() = name.title + "." + name.firts + " " + name.last
 
     fun hasEmail() = mail.isNotEmpty()
 

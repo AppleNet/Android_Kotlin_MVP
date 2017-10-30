@@ -1,10 +1,10 @@
 package com.example.llcgs.android_kotlin.mvvm.base
 
-import android.databinding.BaseObservable
 import java.lang.annotation.ElementType
 import java.lang.annotation.Retention
 import java.lang.annotation.RetentionPolicy
 import java.lang.annotation.Target
+import java.util.*
 
 /**
  * com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
@@ -13,7 +13,7 @@ import java.lang.annotation.Target
  */
 
 
-abstract class BaseViewModel : BaseObservable() {
+abstract class BaseViewModel : Observable() {
 
     @Suppress("DEPRECATED_JAVA_ANNOTATION")
     @Target(ElementType.METHOD)

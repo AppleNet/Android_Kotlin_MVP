@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -30,8 +30,7 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:scrollbars="vertical"
-            bind:itemView="@{viewModel.itemView}"
-            bind:items="@{viewModel.itemViewModel}"/>
+            tools:listitem="@layout/view_item_list"/>
 
     </LinearLayout>
 </layout>

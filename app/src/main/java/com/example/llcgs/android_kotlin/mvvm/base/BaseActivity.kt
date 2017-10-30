@@ -4,11 +4,12 @@ import android.app.Activity
 import android.app.Fragment
 import android.databinding.ViewDataBinding
 import android.os.Bundle
+import java.util.*
 
 /**
  * Base [Activity] class for every Activity in this application.
  */
-abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : Activity() {
+abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : Activity(), Observer {
 
     protected lateinit var viewModel: VM
     protected lateinit var binding: B
@@ -35,5 +36,9 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : Activity(
     }
 
     fun <T : Fragment> getFragment(tag: String): T = fragmentManager.findFragmentByTag(tag) as T
+
+    override fun update(o: Observable?, arg: Any?) {
+
+    }
 
 }
