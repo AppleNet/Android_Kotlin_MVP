@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.base.app
 
 import android.content.Context
+import android.support.multidex.MultiDex
 import com.alibaba.fastjson.JSON
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
@@ -74,9 +75,10 @@ class KotlinApplication: RePluginApplication() {
     }
 
     override fun attachBaseContext(base: Context?) {
+        MultiDex.install(base)
         super.attachBaseContext(base)
         RePlugin.enableDebugger(base, true)
-        checkUpdata()
+        //checkUpdata()
     }
 
     override fun createConfig(): RePluginConfig {

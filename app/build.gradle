@@ -1,17 +1,20 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'//kapt3插件
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.example.llcgs.android_kotlin"
-        minSdkVersion 17
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -27,20 +30,13 @@ android {
         enabled = true
     }
 
-//    kapt {
-//        generateStubs = true
-//    }
+    kapt {
+        generateStubs = true
+    }
+
 }
 
 apply from: '../build_app.gradle'
-
-// 添加replugin
-apply plugin: 'replugin-host-gradle'
-repluginHostConfig {
-    useAppCompat = true
-    // 可以在这里自定义常驻进程的名字
-    // persistentName = ":XXXXService"
-}
 
 task makeJar(type: Jar) {
     from file('build/intermediates/classes/release')

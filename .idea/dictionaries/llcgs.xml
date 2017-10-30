@@ -2,6 +2,7 @@
   <dictionary name="llcgs">
     <words>
       <w>mvvm</w>
+      <w>viewmodel</w>
     </words>
   </dictionary>
 </component>

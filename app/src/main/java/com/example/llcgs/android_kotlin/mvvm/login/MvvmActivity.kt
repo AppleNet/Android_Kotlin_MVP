@@ -1,11 +1,13 @@
 package com.example.llcgs.android_kotlin.mvvm.login
 
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
+import com.example.llcgs.android_kotlin.mvvm.list.MvvmListActivity
 import com.example.llcgs.android_kotlin.mvvm.login.model.User
 import com.example.llcgs.android_kotlin.mvvm.login.view.MvvmView
 import com.example.llcgs.android_kotlin.mvvm.login.viewmodel.HomeViewModel
@@ -30,6 +32,6 @@ class MvvmActivity : BaseActivity<HomeViewModel, ViewDataBinding>(), MvvmView {
     }
 
     override fun onLoginSuccess(user: User) {
-
+        startActivity(Intent(this@MvvmActivity, MvvmListActivity::class.java))
     }
 }

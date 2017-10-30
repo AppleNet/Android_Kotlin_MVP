@@ -1,3 +1,9 @@
+// 添加replugin
+apply plugin: 'replugin-host-gradle'
+repluginHostConfig {
+    useAppCompat = true
+}
+
 dependencies {
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -22,6 +28,14 @@ dependencies {
     compile libs.kotlin_reflect
     compile libs.replugin_host
     compile libs.rxpermission2
+    compile libs.circleImageView
+    compile libs.gson
+    compile libs.glide
+    compile libs.retrofit2
+    compile libs.retrofit2_converter
+    compile libs.retrofit2_adapter
+    compile libs.multidex
+    compile libs.mvvmLight
 
     // RouterHost
     compile libs.router_host

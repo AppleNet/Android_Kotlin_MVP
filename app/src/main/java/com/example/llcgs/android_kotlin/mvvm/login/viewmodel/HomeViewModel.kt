@@ -18,7 +18,7 @@ class HomeViewModel(val view: MvvmView): BaseViewModel() {
 
     @Command
     fun onClickLoadData() = View.OnClickListener {
-        if (user.userName == "Kobe" && user.userPwd == "37"){
+        if (user.userName.equals("Kobe", true)   && user.userPwd == "37"){
             view.onLoginSuccess(user)
         }else{
             Toast.makeText(it.context, "MvvM Toast", Toast.LENGTH_LONG).show()
