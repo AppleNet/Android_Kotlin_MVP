@@ -23,6 +23,12 @@
             android:layout_height="@dimen/merchant_select_1px"
             android:background="@color/gray_6"/>
 
+        <ProgressBar
+            android:id="@+id/progress_student"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:visibility="@{viewModel.progress}"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_item"

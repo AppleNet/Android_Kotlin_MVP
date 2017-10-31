@@ -18,7 +18,7 @@ import com.example.llcgs.android_kotlin.mvvm.list.viewmodel.ItemListViewModel
 
 class StudentAdapter: RecyclerView.Adapter<StudentAdapter.StudentAdapterHolder>() {
 
-    var list:List<Student> = ArrayList<Student>()
+    var list:List<Student> = ArrayList()
 
     override fun onBindViewHolder(holder: StudentAdapterHolder, position: Int) {
         holder.bindStudent(list[position])

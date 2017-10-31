@@ -8,7 +8,6 @@
         <variable
             name="viewmodel"
             type="com.example.llcgs.android_kotlin.mvvm.list.viewmodel.ItemListViewModel"/>
-
         <import type="com.example.llcgs.android_kotlin.R"/>
     </data>
 

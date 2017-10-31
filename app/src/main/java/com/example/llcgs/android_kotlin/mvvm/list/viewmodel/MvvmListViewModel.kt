@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.mvvm.list.viewmodel
 
+import android.databinding.ObservableInt
+import android.view.View
 import com.example.llcgs.android_kotlin.base.network.BaseFactory
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.list.model.Student
@@ -16,14 +18,16 @@ import java.util.*
 
 class MvvmListViewModel : BaseViewModel() {
 
-    private val compositeDisposable = CompositeDisposable()
+    val progress : ObservableInt = ObservableInt(View.VISIBLE)
     var peopleList = ArrayList<Student>()
+    private val compositeDisposable = CompositeDisposable()
 
     fun fetchStudentList() {
         compositeDisposable.add(BaseFactory.create().fetchPeople(BaseFactory.RANDOM_USER_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
+                    progress.set(View.GONE)
                     this.peopleList = it.peopleList as ArrayList<Student>
                     setChanged()
                     notifyObservers()

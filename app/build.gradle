@@ -37,23 +37,3 @@ android {
 }
 
 apply from: '../build_app.gradle'
-
-task makeJar(type: Jar) {
-    from file('build/intermediates/classes/release')
-    baseName = 'plugin'
-    destinationDir = file('build/libs')
-    //过滤不需要的class
-    exclude "**/**/BuildConfig.class"
-    exclude "**/**/BuildConfig\$*.class"
-    exclude "**/R.class"
-    exclude "**/R\$*.class"
-    exclude "META-INF"
-
-    //指定打包的class
-    include "com/example/llcgs/android_kotlin/plugin/interceptor/*.class"
-    include "com/example/llcgs/android_kotlin/home/bean/*.class"
-    include "com/example/llcgs/android_kotlin/base/spreferences/SharedPreferencesHelper.class"
-}
-makeJar.dependsOn(build)
-
-
