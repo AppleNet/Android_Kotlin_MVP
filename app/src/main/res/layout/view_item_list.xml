@@ -24,7 +24,7 @@
             android:id="@+id/image_people"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            />
+            bind:imageUrl="@{viewmodel.student.picture.medium}"/>
 
         <TextView
             android:id="@+id/label_name"
@@ -64,7 +64,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/merchant_select_1px"
-            android:layout_below="@+id/label_mail"
+            android:layout_below="@+id/image_people"
             android:layout_marginTop="@dimen/dp_10"
             android:background="@color/gray_6"/>
     </RelativeLayout>

@@ -1,7 +1,10 @@
 package com.example.llcgs.android_kotlin.mvvm.list.viewmodel
 
+import android.databinding.BindingAdapter
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.list.model.Student
 
@@ -23,9 +26,15 @@ class ItemListViewModel: BaseViewModel() {
         Toast.makeText(view.context, student.fullName, Toast.LENGTH_LONG).show()
     }
 
-//    @BindingAdapter("imageUrl")
-//    fun setImageUrl(imageView: ImageView, url: String) {
-//        Glide.with(imageView.context).load(url).into(imageView)
-//    }
+
+    companion object {
+        @JvmStatic
+        @BindingAdapter("imageUrl")
+        fun setImageUrl(imageView: ImageView, url: String) {
+            Glide.with(imageView.context).load(url).into(imageView)
+        }
+    }
+
+
 
 }
