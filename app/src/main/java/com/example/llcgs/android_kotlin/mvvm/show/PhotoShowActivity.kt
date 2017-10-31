@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.mvvm.show
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.text.TextUtils
 import com.example.llcgs.android_kotlin.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityPhotoShowBinding
@@ -31,12 +32,14 @@ class PhotoShowActivity:BaseActivity<PhotoShowViewModel, ActivityPhotoShowBindin
 
     private fun initViews(){
         pluginTitleTV.text = "Show"
-        binding.setVariable(BR.viewModel, viewModel)
     }
 
     private fun initData(){
-        val url = intent.getStringExtra("url")
-        viewModel.url = url
+        val url = intent.getStringExtra("imageUrl")
+        if (!TextUtils.isEmpty(url)){
+            viewModel.imageUrl = url
+            binding.setVariable(BR.viewModel, viewModel)
+        }
     }
 
     override fun update(o: Observable?, arg: Any?) {

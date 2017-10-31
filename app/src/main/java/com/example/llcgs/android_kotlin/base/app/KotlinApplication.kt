@@ -113,9 +113,9 @@ class KotlinApplication: RePluginApplication() {
         // UpdateConfig为全局配置。当在其他页面中。使用UpdateBuilder进行检查更新时。
         // 对于没传的参数，会默认使用UpdateConfig中的全局配置
         UpdateConfig.getConfig()
-                // url 与 checkEntity方法可任选一种填写，且至少必填一种。
+                // imageUrl 与 checkEntity方法可任选一种填写，且至少必填一种。
                 // 数据更新接口数据，此时默认为使用GET请求
-                //.url()
+                //.imageUrl()
                 // 类似url方法。CheckEntity方法可填写url,params,method。可在此设置为使用post请求
                 .checkEntity(CheckEntity().setUrl(/*此处放置url*/"http://10.143.117.45:8081/sm-api/").setMethod(HttpMethod.POST).setParams(mapOf(
                         "version" to "3.0.13",

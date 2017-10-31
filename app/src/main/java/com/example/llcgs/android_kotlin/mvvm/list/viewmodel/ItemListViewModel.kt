@@ -24,7 +24,6 @@ class ItemListViewModel: BaseViewModel() {
     /*
     *  item 点击事件
     *  Method References
-    *
     * */
     fun onItemClickListener(view: View){
         Toast.makeText(view.context, student.fullName, Toast.LENGTH_LONG).show()
@@ -32,13 +31,11 @@ class ItemListViewModel: BaseViewModel() {
 
     /**
      *  图片点击事件
-     *  Listener Bindings
-     *  android:onClick="@{(theView)->viewmodel.onImageViewClickListener(theView, photo)}"
      * */
-    fun onImageViewClickListener(view: View, photoShowActivity: PhotoShowActivity){
+    fun onImageViewClickListener(view: View){
         //
-        val intent = Intent(view.context, photoShowActivity::class.java).apply {
-            putExtra("url", student.picture.medium)
+        val intent = Intent(view.context, PhotoShowActivity::class.java).apply {
+            putExtra("imageUrl", student.picture.medium)
         }
         view.context.startActivity(intent)
     }

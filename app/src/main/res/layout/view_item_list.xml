@@ -8,7 +8,6 @@
         <variable
             name="viewmodel"
             type="com.example.llcgs.android_kotlin.mvvm.list.viewmodel.ItemListViewModel"/>
-        <import type="com.example.llcgs.android_kotlin.R"/>
     </data>
 
     <RelativeLayout
@@ -23,6 +22,7 @@
             android:id="@+id/image_people"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:onClick="@{viewmodel.onImageViewClickListener}"
             bind:imageUrl="@{viewmodel.student.picture.medium}"/>
 
         <TextView
