@@ -2,11 +2,11 @@ package com.example.llcgs.android_kotlin.mvvm.show
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import com.example.llcgs.android_kotlin.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityPhotoShowBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.show.viewmodel.PhotoShowViewModel
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.view_title.*
 import java.util.*
 
@@ -31,17 +31,19 @@ class PhotoShowActivity:BaseActivity<PhotoShowViewModel, ActivityPhotoShowBindin
 
     private fun initViews(){
         pluginTitleTV.text = "Show"
+        viewModel.addObserver(this)
     }
 
     private fun initData(){
         val url = intent.getStringExtra("imageUrl")
         viewModel.url = url
-        binding.setVariable(BR.viewModel, viewModel)
+        binding.viewmodel = viewModel
     }
 
     override fun update(o: Observable?, arg: Any?) {
-        super.update(o, arg)
-
+        if (o is PhotoShowViewModel){
+            "url: ${o.url} ".logD()
+        }
     }
 
 }

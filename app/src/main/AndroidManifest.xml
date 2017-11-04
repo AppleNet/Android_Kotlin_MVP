@@ -74,6 +74,7 @@
         <activity android:name=".mvvm.login.MvvmActivity"/>
         <activity android:name=".mvvm.list.MvvmListActivity"/>
         <activity android:name=".mvvm.show.PhotoShowActivity"/>
+        <activity android:name=".mvvm.layoutdetails.LayoutDetailsActivity"/>
     </application>
 
 </manifest>
