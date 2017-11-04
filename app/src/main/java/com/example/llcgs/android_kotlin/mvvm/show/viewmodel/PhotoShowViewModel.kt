@@ -1,7 +1,6 @@
 package com.example.llcgs.android_kotlin.mvvm.show.viewmodel
 
 import android.databinding.BindingAdapter
-import android.text.TextUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
@@ -15,16 +14,13 @@ import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 
 class PhotoShowViewModel: BaseViewModel() {
 
-    var imageUrl: String = ""
-        get() = "http://cdn.meme.am/instances/60677654.jpg"
+    var url: String = ""
 
     companion object {
+        @BindingAdapter("imageUrl")
         @JvmStatic
-        @BindingAdapter("showImage")
-        fun showImage(imageView: ImageView, url: String){
-            if (!TextUtils.isEmpty(url)){
-                Glide.with(imageView.context).load(url).into(imageView)
-            }
+        fun setImageUrl(imageView: ImageView, url: String){
+            Glide.with(imageView.context).load(url).into(imageView)
         }
     }
 

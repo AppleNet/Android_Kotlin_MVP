@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
@@ -31,7 +32,7 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            bind:showImage="@{viewmodel.imageUrl}"/>
+            bind:imageUrl='@{viewmodel.url ?? "https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1509790203568&amp;di=8cbc7c7d4d9df9dc64c6d37f32be7967&amp;imgtype=0&amp;src=http%3A%2F%2Fnews.qiyue.com%2Fuploadfile%2F2016%2F0525%2F20160525104020138.jpg"}'/>
 
     </LinearLayout>
 
