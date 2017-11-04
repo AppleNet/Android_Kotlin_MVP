@@ -8,7 +8,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsModel"/>
+            type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsViewModel"/>
 
         <import type="android.view.View"/>
 
@@ -22,16 +22,26 @@
 
         <include layout="@layout/view_title"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/gray_6"/>
+
         <TextView
             android:id="@+id/details_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            tools:text="name"
             android:text="@{viewmodel.user.name}"/>
 
         <TextView
             android:id="@+id/details_hobby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            tools:text="hobby"
             android:text="@{viewmodel.user.hobby}"
             android:visibility="@{viewmodel.user.hasAbdominal ? View.VISIBLE : View.GONE}"/>
 

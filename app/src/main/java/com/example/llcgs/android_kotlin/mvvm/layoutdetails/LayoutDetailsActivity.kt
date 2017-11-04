@@ -6,8 +6,9 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityDetailsBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.model.User
-import com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsModel
+import com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsViewModel
 import kotlinx.android.synthetic.main.view_title.*
+import java.util.*
 
 /**
  * com.example.llcgs.android_kotlin.mvvm.layoutdetails.LayoutDetailsActivity
@@ -16,10 +17,10 @@ import kotlinx.android.synthetic.main.view_title.*
  */
 
 
-class LayoutDetailsActivity:BaseActivity<LayoutDetailsModel, ActivityDetailsBinding>() {
+class LayoutDetailsActivity:BaseActivity<LayoutDetailsViewModel, ActivityDetailsBinding>() {
 
 
-    override fun createViewModel()= LayoutDetailsModel()
+    override fun createViewModel()= LayoutDetailsViewModel()
 
     override fun createViewDataBinding(): ActivityDetailsBinding= DataBindingUtil.setContentView(this, R.layout.activity_details)
 
@@ -30,6 +31,7 @@ class LayoutDetailsActivity:BaseActivity<LayoutDetailsModel, ActivityDetailsBind
     }
 
     private fun initData() {
+        viewModel.addObserver(this)
         val user = User().apply {
             id = "1"
             name = "Kobe"
@@ -42,5 +44,8 @@ class LayoutDetailsActivity:BaseActivity<LayoutDetailsModel, ActivityDetailsBind
         binding.viewmodel = viewModel
     }
 
+    override fun update(o: Observable?, arg: Any?) {
+        super.update(o, arg)
+    }
 
 }
