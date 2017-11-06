@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <!-- Custom binding class name
+        you need rebuild project
+    -->
+    <data class="com.example.llcgs.android_kotlin.mvvm.layoutdetails.ActivityCustomBindingClassName">
+
+        <variable
+            name="customBindingClassNameViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.CustomBindingClassNameViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_title"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/gray_6"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            tools:text="custom"/>
+
+    </LinearLayout>
+
+</layout>
