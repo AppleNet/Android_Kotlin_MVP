@@ -39,7 +39,7 @@ class LayoutDetailsActivity:BaseActivity<LayoutDetailsViewModel, ActivityDetails
             gender = "man"
             height = 196
             hobby = "basketball"
-            hasAbdominal = true
+            hasAbdominal = false
         }
         viewModel.user = user
         binding.setVariable(BR.layoutDetailsViewModel, viewModel)

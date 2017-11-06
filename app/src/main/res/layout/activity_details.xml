@@ -6,11 +6,31 @@
 
     <data>
 
+        <!-- import -->
+        <import type="android.view.View"/>
+        <import type="java.util.List"/>
+        <import type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.model.User"/>
+
+        <!-- alias -->
+        <import type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.view.View"
+            alias="Vista"/>
+
+        <!-- Variables -->
         <variable
             name="layoutDetailsViewModel"
             type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsViewModel"/>
 
-        <import type="android.view.View"/>
+        <variable
+            name="user"
+            type="User"/>
+
+        <!--
+            Note: Android Studio does not yet handle imports so the autocomplete for imported variables may not work in your IDE.
+            Your application will still compile fine and you can work around the IDE issue by using fully qualified names in your variable definitions.
+        -->
+        <variable
+            name="userList"
+            type="List&lt;User&gt;"/>
 
     </data>
 
@@ -35,6 +55,11 @@
             tools:text="name"
             android:text="@{layoutDetailsViewModel.user.name}"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/divider_gray2"/>
+
         <TextView
             android:id="@+id/details_hobby"
             android:layout_width="match_parent"
@@ -44,6 +69,33 @@
             tools:text="hobby"
             android:text="@{layoutDetailsViewModel.user.hobby}"
             android:visibility="@{layoutDetailsViewModel.user.hasAbdominal ? View.VISIBLE : View.GONE}"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/divider_gray2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            tools:text="gender"
+            android:text="@{layoutDetailsViewModel.user.gender}"
+            android:visibility="@{layoutDetailsViewModel.user.hasAbdominal ? Vista.VISIBLE : Vista.INVISIBLE}"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/divider_gray2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            tools:text="height"
+            android:text="@{String.valueOf(user.height == 0 ? layoutDetailsViewModel.user.height : user.height)}"/>
 
     </LinearLayout>
 
