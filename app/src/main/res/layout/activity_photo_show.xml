@@ -7,7 +7,7 @@
 
     <data>
         <variable
-            name="viewmodel"
+            name="photoShowViewModel"
             type="com.example.llcgs.android_kotlin.mvvm.show.viewmodel.PhotoShowViewModel"/>
 
     </data>
@@ -32,8 +32,8 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            bind:onClickListener="@{viewmodel.onImageClickListener}"
-            bind:imageUrl='@{viewmodel.url ?? "https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1509790203568&amp;di=8cbc7c7d4d9df9dc64c6d37f32be7967&amp;imgtype=0&amp;src=http%3A%2F%2Fnews.qiyue.com%2Fuploadfile%2F2016%2F0525%2F20160525104020138.jpg"}'/>
+            bind:onClickListener="@{photoShowViewModel.onImageClickListener}"
+            bind:imageUrl='@{photoShowViewModel.url ?? "https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1509790203568&amp;di=8cbc7c7d4d9df9dc64c6d37f32be7967&amp;imgtype=0&amp;src=http%3A%2F%2Fnews.qiyue.com%2Fuploadfile%2F2016%2F0525%2F20160525104020138.jpg"}'/>
 
     </LinearLayout>
 

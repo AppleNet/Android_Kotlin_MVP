@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.mvvm.show
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityPhotoShowBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
@@ -37,7 +38,8 @@ class PhotoShowActivity:BaseActivity<PhotoShowViewModel, ActivityPhotoShowBindin
     private fun initData(){
         val url = intent.getStringExtra("imageUrl")
         viewModel.url = url
-        binding.viewmodel = viewModel
+        val variable = binding.setVariable(BR.photoShowViewModel, viewModel)
+        variable.logD()
     }
 
     override fun update(o: Observable?, arg: Any?) {

@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="viewmodel"
+            name="layoutDetailsViewModel"
             type="com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.LayoutDetailsViewModel"/>
 
         <import type="android.view.View"/>
@@ -33,7 +33,7 @@
             android:layout_height="50dp"
             android:gravity="center"
             tools:text="name"
-            android:text="@{viewmodel.user.name}"/>
+            android:text="@{layoutDetailsViewModel.user.name}"/>
 
         <TextView
             android:id="@+id/details_hobby"
@@ -42,8 +42,8 @@
             android:layout_marginTop="@dimen/dp_10"
             android:gravity="center"
             tools:text="hobby"
-            android:text="@{viewmodel.user.hobby}"
-            android:visibility="@{viewmodel.user.hasAbdominal ? View.VISIBLE : View.GONE}"/>
+            android:text="@{layoutDetailsViewModel.user.hobby}"
+            android:visibility="@{layoutDetailsViewModel.user.hasAbdominal ? View.VISIBLE : View.GONE}"/>
 
     </LinearLayout>
 

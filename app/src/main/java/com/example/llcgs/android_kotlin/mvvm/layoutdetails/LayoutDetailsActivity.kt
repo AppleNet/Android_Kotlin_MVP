@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.mvvm.layoutdetails
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityDetailsBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
@@ -41,7 +42,7 @@ class LayoutDetailsActivity:BaseActivity<LayoutDetailsViewModel, ActivityDetails
             hasAbdominal = true
         }
         viewModel.user = user
-        binding.viewmodel = viewModel
+        binding.setVariable(BR.layoutDetailsViewModel, viewModel)
     }
 
     override fun update(o: Observable?, arg: Any?) {
