@@ -76,6 +76,7 @@
         <activity android:name=".mvvm.show.PhotoShowActivity"/>
         <activity android:name=".mvvm.layoutdetails.LayoutDetailsActivity"/>
         <activity android:name=".mvvm.layoutdetails.CustomBindingClassNameActivity"/>
+        <activity android:name=".mvvm.includes.IncludesActivity"/>
     </application>
 
 </manifest>

@@ -7,7 +7,7 @@ package com.example.llcgs.android_kotlin.mvvm.layoutdetails.model
  */
 
 
-class User {
+open class User {
 
     var id:String = ""
     var name:String = ""

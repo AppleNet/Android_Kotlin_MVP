@@ -2,8 +2,10 @@ package com.example.llcgs.android_kotlin.mvvm.layoutdetails
 
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
+import com.example.llcgs.android_kotlin.mvvm.layoutdetails.model.CustomUser
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.viewmodel.CustomBindingClassNameViewModel
 import kotlinx.android.synthetic.main.view_title.*
 
@@ -23,7 +25,7 @@ class CustomBindingClassNameActivity:BaseActivity<CustomBindingClassNameViewMode
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViews()
-
+        initData()
     }
 
     private fun initViews(){
@@ -31,6 +33,10 @@ class CustomBindingClassNameActivity:BaseActivity<CustomBindingClassNameViewMode
     }
 
     private fun initData(){
-
+        val customUser = CustomUser().apply {
+            name = "customUser"
+        }
+        viewModel.customUser = customUser
+        binding.setVariable(BR.customBindingClassNameViewModel, viewModel)
     }
 }
