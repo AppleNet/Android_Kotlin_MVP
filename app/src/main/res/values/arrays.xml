@@ -61,6 +61,7 @@
         <item>layoutdetails</item>
         <item>customClassName</item>
         <item>show</item>
+        <item>commonFeatures</item>
     </string-array>
 
 </resources>

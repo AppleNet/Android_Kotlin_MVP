@@ -7,6 +7,8 @@
       <w>classandobject</w>
       <w>codestandards</w>
       <w>dataclass</w>
+      <w>dend</w>
+      <w>dstart</w>
       <w>enumclass</w>
       <w>functionandlambda</w>
       <w>genericity</w>

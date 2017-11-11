@@ -3,6 +3,7 @@ package com.example.llcgs.android_kotlin.mvvm.menu.viewmodel
 import android.content.Intent
 import android.view.View
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
+import com.example.llcgs.android_kotlin.mvvm.commfeatures.CommonFeaturesActivity
 import com.example.llcgs.android_kotlin.mvvm.includes.IncludesActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.CustomBindingClassNameActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.LayoutDetailsActivity
@@ -35,6 +36,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "customClassName" ->{
                 view.context.startActivity(Intent(view.context, CustomBindingClassNameActivity::class.java))
+            }
+            "commonFeatures" ->{
+                view.context.startActivity(Intent(view.context, CommonFeaturesActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {
