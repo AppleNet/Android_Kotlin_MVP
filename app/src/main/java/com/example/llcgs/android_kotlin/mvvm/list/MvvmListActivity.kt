@@ -4,7 +4,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.example.llcgs.android_kotlin.BR
+import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityMvvmListBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
@@ -41,7 +41,7 @@ class MvvmListActivity: BaseActivity<MvvmListViewModel, ViewDataBinding>() {
         list_item.adapter = adapter
         list_item.layoutManager = LinearLayoutManager(this)
         viewModel.addObserver(this)
-        binding.setVariable(BR.viewModel, viewModel)
+        binding.setVariable(BR.mvvmListViewModel, viewModel)
 
     }
 

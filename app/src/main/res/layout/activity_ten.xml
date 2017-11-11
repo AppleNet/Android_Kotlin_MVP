@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.classandobject.dataclass.TenActivity">
+    tools:context="com.example.llcgs.android_kotlin.kotlin.classandobject.dataclass.TenActivity">
 
     <Button
         android:id="@+id/button8"

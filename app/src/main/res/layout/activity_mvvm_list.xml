@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="mvvmListViewModel"
             type="com.example.llcgs.android_kotlin.mvvm.list.viewmodel.MvvmListViewModel"/>
     </data>
 
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:visibility="@{viewModel.progress}"/>
+            android:visibility="@{mvvmListViewModel.progress}"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list_item"

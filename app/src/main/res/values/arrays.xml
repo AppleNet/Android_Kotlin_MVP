@@ -55,4 +55,12 @@
         <item>打开插件中的Fragment</item>
     </string-array>
 
+    <string-array name="databinding_menu">
+        <item>list</item>
+        <item>includes</item>
+        <item>layoutdetails</item>
+        <item>customClassName</item>
+        <item>show</item>
+    </string-array>
+
 </resources>

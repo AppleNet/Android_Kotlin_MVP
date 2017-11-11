@@ -5,8 +5,8 @@ import com.example.llcgs.android_kotlin.base.router.action.UninstallAction
 import com.example.llcgs.android_kotlin.home.MainActivity
 import com.example.llcgs.android_kotlin.list.MyListActivity
 import com.example.llcgs.android_kotlin.mvvm.login.MvvmActivity
-import com.example.llcgs.android_kotlin.plugin.PluginActivity
-import com.example.llcgs.android_kotlin.pluginlist.PluginListActivity
+import com.example.llcgs.android_kotlin.replugin.plugin.PluginActivity
+import com.example.llcgs.android_kotlin.replugin.pluginlist.PluginListActivity
 import com.lzh.nonview.router.executors.MainThreadExecutor
 import com.lzh.nonview.router.module.ActionRouteRule
 import com.lzh.nonview.router.module.ActivityRouteRule

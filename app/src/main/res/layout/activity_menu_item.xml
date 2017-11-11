@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuItemViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.menu.viewmodel.MenuItemViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:onClick="@{menuItemViewModel.onItemClickListener}">
+
+        <TextView
+            android:id="@+id/mentu_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@{menuItemViewModel.menu.title}"
+            android:textSize="@dimen/textsize_16"
+            tools:text="title"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+    </LinearLayout>
+</layout>

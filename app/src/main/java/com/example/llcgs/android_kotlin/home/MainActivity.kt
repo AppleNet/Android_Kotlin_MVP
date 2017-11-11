@@ -10,10 +10,10 @@ import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
-import com.example.llcgs.android_kotlin.basicsyntax.SecondActivity
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresneter
 import com.example.llcgs.android_kotlin.home.view.LoginView
+import com.example.llcgs.android_kotlin.kotlin.basicsyntax.SecondActivity
 import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule
@@ -113,11 +113,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
     override fun doLoginFail() {
     }
 
-    override fun createPresenter(): LoginPresneter {
-        return LoginPresneter(this)
-    }
+    override fun createPresenter(): LoginPresneter = LoginPresneter(this)
 
-    inline fun <reified T : AppCompatActivity> Activity.startTo(id : String){
+    private inline fun <reified T : AppCompatActivity> Activity.startTo(id : String){
         val name = editText.text.toString()
         val pwd = editText2.text.toString()
         val user = User(name, pwd)

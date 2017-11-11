@@ -20,6 +20,11 @@
 
         <include layout="@layout/view_title"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
         <include
             android:id="@+id/header"
             android:layout_marginTop="20dp"
@@ -28,10 +33,20 @@
             layout="@layout/activity_includes_header"
             bind:includeViewModel="@{includeViewModel}"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="300dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
 
         <include
             android:id="@+id/footer"

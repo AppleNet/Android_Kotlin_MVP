@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.menu.viewmodel.MenuViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_title"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/gray_6"/>
+
+        <ProgressBar
+            android:id="@+id/progress_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:visibility="@{menuViewModel.progress}"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/menuRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/activity_menu_item"/>
+
+    </LinearLayout>
+
+
+</layout>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.llcgs.android_kotlin.functionandlambda.lambda.NineteenActivity">
+    tools:context="com.example.llcgs.android_kotlin.kotlin.functionandlambda.lambda.NineteenActivity">
 
     <Button
         android:id="@+id/button17"
