@@ -10,6 +10,7 @@ import com.example.llcgs.android_kotlin.mvvm.layoutdetails.CustomBindingClassNam
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.LayoutDetailsActivity
 import com.example.llcgs.android_kotlin.mvvm.list.MvvmListActivity
 import com.example.llcgs.android_kotlin.mvvm.menu.model.Menu
+import com.example.llcgs.android_kotlin.mvvm.resources.ResourcesActivity
 import com.example.llcgs.android_kotlin.mvvm.show.PhotoShowActivity
 import com.example.llcgs.android_kotlin.mvvm.stringliterals.StringLiteralsActivity
 
@@ -47,6 +48,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "stringLiterals" ->{
                 view.context.startActivity(Intent(view.context, StringLiteralsActivity::class.java))
+            }
+            "resources" ->{
+                view.context.startActivity(Intent(view.context, ResourcesActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {

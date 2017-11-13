@@ -64,6 +64,7 @@
         <item>commonFeatures</item>
         <item>collections</item>
         <item>stringLiterals</item>
+        <item>resources</item>
     </string-array>
 
 </resources>
