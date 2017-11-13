@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <import type="java.util.Map"/>
+
+        <variable name="map" type="Map&lt;String, String&gt;"/>
+
+        <variable
+            name="stringLiteralViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.stringliterals.viewmodel.StringLiteralsViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_title"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+        <!--
+            在属性值周围使用单引号时，你就可以在表达式中使用双引号 '@{map["firstName"]}'
+            也可以使用双引号来包围属性值。当这样做时，字符串应该使用'或者后引号(`) -》  "@{map[`firstName`}"  "@{map['firstName']}"
+
+        -->
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/dp_10"
+            android:textColor="@color/basic_text"
+            android:textSize="@dimen/textsize_16"
+            android:inputType="text"
+            android:labelFor="@+id/editText"
+            android:text="@={stringLiteralViewModel.index}"/>
+
+        <View
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+        <TextView
+            android:id="@+id/show"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/home_red"
+            android:text='@{map["firstName"]}'/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+    </LinearLayout>
+
+</layout>

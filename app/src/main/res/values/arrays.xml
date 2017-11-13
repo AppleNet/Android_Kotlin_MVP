@@ -63,6 +63,7 @@
         <item>show</item>
         <item>commonFeatures</item>
         <item>collections</item>
+        <item>stringLiterals</item>
     </string-array>
 
 </resources>

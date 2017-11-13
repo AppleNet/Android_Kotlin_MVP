@@ -80,6 +80,7 @@
         <activity android:name=".mvvm.menu.MenuActivity"/>
         <activity android:name=".mvvm.commfeatures.CommonFeaturesActivity"/>
         <activity android:name=".mvvm.collections.CollectionsActivity"/>
+        <activity android:name=".mvvm.stringliterals.StringLiteralsActivity"/>
     </application>
 
 </manifest>

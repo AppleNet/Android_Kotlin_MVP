@@ -3,6 +3,7 @@
     <words>
       <w>airsafety</w>
       <w>basicsyntax</w>
+      <w>bdbdbd</w>
       <w>classandextends</w>
       <w>classandobject</w>
       <w>codestandards</w>
@@ -23,6 +24,7 @@
       <w>propertydelegate</w>
       <w>sealedclass</w>
       <w>stringandregex</w>
+      <w>stringliterals</w>
       <w>structdeclarations</w>
       <w>textsize</w>
       <w>thisexperssion</w>
