@@ -62,6 +62,7 @@
         <item>customClassName</item>
         <item>show</item>
         <item>commonFeatures</item>
+        <item>collections</item>
     </string-array>
 
 </resources>

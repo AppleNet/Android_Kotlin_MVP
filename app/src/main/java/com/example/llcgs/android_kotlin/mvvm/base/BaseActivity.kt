@@ -17,6 +17,7 @@ abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : Activity(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = createViewModel()
+        viewModel.addObserver(this)
         binding = createViewDataBinding()
     }
 
