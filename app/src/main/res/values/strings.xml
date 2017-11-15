@@ -14,5 +14,5 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="nameFormat">我的名字是 %s 来自中国</string>
+    <string name="nameFormat">我的名字是:%1s·%2s,来自美国</string>
 </resources>

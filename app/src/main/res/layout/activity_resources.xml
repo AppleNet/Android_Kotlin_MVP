@@ -30,9 +30,14 @@
             android:layout_height="50dp"
             android:paddingStart="@{resourcesViewModel.marginFlag ? @dimen/dividing_5 : @dimen/register_button_margin_top}"
             android:paddingEnd="@{resourcesViewModel.marginFlag ? @dimen/dividing_5 : @dimen/register_button_margin_top}"
-            android:text="@{@string/nameFormat(resourcesViewModel.firstName)}"
+            android:text="@{@string/nameFormat(resourcesViewModel.firstName, resourcesViewModel.lastName)}"
             android:textColor="@{resourcesViewModel.textColorFlag ? @color/basic_text : @color/calculator_text}"
             android:textSize="@{resourcesViewModel.textSizeFlag ? @dimen/textsize_40 : @dimen/textsize_10}"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
 
         <View
             android:layout_width="match_parent"

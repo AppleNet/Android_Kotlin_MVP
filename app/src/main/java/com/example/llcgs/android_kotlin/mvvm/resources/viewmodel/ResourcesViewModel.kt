@@ -17,7 +17,7 @@ class ResourcesViewModel:BaseViewModel() {
     var lastName = "Bryant"
 
     val marginFlag = ObservableBoolean(false)
-    val textSizeFlag = ObservableBoolean(true)
+    val textSizeFlag = ObservableBoolean(false)
     val textColorFlag = ObservableBoolean(false)
 
 
