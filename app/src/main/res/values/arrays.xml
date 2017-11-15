@@ -65,6 +65,7 @@
         <item>collections</item>
         <item>stringLiterals</item>
         <item>resources</item>
+        <item>observableObjects</item>
     </string-array>
 
 </resources>

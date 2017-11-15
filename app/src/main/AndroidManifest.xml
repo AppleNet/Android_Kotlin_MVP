@@ -82,6 +82,7 @@
         <activity android:name=".mvvm.collections.CollectionsActivity"/>
         <activity android:name=".mvvm.stringliterals.StringLiteralsActivity"/>
         <activity android:name=".mvvm.resources.ResourcesActivity"/>
+        <activity android:name=".mvvm.observableobjects.ObservableActivity" />
     </application>
 
 </manifest>
