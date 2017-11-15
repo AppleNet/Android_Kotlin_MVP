@@ -6,49 +6,49 @@ repluginHostConfig {
 
 dependencies {
 
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     kapt "com.android.databinding:compiler:$android_plugin_version"
     // ---Rx---
-    compile project(':vlayout')
+    implementation project(':vlayout')
     testCompile 'junit:junit:4.12'
-    compile libs.appcompat_v7
-    compile libs.constraint_layout
-    compile libs.rxbinding2
-    compile libs.rxbinding_support_v4
-    compile libs.rxbinding_appcompat_v7
-    compile libs.rxbinding_design
-    compile libs.rxbinding_recyclerview_v7
-    compile libs.leakcanary_release
-    compile libs.rxandroid2
-    compile libs.rxjava2
-    compile libs.kotlin_reflect
-    compile libs.replugin_host
-    compile libs.rxpermission2
-    compile libs.circleImageView
-    compile libs.gson
-    compile libs.glide
-    compile libs.retrofit2
-    compile libs.retrofit2_converter
-    compile libs.retrofit2_adapter
-    compile libs.multidex
+    //implementation libs.appcompat_v7
+    implementation libs.constraint_layout
+    implementation libs.rxbinding2
+    implementation libs.rxbinding_support_v4
+    implementation libs.rxbinding_appcompat_v7
+    implementation libs.rxbinding_design
+    implementation libs.rxbinding_recyclerview_v7
+    implementation libs.leakcanary_release
+    implementation libs.rxandroid2
+    implementation libs.rxjava2
+    implementation libs.kotlin_reflect
+    implementation libs.replugin_host
+    implementation libs.rxpermission2
+    implementation libs.circleImageView
+    implementation libs.gson
+    implementation libs.glide
+    implementation libs.retrofit2
+    implementation libs.retrofit2_converter
+    implementation libs.retrofit2_adapter
+    implementation libs.multidex
 
     // RouterHost
-    compile libs.router_host
+    implementation libs.router_host
     annotationProcessor "com.github.yjfnypeu.Router:router-compiler:$router_version"
     // 针对Replugin的RouterHost
-    compile libs.router_replugin_host
+    implementation libs.router_replugin_host
     // 聚美优品的bundle
-    compile libs.parceler
+    implementation libs.parceler
     // 聚美优品的远程更新插件
-    compile libs.update_plugin
+    implementation libs.update_plugin
     // fastJson
-    compile libs.fastjson
+    implementation libs.fastjson
     // QuickAdapter
-    compile libs.adapter_helper
+    implementation libs.adapter_helper
 }
 
 task makeJar(type: Jar) {

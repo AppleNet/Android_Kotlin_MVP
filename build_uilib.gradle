@@ -1,0 +1,19 @@
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    Map<String, String> libs = rootProject.ext.libs
+
+    api libs.recyclerview_v7
+    api(libs.design) {
+        exclude module: 'support-v4'
+        exclude module: 'transition'
+    }
+    api(libs.appcompat_v7) {
+        exclude module: 'support-v4'
+        exclude module: 'transition'
+    }
+    // 暂时不用fragment_v4
+    //api libs.fragment_v4
+
+    api libs.kotlin_stdlib
+
+}

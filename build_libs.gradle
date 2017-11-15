@@ -8,8 +8,8 @@ ext {
     versionName = "v1.0"
 
     versions = [
-            kotlin_version    : "1.1.4-2",
-            supportVersion    : "26.0.1",
+            kotlin_version    : kotlin_version,
+            supportVersion    : "26.1.0",
             glide             : "3.8.0",
             butterknife       : "8.7.0",
             dagger2           : "2.11",
@@ -35,20 +35,29 @@ ext {
             replugin_host_version : "2.2.0",
             circleImageVersion : "1.3.0",
             gson              : "2.8.1",
+            fastjson          : "1.1.61.android",
             mvvmLightVersion  : "1.0.0",
+            okhttp3           : "3.8.0",
+            matisse           : "0.5.0-alpha4",
     ]
     libs = [
             junit                : "junit:junit:4.12",
             design               : "com.android.support:design:${versions.supportVersion}",
-            appcompat_v7         : "com.android.support:appcompat-v7:25.3.1",
+            appcompat_v7         : "com.android.support:appcompat-v7:${versions.supportVersion}",
             recyclerview_v7      : "com.android.support:recyclerview-v7:${versions.supportVersion}",
             palette_v7           : "com.android.support:palette-v7:${versions.supportVersion}",
             cardview_v7          : "com.android.support:cardview-v7:${versions.supportVersion}",
             constraint_layout    : "com.android.support.constraint:constraint-layout:1.0.2",
-            flexbox              : "com.google.android:flexbox:0.2.6",
+            flexbox              : "com.google.android:flexbox:${versions.flexbox}",
+
+            compat_v4            : "com.android.support:support-compat:${versions.supportVersion}",
+            media_compat_v4      : "com.android.support:support-media-compat:${versions.supportVersion}",
+            core_ui_v4           : "com.android.support:support-core-ui:${versions.supportVersion}",
+            fragment_v4          : "com.android.support:support-fragment:${versions.supportVersion}",
+            core_utils_v4        : "com.android.support:support-core-utils:${versions.supportVersion}",
 
             glide                : "com.github.bumptech.glide:glide:${versions.glide}",
-            fastjson             : "com.alibaba:fastjson:1.1.61.android",
+            fastjson             : "com.alibaba:fastjson:${versions.fastjson}",
 
             butterknife          : "com.jakewharton:butterknife:${versions.butterknife}",
             butterknife_processor: "com.jakewharton:butterknife-compiler:${versions.butterknife}",
@@ -69,7 +78,7 @@ ext {
             rxbinding_kotlin2    : "com.jakewharton.rxbinding2:rxbinding-kotlin:${versions.rxbinding2}",
             rxkotlin2            : "io.reactivex.rxjava2:rxkotlin:${versions.rxkotlin2}",
 
-            okhttp3              : "com.squareup.okhttp3:okhttp:3.8.0",
+            okhttp3              : "com.squareup.okhttp3:okhttp:${versions.okhttp3}",
             gson                 : "com.google.code.gson:gson:${versions.gson}",
 
             retrofit2            : "com.squareup.retrofit2:retrofit:${versions.retrofit2}",
@@ -94,7 +103,7 @@ ext {
             pickerview           : "com.contrarywind:Android-PickerView:${versions.pickerview}",
             leakcanary_debug     : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
             leakcanary_release   : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",
-            matisse              : "com.zhihu.android:matisse:0.5.0-alpha4",
+            matisse              : "com.zhihu.android:matisse:${versions.matisse}",
 
             replugin_host        : "com.qihoo360.replugin:replugin-host-lib:${versions.replugin_host_version}",
             router_host          : "com.github.yjfnypeu.Router:router-host:${versions.router_version}",
