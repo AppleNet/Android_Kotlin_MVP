@@ -10,7 +10,6 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityObservableBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.observableobjects.model.ObservableModel
-import com.example.llcgs.android_kotlin.mvvm.observableobjects.view.ObservableView
 import com.example.llcgs.android_kotlin.mvvm.observableobjects.viewmodel.ObservableViewModel
 import kotlinx.android.synthetic.main.activity_observable.*
 import kotlinx.android.synthetic.main.view_title.*

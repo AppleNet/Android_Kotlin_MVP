@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="android.view.Gravity"/>
+
+        <variable
+            name="fieldViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.observablefields.viewmodel.FieldsViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_title" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/field"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{fieldViewModel.fieldsModel.field}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Field" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <!-- id 不能是关键字-->
+            <TextView
+                android:id="@+id/BooleanFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text='@{fieldViewModel.fieldsModel.booleanFlag ? "kobe" : "James"}'
+                android:textColor="@{fieldViewModel.fieldsModel.booleanFlag ? @color/basic_text : @color/calculator_text}"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Boolean"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/ByteFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.ByteFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Byte" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/Char"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.CharFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@{fieldViewModel.fieldsModel.CharFlag == '1' ? @dimen/textsize_16 : @dimen/textsize_40}"
+                tools:text="Char" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/Parcelable"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.parcel.describeContents())}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Parcelable" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/ShortFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.ShortFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                android:visibility="@{fieldViewModel.fieldsModel.ShortFlag == 1 ? View.INVISIBLE : View.VISIBLE}"
+                tools:text="Short" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/IntFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="@{fieldViewModel.fieldsModel.IntFlag == 1 ? Gravity.CENTER : Gravity.END}"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.IntFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Int" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/LongFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.LongFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                android:background="@{fieldViewModel.fieldsModel.LongFlag == 1 ? @color/main_red_end : @color/shape_green}"
+                tools:text="Long" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/FloatFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.FloatFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Float" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <TextView
+                android:id="@+id/DoubleFlag"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(fieldViewModel.fieldsModel.DoubleFlag)}"
+                android:textColor="@color/basic_text"
+                android:textSize="@dimen/textsize_16"
+                tools:text="Double" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/merchant_select_1px"
+                android:background="@color/BDBDBD" />
+
+            <Button
+                android:id="@+id/ObservableField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="ObservableField"
+                android:textSize="@dimen/textsize_16"
+                android:textColor="@color/basic_text"
+                android:onClick="@{fieldViewModel::buttonClick}"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</layout>

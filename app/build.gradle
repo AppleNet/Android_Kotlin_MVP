@@ -41,6 +41,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 apply from: '../build_app.gradle'
