@@ -10,6 +10,7 @@ import com.example.llcgs.android_kotlin.mvvm.layoutdetails.CustomBindingClassNam
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.LayoutDetailsActivity
 import com.example.llcgs.android_kotlin.mvvm.list.MvvmListActivity
 import com.example.llcgs.android_kotlin.mvvm.menu.model.Menu
+import com.example.llcgs.android_kotlin.mvvm.observablecollections.ObservableCollectionsActivity
 import com.example.llcgs.android_kotlin.mvvm.observablefields.FieldsActivity
 import com.example.llcgs.android_kotlin.mvvm.observableobjects.ObservableActivity
 import com.example.llcgs.android_kotlin.mvvm.resources.ResourcesActivity
@@ -59,6 +60,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "observableFields" ->{
                 view.context.startActivity(Intent(view.context, FieldsActivity::class.java))
+            }
+            "observableCollections" ->{
+                view.context.startActivity(Intent(view.context, ObservableCollectionsActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {

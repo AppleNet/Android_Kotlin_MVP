@@ -25,6 +25,8 @@ dependencies {
     implementation libs.leakcanary_release
     implementation libs.rxandroid2
     implementation libs.rxjava2
+    implementation libs.rxlifecycle2
+    implementation libs.rxlifecycle_kotlin2
     implementation libs.kotlin_reflect
     implementation libs.replugin_host
     implementation libs.rxpermission2

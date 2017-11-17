@@ -6,7 +6,7 @@ import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.observableobjects.model.ObservableModel
 
 /**
- * com.example.llcgs.android_kotlin.mvvm.observableobjects.viewmodel.ObservableViewModel
+ * com.example.llcgs.android_kotlin.mvvm.observableobjects.viewmodel.ObservableCollectionsViewModel
  * @author liulongchao
  * @since 2017/11/15
  */

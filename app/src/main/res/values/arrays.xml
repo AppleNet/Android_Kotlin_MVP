@@ -67,6 +67,7 @@
         <item>resources</item>
         <item>observableObjects</item>
         <item>observableFields</item>
+        <item>observableCollections</item>
     </string-array>
 
 </resources>

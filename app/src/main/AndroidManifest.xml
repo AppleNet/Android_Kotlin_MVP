@@ -84,6 +84,7 @@
         <activity android:name=".mvvm.resources.ResourcesActivity"/>
         <activity android:name=".mvvm.observableobjects.ObservableActivity" />
         <activity android:name=".mvvm.observablefields.FieldsActivity" />
+        <activity android:name=".mvvm.observablecollections.ObservableCollectionsActivity" />
     </application>
 
 </manifest>

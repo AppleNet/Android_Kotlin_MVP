@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <import type="android.databinding.ObservableMap"/>
+        <import type="android.databinding.ObservableList"/>
+        <import type="java.lang.String"/>
+
+        <variable name="arraymap" type="ObservableMap&lt;String, Object&gt;"/>
+        <variable name="arraylist" type="ObservableList&lt;String&gt;"/>
+        <variable name="index" type="int"/>
+        <variable name="key" type="String"/>
+
+        <variable
+            name="observableCollectionsViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.observablecollections.viewmodel.ObservableCollectionsViewModel"/>
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_title"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/blue_3"
+            android:gravity="center"
+            android:text="@{arraymap[key]}"
+            tools:text="arraymap"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/F53451"
+            android:gravity="center"
+            android:text="@{arraylist[index]}"
+            tools:text="arraylist"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD"/>
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:text="start"
+            android:onClick="@{observableCollectionsViewModel::buttonClick}"
+            android:textSize="@dimen/textsize_18"
+            android:textColor="@color/basic_text"/>
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="add"
+            android:onClick="@{observableCollectionsViewModel::buttonClickAdd}"
+            android:textSize="@dimen/textsize_18"
+            android:textColor="@color/basic_text"/>
+
+
+    </LinearLayout>
+
+</layout>
