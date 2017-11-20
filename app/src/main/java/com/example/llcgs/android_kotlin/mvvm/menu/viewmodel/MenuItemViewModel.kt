@@ -5,6 +5,7 @@ import android.view.View
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.collections.CollectionsActivity
 import com.example.llcgs.android_kotlin.mvvm.commfeatures.CommonFeaturesActivity
+import com.example.llcgs.android_kotlin.mvvm.generatedbinding.GeneratedBindingActivity
 import com.example.llcgs.android_kotlin.mvvm.includes.IncludesActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.CustomBindingClassNameActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.LayoutDetailsActivity
@@ -63,6 +64,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "observableCollections" ->{
                 view.context.startActivity(Intent(view.context, ObservableCollectionsActivity::class.java))
+            }
+            "generatedbinding" ->{
+                view.context.startActivity(Intent(view.context, GeneratedBindingActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {

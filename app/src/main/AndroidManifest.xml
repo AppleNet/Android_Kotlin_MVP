@@ -85,6 +85,7 @@
         <activity android:name=".mvvm.observableobjects.ObservableActivity" />
         <activity android:name=".mvvm.observablefields.FieldsActivity" />
         <activity android:name=".mvvm.observablecollections.ObservableCollectionsActivity" />
+        <activity android:name=".mvvm.generatedbinding.GeneratedBindingActivity" />
     </application>
 
 </manifest>

@@ -68,6 +68,23 @@
         <item>observableObjects</item>
         <item>observableFields</item>
         <item>observableCollections</item>
+        <item>generatedbinding</item>
+    </string-array>
+
+    <string-array name="databinding_nba">
+        <item>Kobe</item>
+        <item>James</item>
+        <item>Wade</item>
+        <item>Bosh</item>
+        <item>Anthony</item>
+        <item>Paul</item>
+        <item>Answer</item>
+        <item>Durant</item>
+        <item>Curry</item>
+        <item>Harden</item>
+        <item>Jordon</item>
+        <item>Nash</item>
+        <item>Allen</item>
     </string-array>
 
 </resources>
