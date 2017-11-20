@@ -17,6 +17,7 @@ import com.example.llcgs.android_kotlin.mvvm.observableobjects.ObservableActivit
 import com.example.llcgs.android_kotlin.mvvm.resources.ResourcesActivity
 import com.example.llcgs.android_kotlin.mvvm.show.PhotoShowActivity
 import com.example.llcgs.android_kotlin.mvvm.stringliterals.StringLiteralsActivity
+import com.example.llcgs.android_kotlin.mvvm.viewstubs.ViewStubActivity
 
 /**
  * com.example.llcgs.android_kotlin.mvvm.menu.viewmodel.MenuItemViewModel
@@ -67,6 +68,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "generatedbinding" ->{
                 view.context.startActivity(Intent(view.context, GeneratedBindingActivity::class.java))
+            }
+            "viewStubs" ->{
+                view.context.startActivity(Intent(view.context, ViewStubActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {
