@@ -3,6 +3,7 @@ package com.example.llcgs.android_kotlin.mvvm.menu.viewmodel
 import android.content.Intent
 import android.view.View
 import com.example.llcgs.android_kotlin.mvvm.advancedbinding.AdvancedBindingActivity
+import com.example.llcgs.android_kotlin.mvvm.attributesetters.AttributeSettersActivity
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.collections.CollectionsActivity
 import com.example.llcgs.android_kotlin.mvvm.commfeatures.CommonFeaturesActivity
@@ -75,6 +76,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "advancedBinding" ->{
                 view.context.startActivity(Intent(view.context, AdvancedBindingActivity::class.java))
+            }
+            "attributeSetters" ->{
+                view.context.startActivity(Intent(view.context, AttributeSettersActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {

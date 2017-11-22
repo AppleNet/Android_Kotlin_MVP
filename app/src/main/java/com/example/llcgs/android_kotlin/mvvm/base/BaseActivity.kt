@@ -4,12 +4,13 @@ import android.app.Activity
 import android.app.Fragment
 import android.databinding.ViewDataBinding
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import java.util.*
 
 /**
  * Base [Activity] class for every Activity in this application.
  */
-abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : Activity(), Observer {
+abstract class BaseActivity<VM : BaseViewModel, B : ViewDataBinding> : AppCompatActivity(), Observer {
 
     protected lateinit var viewModel: VM
     protected lateinit var binding: B

@@ -34,7 +34,7 @@ android {
         abortOnError false
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 
@@ -42,7 +42,7 @@ android {
         generateStubs = true
     }
 
-    compileOptions{
+    compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -54,3 +54,6 @@ android {
 }
 
 apply from: '../build_app.gradle'
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}

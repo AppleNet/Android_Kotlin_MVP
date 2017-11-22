@@ -5,10 +5,9 @@
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.touchscreen"
-        android:required="false"/>
+        android:required="false" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,7 +16,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".base.app.KotlinApplication"
@@ -27,13 +26,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.MainActivity"
+        <activity
+            android:name=".home.MainActivity"
             android:banner="@android:anim/accelerate_decelerate_interpolator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".kotlin.basicsyntax.SecondActivity" />
@@ -71,23 +71,29 @@
         <activity android:name=".replugin.plugin.PluginActivity" />
         <activity android:name=".replugin.pluginlist.PluginListActivity" />
         <activity android:name=".replugin.pluginlist.PluginListFragmentActivity" />
-        <activity android:name=".mvvm.login.MvvmActivity"/>
-        <activity android:name=".mvvm.list.MvvmListActivity"/>
-        <activity android:name=".mvvm.show.PhotoShowActivity"/>
-        <activity android:name=".mvvm.layoutdetails.LayoutDetailsActivity"/>
-        <activity android:name=".mvvm.layoutdetails.CustomBindingClassNameActivity"/>
-        <activity android:name=".mvvm.includes.IncludesActivity"/>
-        <activity android:name=".mvvm.menu.MenuActivity"/>
-        <activity android:name=".mvvm.commfeatures.CommonFeaturesActivity"/>
-        <activity android:name=".mvvm.collections.CollectionsActivity"/>
-        <activity android:name=".mvvm.stringliterals.StringLiteralsActivity"/>
-        <activity android:name=".mvvm.resources.ResourcesActivity"/>
+        <activity android:name=".mvvm.login.MvvmActivity" />
+        <activity android:name=".mvvm.list.MvvmListActivity" />
+        <activity android:name=".mvvm.show.PhotoShowActivity" />
+        <activity android:name=".mvvm.layoutdetails.LayoutDetailsActivity" />
+        <activity android:name=".mvvm.layoutdetails.CustomBindingClassNameActivity" />
+        <activity android:name=".mvvm.includes.IncludesActivity" />
+        <activity android:name=".mvvm.menu.MenuActivity" />
+        <activity android:name=".mvvm.commfeatures.CommonFeaturesActivity" />
+        <activity android:name=".mvvm.collections.CollectionsActivity" />
+        <activity android:name=".mvvm.stringliterals.StringLiteralsActivity" />
+        <activity android:name=".mvvm.resources.ResourcesActivity" />
         <activity android:name=".mvvm.observableobjects.ObservableActivity" />
         <activity android:name=".mvvm.observablefields.FieldsActivity" />
         <activity android:name=".mvvm.observablecollections.ObservableCollectionsActivity" />
         <activity android:name=".mvvm.generatedbinding.GeneratedBindingActivity" />
         <activity android:name=".mvvm.viewstubs.ViewStubActivity" />
         <activity android:name=".mvvm.advancedbinding.AdvancedBindingActivity" />
+        <activity android:name=".mvvm.attributesetters.AttributeSettersActivity"/>
+
+        <!--<activity-->
+            <!--android:name=".mvvm.attributesetters.Main2Activity"-->
+            <!--android:label="@string/title_activity_main2"-->
+            <!--android:theme="@style/AppTheme.NoActionBar"/>-->
     </application>
 
 </manifest>

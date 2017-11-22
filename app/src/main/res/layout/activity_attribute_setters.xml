@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="attributeSettersViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.AttributeSettersViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/view_toolbar"
+            bind:attributeSettersViewModel="@{attributeSettersViewModel}"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/BDBDBD" />
+
+        <include
+            layout="@layout/view_drawerlayout"
+            bind:attributeSettersViewModel="@{attributeSettersViewModel}"/>
+    </LinearLayout>
+
+</layout>

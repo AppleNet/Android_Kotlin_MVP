@@ -136,5 +136,6 @@
     <integer name="max_length_real_name">20</integer>
     <integer name="max_length_img_code">6</integer>
     <dimen name="reget_pwd_114dp">114dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

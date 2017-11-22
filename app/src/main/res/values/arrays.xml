@@ -71,6 +71,7 @@
         <item>generatedbinding</item>
         <item>viewStubs</item>
         <item>advancedBinding</item>
+        <item>attributeSetters</item>
     </string-array>
 
     <string-array name="databinding_nba">
