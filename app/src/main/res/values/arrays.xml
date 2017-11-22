@@ -70,6 +70,7 @@
         <item>observableCollections</item>
         <item>generatedbinding</item>
         <item>viewStubs</item>
+        <item>advancedBinding</item>
     </string-array>
 
     <string-array name="databinding_nba">

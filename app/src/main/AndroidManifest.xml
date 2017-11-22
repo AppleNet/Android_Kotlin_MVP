@@ -87,6 +87,7 @@
         <activity android:name=".mvvm.observablecollections.ObservableCollectionsActivity" />
         <activity android:name=".mvvm.generatedbinding.GeneratedBindingActivity" />
         <activity android:name=".mvvm.viewstubs.ViewStubActivity" />
+        <activity android:name=".mvvm.advancedbinding.AdvancedBindingActivity" />
     </application>
 
 </manifest>

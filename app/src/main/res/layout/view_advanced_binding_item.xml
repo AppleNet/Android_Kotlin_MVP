@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="advancedBindingItemViewModel"
+            type="com.example.llcgs.android_kotlin.mvvm.advancedbinding.viewmodel.AdvancedBindingItemViewModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/gray2"
+        android:onClick="@{advancedBindingItemViewModel::onItemClickListener}">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="@color/blue_1"
+            android:textSize="@dimen/textsize_16"
+            android:gravity="center"
+            android:text="@{advancedBindingItemViewModel.advancedBindingModel.title}"
+            tools:text="advanced"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/blue_1"/>
+
+        <ViewStub
+            android:id="@+id/viewStub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout="@layout/view_advanced_binding_stub_layout"
+            bind:advancedBindingItemViewModel="@{advancedBindingItemViewModel}"
+            android:visibility="visible"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/merchant_select_1px"
+            android:background="@color/blue_1"/>
+
+    </LinearLayout>
+
+</layout>
