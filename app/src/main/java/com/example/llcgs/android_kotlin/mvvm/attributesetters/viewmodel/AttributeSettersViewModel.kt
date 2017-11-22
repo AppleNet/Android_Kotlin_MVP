@@ -14,4 +14,8 @@ class AttributeSettersViewModel :BaseViewModel() {
     fun drawerListener(view: View){
 
     }
+
+    fun fetchMenuList(){
+
+    }
 }
