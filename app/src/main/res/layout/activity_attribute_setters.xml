@@ -16,6 +16,14 @@
         android:background="@color/white"
         android:orientation="vertical">
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="@{attributeSettersViewModel.progress}"
+            android:layout_gravity="center"
+            tools:visibility="gone"/>
+
         <!-- toolBar -->
         <include
             layout="@layout/view_toolbar"

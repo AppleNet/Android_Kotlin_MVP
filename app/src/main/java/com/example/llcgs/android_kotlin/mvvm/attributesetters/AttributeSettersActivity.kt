@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import com.android.databinding.library.baseAdapters.BR
@@ -14,6 +15,7 @@ import com.example.llcgs.android_kotlin.mvvm.attributesetters.adapter.MenuAdapte
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.AttributeSettersViewModel
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback.OnRefreshListener
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.view_drawerlayout.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import java.util.*
@@ -23,7 +25,7 @@ import java.util.*
  * @author liulongchao
  * @since 2017/11/22
  */
-class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, ActivityAttributeSettersBinding>(), OnRefreshListener {
+class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, ActivityAttributeSettersBinding>() {
 
     private lateinit var mDrawerToggle: ActionBarDrawerToggle
     private lateinit var menuAdapter: MenuAdapter
@@ -46,7 +48,6 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
         mDrawerToggle = object : ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.open, R.string.close) {
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
-                viewModel.fetchMenuList(resources.getStringArray(R.array.databinding_nba))
             }
 
             override fun onDrawerClosed(drawerView: View) {
@@ -59,31 +60,28 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
 
         // 菜单
         menuAdapter = MenuAdapter()
-        menuAdapter.setAdapterListener { viewModel.fetchContentList(it) }
+        menuAdapter.setAdapterListener {
+            viewModel.fetchContentList(resources.getStringArray(R.array.databinding_nba), it)
+            drawerLayout.closeDrawer(Gravity.START)
+        }
         menuRecyclerView.adapter = menuAdapter
         menuRecyclerView.layoutManager = LinearLayoutManager(this)
-
-        // 内容
-
 
     }
 
     fun initData() {
         binding.setVariable(BR.attributeSettersViewModel, viewModel)
-    }
-
-    override fun onRefresh() {
-
-    }
-
-    override fun onLoadMore() {
-
+        viewModel.fetchMenuList(resources.getStringArray(R.array.databinding_nba))
     }
 
     override fun update(o: Observable?, arg: Any?) {
         if (o is AttributeSettersViewModel) {
-            menuAdapter.list = o.list
-            menuAdapter.notifyDataSetChanged()
+            "arg: $arg".logD()
+            if (arg == "list"){
+                menuAdapter.list.clear()
+                menuAdapter.list = o.list
+                menuAdapter.notifyDataSetChanged()
+            }
         }
     }
 

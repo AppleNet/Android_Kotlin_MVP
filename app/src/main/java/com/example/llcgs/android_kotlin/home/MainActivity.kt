@@ -59,7 +59,6 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView {
 
         button35.setOnClickListener{
             Router.create("host://mvvm").activityRoute.open(this)
-            finish()
         }
     }
 

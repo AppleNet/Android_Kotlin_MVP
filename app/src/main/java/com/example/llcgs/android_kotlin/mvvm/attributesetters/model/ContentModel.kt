@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.mvvm.attributesetters.model
 
+import android.view.View
+
 /**
  * com.example.llcgs.android_kotlin.mvvm.attributesetters.model.ContentModel
  * @author liulongchao
@@ -7,12 +9,12 @@ package com.example.llcgs.android_kotlin.mvvm.attributesetters.model
  */
 class ContentModel {
 
-    var fullUserName:String = ""
+    var fullUserName:String = "阿内拉·桑格拉"
     var pictureProfile:String = "http://image.xcar.com.cn/attachments/a/day_141104/2014110420_26dd7b67360578690a307HEDnRaLGEXx.jpg"
-    var userName:String = ""
-    var cell:String = ""
-    var email:String = ""
-    var emailVisibility:Int = 0
-    var gender:String = ""
-    var address:String = ""
+    var userName:String = "阿内拉"
+    var cell:String = "13838389438"
+    var email:String = "Anella.Sangra@gmail.com"
+    var emailVisibility:Int = View.VISIBLE
+    var gender:String = "woman"
+    var address:String = "哥伦比亚"
 }
