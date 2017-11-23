@@ -74,13 +74,14 @@ class AttributeSettersViewModel :BaseViewModel() {
         Observable.just(model.title)
                 .delay(2, TimeUnit.SECONDS)
                 .doOnSubscribe{
-                    progress.set(View.VISIBLE)
+                    //progress.set(View.VISIBLE)
                 }
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .flatMap { p0 ->
                     var contentModel:ContentModel? = null
                     array.forEach {
-                        if (it == model.title){
+                        if (it == p0){
                             contentModel = ContentModel()
                             contentModel?.pictureProfile = imageUriMap[it]?:""
                             contentModel?.fullUserName = "NBA Start-" + it
@@ -94,11 +95,14 @@ class AttributeSettersViewModel :BaseViewModel() {
                     }
                     Observable.just(contentModel)
                 }
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    progress.set(View.GONE)
+                    //progress.set(View.GONE)
                     contentModel.set(it)
                 }
+    }
+
+    fun floatActionButtonClickListener(view:View){
+
     }
 
     companion object {

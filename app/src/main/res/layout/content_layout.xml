@@ -236,6 +236,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:src="@drawable/ic_thumb_up_24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
             app:fabSize="normal" />
 
     </android.support.design.widget.CoordinatorLayout>

@@ -61,6 +61,8 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
         // 菜单
         menuAdapter = MenuAdapter()
         menuAdapter.setAdapterListener {
+            val title = it.title
+            "title: $title".logD()
             viewModel.fetchContentList(resources.getStringArray(R.array.databinding_nba), it)
             drawerLayout.closeDrawer(Gravity.START)
         }
