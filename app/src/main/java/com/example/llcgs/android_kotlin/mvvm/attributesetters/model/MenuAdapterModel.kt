@@ -7,5 +7,6 @@ package com.example.llcgs.android_kotlin.mvvm.attributesetters.model
  */
 class MenuAdapterModel {
 
+    var id: Int = 0
     var title: String = ""
 }

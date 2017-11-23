@@ -12,7 +12,7 @@ import com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.MenuAdap
  * @author liulongchao
  * @since 2017/11/22
  */
-class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>() {
+class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>(), (MenuAdapterModel) -> Unit {
 
     var list = ArrayList<MenuAdapterModel>()
 
@@ -21,12 +21,12 @@ class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>() {
 
     override fun onBindViewHolder(holder: MenuAdapterHolder?, position: Int) {
         holder?.bindData(list[position])
+        holder?.binding?.menuAdapterViewModel?.setListener(this)
     }
 
     override fun getItemCount(): Int = list.size
 
-
-    class MenuAdapterHolder(private val binding:ViewMenuAdapterItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class MenuAdapterHolder(val binding:ViewMenuAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindData(model: MenuAdapterModel){
             if (binding.menuAdapterViewModel== null){
@@ -35,5 +35,17 @@ class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>() {
                 binding.menuAdapterViewModel.model = model
             }
         }
+    }
+
+    override fun invoke(model: MenuAdapterModel) {
+        listener?.let {
+            it(model)
+        }
+    }
+
+    private var listener: ((model: MenuAdapterModel) -> Unit)? = null
+
+    fun setAdapterListener(listener: ((model: MenuAdapterModel) -> Unit)){
+        this.listener = listener
     }
 }

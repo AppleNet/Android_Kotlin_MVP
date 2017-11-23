@@ -15,26 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="@{attributeSettersViewModel.progress}"
+            tools:visibility="gone"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/white">
 
-            <com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.RefreshLayout
-                android:id="@+id/refreshLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/contentRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:scrollbars="vertical"
-                    tools:listitem="@layout/view_advanced_binding_item"/>
-
-            </com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.RefreshLayout>
+            <include layout="@layout/content_layout"
+                bind:attributeSettersViewModel="@{attributeSettersViewModel}"/>
 
         </LinearLayout>
 

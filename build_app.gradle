@@ -17,6 +17,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     //implementation libs.appcompat_v7
     implementation libs.constraint_layout
+    implementation libs.cardview_v7
     implementation libs.rxbinding2
     implementation libs.rxbinding_support_v4
     implementation libs.rxbinding_appcompat_v7
