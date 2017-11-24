@@ -7,6 +7,7 @@ import com.example.llcgs.android_kotlin.mvvm.attributesetters.AttributeSettersAc
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.collections.CollectionsActivity
 import com.example.llcgs.android_kotlin.mvvm.commfeatures.CommonFeaturesActivity
+import com.example.llcgs.android_kotlin.mvvm.converters.ConvertersActivity
 import com.example.llcgs.android_kotlin.mvvm.generatedbinding.GeneratedBindingActivity
 import com.example.llcgs.android_kotlin.mvvm.includes.IncludesActivity
 import com.example.llcgs.android_kotlin.mvvm.layoutdetails.CustomBindingClassNameActivity
@@ -79,6 +80,9 @@ class MenuItemViewModel:BaseViewModel() {
             }
             "attributeSetters" ->{
                 view.context.startActivity(Intent(view.context, AttributeSettersActivity::class.java))
+            }
+            "converters" ->{
+                view.context.startActivity(Intent(view.context, ConvertersActivity::class.java))
             }
             "show" ->{
                 view.context.startActivity(Intent(view.context, PhotoShowActivity::class.java).apply {
