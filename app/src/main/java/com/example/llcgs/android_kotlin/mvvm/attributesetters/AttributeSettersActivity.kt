@@ -12,6 +12,7 @@ import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityAttributeSettersBinding
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.adapter.MenuAdapter
+import com.example.llcgs.android_kotlin.mvvm.attributesetters.model.MenuAdapterModel
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.AttributeSettersViewModel
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback.OnRefreshListener
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
@@ -29,6 +30,7 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
 
     private lateinit var mDrawerToggle: ActionBarDrawerToggle
     private lateinit var menuAdapter: MenuAdapter
+    private val array by lazy { resources.getStringArray(R.array.databinding_nba) }
 
     override fun createViewModel() = AttributeSettersViewModel()
 
@@ -45,15 +47,7 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
         toolBar.setTitleTextColor(Color.parseColor("#ffffff")) //设置标题颜色
         setSupportActionBar(toolBar)
         // DrawerLayout Listener
-        mDrawerToggle = object : ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.open, R.string.close) {
-            override fun onDrawerOpened(drawerView: View) {
-                super.onDrawerOpened(drawerView)
-            }
-
-            override fun onDrawerClosed(drawerView: View) {
-                super.onDrawerClosed(drawerView)
-            }
-        }
+        mDrawerToggle = object : ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.open, R.string.close){}
         mDrawerToggle.syncState()
         drawerLayout.addDrawerListener(mDrawerToggle)
         drawerLayout.right = 200
@@ -61,9 +55,7 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
         // 菜单
         menuAdapter = MenuAdapter()
         menuAdapter.setAdapterListener {
-            val title = it.title
-            "title: $title".logD()
-            viewModel.fetchContentList(resources.getStringArray(R.array.databinding_nba), it)
+            viewModel.fetchContentList(array, it)
             drawerLayout.closeDrawer(Gravity.START)
         }
         menuRecyclerView.adapter = menuAdapter
@@ -73,14 +65,14 @@ class AttributeSettersActivity : BaseActivity<AttributeSettersViewModel, Activit
 
     fun initData() {
         binding.setVariable(BR.attributeSettersViewModel, viewModel)
-        viewModel.fetchMenuList(resources.getStringArray(R.array.databinding_nba))
+        viewModel.fetchMenuList(array)
     }
 
     override fun update(o: Observable?, arg: Any?) {
+        (o is AttributeSettersViewModel).logD()
         if (o is AttributeSettersViewModel) {
             "arg: $arg".logD()
             if (arg == "list"){
-                menuAdapter.list.clear()
                 menuAdapter.list = o.list
                 menuAdapter.notifyDataSetChanged()
             }

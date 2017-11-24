@@ -48,4 +48,6 @@ class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>(), (MenuA
     fun setAdapterListener(listener: ((model: MenuAdapterModel) -> Unit)){
         this.listener = listener
     }
+
+
 }
