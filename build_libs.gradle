@@ -39,6 +39,8 @@ ext {
             mvvmLightVersion  : "1.0.0",
             okhttp3           : "3.8.0",
             matisse           : "0.5.0-alpha4",
+            googleLifeCycle   : "1.0.3",
+            googleLifeCycleJava : "1.0.0",
     ]
     libs = [
             junit                : "junit:junit:4.12",
@@ -111,7 +113,10 @@ ext {
             parceler             : "org.lzh.compiler.parceler:parceler-api:${versions.parceler_version}",
             update_plugin        : "org.lzh.nonview.updateplugin:UpdatePlugin:${versions.updateplugin_version}",
             circleImageView      : "de.hdodenhof:circleimageview:${versions.circleImageVersion}",
-            mvvmLight            : "com.kelin.mvvmlight:library:${versions.mvvmLightVersion}"
+            mvvmLight            : "com.kelin.mvvmlight:library:${versions.mvvmLightVersion}",
+
+            googleLifeCycle      : "android.arch.lifecycle:runtime:${versions.googleLifeCycle}",
+            googleLifeCycleJava  : "android.arch.lifecycle:common-java8:${versions.googleLifeCycleJava}"
     ]
 
 }

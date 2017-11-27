@@ -91,4 +91,12 @@
         <item>Allen</item>
     </string-array>
 
+    <string-array name="main_menu">
+        <item>登录</item>
+        <item>插件路由</item>
+        <item>插件列表</item>
+        <item>MVVM</item>
+        <item>Architecture</item>
+    </string-array>
+
 </resources>

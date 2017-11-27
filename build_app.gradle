@@ -39,6 +39,12 @@ dependencies {
     implementation libs.retrofit2_adapter
     implementation libs.multidex
 
+    // googleLifeCycle
+    implementation libs.googleLifeCycleJava
+    implementation libs.googleLifeCycle
+    // not needed if you are using the DefaultLifecycleObserver from common-java8 artifact
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+
     // RouterHost
     implementation libs.router_host
     annotationProcessor "com.github.yjfnypeu.Router:router-compiler:$router_version"

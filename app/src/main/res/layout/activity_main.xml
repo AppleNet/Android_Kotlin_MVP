@@ -14,51 +14,33 @@
 
     <EditText
         android:id="@+id/editText"
+        android:labelFor="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="McGrady" />
+        android:text="@string/editText" />
 
     <EditText
         android:id="@+id/editText2"
+        android:labelFor="@id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="123456" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"
-        android:text="登录" />
-
-    <Button
-        android:id="@+id/button30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="插件路由" />
+        android:text="@string/editText2" />
 
 
-    <Button
-        android:id="@+id/button31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="插件列表" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"/>
 
-    <Button
-        android:id="@+id/button35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="MVVM" />
 </LinearLayout>

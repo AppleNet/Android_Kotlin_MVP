@@ -109,6 +109,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".mvvm.converters.ConvertersActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architechure_components.lifecycle.LifeCycleActivity" />
 
         <!--<activity-->
             <!--android:name=".mvvm.attributesetters.Main2Activity"-->
