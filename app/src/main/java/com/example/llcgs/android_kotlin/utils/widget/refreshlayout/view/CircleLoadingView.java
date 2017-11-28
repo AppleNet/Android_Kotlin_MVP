@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.view;
+package com.example.llcgs.android_kotlin.utils.widget.refreshlayout.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -27,7 +27,6 @@ import android.graphics.drawable.shapes.OvalShape;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.view.animation.Animation;
-import android.widget.ImageView;
 
 /**
  * Private class created to work around issues with AnimationListeners being

@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.utils
+package com.example.llcgs.android_kotlin.utils.itemdecoration
 
 import android.graphics.Canvas
 import android.graphics.Color
@@ -11,7 +11,6 @@ import android.support.v7.widget.OrientationHelper
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
-
 
 
 /**

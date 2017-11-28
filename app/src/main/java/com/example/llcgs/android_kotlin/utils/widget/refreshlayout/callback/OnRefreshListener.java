@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback;
+package com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback;
 
 /**
  * 作者：Alex

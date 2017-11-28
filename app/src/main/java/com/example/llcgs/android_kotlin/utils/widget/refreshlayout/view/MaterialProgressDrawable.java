@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.view;
+package com.example.llcgs.android_kotlin.utils.widget.refreshlayout.view;
 
 import android.content.Context;
 import android.content.res.Resources;

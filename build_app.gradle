@@ -47,6 +47,15 @@ dependencies {
     // not needed if you are using the DefaultLifecycleObserver from common-java8 artifact
     // annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
 
+    /* LiveData */
+    implementation (libs.googleLiveData){
+        exclude module: 'common'
+    }
+    //To use LiveData with ReactiveStreams API
+    implementation (libs.googleLiveDataReactiveStreams){
+        exclude module: 'common'
+    }
+
     // RouterHost
     implementation libs.router_host
     annotationProcessor "com.github.yjfnypeu.Router:router-compiler:$router_version"

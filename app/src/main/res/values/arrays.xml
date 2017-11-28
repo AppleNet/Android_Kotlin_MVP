@@ -91,6 +91,24 @@
         <item>Allen</item>
     </string-array>
 
+    <string-array name="architecture">
+        <item>lifecycle</item>
+        <item>liveData</item>
+        <item>viewModel</item>
+        <item>Room</item>
+        <item>Android</item>
+        <item>Java</item>
+        <item>PHP</item>
+        <item>iOS</item>
+        <item>OC</item>
+        <item>C</item>
+        <item>C++</item>
+        <item>C#</item>
+        <item>Python</item>
+        <item>Html</item>
+        <item>JavaEE</item>
+    </string-array>
+
     <string-array name="main_menu">
         <item>登录</item>
         <item>插件路由</item>

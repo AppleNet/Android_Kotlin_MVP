@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout;
+package com.example.llcgs.android_kotlin.utils.widget.refreshlayout;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -28,10 +28,10 @@ import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.TextView;
 
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback.OnFootViewChangerListener;
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback.OnRefreshListener;
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.view.CircleLoadingView;
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.view.MaterialProgressDrawable;
+import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback.OnFootViewChangerListener;
+import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback.OnRefreshListener;
+import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.view.CircleLoadingView;
+import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.view.MaterialProgressDrawable;
 
 @SuppressWarnings("all")
 public class RefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
@@ -85,7 +85,7 @@ public class RefreshLayout extends ViewGroup implements NestedScrollingParent, N
     /**
      * 可以加载更多 设置为false之后，滑动到底部也不会响应loadMore
      */
-    protected boolean loadMoreEnable;
+    protected boolean loadMoreEnable = false;
     protected boolean refreshEnable;
     /**
      * 正在 执行 加载更多中

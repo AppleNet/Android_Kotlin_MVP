@@ -1,7 +1,6 @@
 package com.example.llcgs.android_kotlin.home
 
 import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -20,7 +19,7 @@ import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresenter
 import com.example.llcgs.android_kotlin.home.view.LoginView
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.SecondActivity
-import com.example.llcgs.android_kotlin.utils.CustomerDecoration
+import com.example.llcgs.android_kotlin.utils.itemdecoration.CustomerDecoration
 import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule

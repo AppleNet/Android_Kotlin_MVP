@@ -1,13 +1,10 @@
-package com.example.llcgs.android_kotlin.utils;
+package com.example.llcgs.android_kotlin.utils.itemdecoration;
 
-import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.utils;
+package com.example.llcgs.android_kotlin.utils.itemdecoration;
 
 import android.support.annotation.IntDef;
 

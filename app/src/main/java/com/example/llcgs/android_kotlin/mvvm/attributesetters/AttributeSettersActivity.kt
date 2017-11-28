@@ -6,15 +6,11 @@ import android.os.Bundle
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
-import android.view.View
-import android.view.WindowManager
 import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityAttributeSettersBinding
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.adapter.MenuAdapter
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.model.MenuAdapterModel
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.AttributeSettersViewModel
-import com.example.llcgs.android_kotlin.mvvm.attributesetters.widget.refreshlayout.callback.OnRefreshListener
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.view_drawerlayout.*
