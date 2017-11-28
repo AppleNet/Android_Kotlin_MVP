@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.home.presenter
 
+import android.content.Context
 import com.example.llcgs.android_kotlin.home.bean.User
 
 /**
@@ -12,5 +13,4 @@ import com.example.llcgs.android_kotlin.home.bean.User
 interface ILoginPresenter {
 
     fun doLogin(user : User)
-
 }

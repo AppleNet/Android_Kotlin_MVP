@@ -1,6 +1,6 @@
 package com.example.llcgs.android_kotlin.base.router.creator
 
-import com.example.llcgs.android_kotlin.architechure_components.lifecycle.LifeCycleActivity
+import com.example.llcgs.android_kotlin.architecture_components.lifecycle.LifeCycleActivity
 import com.example.llcgs.android_kotlin.base.router.action.HostAction
 import com.example.llcgs.android_kotlin.base.router.action.UninstallAction
 import com.example.llcgs.android_kotlin.home.MainActivity

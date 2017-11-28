@@ -7,13 +7,13 @@ import com.example.llcgs.android_kotlin.home.presenter.ILoginPresenter
 import com.example.llcgs.android_kotlin.home.view.LoginView
 
 /**
- * LoginPresneter
+ * LoginPresenter
  * @author liulongchao
  * @since 2017/5/18
  */
 
 
-class LoginPresneter(loginView : LoginView) : BasePresenter<LoginView>(), ILoginPresenter {
+class LoginPresenter(loginView : LoginView) : BasePresenter<LoginView>(), ILoginPresenter {
 
     var loginView: LoginView = loginView
 
@@ -25,4 +25,5 @@ class LoginPresneter(loginView : LoginView) : BasePresenter<LoginView>(), ILogin
         }
 
     }
+
 }

@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.home
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -10,17 +11,16 @@ import android.support.annotation.RequiresApi
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import android.view.WindowManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.home.adapter.MainAdapter
 import com.example.llcgs.android_kotlin.home.bean.User
-import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresneter
+import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresenter
 import com.example.llcgs.android_kotlin.home.view.LoginView
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.SecondActivity
 import com.example.llcgs.android_kotlin.utils.CustomerDecoration
-import com.example.llcgs.android_kotlin.utils.SimpleItemDecoration
 import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule
@@ -31,12 +31,13 @@ import java.io.File
 
 // 因为指定了baseUrl。 所以这里会使用baseUrl做组合。
 @RouterRule("main")
-class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView, (String) -> Unit {
+class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (String) -> Unit {
 
     private lateinit var adapter:MainAdapter
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         hello.text = "Welcome to Kotlin!"
@@ -147,9 +148,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresneter>(), LoginView, (Stri
     override fun doLoginFail() {
     }
 
-    override fun createPresenter(): LoginPresneter = LoginPresneter(this)
+    override fun createPresenter(): LoginPresenter = LoginPresenter(this)
 
-    private inline fun <reified T : AppCompatActivity> Activity.startTo(id : String){
+    private inline fun <reified T : AppCompatActivity> Context.startTo(id : String){
         val name = editText.text.toString()
         val pwd = editText2.text.toString()
         val user = User(name, pwd)

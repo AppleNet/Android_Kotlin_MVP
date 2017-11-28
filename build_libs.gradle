@@ -39,8 +39,10 @@ ext {
             mvvmLightVersion  : "1.0.0",
             okhttp3           : "3.8.0",
             matisse           : "0.5.0-alpha4",
+
             googleLifeCycle   : "1.0.3",
             googleLifeCycleJava : "1.0.0",
+            googleLifeCycleExtensions : "1.0.0",
     ]
     libs = [
             junit                : "junit:junit:4.12",
@@ -116,7 +118,8 @@ ext {
             mvvmLight            : "com.kelin.mvvmlight:library:${versions.mvvmLightVersion}",
 
             googleLifeCycle      : "android.arch.lifecycle:runtime:${versions.googleLifeCycle}",
-            googleLifeCycleJava  : "android.arch.lifecycle:common-java8:${versions.googleLifeCycleJava}"
+            googleLifeCycleJava  : "android.arch.lifecycle:common-java8:${versions.googleLifeCycleJava}",
+            googleLifeCycleExtensions: "android.arch.lifecycle:extensions:${versions.googleLifeCycleExtensions}"
     ]
 
 }

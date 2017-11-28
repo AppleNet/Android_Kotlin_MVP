@@ -93,7 +93,7 @@ public class CustomerDecoration extends RecyclerView.ItemDecoration {
     }
 
 
-    public static class Builder{
+    public static class Builder implements CommonBuilder{
 
         private int mOrientation = LinearLayout.HORIZONTAL;
         private int mTop = 0;
@@ -118,6 +118,31 @@ public class CustomerDecoration extends RecyclerView.ItemDecoration {
             return BuilderHolder.instance;
         }
 
+        @Override
+        public Builder left(int left) {
+            this.mLeft = left;
+            return this;
+        }
+
+        @Override
+        public Builder top(int top) {
+            this.mTop = top;
+            return this;
+        }
+
+        @Override
+        public Builder right(int right) {
+            this.mRight = right;
+            return this;
+        }
+
+        @Override
+        public Builder bottom(int bottom) {
+            this.mDividerHeight = bottom;
+            return this;
+        }
+
+        @Override
         public Builder orientation(int orientation){
             if (orientation != LinearLayoutManager.VERTICAL && orientation != LinearLayoutManager.HORIZONTAL) {
                 throw new IllegalArgumentException("请输入正确的参数！");
@@ -126,32 +151,14 @@ public class CustomerDecoration extends RecyclerView.ItemDecoration {
             return this;
         }
 
-        public Builder left(int left){
-            this.mLeft = left;
-            return this;
-        }
-
-        public Builder top(int top){
-            this.mTop = top;
-            return this;
-        }
-
-        public Builder right(int right){
-            this.mRight = right;
-            return this;
-        }
-
-        public Builder bottom(int dividerHeight){
-            this.mDividerHeight = dividerHeight;
-            return this;
-        }
-
-        public Builder divider(Drawable divider){
+        @Override
+        public Builder divider(Drawable divider) {
             this.mDivider = (GradientDrawable) divider;
             return this;
         }
 
-        public Builder color(int dividerColor){
+        @Override
+        public Builder color(int dividerColor) {
             this.mDividerColor = dividerColor;
             mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
             mPaint.setColor(mDividerColor);
@@ -159,10 +166,22 @@ public class CustomerDecoration extends RecyclerView.ItemDecoration {
             return this;
         }
 
-        public CustomerDecoration build(){
+        @Override
+        public CustomerDecoration build() {
             return customerDecoration;
         }
 
+    }
+
+    interface CommonBuilder{
+        Builder left(int left);
+        Builder top(int top);
+        Builder right(int right);
+        Builder bottom(int bottom);
+        Builder orientation(int orientation);
+        Builder divider(Drawable divider);
+        Builder color(int dividerColor);
+        CustomerDecoration build();
     }
 
 

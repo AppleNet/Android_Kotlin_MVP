@@ -39,11 +39,13 @@ dependencies {
     implementation libs.retrofit2_adapter
     implementation libs.multidex
 
+    /*  现在 Support Library 26.1+ 已经集成了这个生命周期组件,不需要再手动引入了 */
     // googleLifeCycle
-    implementation libs.googleLifeCycleJava
-    implementation libs.googleLifeCycle
+    // implementation libs.googleLifeCycleJava
+    // implementation libs.googleLifeCycle
+    // implementation libs.googleLifeCycleExtensions
     // not needed if you are using the DefaultLifecycleObserver from common-java8 artifact
-    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    // annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
 
     // RouterHost
     implementation libs.router_host
