@@ -1,26 +1,30 @@
-package com.example.llcgs.android_kotlin.architecture_components.livedata
+package com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
-import com.example.llcgs.android_kotlin.architecture_components.livedata.adapter.LiveDataAdapter
+import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.adapter.LiveDataAdapter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.bean.LiveDataBean
-import com.example.llcgs.android_kotlin.architecture_components.livedata.presenter.ILiveDataPresenter
-import com.example.llcgs.android_kotlin.architecture_components.livedata.presenter.impl.LiveDataPresenter
-import com.example.llcgs.android_kotlin.architecture_components.livedata.view.LiveDataView
+import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.ExtendLiveDataActivity
+import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.presenter.ILiveDataPresenter
+import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.presenter.impl.LiveDataPresenter
+import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.view.LiveDataView
 import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback.OnRefreshListener
 import kotlinx.android.synthetic.main.activity_livedata.*
 import kotlinx.android.synthetic.main.view_title.*
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.livedata.LiveDataActivity
+ * com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.LiveDataActivity
  * @author liulongchao
  * @since 2017/11/28
  */
-class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, Observer<List<LiveDataBean>>, OnRefreshListener {
+class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, Observer<List<LiveDataBean>>, OnRefreshListener, BaseQuickAdapter.OnItemClickListener {
 
     private var mutableList = MutableLiveData<List<LiveDataBean>>()
     private lateinit var adapter: LiveDataAdapter
@@ -44,6 +48,8 @@ class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, 
         recyclerView.setHasFixedSize(true)
         refreshLayout.setOnRefreshListener(this)
         refreshLayout.loadMoreEnable = false
+
+        adapter.setOnItemClickListener(this)
     }
 
     private fun initData() {
@@ -92,6 +98,7 @@ class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, 
             }
             else ->{
                 array = resources.getStringArray(R.array.architecture)
+                currentIndex = 0
             }
         }
         mPresenter.fetchList(array?: Array(1){""})
@@ -100,6 +107,10 @@ class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, 
 
     override fun onLoadMore() {
 
+    }
+
+    override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+        startActivity(Intent(this@LiveDataActivity, ExtendLiveDataActivity::class.java))
     }
 
 }

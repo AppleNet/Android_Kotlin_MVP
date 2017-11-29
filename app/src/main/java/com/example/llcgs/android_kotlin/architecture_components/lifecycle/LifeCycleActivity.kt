@@ -2,7 +2,6 @@ package com.example.llcgs.android_kotlin.architecture_components.lifecycle
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
@@ -10,7 +9,7 @@ import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerAc
 import com.example.llcgs.android_kotlin.architecture_components.lifecycle.bean.Login
 import com.example.llcgs.android_kotlin.architecture_components.lifecycle.presenter.impl.LifeCyclePresenter
 import com.example.llcgs.android_kotlin.architecture_components.lifecycle.view.LifeCycleView
-import com.example.llcgs.android_kotlin.architecture_components.livedata.LiveDataActivity
+import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.LiveDataActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_lifecycle.*
 import kotlinx.android.synthetic.main.view_title.*

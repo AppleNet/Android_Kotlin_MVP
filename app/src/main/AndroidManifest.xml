@@ -111,7 +111,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.lifecycle.LifeCycleActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".architecture_components.livedata.LiveDataActivity"
+        <activity android:name=".architecture_components.livedata.use_livedata.LiveDataActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.livedata.extend_livedata.ExtendLiveDataActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <!--<activity-->

@@ -97,9 +97,6 @@ class LifeCycleRx<T> private constructor(private val mLifecycleOwner: LifecycleO
     }
 
     private fun considerNotify() {
-        mActive.logD()
-        mLifecycleOwner.lifecycle.currentState.logD()
-        isActiveState(mLifecycleOwner.lifecycle.currentState).logD()
         if (mActive) {
             if (isActiveState(mLifecycleOwner.lifecycle.currentState)) {
                 if (mLastVersion < mVersion) {

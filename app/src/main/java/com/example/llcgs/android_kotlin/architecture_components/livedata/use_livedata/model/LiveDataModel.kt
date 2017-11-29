@@ -1,11 +1,11 @@
-package com.example.llcgs.android_kotlin.architecture_components.livedata.model
+package com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.model
 
 import com.example.llcgs.android_kotlin.architecture_components.base.model.BaseArchModel
 import com.example.llcgs.android_kotlin.architecture_components.livedata.bean.LiveDataBean
 import io.reactivex.Observable
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.livedata.model.LiveDataModel
+ * com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.LiveDataModel
  * @author liulongchao
  * @since 2017/11/28
  */

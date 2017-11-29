@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.architecture_components.livedata.adapter
+package com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -6,7 +6,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.livedata.bean.LiveDataBean
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.livedata.adapter.LiveDataAdapter
+ * com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.LiveDataAdapter
  * @author liulongchao
  * @since 2017/11/28
  */

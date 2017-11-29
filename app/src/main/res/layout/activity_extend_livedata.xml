@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/view_title"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/merchant_select_1px"
+        android:background="@color/BDBDBD"/>
+
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:max="60"
+        android:progress="0"
+        android:layout_marginTop="10dp"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:textColor="@color/basic_text"
+        android:textSize="@dimen/textsize_16"
+        android:layout_marginTop="5dp"
+        android:text="start"/>
+</LinearLayout>
