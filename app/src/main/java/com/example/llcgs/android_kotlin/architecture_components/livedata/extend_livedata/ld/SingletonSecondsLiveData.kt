@@ -7,7 +7,7 @@ import android.arch.lifecycle.LiveData
  * @author liulongchao
  * @since 2017/11/29
  */
-class SecondsLiveData() : LiveData<Long>() {
+object SingletonSecondsLiveData : LiveData<Long>() {
 
     private var onGetSeconds: OnGetSeconds? = null
 

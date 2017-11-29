@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.ld.SecondsLiveData
+import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.ld.SingletonSecondsLiveData
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.presenter.IExtendLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.presenter.impl.ExtendLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.view.ExtendLiveDataView
@@ -52,8 +53,10 @@ class ExtendLiveDataActivity : BaseOwnerActivity<IExtendLiveDataPresenter>(), Ex
     }
 
     private fun initData() {
-        sLiveData = SecondsLiveData(0)
+        sLiveData = SecondsLiveData()
         sLiveData.observe(this, this)
+
+        // SingletonSecondsLiveData.observe(this, Observer<Long> { t -> SingletonSecondsLiveData.postSecond(t?:0) })
     }
 
     override fun onGetSeconds(mLong: Long) {
