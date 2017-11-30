@@ -72,10 +72,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
 
     override fun invoke(string: String) {
         when(string){
-            "登录" ->{
+            "Kotlin" ->{
                 startTo<SecondActivity>("hello kotlin")
             }
-            "插件路由" ->{
+            "Router" ->{
                 val name = editText.text.toString()
                 val pwd = editText2.text.toString()
                 val user = User(name, pwd)
@@ -84,7 +84,7 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 bundle.putParcelable("user",user)
                 Router.create("host://plugin").activityRoute.addExtras(bundle).open(this)
             }
-            "插件列表" ->{
+            "Router List" ->{
                 Router.create("host://listPlugin").activityRoute.open(this)
             }
             "MVVM" ->{

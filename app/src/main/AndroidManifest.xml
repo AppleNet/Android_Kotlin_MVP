@@ -115,11 +115,11 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.livedata.extend_livedata.ExtendLiveDataActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.livedata.transform_livedata.TransformLiveDataActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.menu.MenuArchActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
-        <!--<activity-->
-            <!--android:name=".mvvm.attributesetters.Main2Activity"-->
-            <!--android:label="@string/title_activity_main2"-->
-            <!--android:theme="@style/AppTheme.NoActionBar"/>-->
     </application>
 
 </manifest>

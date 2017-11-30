@@ -110,11 +110,21 @@
     </string-array>
 
     <string-array name="main_menu">
-        <item>登录</item>
-        <item>插件路由</item>
-        <item>插件列表</item>
+        <item>Kotlin</item>
+        <item>Router</item>
+        <item>Router List</item>
         <item>MVVM</item>
         <item>Architecture</item>
+        <item>Material Design</item>
+    </string-array>
+
+    <string-array name="arch_menu">
+        <item>lifeCycle</item>
+        <item>UseLiveData</item>
+        <item>ExtendLiveData</item>
+        <item>TransformLiveData</item>
+        <item>ViewModel</item>
+        <item>Room</item>
     </string-array>
 
 </resources>

@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.view_title.*
  * @author liulongchao
  * @since 2017/11/27
  */
-@RouterRule("Architecture")
 class LifeCycleActivity : BaseOwnerActivity<LifeCyclePresenter>(), LifeCycleView, View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {

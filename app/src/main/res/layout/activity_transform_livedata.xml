@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include
+        layout="@layout/view_title"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/merchant_select_1px"
+        android:background="@color/BDBDBD"/>
+
+    <TextSwitcher
+        android:id="@+id/textSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:inAnimation="@anim/slide_in_up"
+        android:outAnimation="@anim/slide_in_up"
+        android:background="@color/common_bg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/merchant_select_1px"
+        android:background="@color/BDBDBD"/>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp"
+        android:layout_gravity="end"
+        android:textColor="@color/basic_text"
+        android:textSize="@dimen/textsize_18"
+        android:text="start"/>
+
+</LinearLayout>

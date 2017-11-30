@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.base.router.creator
 
 import com.example.llcgs.android_kotlin.architecture_components.lifecycle.LifeCycleActivity
+import com.example.llcgs.android_kotlin.architecture_components.menu.MenuArchActivity
 import com.example.llcgs.android_kotlin.base.router.action.HostAction
 import com.example.llcgs.android_kotlin.base.router.action.UninstallAction
 import com.example.llcgs.android_kotlin.home.MainActivity
@@ -23,7 +24,7 @@ class RouterRuleCreator : RouteCreator {
         routes.put("host://list", ActivityRouteRule(MyListActivity::class.java))
         routes.put("host://listPlugin", ActivityRouteRule(PluginListActivity::class.java))
         routes.put("host://mvvm", ActivityRouteRule(MvvmActivity::class.java))
-        routes.put("host://Architecture", ActivityRouteRule(LifeCycleActivity::class.java))
+        routes.put("host://Architecture", ActivityRouteRule(MenuArchActivity::class.java))
         return routes
     }
 
