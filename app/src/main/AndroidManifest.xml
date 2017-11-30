@@ -119,6 +119,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.menu.MenuArchActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.viewmodel.ViewModelActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 

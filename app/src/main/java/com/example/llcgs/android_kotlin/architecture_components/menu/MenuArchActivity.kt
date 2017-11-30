@@ -14,6 +14,7 @@ import com.example.llcgs.android_kotlin.architecture_components.livedata.use_liv
 import com.example.llcgs.android_kotlin.architecture_components.menu.adapter.MenuArchAdapter
 import com.example.llcgs.android_kotlin.architecture_components.menu.presenter.IMenuArchPresenter
 import com.example.llcgs.android_kotlin.architecture_components.menu.presenter.impl.MenuArchPresenter
+import com.example.llcgs.android_kotlin.architecture_components.viewmodel.ViewModelActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_menu_arch.*
 import kotlinx.android.synthetic.main.view_title.*
@@ -62,7 +63,7 @@ class MenuArchActivity : BaseOwnerActivity<IMenuArchPresenter>(), BaseQuickAdapt
                 startActivity(Intent(this@MenuArchActivity, TransformLiveDataActivity::class.java))
             }
             4 ->{
-
+                startActivity(Intent(this@MenuArchActivity, ViewModelActivity::class.java))
             }
             5 ->{
 
