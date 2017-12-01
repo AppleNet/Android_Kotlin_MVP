@@ -26,7 +26,7 @@ import io.reactivex.subjects.BehaviorSubject
 abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), BaseView, LifecycleProvider<LifeCycleEvent> {
 
     protected lateinit var mPresenter: P
-    private lateinit var compositeDisposable: CompositeDisposable
+    private var compositeDisposable: CompositeDisposable? = null
     private val lifecycleSubject: BehaviorSubject<LifeCycleEvent> = BehaviorSubject.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,8 +38,10 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
     abstract fun createPresenter(): P
 
     override fun addDisposable(disposable: Disposable) {
-        compositeDisposable = CompositeDisposable()
-        compositeDisposable.add(disposable)
+        if (compositeDisposable == null){
+            compositeDisposable = CompositeDisposable()
+        }
+        compositeDisposable?.add(disposable)
     }
 
     override fun onStart() {
@@ -64,7 +66,9 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
 
     override fun onDestroy() {
         lifecycleSubject.onNext(ActivityLifeCycleEvent.DESTROY)
-        compositeDisposable.clear()
+        if (compositeDisposable != null){
+            compositeDisposable?.clear()
+        }
         super.onDestroy()
     }
 

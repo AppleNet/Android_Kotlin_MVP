@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel
 
 import android.app.Fragment
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -14,6 +15,7 @@ import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_
 import com.example.llcgs.android_kotlin.base.fragment.BaseFragment
 import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
 import com.example.llcgs.android_kotlin.base.presenter.SuperPresenter
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_share_view_model.*
 import kotlinx.android.synthetic.main.view_title.*
 
@@ -25,7 +27,10 @@ import kotlinx.android.synthetic.main.view_title.*
 class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPageChangeListener {
 
     private lateinit var adapter: ShareAdapter<BaseFragment<SuperPresenter>>
-    private var fragments = arrayListOf(MasterFragment(), DetailFragment(), MineFragment())
+    private lateinit var fragments: ArrayList<BaseFragment<SuperPresenter>>
+    private val masterFragment = MasterFragment()
+    private val detailFragment = DetailFragment()
+    private val mineFragment = MineFragment()
 
     override fun createPresenter(): ShareViewModel= ViewModelProviders.of(this).get(ShareViewModel::class.java)
 
@@ -37,10 +42,9 @@ class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPa
         initData()
     }
 
-
     private fun initViews(){
         pluginTitleTV.text = "ShareViewModel"
-
+        fragments = arrayListOf(masterFragment, detailFragment, mineFragment)
         adapter = ShareAdapter(supportFragmentManager, fragments)
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 0
@@ -65,6 +69,7 @@ class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPa
     }
 
     override fun onPageSelected(position: Int) {
+        position.logD()
         when(position){
             0 ->{
                 // master

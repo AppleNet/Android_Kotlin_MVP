@@ -26,10 +26,11 @@ import io.reactivex.subjects.BehaviorSubject
  */
 abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, LifecycleProvider<LifeCycleEvent> {
 
-    private lateinit var compositeDisposable: CompositeDisposable
+    private var compositeDisposable: CompositeDisposable? = null
     private val lifecycleSubject: BehaviorSubject<LifeCycleEvent> = BehaviorSubject.create()
     protected lateinit var mPresenter: P
-    protected var mRootView: View? = null
+    private var mRootView: View? = null
+    private var firstInflate = true
 
     override fun onAttach(context: Context?) {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.ATTACH)
@@ -61,8 +62,11 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.CREATE_VIEW)
-        initViews()
-        initData()
+        if (firstInflate){
+            initViews()
+            initData()
+            firstInflate = false
+        }
     }
 
     abstract fun initViews()
@@ -97,7 +101,9 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     override fun onDestroy() {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.DESTROY)
-        compositeDisposable.clear()
+        if (compositeDisposable != null){
+            compositeDisposable?.clear()
+        }
         super.onDestroy()
     }
 
@@ -107,8 +113,10 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
     }
 
     override fun addDisposable(disposable: Disposable) {
-        compositeDisposable = CompositeDisposable()
-        compositeDisposable.add(disposable)
+        if (compositeDisposable == null){
+            compositeDisposable = CompositeDisposable()
+        }
+        compositeDisposable?.add(disposable)
     }
 
     override fun showLoadingDialog() {
