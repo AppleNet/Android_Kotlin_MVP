@@ -1,6 +1,5 @@
 package com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel.fragments
 
-import android.support.v4.app.Fragment
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.fragment.BaseFragment
 import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
