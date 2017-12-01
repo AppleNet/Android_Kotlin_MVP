@@ -119,7 +119,9 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.menu.MenuArchActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".architecture_components.viewmodel.ViewModelActivity"
+        <activity android:name=".architecture_components.viewmodel.use_viewmodel.ViewModelActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.viewmodel.share_viewmodel.ShareViewModelActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

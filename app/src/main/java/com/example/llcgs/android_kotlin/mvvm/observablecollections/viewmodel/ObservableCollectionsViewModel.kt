@@ -1,7 +1,7 @@
 package com.example.llcgs.android_kotlin.mvvm.observablecollections.viewmodel
 
 import android.view.View
-import com.example.llcgs.android_kotlin.mvvm.base.ActivityLifeCycleEvent
+import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.observablecollections.view.ObservableCollectionsView
 import io.reactivex.Observable

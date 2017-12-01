@@ -124,6 +124,7 @@
         <item>ExtendLiveData</item>
         <item>TransformLiveData</item>
         <item>ViewModel</item>
+        <item>ShareViewModel</item>
         <item>Room</item>
     </string-array>
 

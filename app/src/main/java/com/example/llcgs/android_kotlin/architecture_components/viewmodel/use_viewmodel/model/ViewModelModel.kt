@@ -4,7 +4,7 @@ import com.example.llcgs.android_kotlin.architecture_components.base.model.BaseA
 import io.reactivex.Observable
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.viewmodel.model.ViewModelModel
+ * com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.ViewModelModel
  * @author liulongchao
  * @since 2017/11/30
  */

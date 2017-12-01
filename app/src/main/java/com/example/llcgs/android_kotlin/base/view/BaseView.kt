@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.base.view
 
+import io.reactivex.disposables.Disposable
+
 /**
  * com.example.llcgs.android_kotlin.base.view.BaseView
  * @author liulongchao
@@ -13,4 +15,7 @@ interface BaseView {
     fun showLoadingDialog()
     // 关闭进度框
     fun dismissLoadingDialog()
+
+    // 添加Disposable
+    fun addDisposable(disposable: Disposable)
 }

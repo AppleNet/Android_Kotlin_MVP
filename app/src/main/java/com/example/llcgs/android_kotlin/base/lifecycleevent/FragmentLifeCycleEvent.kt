@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.mvvm.base
+package com.example.llcgs.android_kotlin.base.lifecycleevent
 
 /**
  * 作者：Alex

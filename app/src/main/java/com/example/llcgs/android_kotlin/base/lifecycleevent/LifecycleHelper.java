@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.mvvm.base;
+package com.example.llcgs.android_kotlin.base.lifecycleevent;
 
 import com.trello.rxlifecycle2.OutsideLifecycleException;
 

@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.example.llcgs.android_kotlin.R
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.viewmodel.adapter.ViewModelAdapter
+ * com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.ViewModelAdapter
  * @author liulongchao
  * @since 2017/11/30
  */

@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.architecture_components.viewmodel.viewmodel
+package com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.viewmodel
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.viewmodel.viewmodel.ViewModelViewModel
+ * com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.ViewModelViewModel
  * @author liulongchao
  * @since 2017/11/30
  */

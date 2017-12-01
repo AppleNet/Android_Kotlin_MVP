@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.architecture_components.viewmodel
+package com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,13 +11,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.adapter.ViewModelAdapter
-import com.example.llcgs.android_kotlin.architecture_components.viewmodel.viewmodel.ViewModelViewModel
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.viewmodel.ViewModelViewModel
 import kotlinx.android.synthetic.main.activity_view_model.*
 import kotlinx.android.synthetic.main.view_title.*
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.viewmodel.ViewModelActivity
+ * com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.ViewModelActivity
  * @author liulongchao
  * @since 2017/11/30
  */
