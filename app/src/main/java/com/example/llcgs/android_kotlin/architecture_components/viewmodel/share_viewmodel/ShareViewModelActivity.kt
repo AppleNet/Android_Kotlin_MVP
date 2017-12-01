@@ -34,6 +34,7 @@ class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViews()
+        initData()
     }
 
 
@@ -52,6 +53,11 @@ class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPa
 
     }
 
+    private fun initData(){
+        //
+        mPresenter.setData(resources.getStringArray(R.array.arch_menu).toList())
+    }
+
     override fun onPageScrollStateChanged(state: Int) {
     }
 
@@ -59,5 +65,19 @@ class ShareViewModelActivity:BaseOwnerActivity<ShareViewModel>(), ViewPager.OnPa
     }
 
     override fun onPageSelected(position: Int) {
+        when(position){
+            0 ->{
+                // master
+                mPresenter.setData(resources.getStringArray(R.array.arch_menu).toList())
+            }
+            1 ->{
+                // detail
+                mPresenter.setData(resources.getStringArray(R.array.architecture).toList())
+            }
+            2 ->{
+                // mine
+                mPresenter.setData(resources.getStringArray(R.array.databinding_menu).toList())
+            }
+        }
     }
 }
