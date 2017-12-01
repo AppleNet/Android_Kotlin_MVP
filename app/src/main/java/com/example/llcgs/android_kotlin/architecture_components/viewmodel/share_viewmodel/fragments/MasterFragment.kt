@@ -16,5 +16,10 @@ class MasterFragment : BaseFragment<SuperPresenter>() {
 
     override fun createPresenter() = BasePresenter<Any>()
 
+    override fun initViews() {
+    }
+
+    override fun initData() {
+    }
 
 }

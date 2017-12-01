@@ -10,7 +10,6 @@ import com.example.llcgs.android_kotlin.base.view.BaseView
 import com.example.llcgs.android_kotlin.base.lifecycleevent.FragmentLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
-import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
 import com.example.llcgs.android_kotlin.base.presenter.SuperPresenter
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.trello.rxlifecycle2.LifecycleTransformer
@@ -62,7 +61,13 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.CREATE_VIEW)
+        initViews()
+        initData()
     }
+
+    abstract fun initViews()
+
+    abstract fun initData()
 
     override fun onStart() {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.START)

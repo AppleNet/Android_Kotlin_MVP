@@ -14,4 +14,10 @@ class DetailFragment : BaseFragment<SuperPresenter>() {
     override fun getLayoutId() = R.layout.activity_share_fragment_detail
 
     override fun createPresenter() = BasePresenter<Any>()
+
+    override fun initViews() {
+    }
+
+    override fun initData() {
+    }
 }
