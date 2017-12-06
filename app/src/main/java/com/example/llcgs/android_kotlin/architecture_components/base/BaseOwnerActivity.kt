@@ -5,22 +5,25 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
+import com.afollestad.materialdialogs.MaterialDialog
 import com.example.llcgs.android_kotlin.architecture_components.base.presenter.BaseArchPresenter
 import com.example.llcgs.android_kotlin.architecture_components.base.view.BaseArchView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import android.text.InputType
+
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
  * @author liulongchao
  * @since 2017/11/27
  */
-abstract class BaseOwnerActivity<P: BaseArchPresenter>: AppCompatActivity(), BaseArchView{
+abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), BaseArchView {
 
     protected lateinit var mPresenter: P
     private var compositeDisposable: CompositeDisposable? = null
 
-    private lateinit var mLifecycleRegistry:LifecycleRegistry
+    private lateinit var mLifecycleRegistry: LifecycleRegistry
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,8 +63,22 @@ abstract class BaseOwnerActivity<P: BaseArchPresenter>: AppCompatActivity(), Bas
 
     override fun onObtainFail(ex: Exception) {}
 
+    protected fun showMaterialDialog() {
+        MaterialDialog.Builder(this)
+                .title("MaterialDialog")
+                .content("Input your notice here")
+                .inputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                .input("input here", "") { dialog, input ->
+                    onInput(dialog, input)
+                }
+    }
+
+    open fun onInput(dialog: MaterialDialog, input: CharSequence){
+
+    }
+
     override fun addDisposable(disposable: Disposable) {
-        if (compositeDisposable == null){
+        if (compositeDisposable == null) {
             compositeDisposable = CompositeDisposable()
         }
         compositeDisposable?.add(disposable)

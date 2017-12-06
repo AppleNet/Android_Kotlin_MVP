@@ -47,6 +47,13 @@ ext {
             googleLiveData    : "1.0.0",
             googleLiveDataReactiveStreams : "1.0.0",
 
+            googleRoom        : "1.0.0",
+            googleRoomRx      : "1.0.0",
+
+            googlePaging      : "1.0.0-alpha3",
+
+            material_dialogs  : "0.9.6.0",
+
     ]
     libs = [
             junit                : "junit:junit:4.12",
@@ -127,6 +134,13 @@ ext {
 
             googleLiveData       : "android.arch.lifecycle:extensions:${versions.googleLiveData}",
             googleLiveDataReactiveStreams : "android.arch.lifecycle:reactivestreams:${versions.googleLiveDataReactiveStreams}",
+
+            googleRoom           : "android.arch.persistence.room:runtime:${versions.googleRoom}",
+            googleRoomRx         : "android.arch.persistence.room:rxjava2:${versions.googleRoomRx}",
+
+            googlePaging         : "android.arch.paging:runtime:${versions.googlePaging}",
+
+            material_dialogs     : "com.afollestad.material-dialogs:commons:${versions.material_dialogs}",
     ]
 
 }

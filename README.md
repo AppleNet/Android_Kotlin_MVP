@@ -193,4 +193,5 @@ ViewModel
     
     AAC中提供ViewModel可以很方便的用来管理数据。我们可以利用它来管理UI组件与数据的绑定关系。ViewModel提供自动绑定的形式，当数据源有更新的时候，可以自动立即的更新UI
     
-    
+CoordinatorLayout 协调布局
+ConstraintLayout 约束布局    
