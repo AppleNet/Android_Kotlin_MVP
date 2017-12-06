@@ -11,32 +11,47 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    kapt "com.android.databinding:compiler:$android_plugin_version"
-    // ---Rx---
-    implementation project(':vlayout')
+    annotationProcessor "com.android.databinding:compiler:$android_plugin_version"
     testCompile 'junit:junit:4.12'
-    //implementation libs.appcompat_v7
+
+
+    implementation project(':vlayout')
+
     implementation libs.constraint_layout
     implementation libs.cardview_v7
+
+    /* ---Rx--- */
     implementation libs.rxbinding2
     implementation libs.rxbinding_support_v4
     implementation libs.rxbinding_appcompat_v7
     implementation libs.rxbinding_design
     implementation libs.rxbinding_recyclerview_v7
-    implementation libs.leakcanary_release
     implementation libs.rxandroid2
     implementation libs.rxjava2
     implementation libs.rxlifecycle2
     implementation libs.rxlifecycle_kotlin2
-    implementation libs.kotlin_reflect
-    implementation libs.replugin_host
     implementation libs.rxpermission2
-    implementation libs.circleImageView
-    implementation libs.gson
-    implementation libs.glide
+
+    /* retrofit */
     implementation libs.retrofit2
     implementation libs.retrofit2_converter
     implementation libs.retrofit2_adapter
+
+    /* leakCanary */
+    implementation libs.leakcanary_release
+
+    /* Kotlin */
+    implementation libs.kotlin_reflect
+
+    implementation libs.replugin_host
+
+    implementation libs.circleImageView
+
+    /* Gson */
+    implementation libs.gson
+
+    implementation libs.glide
+
     implementation libs.multidex
 
     /*  现在 Support Library 26.1+ 已经集成了这个生命周期组件,不需要再手动引入了 */
@@ -56,18 +71,31 @@ dependencies {
         exclude module: 'common'
     }
 
-    // RouterHost
+    /* Room */
+    implementation libs.googleRoom
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation libs.googleRoomRx
+
+    /* Paging */
+    implementation libs.googlePaging
+
+
+    /* RouterHost */
     implementation libs.router_host
     annotationProcessor "com.github.yjfnypeu.Router:router-compiler:$router_version"
-    // 针对Replugin的RouterHost
+
+    /* 针对RePlugin的RouterHost */
     implementation libs.router_replugin_host
-    // 聚美优品的bundle
+
+    /* 聚美优品的bundle */
     implementation libs.parceler
-    // 聚美优品的远程更新插件
+    /* 聚美优品的远程更新插件 */
     implementation libs.update_plugin
-    // fastJson
+
+    /* fastJson */
     implementation libs.fastjson
-    // QuickAdapter
+
+    /* QuickAdapter */
     implementation libs.adapter_helper
 }
 
