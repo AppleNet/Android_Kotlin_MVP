@@ -13,7 +13,7 @@ import android.arch.persistence.room.PrimaryKey
 @Entity
 class Notice {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var uid = 0
 
     @ColumnInfo(name = "first_name")

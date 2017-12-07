@@ -5,6 +5,7 @@ import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
+import io.reactivex.Flowable
 import io.reactivex.Observable
 
 /**
@@ -21,14 +22,14 @@ interface NoticeDao {
      *
      * */
     @Query("select * from notice")
-    fun getAll(): Observable<List<Notice>>
+    fun getAll(): Flowable<List<Notice>>
 
-    @Query("select * from user where uid in (ids)")
-    fun loadAllByIds(ids: Array<Int>): Observable<List<Notice>>
+    @Query("select * from notice where uid in (:ids)")
+    fun loadAllByIds(ids: Array<Int>): Flowable<List<Notice>>
 
-    @Query("select * from notice where first_name like :first and \"\n" +
-            " + \"last_name like :last limit 1")
-    fun finAllByName(first: String, last: String): Observable<Notice>
+    @Query("select * from notice where first_name like :first AND " +
+            " last_name like :last limit 1")
+    fun finAllByName(first: String, last: String): Flowable<Notice>
 
     @Insert
     fun insert(notice: Notice)

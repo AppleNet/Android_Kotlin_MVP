@@ -73,7 +73,10 @@ dependencies {
 
     /* Room */
     implementation libs.googleRoom
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    /* 使用java 需要配置annotationProcessor */
+//    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    /* 使用kotlin 需要配置kapt */
+    kapt "android.arch.persistence.room:compiler:1.0.0"
     implementation libs.googleRoomRx
 
     /* Paging */
@@ -82,7 +85,7 @@ dependencies {
 
     /* RouterHost */
     implementation libs.router_host
-    annotationProcessor "com.github.yjfnypeu.Router:router-compiler:$router_version"
+    kapt "com.github.yjfnypeu.Router:router-compiler:$router_version"
 
     /* 针对RePlugin的RouterHost */
     implementation libs.router_replugin_host

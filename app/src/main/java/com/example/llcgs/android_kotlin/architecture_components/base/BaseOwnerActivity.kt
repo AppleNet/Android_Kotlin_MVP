@@ -11,6 +11,7 @@ import com.example.llcgs.android_kotlin.architecture_components.base.view.BaseAr
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import android.text.InputType
+import com.afollestad.materialdialogs.DialogAction
 
 
 /**
@@ -63,17 +64,34 @@ abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), B
 
     override fun onObtainFail(ex: Exception) {}
 
-    protected fun showMaterialDialog() {
+    protected fun showInputMaterialDialog() {
         MaterialDialog.Builder(this)
                 .title("MaterialDialog")
                 .content("Input your notice here")
-                .inputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                .input("input here", "") { dialog, input ->
+                .inputType(InputType.TYPE_CLASS_TEXT)
+                .input("firstName input here", "") { dialog, input ->
                     onInput(dialog, input)
-                }
+                }.show()
     }
 
-    open fun onInput(dialog: MaterialDialog, input: CharSequence){
+    protected fun showMessageMaterialDialog() {
+        MaterialDialog.Builder(this)
+                .title("MaterialDialog")
+                .content("确认删除?")
+                .positiveText("同意")
+                .negativeText("取消")
+                .onPositive { dialog, which ->
+                    onPositive(dialog, which)
+                }
+                .show()
+    }
+
+
+    open fun onInput(dialog: MaterialDialog, input: CharSequence) {
+
+    }
+
+    open fun onPositive(dialog: MaterialDialog, which: DialogAction) {
 
     }
 

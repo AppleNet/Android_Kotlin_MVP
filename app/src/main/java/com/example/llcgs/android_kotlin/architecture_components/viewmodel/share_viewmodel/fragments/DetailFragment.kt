@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.architecture_components.viewmodel.share
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel.adapter.RecyclerViewFragmentAdapter
@@ -21,7 +22,7 @@ class DetailFragment : BaseFragment<SuperPresenter>(), Observer<List<String>> {
 
     override fun getLayoutId() = R.layout.activity_share_fragment_detail
 
-    override fun createPresenter() = ViewModelProviders.of(activity).get(ShareViewModel::class.java)
+    override fun createPresenter() = ViewModelProviders.of(activity?: FragmentActivity()).get(ShareViewModel::class.java)
 
     override fun initViews() {
         adapter = RecyclerViewFragmentAdapter()

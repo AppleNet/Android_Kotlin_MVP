@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSON
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
-import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
 import com.example.llcgs.android_kotlin.base.router.interceptor.DefaultInterceptor
 import com.example.llcgs.android_kotlin.base.router.remotefactory.HostRemoteFactory
 import com.example.llcgs.android_kotlin.base.router.update.HostUpdateCombine
@@ -19,6 +18,7 @@ import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.RouterConfiguration
 import com.lzh.nonview.router.anno.RouteConfig
 import com.lzh.nonview.router.host.RouterHostService
+import com.lzh.router.RouterRuleCreator
 import com.lzh.router.replugin.host.HostRouterConfiguration
 import com.lzh.router.replugin.update.UpdateRePluginCallbacks
 import com.qihoo360.replugin.RePlugin

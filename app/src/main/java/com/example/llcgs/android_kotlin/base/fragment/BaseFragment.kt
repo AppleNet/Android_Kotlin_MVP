@@ -42,13 +42,13 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
         lifecycleSubject.onNext(FragmentLifeCycleEvent.CREATE)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (mRootView == null) {
-            mRootView = inflater?.inflate(getLayoutId(), null, false)
+            mRootView = inflater.inflate(getLayoutId(), null, false)
         }
         if (mRootView != null) {
             val parent = mRootView?.parent
-            if (parent != null){
+            if (parent != null) {
                 (parent as ViewGroup).removeView(mRootView)
             }
         }
@@ -60,9 +60,9 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     abstract fun createPresenter(): P
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.CREATE_VIEW)
-        if (firstInflate){
+        if (firstInflate) {
             initViews()
             initData()
             firstInflate = false
@@ -101,7 +101,7 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     override fun onDestroy() {
         lifecycleSubject.onNext(FragmentLifeCycleEvent.DESTROY)
-        if (compositeDisposable != null){
+        if (compositeDisposable != null) {
             compositeDisposable?.clear()
         }
         super.onDestroy()
@@ -113,7 +113,7 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
     }
 
     override fun addDisposable(disposable: Disposable) {
-        if (compositeDisposable == null){
+        if (compositeDisposable == null) {
             compositeDisposable = CompositeDisposable()
         }
         compositeDisposable?.add(disposable)
