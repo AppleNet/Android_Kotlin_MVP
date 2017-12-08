@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.architecture_components.room
+package com.example.llcgs.android_kotlin.architecture_components.room.demo
 
 import android.graphics.Color
 import android.os.Bundle
@@ -15,21 +15,15 @@ import com.alibaba.android.kotlin.showMessageMaterialDialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
-import com.example.llcgs.android_kotlin.architecture_components.base.rx.LifeCycleRx
 import com.example.llcgs.android_kotlin.architecture_components.room.adapter.RoomAdapter
-import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
-import com.example.llcgs.android_kotlin.architecture_components.room.db.database.AppDatabase
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
 import com.example.llcgs.android_kotlin.architecture_components.room.presenter.IRoomPresenter
 import com.example.llcgs.android_kotlin.architecture_components.room.presenter.impl.RoomPresenter
 import com.example.llcgs.android_kotlin.architecture_components.room.view.RoomView
-import com.example.llcgs.android_kotlin.utils.DBUtils
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_room.*
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.room.RoomActivity
+ * com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomActivity
  * @author liulongchao
  * @since 2017/12/6
  */
@@ -50,7 +44,6 @@ class RoomActivity : BaseOwnerActivity<IRoomPresenter>(), View.OnClickListener, 
 
     private fun initViews() {
         setSupportActionBar(toolbar)
-        toolbar.title = "Room"
         toolbar.setTitleTextColor(Color.parseColor("#000000"))
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show()

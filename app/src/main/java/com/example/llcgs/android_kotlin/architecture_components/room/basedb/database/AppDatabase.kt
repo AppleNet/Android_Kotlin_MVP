@@ -1,9 +1,9 @@
-package com.example.llcgs.android_kotlin.architecture_components.room.db.database
+package com.example.llcgs.android_kotlin.architecture_components.room.basedb.database
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
-import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
-import com.example.llcgs.android_kotlin.architecture_components.room.db.dao.NoticeDao
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao.NoticeDao
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.database.AppDatabase

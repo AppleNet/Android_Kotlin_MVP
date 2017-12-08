@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean
+package com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity

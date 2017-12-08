@@ -1,9 +1,8 @@
-package com.example.llcgs.android_kotlin.architecture_components.room.db.dao
+package com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao
 
 import android.arch.persistence.room.*
-import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
 import io.reactivex.Flowable
-import io.reactivex.Observable
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.dao.NoticeDao
@@ -28,7 +27,7 @@ interface NoticeDao {
             " last_name like :last limit 1")
     fun finAllByName(first: String, last: String): Flowable<Notice>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(notice: Notice)
 
     @Delete

@@ -2,7 +2,6 @@ package com.example.llcgs.android_kotlin.utils
 
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
-import com.example.llcgs.android_kotlin.architecture_components.room.db.database.AppDatabase
 
 /**
  * com.example.llcgs.android_kotlin.utils.DBUtils

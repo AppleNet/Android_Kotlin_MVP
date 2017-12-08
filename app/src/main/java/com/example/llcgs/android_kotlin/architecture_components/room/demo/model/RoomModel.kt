@@ -1,14 +1,14 @@
 package com.example.llcgs.android_kotlin.architecture_components.room.model
 
 import com.example.llcgs.android_kotlin.architecture_components.base.model.BaseArchModel
-import com.example.llcgs.android_kotlin.architecture_components.room.db.database.AppDatabase
-import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.database.AppDatabase
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
 import com.example.llcgs.android_kotlin.utils.DBUtils
 import io.reactivex.Flowable
 import io.reactivex.Observable
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.room.model.RoomModel
+ * com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomModel
  * @author liulongchao
  * @since 2017/12/6
  */

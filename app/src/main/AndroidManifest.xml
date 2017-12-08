@@ -123,7 +123,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.viewmodel.share_viewmodel.ShareViewModelActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".architecture_components.room.RoomActivity"
+        <activity android:name=".architecture_components.room.demo.RoomActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>

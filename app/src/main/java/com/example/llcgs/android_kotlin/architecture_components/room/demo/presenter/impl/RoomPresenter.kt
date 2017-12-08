@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.architecture_components.room.presenter.
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.example.llcgs.android_kotlin.architecture_components.base.rx.LifeCycleRx
-import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
 import com.example.llcgs.android_kotlin.architecture_components.room.model.RoomModel
 import com.example.llcgs.android_kotlin.architecture_components.room.presenter.IRoomPresenter
 import com.example.llcgs.android_kotlin.architecture_components.room.view.RoomView
@@ -10,7 +10,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 /**
- * com.example.llcgs.android_kotlin.architecture_components.room.presenter.impl.RoomPresenter
+ * com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomPresenter
  * @author liulongchao
  * @since 2017/12/6
  */

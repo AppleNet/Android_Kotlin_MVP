@@ -14,7 +14,7 @@ import com.example.llcgs.android_kotlin.architecture_components.livedata.use_liv
 import com.example.llcgs.android_kotlin.architecture_components.menu.adapter.MenuArchAdapter
 import com.example.llcgs.android_kotlin.architecture_components.menu.presenter.IMenuArchPresenter
 import com.example.llcgs.android_kotlin.architecture_components.menu.presenter.impl.MenuArchPresenter
-import com.example.llcgs.android_kotlin.architecture_components.room.RoomActivity
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomActivity
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel.ShareViewModelActivity
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.use_viewmodel.ViewModelActivity
 import com.lzh.nonview.router.anno.RouterRule
