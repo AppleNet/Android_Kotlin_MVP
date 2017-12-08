@@ -3,7 +3,7 @@ package com.example.llcgs.android_kotlin.architecture_components.room.adapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.llcgs.android_kotlin.R
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomAdapter

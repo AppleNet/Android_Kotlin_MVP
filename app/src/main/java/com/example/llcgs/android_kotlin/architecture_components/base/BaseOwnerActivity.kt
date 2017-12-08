@@ -56,7 +56,11 @@ abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), B
     }
 
     override fun showLoadingDialog() {
-        dialog = showProgressMaterialDialog(context = this, content = "正在加载...")
+        if (dialog == null){
+            dialog = showProgressMaterialDialog(context = this, content = "正在加载...")
+        }else{
+            dialog?.show()
+        }
     }
 
     override fun dismissLoadingDialog() {

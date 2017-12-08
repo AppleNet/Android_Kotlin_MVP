@@ -1,7 +1,8 @@
-package com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao
+package com.example.llcgs.android_kotlin.architecture_components.room.demo.db.dao
 
 import android.arch.persistence.room.*
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao.BaseDAO
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 import io.reactivex.Flowable
 
 /**
@@ -9,9 +10,8 @@ import io.reactivex.Flowable
  * @author liulongchao
  * @since 2017/12/6
  */
-
 @Dao
-interface NoticeDao {
+interface NoticeDao : BaseDAO {
 
     /**
      *  还得写sql语句 感觉有点恶心了

@@ -16,7 +16,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
 import com.example.llcgs.android_kotlin.architecture_components.room.adapter.RoomAdapter
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 import com.example.llcgs.android_kotlin.architecture_components.room.presenter.IRoomPresenter
 import com.example.llcgs.android_kotlin.architecture_components.room.presenter.impl.RoomPresenter
 import com.example.llcgs.android_kotlin.architecture_components.room.view.RoomView

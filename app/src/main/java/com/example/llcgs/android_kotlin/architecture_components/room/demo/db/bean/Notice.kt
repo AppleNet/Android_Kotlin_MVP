@@ -1,8 +1,9 @@
-package com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean
+package com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.BaseBean
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.bean.Notice
@@ -11,7 +12,7 @@ import android.arch.persistence.room.PrimaryKey
  */
 
 @Entity
-class Notice {
+class Notice : BaseBean {
 
     @PrimaryKey(autoGenerate = true)
     var uid = 0

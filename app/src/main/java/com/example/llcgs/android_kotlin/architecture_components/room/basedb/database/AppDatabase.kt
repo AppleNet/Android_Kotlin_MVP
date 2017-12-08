@@ -2,8 +2,10 @@ package com.example.llcgs.android_kotlin.architecture_components.room.basedb.dat
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao.NoticeDao
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.dao.NoticeDao
+import com.example.llcgs.android_kotlin.architecture_components.room.menu.db.MenuBean
+import com.example.llcgs.android_kotlin.architecture_components.room.menu.db.MenuDAO
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.database.AppDatabase
@@ -11,7 +13,9 @@ import com.example.llcgs.android_kotlin.architecture_components.room.basedb.dao.
  * @since 2017/12/6
  */
 
-@Database(entities = [(Notice::class)], version = 1)
+@Database(entities = [(Notice::class), (MenuBean::class)], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun noticeDao(): NoticeDao
+
+    abstract fun menuDao(): MenuDAO
 }

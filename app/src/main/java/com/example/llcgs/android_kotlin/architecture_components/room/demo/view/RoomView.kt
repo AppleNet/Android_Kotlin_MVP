@@ -1,7 +1,7 @@
 package com.example.llcgs.android_kotlin.architecture_components.room.view
 
 import com.example.llcgs.android_kotlin.architecture_components.base.view.BaseArchView
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.demo.RoomView

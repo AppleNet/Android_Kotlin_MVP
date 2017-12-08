@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.architecture_components.room.model
 
 import com.example.llcgs.android_kotlin.architecture_components.base.model.BaseArchModel
 import com.example.llcgs.android_kotlin.architecture_components.room.basedb.database.AppDatabase
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 import com.example.llcgs.android_kotlin.utils.DBUtils
 import io.reactivex.Flowable
 import io.reactivex.Observable

@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.architecture_components.room.presenter
 
 import com.afollestad.materialdialogs.MaterialDialog
 import com.example.llcgs.android_kotlin.architecture_components.base.presenter.BaseArchPresenter
-import com.example.llcgs.android_kotlin.architecture_components.room.basedb.db_bean.Notice
+import com.example.llcgs.android_kotlin.architecture_components.room.demo.db.bean.Notice
 
 /**
  * com.example.llcgs.android_kotlin.architecture_components.room.demo.IRoomPresenter
