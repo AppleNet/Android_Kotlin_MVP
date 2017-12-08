@@ -10,8 +10,8 @@ import com.example.llcgs.android_kotlin.architecture_components.base.presenter.B
 import com.example.llcgs.android_kotlin.architecture_components.base.view.BaseArchView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import android.text.InputType
 import com.afollestad.materialdialogs.DialogAction
+import com.alibaba.android.kotlin.showProgressMaterialDialog
 
 
 /**
@@ -22,6 +22,7 @@ import com.afollestad.materialdialogs.DialogAction
 abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), BaseArchView {
 
     protected lateinit var mPresenter: P
+    private var dialog: MaterialDialog? = null
     private var compositeDisposable: CompositeDisposable? = null
 
     private lateinit var mLifecycleRegistry: LifecycleRegistry
@@ -54,38 +55,21 @@ abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), B
         mLifecycleRegistry.markState(Lifecycle.State.DESTROYED)
     }
 
-    override fun showLoadingDialog() {}
+    override fun showLoadingDialog() {
+        dialog = showProgressMaterialDialog(context = this, content = "正在加载...")
+    }
 
-    override fun dismissLoadingDialog() {}
+    override fun dismissLoadingDialog() {
+        if (dialog != null) {
+            dialog?.dismiss()
+        }
+    }
 
     override fun showToast(resId: Int) {}
 
     override fun showToast(text: Any) {}
 
     override fun onObtainFail(ex: Exception) {}
-
-    protected fun showInputMaterialDialog() {
-        MaterialDialog.Builder(this)
-                .title("MaterialDialog")
-                .content("Input your notice here")
-                .inputType(InputType.TYPE_CLASS_TEXT)
-                .input("firstName input here", "") { dialog, input ->
-                    onInput(dialog, input)
-                }.show()
-    }
-
-    protected fun showMessageMaterialDialog() {
-        MaterialDialog.Builder(this)
-                .title("MaterialDialog")
-                .content("确认删除?")
-                .positiveText("同意")
-                .negativeText("取消")
-                .onPositive { dialog, which ->
-                    onPositive(dialog, which)
-                }
-                .show()
-    }
-
 
     open fun onInput(dialog: MaterialDialog, input: CharSequence) {
 

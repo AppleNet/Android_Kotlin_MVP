@@ -17,4 +17,6 @@ interface IRoomPresenter : BaseArchPresenter {
 
     fun delete(notice: Notice)
 
+    fun update(notice: Notice)
+
 }

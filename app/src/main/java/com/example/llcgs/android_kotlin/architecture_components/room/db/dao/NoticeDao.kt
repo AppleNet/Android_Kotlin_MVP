@@ -1,9 +1,6 @@
 package com.example.llcgs.android_kotlin.architecture_components.room.db.dao
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.example.llcgs.android_kotlin.architecture_components.room.db.db_bean.Notice
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -36,5 +33,8 @@ interface NoticeDao {
 
     @Delete
     fun delete(notice: Notice)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun update(notice: Notice)
 
 }

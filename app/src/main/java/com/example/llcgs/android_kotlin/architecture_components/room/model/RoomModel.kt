@@ -30,4 +30,11 @@ class RoomModel : BaseArchModel {
                 }
     }
 
+    fun update(notice: Notice): Observable<Unit>{
+        return Observable.just(notice)
+                .map {
+                    noticeDao.update(notice)
+                }
+    }
+
 }

@@ -15,4 +15,6 @@ interface RoomView : BaseArchView {
     fun onInputSuccess()
 
     fun onDeleteSuccess()
+
+    fun onUpdateSuccess()
 }

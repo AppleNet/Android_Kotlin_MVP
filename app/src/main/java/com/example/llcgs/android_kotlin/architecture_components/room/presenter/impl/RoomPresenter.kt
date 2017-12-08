@@ -29,11 +29,16 @@ class RoomPresenter(private val view: RoomView) : IRoomPresenter {
 
     override fun input(dialog: MaterialDialog, input: CharSequence) {
         model.input(input)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
                     view.addDisposable(it)
-                }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                    view.showLoadingDialog()
+                }
                 .compose(LifeCycleRx.bindLifecycle(view))
+                .doOnTerminate {
+                    view.dismissLoadingDialog()
+                }
                 .subscribe {
                     view.onInputSuccess()
                 }
@@ -41,14 +46,36 @@ class RoomPresenter(private val view: RoomView) : IRoomPresenter {
 
     override fun delete(notice: Notice) {
         model.delete(notice)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
                     view.addDisposable(it)
-                }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+                    view.showLoadingDialog()
+                }
                 .compose(LifeCycleRx.bindLifecycle(view))
+                .doOnTerminate {
+                    view.dismissLoadingDialog()
+                }
                 .subscribe {
                     view.onDeleteSuccess()
                 }
 
+    }
+
+    override fun update(notice: Notice) {
+        model.update(notice)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe {
+                    view.addDisposable(it)
+                    view.showLoadingDialog()
+                }
+                .compose(LifeCycleRx.bindLifecycle(view))
+                .doOnTerminate {
+                    view.dismissLoadingDialog()
+                }
+                .subscribe {
+                    view.onUpdateSuccess()
+                }
     }
 }

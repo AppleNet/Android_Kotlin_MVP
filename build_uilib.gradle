@@ -16,4 +16,7 @@ dependencies {
 
     api libs.kotlin_stdlib
 
+    /* material_dialogs */
+    api libs.material_dialogs
+
 }
