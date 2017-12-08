@@ -127,6 +127,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".architecture_components.room.menu.RoomMenuActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".architecture_components.room.entities.EntitiesActivity" />
 
     </application>
 
