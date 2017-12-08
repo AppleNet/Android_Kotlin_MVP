@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
@@ -73,6 +74,9 @@ class MenuArchActivity : BaseOwnerActivity<IMenuArchPresenter>(), BaseQuickAdapt
             }
             6 ->{
                 startActivity(Intent(this@MenuArchActivity, RoomMenuActivity::class.java))
+            }
+            7 ->{
+                Toast.makeText(this, "暂未收录", Toast.LENGTH_LONG).show()
             }
         }
     }

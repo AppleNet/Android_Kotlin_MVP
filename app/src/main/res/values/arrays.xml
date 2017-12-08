@@ -126,6 +126,7 @@
         <item>ViewModel</item>
         <item>ShareViewModel</item>
         <item>Room</item>
+        <item>Paging</item>
     </string-array>
 
     <string-array name="arch_room_menu">
