@@ -93,6 +93,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Architecture" ->{
                 Router.create("host://Architecture").activityRoute.open(this)
             }
+            "Material Design"->{
+                Router.create("host://Material_Design").activityRoute.open(this)
+            }
         }
     }
 

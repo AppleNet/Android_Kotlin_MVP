@@ -3,17 +3,14 @@
     <string name="title_activity_mvvm">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+
     <string name="nameFormat">我的名字是:%1s·%2s,来自美国</string>
     <string name="open">open</string>
     <string name="close">close</string>
@@ -21,4 +18,11 @@
     <!-- MainActivity -->
     <string name="editText">McGrady</string>
     <string name="editText2">123456</string>
+
+    <!-- Material Design-->
+    <string name="login_tip">豆芽</string>
+    <string name="login_sign_in">登录</string>
+    <string name="login_sign_up">没有账户?现在注册</string>
+    <string name="login_prompt_email">用户名</string>
+    <string name="login_prompt_password">密码</string>
 </resources>

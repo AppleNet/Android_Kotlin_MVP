@@ -18,8 +18,22 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="CollapsingTextAppearance" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
     <style name="CollapsingTextAppearance.TitleSize" >
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="MaterialThemeBase" parent="Theme.AppCompat.Light.DarkActionBar">
+
+        <item name="colorPrimary">@color/douya_primary</item>
+        <item name="colorPrimaryDark">@color/douya_primary_dark</item>
+        <item name="colorAccent">@color/douya_accent</item>
+
+    </style>
+
+    <style name="MaterialTheme" parent="MaterialThemeBase">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

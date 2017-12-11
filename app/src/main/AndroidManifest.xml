@@ -157,6 +157,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".architecture_components.room.entities.EntitiesActivity" />
 
+        <activity android:name=".material.login.MaterialLoginActivity"
+            android:theme="@style/MaterialTheme"/>
+
     </application>
 
 </manifest>

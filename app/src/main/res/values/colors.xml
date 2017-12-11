@@ -4,6 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="douya_primary">#4caf50</color>
+    <color name="douya_primary_dark">#388e3c</color>
+    <color name="douya_primary_dark_without_system_window_scrim">#4dc252</color>
+    <color name="douya_accent">#4caf50</color>
+
     <color name="bg_color">#EDEDED</color>
     <color name="white">#ffffff</color>
     <!-- 应用主色 -->
