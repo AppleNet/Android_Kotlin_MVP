@@ -64,11 +64,12 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
     }
 
     private fun register(){
-
+        // TODO
     }
 
     override fun onLoginSuccess() {
         //
+
     }
 
 

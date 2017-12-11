@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
+import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
 import com.trello.rxlifecycle2.LifecycleProvider
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.RxLifecycle
@@ -90,5 +91,8 @@ abstract class BaseMaterialActivity<P : BaseMaterialPresenter>: AppCompatActivit
 
     override fun dismissLoadingDialog() {
         Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onObtainFail(exception: ObtainException) {
     }
 }
