@@ -19,6 +19,7 @@ dependencies {
 
     implementation libs.constraint_layout
     implementation libs.cardview_v7
+    implementation libs.customtabs
 
     /* ---Rx--- */
     implementation libs.rxbinding2

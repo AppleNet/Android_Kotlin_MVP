@@ -159,6 +159,9 @@
 
         <activity android:name=".material.login.MaterialLoginActivity"
             android:theme="@style/MaterialTheme"/>
+        
+        <activity android:name=".material.webview.MaterialWebViewActivity"
+            android:theme="@style/MaterialTheme"/>
 
     </application>
 

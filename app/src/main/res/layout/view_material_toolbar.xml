@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:elevation="4dp"
+    android:paddingStart="-2dp"
+    android:paddingEnd="-6dp"
+    android:background="@color/douya_primary"
+    app:navigationIcon="@drawable/back_icon_white_24dp"
+    app:popupTheme="?actionBarPopupTheme"
+    app:titleMarginStart="18dp"
+    app:titleTextAppearance="@android:style/TextAppearance.Holo.Large"
+    app:subtitleTextAppearance="@android:style/TextAppearance.Holo.Small">
+
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/toolbar_progress"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="12dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:mpb_progressTint="@color/white"
+        style="@style/Widget.MaterialProgressBar.ProgressBar"/>
+
+</android.support.v7.widget.Toolbar>

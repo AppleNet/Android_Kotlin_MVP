@@ -37,12 +37,17 @@ abstract class BaseMaterialActivity<P : BaseMaterialPresenter>: AppCompatActivit
         mPresenter = createPresenter()
 
         initViews()
+        initData()
     }
 
     abstract fun createPresenter(): P
     abstract fun getLayoutId(): Int
 
     abstract fun initViews()
+
+    open protected fun initData(){
+
+    }
 
     override fun addDisposable(disposable: Disposable) {
         if (compositeDisposable == null){

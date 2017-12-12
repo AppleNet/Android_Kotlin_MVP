@@ -1,7 +1,12 @@
 package com.example.llcgs.android_kotlin.material.login
 
+import android.net.Uri
+import android.support.customtabs.CustomTabsIntent
+import android.support.v4.content.ContextCompat
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
+import com.example.llcgs.android_kotlin.material.login.customtabs.CustomTabActivityHelper
+import com.example.llcgs.android_kotlin.material.login.customtabs.WebViewFallback
 import com.example.llcgs.android_kotlin.material.login.presenter.IMaterialLoginPresenter
 import com.example.llcgs.android_kotlin.material.login.presenter.impl.MaterialLoginPresenter
 import com.example.llcgs.android_kotlin.material.login.view.MaterialLoginView
@@ -18,6 +23,8 @@ import kotlinx.android.synthetic.main.activity_material_login.*
  */
 @RouterRule("Material_Design")
 class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), MaterialLoginView {
+
+    val sPackageNameToUse:String? = null
 
     override fun createPresenter(): IMaterialLoginPresenter= MaterialLoginPresenter(this)
 
@@ -64,13 +71,23 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
     }
 
     private fun register(){
-        // TODO
+        //  注册
+        val customTabsIntent = CustomTabsIntent.Builder()
+                .addDefaultShareMenuItem()
+                .enableUrlBarHiding()
+                .setToolbarColor(ContextCompat.getColor(this, R.color.douya_primary))
+                .setSecondaryToolbarColor(ContextCompat.getColor(this, R.color.douya_primary_dark))
+                .setStartAnimations(this, R.anim.slide_in_right, R.anim.slide_out_left)
+                .setExitAnimations(this, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .setShowTitle(true)
+                .build()
+        CustomTabActivityHelper.openCustomTab(
+                this, customTabsIntent, Uri.parse("https://www.douban.com/accounts/register"), WebViewFallback())
     }
 
     override fun onLoginSuccess() {
         //
 
     }
-
 
 }
