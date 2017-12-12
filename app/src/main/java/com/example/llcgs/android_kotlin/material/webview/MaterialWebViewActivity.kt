@@ -1,21 +1,17 @@
 package com.example.llcgs.android_kotlin.material.webview
 
-import android.annotation.SuppressLint
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
-import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.webkit.*
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
+import com.example.llcgs.android_kotlin.material.webview.client.ChromeClient
+import com.example.llcgs.android_kotlin.material.webview.client.ViewClient
 import com.example.llcgs.android_kotlin.material.webview.presenter.IMaterialWebViewPresenter
 import com.example.llcgs.android_kotlin.material.webview.presenter.impl.MaterialWebViewPresenter
+import com.example.llcgs.android_kotlin.material.webview.view.MaterialWebViewView
 import kotlinx.android.synthetic.main.activity_material_webview.*
 import kotlinx.android.synthetic.main.view_material_toolbar.*
 
@@ -24,37 +20,32 @@ import kotlinx.android.synthetic.main.view_material_toolbar.*
  * @author liulongchao
  * @since 2017/12/12
  */
-class MaterialWebViewActivity : BaseMaterialActivity<IMaterialWebViewPresenter>() {
+class MaterialWebViewActivity : BaseMaterialActivity<IMaterialWebViewPresenter>(), MaterialWebViewView, (WebView, String) -> Unit, ( WebView, String, Bitmap?) -> Unit {
 
-    private var mTitleOrError: String = ""
-    private var mDefaultUserAgent: String = ""
-    private var mDesktopUserAgent: String = ""
     private var mGoForwardMenuItem: MenuItem? = null
     private var mOpenWithNativeMenuItem: MenuItem? = null
     private var mRequestDesktopSiteMenuItem: MenuItem? = null
+    private var url:String = ""
 
+    override fun createPresenter() = MaterialWebViewPresenter(this)
 
-    override fun createPresenter(): IMaterialWebViewPresenter = MaterialWebViewPresenter()
-
-    override fun getLayoutId(): Int = R.layout.activity_material_webview
+    override fun getLayoutId() = R.layout.activity_material_webview
 
     override fun initViews() {
+        url = intent.getStringExtra("EXTRA_URL")
         setSupportActionBar(toolbar)
-        updateToolbarTitleAndSubtitle()
+        mPresenter.updateToolbarTitleAndSubtitle(url, "")
     }
 
     override fun initData() {
-        setupWebView()
+        mPresenter.setupWebView(webView)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.webview, menu)
-        mGoForwardMenuItem = menu.findItem(R.id.action_go_forward)
-        updateGoForward()
-        mOpenWithNativeMenuItem = menu.findItem(R.id.action_open_with_native)
-        updateOpenWithNative(false)
-        mRequestDesktopSiteMenuItem = menu.findItem(R.id.action_request_desktop_site)
-        updateRequestDesktopSite(false)
+        mGoForwardMenuItem = menu.findItem(R.id.action_go_forward).apply { isEnabled = webView.canGoForward() }
+        mOpenWithNativeMenuItem = menu.findItem(R.id.action_open_with_native).apply { isChecked = false }
+        mRequestDesktopSiteMenuItem = menu.findItem(R.id.action_request_desktop_site).apply { isChecked = false }
         return true
     }
 
@@ -73,31 +64,23 @@ class MaterialWebViewActivity : BaseMaterialActivity<IMaterialWebViewPresenter>(
                 return true
             }
             R.id.action_copy_url ->{
-                val clipData = ClipData.newPlainText(webView.title, webView.url)
-                val systemService = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                systemService.primaryClip = clipData
+                mPresenter.copy(this, webView.title, webView.url)
                 return true
             }
             R.id.action_share ->{
-                val intent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, webView.url)
-                    type = "text/plain"
-                }
-                startActivity(Intent.createChooser(intent, "分享方式"))
+                mPresenter.share(webView.url)
                 return true
             }
             R.id.action_open_with_native ->{
-                updateOpenWithNative(true)
+                mOpenWithNativeMenuItem?.isChecked = true
                 return true
             }
             R.id.action_request_desktop_site ->{
-                updateRequestDesktopSite(true)
+                mRequestDesktopSiteMenuItem?.isChecked = true
                 return true
             }
             R.id.action_open_in_browser ->{
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(webView.url))
-                startActivity(intent)
+                mPresenter.browser(webView.url)
                 return true
             }
         }
@@ -112,124 +95,34 @@ class MaterialWebViewActivity : BaseMaterialActivity<IMaterialWebViewPresenter>(
         }
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun setupWebView() {
-        val settings = webView.settings
-        settings.builtInZoomControls = true
-        settings.displayZoomControls = false
-        settings.loadWithOverviewMode = true
-        settings.javaScriptEnabled = true
-        initializeUserAgents(settings)
-        updateUserAgent(settings)
-        settings.useWideViewPort = true
-        webView.webChromeClient = ChromeClient()
-        webView.webViewClient = ViewClient()
-        onLoadUrl(webView)
+    override fun onSetupWebViewSuccess(webView: WebView) {
+        val chromeClient = ChromeClient(toolbar_progress).apply { setReceivedTitleListener(this@MaterialWebViewActivity) }
+        webView.webChromeClient = chromeClient
+        val viewClient = ViewClient().apply { setOnPageStated(this@MaterialWebViewActivity) }
+        webView.webViewClient = viewClient
+        mPresenter.loadUrl(webView, url)
     }
 
-    private fun onLoadUrl(webView: WebView) {
-        val url = intent.getStringExtra("EXTRA_URL")
-        webView.loadUrl(url)
-    }
-
-    private fun updateToolbarTitleAndSubtitle() {
-        val url = webView.url
-        if (TextUtils.isEmpty(url)) {
-            return
-        }
-        if (mTitleOrError.isEmpty()) {
-            mTitleOrError = Uri.parse(url).host
-        }
+    override fun onUpdateToolbarTitleAndSubtitle(hostTitle: String, title: String, url: String) {
         val actionBar = supportActionBar
-        title = mTitleOrError
+        this@MaterialWebViewActivity.title = title
         actionBar?.subtitle = url
     }
 
-    private fun initializeUserAgents(settings: WebSettings) {
-        mDefaultUserAgent = settings.userAgentString
-        mDesktopUserAgent = mDefaultUserAgent.replaceFirst("(Linux;.*?)", "(X11; Linux x86_64)")
-                .replace("Mobile Safari/", "Safari/")
+    override fun onShare(intent: Intent) {
+        startActivity(Intent.createChooser(intent, "分享方式"))
     }
 
-    private fun updateUserAgent(webSettings: WebSettings) {
-        val oldUserAgent = webSettings.userAgentString
-        var changed = false
-        if (!TextUtils.equals(oldUserAgent, mDesktopUserAgent)) {
-            webSettings.userAgentString = mDesktopUserAgent
-            changed = true
-        } else if (!TextUtils.equals(oldUserAgent, mDefaultUserAgent)) {
-            webSettings.userAgentString = mDefaultUserAgent
-            changed = true
-        }
-        val url = webView.url
-        if (!TextUtils.isEmpty(url) && changed) {
-            val doubanDesktopSiteUrl = getDoubanDesktopSiteUrl(url)
-            if (!TextUtils.equals(url, doubanDesktopSiteUrl)) {
-                webView.loadUrl(doubanDesktopSiteUrl)
-            } else {
-                webView.reload()
-            }
-        } else {
-            webView.reload()
-        }
+    override fun onBrowser(intent: Intent) {
+        startActivity(intent)
     }
 
-    private fun getDoubanDesktopSiteUrl(url: String): String {
-        val uri = Uri.parse(url)
-        return if (!TextUtils.equals(uri.host, "m.douban.com")) {
-            url
-        } else uri.buildUpon()
-                .path("/to_pc/")
-                .appendQueryParameter("url", url)
-                .build()
-                .toString()
+    override fun invoke(view: WebView, title: String) {
+        mPresenter.updateToolbarTitleAndSubtitle(view.url, title)
     }
 
-    private fun updateGoForward(){
-        if (mGoForwardMenuItem == null){
-            return
-        }
-        mGoForwardMenuItem?.isEnabled = webView.canGoForward()
-    }
-
-    private fun updateOpenWithNative(boolean: Boolean) {
-        if (mOpenWithNativeMenuItem == null) {
-            return
-        }
-        mOpenWithNativeMenuItem?.isChecked = boolean
-    }
-
-    private fun updateRequestDesktopSite(boolean: Boolean) {
-        if (mRequestDesktopSiteMenuItem == null) {
-            return
-        }
-        mRequestDesktopSiteMenuItem?.isChecked = boolean
-    }
-
-    private fun onPageStarted(){
-        updateGoForward()
-        updateToolbarTitleAndSubtitle()
-    }
-
-    inner class ChromeClient : WebChromeClient() {
-
-        override fun onProgressChanged(view: WebView?, newProgress: Int) {
-            if (newProgress <= 100) {
-                toolbar_progress.visibility = View.VISIBLE
-            } else {
-                toolbar_progress.visibility = View.GONE
-            }
-        }
-
-        override fun onReceivedTitle(view: WebView?, title: String) {
-            mTitleOrError = title
-            updateToolbarTitleAndSubtitle()
-        }
-    }
-
-    inner class ViewClient : WebViewClient() {
-        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-            this@MaterialWebViewActivity.onPageStarted()
-        }
+    override fun invoke(view: WebView, url: String, favicon: Bitmap?) {
+        mGoForwardMenuItem?.isEnabled = view.canGoForward()
+        mPresenter.updateToolbarTitleAndSubtitle(view.url, "")
     }
 }
