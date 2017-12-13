@@ -36,6 +36,8 @@
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Kotlin -->
         <activity android:name=".kotlin.basicsyntax.SecondActivity" />
         <activity android:name=".kotlin.idiom.ThirdActivity" />
         <activity android:name=".kotlin.codestandards.FourActivity" />
@@ -68,9 +70,13 @@
         <activity android:name=".kotlin.other.annotation.ThirtyActivity" />
         <activity android:name=".kotlin.other.reflect.ThirtyOneActivity" />
         <activity android:name=".kotlin.stringandregex.ThirtyTwoActivity" />
+
+        <!-- RePlugin-->
         <activity android:name=".replugin.plugin.PluginActivity" />
         <activity android:name=".replugin.pluginlist.PluginListActivity" />
         <activity android:name=".replugin.pluginlist.PluginListFragmentActivity" />
+
+        <!-- Mvvm -->
         <activity
             android:name=".mvvm.login.MvvmActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -128,6 +134,8 @@
         <activity
             android:name=".mvvm.converters.ConvertersActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Architecture -->
         <activity
             android:name=".architecture_components.lifecycle.LifeCycleActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -157,11 +165,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".architecture_components.room.entities.EntitiesActivity" />
 
-        <activity android:name=".material.login.MaterialLoginActivity"
-            android:theme="@style/MaterialTheme"/>
-        
-        <activity android:name=".material.webview.MaterialWebViewActivity"
-            android:theme="@style/MaterialTheme"/>
+        <!-- Material Design-->
+        <activity
+            android:name=".material.login.MaterialLoginActivity"
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.webview.MaterialWebViewActivity"
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.main.HomeActivity"
+            android:theme="@style/MaterialTheme" />
 
     </application>
 

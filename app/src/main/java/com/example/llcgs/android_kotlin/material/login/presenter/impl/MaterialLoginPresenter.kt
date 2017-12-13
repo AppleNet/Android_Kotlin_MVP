@@ -18,12 +18,12 @@ class MaterialLoginPresenter(private val view: MaterialLoginView) : IMaterialLog
 
     override fun login(userName: String, userPwd: String) {
         model.login(userName, userPwd)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe {
                     view.addDisposable(it)
                     view.showLoadingDialog()
                 }
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .compose(view.bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
                 .doOnTerminate {
                     view.dismissLoadingDialog()
