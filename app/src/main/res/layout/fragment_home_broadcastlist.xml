@@ -36,7 +36,7 @@
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="2dp"
+        android:layout_margin="10dp"
         android:layout_gravity="end|bottom"
         android:contentDescription="@string/app_name"
         android:src="@drawable/create_icon_white_24dp"
