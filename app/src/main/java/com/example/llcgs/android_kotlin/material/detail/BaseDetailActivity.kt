@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.material.base
+package com.example.llcgs.android_kotlin.material.detail
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +9,8 @@ import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEve
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
 import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
+import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
+import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.RxLifecycle
 import io.reactivex.Observable
@@ -21,7 +23,7 @@ import io.reactivex.subjects.BehaviorSubject
  * @author liulongchao
  * @since 2017/12/11
  */
-abstract class BaseMaterialActivity<P : BaseMaterialPresenter>: AppCompatActivity(), BaseMaterialView {
+abstract class BaseDetailActivity<P : BaseMaterialPresenter>: AppCompatActivity(), BaseMaterialView {
 
     protected lateinit var mPresenter: P
     private var compositeDisposable: CompositeDisposable? = null
@@ -30,7 +32,8 @@ abstract class BaseMaterialActivity<P : BaseMaterialPresenter>: AppCompatActivit
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE)
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        requestWindowFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+        window.sharedElementsUseOverlay = false
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         setContentView(getLayoutId())
         mPresenter = createPresenter()

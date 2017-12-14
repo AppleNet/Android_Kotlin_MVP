@@ -9,4 +9,6 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
  * @since 2017/12/13
  */
 interface IHomeBroadcastListPresenter: BaseMaterialPresenter, SuperPresenter {
+
+    fun getData()
 }

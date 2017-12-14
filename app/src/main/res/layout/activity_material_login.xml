@@ -103,6 +103,7 @@
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
                     android:text="@string/login_sign_in"
+                    android:textColor="@color/white"
                     android:textAppearance="?android:textAppearanceButton"
                     android:theme="?darkTheme"
                     style="@style/Widget.AppCompat.Button.Colored"/>

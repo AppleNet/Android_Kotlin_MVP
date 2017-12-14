@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.example.llcgs.android_kotlin.utils.widget;
+package com.example.llcgs.android_kotlin.utils.widget.button;
 
 import android.annotation.TargetApi;
 import android.content.Context;

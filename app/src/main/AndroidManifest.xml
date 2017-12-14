@@ -175,6 +175,9 @@
         <activity
             android:name=".material.main.HomeActivity"
             android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.detail.DetailActivity"
+            android:theme="@style/MaterialTheme" />
 
     </application>
 

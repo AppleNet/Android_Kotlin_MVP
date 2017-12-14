@@ -7,16 +7,14 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:progressOffset="104dp">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/broadcast_list"
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="0dp"
             android:paddingRight="0dp"
-            android:paddingTop="104dp"
             android:clipToPadding="false"
             android:scrollbars="vertical"
             android:scrollbarStyle="outsideOverlay" />
@@ -36,7 +34,7 @@
         android:id="@+id/send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="14dp"
         android:layout_gravity="end|bottom"
         android:contentDescription="@string/app_name"
         android:src="@drawable/create_icon_white_24dp"
