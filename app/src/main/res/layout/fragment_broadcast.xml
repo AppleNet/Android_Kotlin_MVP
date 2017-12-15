@@ -89,7 +89,7 @@
 
     <!-- Appbar layout must be on top of content so that transition can have correct z-order. -->
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/appBarWrapper"
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

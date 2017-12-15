@@ -1,9 +1,17 @@
 package com.example.llcgs.android_kotlin.material.main.fragment.home.model
 
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.util.Pair
+import android.view.View
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialModel
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
 import com.example.llcgs.android_kotlin.utils.BaseUtil
+import com.example.llcgs.android_kotlin.utils.TransitionUtils
 import io.reactivex.Observable
 
 /**
@@ -32,21 +40,21 @@ class HomeBroadcastListModel : BaseMaterialModel {
 
     private var desMap = mapOf(
             "Kobe" to "科比·布莱恩特（Kobe Bryant），1978年8月23日出生于美国宾夕法尼亚州费城，前美国职业篮球运动员，司职得分后卫/小前锋（锋卫摇摆人），绰号“黑曼巴”/“小飞侠”，[1]  整个NBA生涯（1996年-2016年）全部效力于NBA洛杉矶湖人队",
-                "James" to "勒布朗·詹姆斯（LeBron James），1984年12月30日出生在美国俄亥俄州阿克伦，美国职业篮球运动员，司职小前锋，绰号“小皇帝”，效力于NBA克利夫兰骑士队",
-                "Wade" to "德怀恩·韦德（Dwyane Wade），1982年1月17日出生于美国伊利诺伊州芝加哥，美国职业篮球运动员，司职得分后卫，效力于NBA克里夫兰骑士队，绰号“闪电侠”（The Flash）",
-                "Bosh" to "克里斯·波什（Chris Bosh），1984年3月24日出生于美国得克萨斯州达拉斯，前美国职业篮球运动员，司职大前锋，绰号“龙王”",
-                "Anthony" to "卡梅隆·安东尼（Carmelo Anthony），1984年5月29日出生于美国纽约市布鲁克林区（Brooklyn， New York），美国职业篮球运动员，司职小前锋，现效力于NBA俄克拉荷马城雷霆队",
-                "Paul" to "克里斯·保罗（Chris Paul），1985年5月6日出生于美国北卡罗来纳州温斯顿-塞勒姆（Winston-Salem，North Carolina），美国职业篮球运动员，司职控球后卫，效力于NBA休斯顿火箭队",
-                "Answer" to "阿伦·艾弗森（Allen Iverson），1975年6月7日出生于美国弗吉尼亚州汉普顿，前知名美国职业篮球运动员，司职后卫（双能卫），[1]  绰号“答案”（The Answer）/AI[1]  ，曾任美国男篮梦之队队长[1]  ",
-                "Durant" to "凯文·杜兰特（Kevin Durant），1988年9月29日出生于美国华盛顿哥伦比亚特区（Washington,District of Columbia），美国职业篮球运动员，司职小前锋，效力于NBA金州勇士队",
-                "Curry" to "斯蒂芬·库里（Stephen Curry），1988年3月14日出生于美国俄亥俄州阿克伦（Akron,Ohio），美国职业篮球运动员，司职控球后卫，效力于NBA金州勇士队",
-                "Harden" to "詹姆斯·哈登（James Harden），1989年8月26日出生于美国加利福尼亚州洛杉矶（ Los Angeles, California），美国职业篮球运动员，司职后卫，效力于NBA休斯顿火箭队",
-                "Jordon" to "迈克尔·乔丹（Michael Jordan），1963年2月17日生于美国纽约布鲁克林，前美国职业篮球运动员，司职得分后卫，绰号“飞人”（Air Jordan）",
-                "Nash" to "史蒂夫·纳什（Steve Nash），1974年2月7日出生于南非约翰内斯堡，前加拿大职业篮球运动员，司职控球后卫，绰号“风之子”",
-                "Allen" to "雷·阿伦（Ray Allen），1975年7月20日出生于美国加利福尼亚州美熹德，前美国职业篮球运动员[1]  ，司职得分后卫，绰号“君子雷”/“君子剑”[2]  ，有着出色的三分球投射能力"
+            "James" to "勒布朗·詹姆斯（LeBron James），1984年12月30日出生在美国俄亥俄州阿克伦，美国职业篮球运动员，司职小前锋，绰号“小皇帝”，效力于NBA克利夫兰骑士队",
+            "Wade" to "德怀恩·韦德（Dwyane Wade），1982年1月17日出生于美国伊利诺伊州芝加哥，美国职业篮球运动员，司职得分后卫，效力于NBA克里夫兰骑士队，绰号“闪电侠”（The Flash）",
+            "Bosh" to "克里斯·波什（Chris Bosh），1984年3月24日出生于美国得克萨斯州达拉斯，前美国职业篮球运动员，司职大前锋，绰号“龙王”",
+            "Anthony" to "卡梅隆·安东尼（Carmelo Anthony），1984年5月29日出生于美国纽约市布鲁克林区（Brooklyn， New York），美国职业篮球运动员，司职小前锋，现效力于NBA俄克拉荷马城雷霆队",
+            "Paul" to "克里斯·保罗（Chris Paul），1985年5月6日出生于美国北卡罗来纳州温斯顿-塞勒姆（Winston-Salem，North Carolina），美国职业篮球运动员，司职控球后卫，效力于NBA休斯顿火箭队",
+            "Answer" to "阿伦·艾弗森（Allen Iverson），1975年6月7日出生于美国弗吉尼亚州汉普顿，前知名美国职业篮球运动员，司职后卫（双能卫），[1]  绰号“答案”（The Answer）/AI[1]  ，曾任美国男篮梦之队队长[1]  ",
+            "Durant" to "凯文·杜兰特（Kevin Durant），1988年9月29日出生于美国华盛顿哥伦比亚特区（Washington,District of Columbia），美国职业篮球运动员，司职小前锋，效力于NBA金州勇士队",
+            "Curry" to "斯蒂芬·库里（Stephen Curry），1988年3月14日出生于美国俄亥俄州阿克伦（Akron,Ohio），美国职业篮球运动员，司职控球后卫，效力于NBA金州勇士队",
+            "Harden" to "詹姆斯·哈登（James Harden），1989年8月26日出生于美国加利福尼亚州洛杉矶（ Los Angeles, California），美国职业篮球运动员，司职后卫，效力于NBA休斯顿火箭队",
+            "Jordon" to "迈克尔·乔丹（Michael Jordan），1963年2月17日生于美国纽约布鲁克林，前美国职业篮球运动员，司职得分后卫，绰号“飞人”（Air Jordan）",
+            "Nash" to "史蒂夫·纳什（Steve Nash），1974年2月7日出生于南非约翰内斯堡，前加拿大职业篮球运动员，司职控球后卫，绰号“风之子”",
+            "Allen" to "雷·阿伦（Ray Allen），1975年7月20日出生于美国加利福尼亚州美熹德，前美国职业篮球运动员[1]  ，司职得分后卫，绰号“君子雷”/“君子剑”[2]  ，有着出色的三分球投射能力"
     )
 
-    fun getData(): Observable<List<BroadListContent>>{
+    fun getData(): Observable<List<BroadListContent>> {
         val array = BaseUtil.context().resources.getStringArray(R.array.databinding_nba)
         val list = ArrayList<BroadListContent>()
         var broadListContent: BroadListContent
@@ -62,5 +70,10 @@ class HomeBroadcastListModel : BaseMaterialModel {
             list.add(broadListContent)
         }
         return Observable.just(list)
+    }
+
+    fun addTransitionAnimation(activity: Activity, view: View): Observable<Bundle> {
+        val bundle = TransitionUtils.makeActivityOptionsBundle(activity, view)
+        return Observable.just(bundle)
     }
 }

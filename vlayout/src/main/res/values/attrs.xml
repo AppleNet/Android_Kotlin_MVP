@@ -6,8 +6,8 @@
     <attr name="itemView" format="reference" />
     <!-- require List<ViewModel> bind to ItemView to presentation.-->
     <attr name="items" format="reference" />
-    <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
-    <attr name="adapter" format="reference" />
+    <!-- requiradapterCommenpter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
+    <attr name="adapterComment" format="reference" />
 
     <attr name="onScrollChangeCommand" format="reference" />
     <attr name="onScrollStateChangedCommand" format="reference" />
@@ -37,8 +37,8 @@
         <attr name="itemView" />
         <!-- require List<ViewModel> bind to ItemView to presentation.-->
         <attr name="items" />
-        <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
-        <attr name="adapter" />
+        <!-- requiradapterCommenpter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
+        <attr name="adapterComment" />
         <attr name="dropDownItemView" format="reference" />
         <attr name="itemIds" format="reference" />
         <attr name="itemIsEnabled" format="reference" />
@@ -104,8 +104,8 @@
         <attr name="itemView" />
         <!-- require List<ViewModel> bind to ItemView to presentation.-->
         <attr name="items" />
-        <!-- require a adapter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
-        <attr name="adapter" />
+        <!-- requiradapterCommenpter which type of BindingRecyclerViewAdapter<T> to AdapterView-->
+        <attr name="adapterComment" />
         <!-- require PageTitles<T>-->
         <attr name="pageTitles" format="reference" />
         <!--require ReplyCommand<ViewPagerDataWrapper> -->

@@ -7,22 +7,22 @@ import android.support.v4.app.SharedElementCallback
 import android.support.v4.view.ViewCompat
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
+import android.transition.ChangeBounds
 import android.transition.Explode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.detail.fragment.adapter.BroadcastAdapter
+import com.example.llcgs.android_kotlin.material.detail.fragment.adapter.LoadMoreAdapter
 import com.example.llcgs.android_kotlin.material.detail.fragment.view.CustomTabsHelperFragment
 import com.example.llcgs.android_kotlin.material.detail.fragment.view.NoChangeAnimationItemAnimator
+import com.example.llcgs.android_kotlin.material.main.fragment.home.adapter.BroadListAdapter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
-import kotlinx.android.synthetic.main.broadcast_fragment.*
+import com.example.llcgs.android_kotlin.utils.TransitionUtils
+import com.gomejr.myf.core.kotlin.logD
+import kotlinx.android.synthetic.main.fragment_broadcast.*
 
 /**
  * com.example.llcgs.android_kotlin.material.detail.fragment.BroadcastFragment
@@ -32,25 +32,27 @@ import kotlinx.android.synthetic.main.broadcast_fragment.*
 class BroadcastFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
 
     private var title: String = ""
-    private var broadcastId = 0
+    private var broadcastId: String = ""
+    private var showComment: Boolean = false
     private lateinit var broadcast: BroadListContent
-    private lateinit var adapter: BroadcastAdapter
-    private val headerView: View by lazy { LayoutInflater.from(activity).inflate(R.layout.view_broadcast_layout, null) }
-    private lateinit var holder: HeaderViewHolder
+    private lateinit var adapterComment: BroadcastAdapter
+    private lateinit var adapterContent: BroadListAdapter
+    private lateinit var adapter: LoadMoreAdapter
 
     companion object {
 
-        fun setData(broadcastId: Int, broadcast: BroadListContent, showSendComment: Boolean, title: String): BroadcastFragment {
+        fun setData(broadcastId: String, broadcast: BroadListContent, showSendComment: Boolean, title: String): BroadcastFragment {
             val broadcastFragment = BroadcastFragment()
             var arguments = broadcastFragment.arguments
             if (arguments == null) {
                 arguments = Bundle()
                 broadcastFragment.arguments = arguments
             }
-            arguments.putInt("broadcastId", broadcastId)
+            arguments.putString("broadcastId", broadcastId)
             arguments.putBoolean("showSendComment", showSendComment)
             arguments.putString("title", title)
             arguments.putParcelable("broadcast", broadcast)
+            broadcastFragment.sharedElementEnterTransition = ChangeBounds()
             return broadcastFragment
         }
 
@@ -60,30 +62,28 @@ class BroadcastFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         super.onCreate(savedInstanceState)
         val bundle = arguments
         broadcast = bundle?.getParcelable("broadcast") as BroadListContent
-        broadcastId = bundle.getInt("broadcastId")
-        val showComment = bundle.getBoolean("showSendComment")
+        broadcastId = bundle.getString("broadcastId")
+        showComment = bundle.getBoolean("showSendComment")
         title = bundle.getString("title")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(R.layout.broadcast_fragment, container, false)
+            inflater.inflate(R.layout.fragment_broadcast, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val fragmentManager = activity?.supportFragmentManager
-        var fragment: Fragment? = fragmentManager?.findFragmentByTag(CustomTabsHelperFragment::class.java.name)
-        if (fragment == null) {
-            fragment = CustomTabsHelperFragment()
-            fragmentManager?.beginTransaction()?.add(fragment, CustomTabsHelperFragment::class.java.name)?.commit()
-        }
+        CustomTabsHelperFragment.attachTo(this)
 
         activity?.title = title
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
-        ViewCompat.setTransitionName(shared, broadcastId.toString())
+        broadcastId.logD()
+        ViewCompat.setTransitionName(shared, broadcastId)
         ActivityCompat.setEnterSharedElementCallback(activity as AppCompatActivity, object : SharedElementCallback(){
-            override fun onSharedElementEnd(sharedElementNames: MutableList<String>?, sharedElements: MutableList<View>?, sharedElementSnapshots: MutableList<View>?) {
+            override fun onSharedElementEnd(sharedElementNames: MutableList<String>?,
+                                            sharedElements: MutableList<View>?,
+                                            sharedElementSnapshots: MutableList<View>?) {
                 recyclerView.scrollToPosition(0)
             }
         })
@@ -94,59 +94,30 @@ class BroadcastFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         recyclerView.itemAnimator = NoChangeAnimationItemAnimator()
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
-        holder = HeaderViewHolder(headerView)
-        //initData()
-        adapter = BroadcastAdapter()
-        adapter.addHeaderView(headerView)
+        // 初始化适配器
+        adapterComment = BroadcastAdapter()
+        adapterContent = BroadListAdapter()
 
+        // 添加数据到adapter
+        adapterContent.addData(broadcast)
+        adapterComment.addData(activity?.resources?.getStringArray(R.array.databinding_nba)?.toMutableList()?: ArrayList<String>())
+
+        adapter = LoadMoreAdapter(R.layout.view_load_more_item, adapterContent, adapterComment)
         recyclerView.adapter = adapter
 
         progress.visibility = View.VISIBLE
-        activity?.window?.decorView?.postDelayed({
-            Toast.makeText(activity, "这条广播暂不支持回应", Toast.LENGTH_SHORT).show()
+        TransitionUtils.postAfterTransition(this) {
+            //Toast.makeText(activity, "这条广播暂不支持回应", Toast.LENGTH_SHORT).show()
             progress.visibility = View.GONE
-        }, 400)
+        }
 
-        //
-        comment.isEnabled = false
-        send.isEnabled = false
-        comment.hint = "这条广播暂不支持回应"
-
-        val explode = Explode()
-                .excludeTarget(android.R.id.statusBarBackground, true)
-                .excludeTarget(android.R.id.navigationBarBackground, true)
-        activity?.window?.enterTransition = explode
-        activity?.window?.returnTransition = explode
-
-        appBarWrapper.transitionName = "id"
-        ActivityCompat.startPostponedEnterTransition(activity as AppCompatActivity)
+        TransitionUtils.setEnterReturnExplode(this)
+        TransitionUtils.setupTransitionOnActivityCreated(this)
     }
 
-    private fun initData(){
-        Glide.with(activity).load(broadcast.avatar).into(holder.circleImage)
-        holder.name.text = broadcast.name
-        holder.content.text = broadcast.content
-        holder.time.text = broadcast.time
-        Glide.with(activity).load(broadcast.attachmentImage).into(holder.image)
-        holder.title.text = broadcast.attachmentTitle
-        holder.des.text = broadcast.attachmentDes
-
-    }
 
     override fun onRefresh() {
 
     }
 
-    class HeaderViewHolder(private val headerView: View){
-
-        val name = headerView.findViewById<TextView>(R.id.name)
-        val time = headerView.findViewById<TextView>(R.id.time_action)
-        val content = headerView.findViewById<TextView>(R.id.text)
-        val circleImage = headerView.findViewById<ImageView>(R.id.avatar)
-
-        val title = headerView.findViewById<TextView>(R.id.attachment_title)
-        val des = headerView.findViewById<TextView>(R.id.attachment_description)
-        val image = headerView.findViewById<ImageView>(R.id.attachment_image)
-
-    }
 }

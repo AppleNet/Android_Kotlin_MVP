@@ -59,7 +59,7 @@ public class CardIconButton extends LinearLayout {
         setGravity(Gravity.CENTER_VERTICAL);
         setOrientation(HORIZONTAL);
 
-        View view = LayoutInflater.from(this.getContext()).inflate(R.layout.card_icon_button, this);
+        View view = LayoutInflater.from(this.getContext()).inflate(R.layout.view_card_icon_button, this);
         mImage = (ImageView) view.findViewById(R.id.cardiconbutton_image);
         mText = (TextView) view.findViewById(R.id.cardiconbutton_text);
 

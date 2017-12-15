@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.material.main.fragment.home
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
@@ -27,6 +28,8 @@ import java.util.ArrayList
 class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresenter>(), SwipeRefreshLayout.OnRefreshListener, HomeBroadcastListView, (BroadListContent, View, Int) -> Unit {
 
     private lateinit var adapter: BroadListAdapter
+    private lateinit var item: BroadListContent
+    private var position: Int = 0
 
     override fun getLayoutId() = R.layout.fragment_home_broadcastlist
 
@@ -53,22 +56,19 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
         adapter.setNewData(list)
     }
 
+    override fun onGetBundle(bundle: Bundle) {
+        ActivityCompat.startActivity(activity!!, Intent(activity, DetailActivity::class.java).apply {
+            putExtra("showSendComment", true)
+            putExtra("title", "豆芽")
+            putExtra("broadcast", item)
+            putExtra("broadcastId", "broadcast-$position")
+        }, bundle)
+    }
+
     override fun invoke(item: BroadListContent, view: View, position: Int) {
-        // Intent
-        val intent = Intent(activity, DetailActivity::class.java)
-        intent.putExtra("show_send_comment", true)
-        intent.putExtra("title", "豆芽")
-        intent.putExtra("broadcast", item)
-        intent.putExtra("id", position)
-        // 添加转场动画
-        val list = ArrayList<Pair<View, String>>()
-        list.add(Pair.create(view, view.transitionName))
-        val appbar = activity?.findViewById<View>(R.id.appBarLayout)
-        if (appbar != null) {
-            list.add(Pair.create(appbar, "id"))
-        }
-        val bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity as Activity, *list.toTypedArray()).toBundle()
-        ActivityCompat.startActivity(activity!!, intent, bundle)
+        this.item = item
+        this.position = position
+        mPresenter.addTransitionAnimation(activity as Activity, view)
     }
 
     override fun onRefresh() {

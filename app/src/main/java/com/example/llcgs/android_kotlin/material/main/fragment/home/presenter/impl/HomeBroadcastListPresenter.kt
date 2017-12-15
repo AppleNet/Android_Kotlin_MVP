@@ -1,5 +1,8 @@
 package com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.impl
 
+import android.app.Activity
+import android.content.Context
+import android.view.View
 import com.example.llcgs.android_kotlin.base.rx.RxUtils
 import com.example.llcgs.android_kotlin.material.main.fragment.home.model.HomeBroadcastListModel
 import com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.IHomeBroadcastListPresenter
@@ -19,6 +22,14 @@ class HomeBroadcastListPresenter(private val view: HomeBroadcastListView) : IHom
                 .compose(RxUtils.defaultTransformer(view))
                 .subscribe {
                     view.onGetData(it)
+                }
+    }
+
+    override fun addTransitionAnimation(context: Activity, view: View) {
+        model.addTransitionAnimation(context, view)
+                .compose(RxUtils.defaultTransformer(view= this@HomeBroadcastListPresenter.view))
+                .subscribe {
+                    this@HomeBroadcastListPresenter.view.onGetBundle(it)
                 }
     }
 

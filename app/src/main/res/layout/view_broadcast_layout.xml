@@ -158,4 +158,10 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/rebroadcast_icon_white_18dp" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="3dp"
+        android:background="@color/BDBDBD"/>
 </LinearLayout>
