@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.example.llcgs.android_kotlin.material.detail.fragment.view;
+package com.example.llcgs.android_kotlin.material.detail.view;
 
 import android.support.v7.widget.DefaultItemAnimator;
 

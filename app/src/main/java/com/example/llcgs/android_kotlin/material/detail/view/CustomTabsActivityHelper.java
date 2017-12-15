@@ -1,7 +1,7 @@
-package com.example.llcgs.android_kotlin.material.detail.fragment.view;
+package com.example.llcgs.android_kotlin.material.detail.view;
 
 /**
- * com.example.llcgs.android_kotlin.material.detail.fragment.view.CustomTabsActivityHelper
+ * com.example.llcgs.android_kotlin.material.detail.view.CustomTabsActivityHelper
  *
  * @author liulongchao
  * @since 2017/12/14

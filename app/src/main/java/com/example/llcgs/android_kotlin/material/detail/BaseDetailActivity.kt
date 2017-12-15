@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.material.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
@@ -11,6 +12,7 @@ import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
 import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
+import com.example.llcgs.android_kotlin.utils.TransitionUtils
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.RxLifecycle
 import io.reactivex.Observable
@@ -31,23 +33,27 @@ abstract class BaseDetailActivity<P : BaseMaterialPresenter>: AppCompatActivity(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE)
-        super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-        window.sharedElementsUseOverlay = false
+        TransitionUtils.setupTransitionBeforeDecorate(this)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        TransitionUtils.postponeTransition(this)
         mPresenter = createPresenter()
 
+        onGetIntentData(intent)
         initViews()
         initData()
     }
 
     abstract fun createPresenter(): P
     abstract fun getLayoutId(): Int
-
     abstract fun initViews()
 
     open protected fun initData(){
+
+    }
+
+    open protected fun onGetIntentData(intent: Intent){
 
     }
 

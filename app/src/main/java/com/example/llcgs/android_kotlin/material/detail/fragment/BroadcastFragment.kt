@@ -9,15 +9,14 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.ChangeBounds
-import android.transition.Explode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.llcgs.android_kotlin.R
-import com.example.llcgs.android_kotlin.material.detail.fragment.adapter.BroadcastAdapter
-import com.example.llcgs.android_kotlin.material.detail.fragment.adapter.LoadMoreAdapter
-import com.example.llcgs.android_kotlin.material.detail.fragment.view.CustomTabsHelperFragment
-import com.example.llcgs.android_kotlin.material.detail.fragment.view.NoChangeAnimationItemAnimator
+import com.example.llcgs.android_kotlin.material.detail.adapter.BroadcastAdapter
+import com.example.llcgs.android_kotlin.material.detail.adapter.LoadMoreAdapter
+import com.example.llcgs.android_kotlin.material.detail.view.CustomTabsHelperFragment
+import com.example.llcgs.android_kotlin.material.detail.view.NoChangeAnimationItemAnimator
 import com.example.llcgs.android_kotlin.material.main.fragment.home.adapter.BroadListAdapter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
 import com.example.llcgs.android_kotlin.utils.TransitionUtils
@@ -79,7 +78,7 @@ class BroadcastFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
         broadcastId.logD()
-        ViewCompat.setTransitionName(shared, broadcastId)
+        ViewCompat.setTransitionName(shared, broadcastId.toString())
         ActivityCompat.setEnterSharedElementCallback(activity as AppCompatActivity, object : SharedElementCallback(){
             override fun onSharedElementEnd(sharedElementNames: MutableList<String>?,
                                             sharedElements: MutableList<View>?,

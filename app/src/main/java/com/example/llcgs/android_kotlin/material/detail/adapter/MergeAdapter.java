@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.example.llcgs.android_kotlin.material.detail.fragment.adapter;
+package com.example.llcgs.android_kotlin.material.detail.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;

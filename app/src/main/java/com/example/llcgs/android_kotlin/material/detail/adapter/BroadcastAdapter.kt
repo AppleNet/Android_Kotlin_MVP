@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.material.detail.fragment.adapter
+package com.example.llcgs.android_kotlin.material.detail.adapter
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder

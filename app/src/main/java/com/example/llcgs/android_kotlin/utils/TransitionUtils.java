@@ -83,6 +83,18 @@ public class TransitionUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void setupActivityTransitionOnActivityCreated(Activity activity) {
+
+        if (!shouldEnableTransition()) {
+            return;
+        }
+
+        setupTransitionForAppBar(activity);
+
+        ActivityCompat.startPostponedEnterTransition(activity);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void setupTransitionForAppBar(Fragment fragment) {
 
         if (!shouldEnableTransition()) {
@@ -155,6 +167,21 @@ public class TransitionUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void setActivityEnterReturnExplode(Activity activity) {
+
+        if (!shouldEnableTransition()) {
+            return;
+        }
+
+        Window window = activity.getWindow();
+        Transition explode = new Explode()
+                .excludeTarget(android.R.id.statusBarBackground, true)
+                .excludeTarget(android.R.id.navigationBarBackground, true);
+        window.setEnterTransition(explode);
+        window.setReturnTransition(explode);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void postAfterTransition(Fragment fragment, Runnable runnable) {
 
         if (!shouldEnableTransition()) {
@@ -165,6 +192,20 @@ public class TransitionUtils {
         // HACK: Horrible hack, because we have no good way of being notified at the end of
         // transition.
         Activity activity = fragment.getActivity();
+        activity.getWindow().getDecorView().postDelayed(runnable,
+                ViewUtils.getMediumAnimTime(activity));
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void postActivityAfterTransition(Activity activity, Runnable runnable) {
+
+        if (!shouldEnableTransition()) {
+            runnable.run();
+            return;
+        }
+
+        // HACK: Horrible hack, because we have no good way of being notified at the end of
+        // transition.
         activity.getWindow().getDecorView().postDelayed(runnable,
                 ViewUtils.getMediumAnimTime(activity));
     }
