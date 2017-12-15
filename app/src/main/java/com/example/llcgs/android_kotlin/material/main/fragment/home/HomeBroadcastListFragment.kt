@@ -57,7 +57,7 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
         // Intent
         val intent = Intent(activity, DetailActivity::class.java)
         intent.putExtra("show_send_comment", true)
-        intent.putExtra("title", "Detail")
+        intent.putExtra("title", "豆芽")
         intent.putExtra("broadcast", item)
         intent.putExtra("id", position)
         // 添加转场动画
