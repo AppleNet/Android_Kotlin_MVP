@@ -8,4 +8,6 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
  * @since 2017/12/14
  */
 interface DetailView : BaseMaterialView {
+
+    fun onGetComments(list: List<String>)
 }

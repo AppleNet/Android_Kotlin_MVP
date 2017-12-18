@@ -8,4 +8,6 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
  * @since 2017/12/14
  */
 interface IDetailPresenter : BaseMaterialPresenter {
+
+    fun loadComments()
 }

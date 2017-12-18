@@ -49,7 +49,7 @@ class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, 
         refreshLayout.setOnRefreshListener(this)
         refreshLayout.loadMoreEnable = false
 
-        adapter.setOnItemClickListener(this)
+        adapter.onItemClickListener = this
     }
 
     private fun initData() {

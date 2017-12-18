@@ -99,11 +99,11 @@ abstract class BaseDetailActivity<P : BaseMaterialPresenter>: AppCompatActivity(
     override fun <T : Any?> bindToLifecycle(): LifecycleTransformer<T> = RxLifecycle.bind(lifecycleSubject, LifecycleHelper.activityLifecycle())
 
     override fun showLoadingDialog() {
-        Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()
     }
 
     override fun dismissLoadingDialog() {
-        Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
     }
 
     override fun onObtainFail(exception: ObtainException) {
