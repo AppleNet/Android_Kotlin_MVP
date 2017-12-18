@@ -1,5 +1,8 @@
 package com.example.llcgs.android_kotlin.material.detail
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.SharedElementCallback
@@ -8,6 +11,8 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -129,6 +134,28 @@ class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener,
                 fragment.show(supportFragmentManager, null)
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.broadcast, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            android.R.id.home ->{
+                ActivityCompat.finishAfterTransition(this)
+            }
+            R.id.action_copy_text ->{
+                // 复制文本
+                val clipData = ClipData.newPlainText(broadcast.attachmentTitle, broadcast.content)
+                (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = clipData
+            }
+            R.id.action_delete ->{
+                // 删除广播
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     class HeaderViewHolder(view: View) {
