@@ -26,4 +26,6 @@
     <string name="login_prompt_email">用户名</string>
     <string name="login_prompt_password">密码</string>
     <string name="like">赞</string>
+    <string name="broadcast_likers_title_format">%1$d 人赞</string>
+    <string name="broadcast_likers_title_empty">暂无赞</string>
 </resources>

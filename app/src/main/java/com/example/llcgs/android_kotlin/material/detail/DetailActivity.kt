@@ -14,6 +14,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.detail.adapter.BroadcastAdapter
+import com.example.llcgs.android_kotlin.material.detail.fragmentdialog.BroadcastActivityDialogFragment
 import com.example.llcgs.android_kotlin.material.detail.view.NoChangeAnimationItemAnimator
 import com.example.llcgs.android_kotlin.material.detail.presenter.impl.DetailPresenter
 import com.example.llcgs.android_kotlin.material.detail.view.DetailView
@@ -28,7 +29,7 @@ import kotlinx.android.synthetic.main.fragment_broadcast.*
  * @author liulongchao
  * @since 2017/12/14
  */
-class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView {
+class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView, View.OnClickListener {
 
     private var title: String = ""
     private var broadcastId: String = ""
@@ -87,6 +88,7 @@ class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener,
         holder.title.text = broadcast.attachmentTitle
         holder.des.text = broadcast.attachmentDes
         holder.number.visibility = View.VISIBLE
+        holder.number.setOnClickListener(this)
 
         swipeRefreshLayout.autoRefresh()
         mPresenter.loadComments()
@@ -115,6 +117,17 @@ class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener,
         }else if (swipeRefreshLayout.isLoadingMore){
             swipeRefreshLayout.stopRefreshLayout()
             adapter.addData(list)
+        }
+    }
+
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.rebroadcastNumber ->{
+                // 查看点赞和转播人数
+                val fragment = BroadcastActivityDialogFragment()
+                fragment.arguments?.putParcelable("broadcast", broadcast)
+                fragment.show(supportFragmentManager, null)
+            }
         }
     }
 
