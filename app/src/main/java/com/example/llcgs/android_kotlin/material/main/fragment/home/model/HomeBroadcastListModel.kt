@@ -54,6 +54,22 @@ class HomeBroadcastListModel : BaseMaterialModel {
             "Allen" to "雷·阿伦（Ray Allen），1975年7月20日出生于美国加利福尼亚州美熹德，前美国职业篮球运动员[1]  ，司职得分后卫，绰号“君子雷”/“君子剑”[2]  ，有着出色的三分球投射能力"
     )
 
+    private var contentMap = mapOf(
+            "Kobe" to "https://baike.baidu.com/item/%E7%A7%91%E6%AF%94%C2%B7%E5%B8%83%E8%8E%B1%E6%81%A9%E7%89%B9/318773?fr=aladdin&fromid=133066&fromtitle=%E7%A7%91%E6%AF%94",
+            "James" to "https://baike.baidu.com/item/%E5%8B%92%E5%B8%83%E6%9C%97%C2%B7%E8%A9%B9%E5%A7%86%E6%96%AF/1989503?fr=aladdin&fromid=30516&fromtitle=James",
+            "Wade" to "https://baike.baidu.com/item/%E5%BE%B7%E6%80%80%E6%81%A9%C2%B7%E9%9F%A6%E5%BE%B7/5457042?fr=aladdin&fromid=510718&fromtitle=WADE",
+            "Bosh" to "https://baike.baidu.com/item/%E5%85%8B%E9%87%8C%E6%96%AF%C2%B7%E6%B3%A2%E4%BB%80/2274415?fr=aladdin",
+            "Anthony" to "https://baike.baidu.com/item/%E5%8D%A1%E6%A2%85%E9%9A%86%C2%B7%E5%AE%89%E4%B8%9C%E5%B0%BC/1903398",
+            "Paul" to "https://baike.baidu.com/item/%E5%85%8B%E9%87%8C%E6%96%AF%C2%B7%E4%BF%9D%E7%BD%97/967371?fr=aladdin",
+            "Answer" to "https://baike.baidu.com/item/%E9%98%BF%E4%BC%A6%C2%B7%E8%89%BE%E5%BC%97%E6%A3%AE/386640?fr=aladdin",
+            "Durant" to "https://baike.baidu.com/item/%E5%87%AF%E6%96%87%C2%B7%E6%9D%9C%E5%85%B0%E7%89%B9/3726277?fr=aladdin",
+            "Curry" to "https://baike.baidu.com/item/%E6%96%AF%E8%92%82%E8%8A%AC%C2%B7%E5%BA%93%E9%87%8C/902812?fr=aladdin",
+            "Harden" to "https://baike.baidu.com/item/%E8%A9%B9%E5%A7%86%E6%96%AF%C2%B7%E5%93%88%E7%99%BB/745489?fr=aladdin",
+            "Jordon" to "https://baike.baidu.com/item/%E8%BF%88%E5%85%8B%E5%B0%94%C2%B7%E4%B9%94%E4%B8%B9/21768?fr=aladdin",
+            "Nash" to "https://baike.baidu.com/item/%E5%8F%B2%E8%92%82%E5%A4%AB%C2%B7%E7%BA%B3%E4%BB%80/812358?fr=aladdin",
+            "Allen" to "https://baike.baidu.com/item/%E9%9B%B7%C2%B7%E9%98%BF%E4%BC%A6/394332?fr=aladdin"
+    )
+
     fun getData(): Observable<List<BroadListContent>> {
         val array = BaseUtil.context().resources.getStringArray(R.array.databinding_nba)
         val list = ArrayList<BroadListContent>()
@@ -67,6 +83,7 @@ class HomeBroadcastListModel : BaseMaterialModel {
             broadListContent.attachmentImage = imageUriMap[it]
             broadListContent.attachmentTitle = "About $it Star"
             broadListContent.attachmentDes = desMap[it]
+            broadListContent.desUrl = contentMap[it]
             list.add(broadListContent)
         }
         return Observable.just(list)

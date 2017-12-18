@@ -41,6 +41,7 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        swipeRefreshLayout.isRefreshing = true
         swipeRefreshLayout.setOnRefreshListener(this)
 
         adapter.setOpenBroadCast(this)

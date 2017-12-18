@@ -25,6 +25,8 @@ public class BroadListContent implements Parcelable {
 
     private String attachmentDes;
 
+    private String desUrl;
+
     public String getAvatar() {
         return avatar;
     }
@@ -81,6 +83,14 @@ public class BroadListContent implements Parcelable {
         this.attachmentDes = attachmentDes;
     }
 
+    public String getDesUrl() {
+        return desUrl;
+    }
+
+    public void setDesUrl(String desUrl) {
+        this.desUrl = desUrl;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -95,6 +105,7 @@ public class BroadListContent implements Parcelable {
         dest.writeString(this.attachmentImage);
         dest.writeString(this.attachmentTitle);
         dest.writeString(this.attachmentDes);
+        dest.writeString(this.desUrl);
     }
 
     public BroadListContent() {
@@ -108,6 +119,7 @@ public class BroadListContent implements Parcelable {
         this.attachmentImage = in.readString();
         this.attachmentTitle = in.readString();
         this.attachmentDes = in.readString();
+        this.desUrl = in.readString();
     }
 
     public static final Creator<BroadListContent> CREATOR = new Creator<BroadListContent>() {

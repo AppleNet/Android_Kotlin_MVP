@@ -135,7 +135,7 @@
             android:id="@+id/like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/like"
             android:src="@drawable/like_icon_white_18dp" />
 
         <Space
