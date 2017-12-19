@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.material.gallery.GalleryActivity
 import com.example.llcgs.android_kotlin.material.login.customtabs.CustomTabActivityHelper
 import com.example.llcgs.android_kotlin.material.login.customtabs.WebViewFallback
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
@@ -98,15 +99,17 @@ class BroadListAdapter : BaseQuickAdapter<BroadListContent, BaseViewHolder>(R.la
         val imageView = helper.getView<ImageView>(R.id.attachment_image)
         imageView.setOnClickListener {
             // 查看大图
-
+            mContext.startActivity(Intent(mContext, GalleryActivity::class.java).apply {
+                putExtra("position", 0)
+                putExtra("urlList", arrayListOf(item.attachmentImage))
+            })
         }
 
         val des = helper.getView<TextView>(R.id.attachment_description)
         des.setOnClickListener {
             // 查看内容
-            val intent = Intent(mContext, MaterialWebViewActivity::class.java)
-            intent.putExtra("EXTRA_URL", item.desUrl)
-            mContext.startActivity(intent)
+            mContext.startActivity(Intent(mContext, MaterialWebViewActivity::class.java)
+                    .apply {  putExtra("EXTRA_URL", item.desUrl) })
         }
 
 

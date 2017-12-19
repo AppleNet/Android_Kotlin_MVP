@@ -178,6 +178,9 @@
         <activity
             android:name=".material.detail.DetailActivity"
             android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.gallery.GalleryActivity"
+            android:theme="@style/MaterialTheme" />
 
     </application>
 

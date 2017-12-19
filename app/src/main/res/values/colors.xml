@@ -81,5 +81,6 @@
     <color name="green_700">#388e3c</color>
     <color name="grey_200">#eeeeee</color>
     <color name="grey_600">#757575</color>
+    <color name="dark_50_percent">#80000000</color>
 
 </resources>

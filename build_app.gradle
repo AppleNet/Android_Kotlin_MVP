@@ -4,9 +4,16 @@ repluginHostConfig {
     useAppCompat = true
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
 dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compile(name:'library-1.0.0', ext:'aar')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
