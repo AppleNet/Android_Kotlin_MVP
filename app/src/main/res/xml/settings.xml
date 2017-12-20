@@ -70,8 +70,8 @@
 
         <Preference android:title="@string/settings_about_douya_title">
             <intent
-                android:targetPackage="me.zhanghai.android.douya"
-                android:targetClass="me.zhanghai.android.douya.settings.ui.AboutActivity" />
+                android:targetPackage="com.example.llcgs.android_kotlin"
+                android:targetClass="com.example.llcgs.android_kotlin.material.about.AboutActivity" />
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

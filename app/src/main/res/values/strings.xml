@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_Kotlin</string>
+    <string name="app_name">Kotlin</string>
     <string name="title_activity_mvvm">Sign in</string>
 
     <!-- Strings related to login -->

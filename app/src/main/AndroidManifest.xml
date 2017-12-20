@@ -186,10 +186,10 @@
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.setting.SettingActivity"
-            android:launchMode="singleTop"
-            android:label="设置"
             android:exported="false"
-            android:theme="@style/MaterialSettingTheme" >
+            android:label="设置"
+            android:launchMode="singleTop"
+            android:theme="@style/MaterialSettingTheme">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -198,6 +198,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".material.main.HomeActivity" />
         </activity>
+        <activity
+            android:name=".material.about.AboutActivity"
+            android:theme="@style/MaterialTheme" />
 
     </application>
 
