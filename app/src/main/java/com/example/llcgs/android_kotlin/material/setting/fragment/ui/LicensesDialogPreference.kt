@@ -20,11 +20,8 @@ class LicensesDialogPreference : DialogPreference {
                 defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
     }
 
-    companion object {
-
-        init {
-            PreferenceFragmentCompat.registerPreferenceFragment(LicensesDialogPreference::class.java,
-                    LicensesDialogFragment::class.java)
-        }
+    init {
+        PreferenceFragmentCompat.registerPreferenceFragment(LicensesDialogPreference::class.java,
+                LicensesDialogFragment::class.java)
     }
 }

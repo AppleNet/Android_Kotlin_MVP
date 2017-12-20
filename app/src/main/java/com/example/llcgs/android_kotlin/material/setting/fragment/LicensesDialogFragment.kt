@@ -11,25 +11,20 @@ import de.psdev.licensesdialog.LicensesDialog
 import de.psdev.licensesdialog.NoticesXmlParser
 import de.psdev.licensesdialog.model.Notices
 
-class LicensesDialogFragment
-@Deprecated("Use {@link #newInstance()} instead.")
-constructor() : AppCompatDialogFragment() {
+class LicensesDialogFragment @Deprecated("Use {@link #newInstance()} instead.")constructor() : AppCompatDialogFragment() {
 
     private var mNotices: Notices? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        if (savedInstanceState != null) {
-            mNotices = savedInstanceState.getParcelable(STATE_NOTICES)
+        mNotices = if (savedInstanceState != null) {
+            savedInstanceState.getParcelable(STATE_NOTICES)
         } else {
             try {
-                mNotices = NoticesXmlParser.parse(activity!!.resources.openRawResource(
-                        R.raw.licenses))
+                NoticesXmlParser.parse(activity!!.resources.openRawResource(R.raw.licenses))
             } catch (e: Exception) {
                 throw IllegalStateException(e)
             }
-
         }
     }
 
@@ -39,12 +34,12 @@ constructor() : AppCompatDialogFragment() {
         outState.putParcelable(STATE_NOTICES, mNotices)
     }
 
-    override fun onCreateDialog(savedInstanceState: Bundle): Dialog {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val htmlStyleRes = if (ViewUtils.isLightTheme(activity))
             R.string.settings_open_source_licenses_html_style_light
         else
             R.string.settings_open_source_licenses_html_style_dark
-        return LicensesDialog.Builder(activity!!)
+        return LicensesDialog.Builder(activity)
                 .setThemeResourceId(theme)
                 .setTitle(R.string.settings_open_source_licenses_title)
                 .setCloseText(R.string.close)
@@ -56,13 +51,8 @@ constructor() : AppCompatDialogFragment() {
     }
 
     companion object {
-
         private val KEY_PREFIX = LicensesDialogFragment::class.java.name + '.'
-
         private val STATE_NOTICES = KEY_PREFIX + "NOTICES"
-
-        fun newInstance(): LicensesDialogFragment {
-            return LicensesDialogFragment()
-        }
+        fun newInstance(): LicensesDialogFragment = LicensesDialogFragment()
     }
 }
