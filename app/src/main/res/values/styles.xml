@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -14,26 +14,76 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="CollapsingTextAppearance" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title"/>
-
     <style name="CollapsingTextAppearance.TitleSize" >
         <item name="android:textSize">30sp</item>
     </style>
 
     <style name="MaterialThemeBase" parent="Theme.AppCompat.Light.DarkActionBar">
-
         <item name="colorPrimary">@color/douya_primary</item>
         <item name="colorPrimaryDark">@color/douya_primary_dark</item>
         <item name="colorAccent">@color/douya_accent</item>
-
     </style>
-
     <style name="MaterialTheme" parent="MaterialThemeBase">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <!-- Setting Theme-->
+    <style name="ThemeOverlay.Design.Dark.ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="textColorError">?colorError</item>
+    </style>
+    <style name="ThemeOverlay.Douya.Dark.ActionBar" parent="ThemeOverlay.Design.Dark.ActionBar">
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+    <style name="ThemeOverlay.Design.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="textColorError">?colorError</item>
+    </style>
+    <style name="ThemeOverlay.Douya.Light" parent="ThemeOverlay.Design.Light">
+        <item name="colorAccent">@color/douya_accent</item>
+    </style>
+    <style name="PreferenceFixTheme.Design.Light.DarkActionBar" parent="PreferenceFixTheme.Light.DarkActionBar">
+        <item name="preferenceCategory_marginBottom">0dp</item>
+        <item name="textColorError">?colorError</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.Design.Dark.ActionBar</item>
+    </style>
+    <style name="DarkTheme.Light" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="colorAccent">@color/douya_accent</item>
+    </style>
+    <style name="Base.TextAppearance.Douya.Widget.ActionBar.Menu" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textSize" tools:ignore="PrivateResource">@dimen/abc_text_size_menu_material</item>
+    </style>
+    <style name="Base.Widget.Douya.Toolbar" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/Base.TextAppearance.AppCompat.Widget.ActionBar.Title</item>
+        <item name="android:textSize" tools:ignore="PrivateResource">@dimen/abc_text_size_title_material_toolbar</item>
+    </style>
+    <style name="Widget.Douya.Toolbar.Button.Navigation" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:paddingLeft">0dp</item>
+    </style>
+    <style name="MaterialSettingThemeBase" parent="PreferenceFixTheme.Design.Light.DarkActionBar">
+        <item name="actionBarTheme">@style/ThemeOverlay.Douya.Dark.ActionBar</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.Douya.Light</item>
+        <item name="colorPrimary">@color/douya_primary</item>
+        <item name="colorPrimaryDark">@color/douya_primary_dark</item>
+        <item name="colorAccent">@color/douya_accent</item>
+        <item name="darkTheme">@style/DarkTheme.Light</item>
+        <item name="colorPrimaryDarkWithoutSystemWindowScrim">@color/douya_primary_dark_without_system_window_scrim</item>
+    </style>
+    <style name="MaterialSettingTheme" parent="MaterialSettingThemeBase">
+        <item name="actionModeBackground" tools:ignore="PrivateResource">@color/background_material_dark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionMenuTextAppearance">@style/Base.TextAppearance.Douya.Widget.ActionBar.Menu</item>
+        <item name="android:textColorLink">?colorAccent</item>
+        <item name="dividerHorizontal">?android:dividerHorizontal</item>
+        <item name="dividerVertical">?android:dividerVertical</item>
+        <item name="toolbarStyle">@style/Base.Widget.Douya.Toolbar</item>
+        <item name="toolbarNavigationButtonStyle">@style/Widget.Douya.Toolbar.Button.Navigation</item>
+        <!--<item name="android:colorBackgroundCacheHint">#00000000</item>-->
+        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay</item>-->
+    </style>
+
 
 </resources>

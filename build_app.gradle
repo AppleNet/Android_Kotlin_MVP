@@ -109,6 +109,12 @@ dependencies {
     /* QuickAdapter */
     implementation libs.adapter_helper
 
+    /* material_preference */
+    implementation libs.material_preference
+
+    /* licensesdialog */
+    implementation libs.licensesdialog
+
 }
 
 task makeJar(type: Jar) {

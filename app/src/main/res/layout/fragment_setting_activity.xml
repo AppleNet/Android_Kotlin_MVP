@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.llcgs.android_kotlin.material.setting.fragment.SettingFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"/>
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?colorPrimary"
+            android:elevation="4dp"
+            android:theme="?actionBarTheme">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:paddingStart="-2dp"
+                android:paddingEnd="-6dp"
+                app:navigationIcon="@drawable/back_icon_white_24dp"
+                app:popupTheme="?actionBarPopupTheme"
+                app:titleMarginStart="18dp" />
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+</FrameLayout>

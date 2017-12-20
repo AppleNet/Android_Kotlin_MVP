@@ -19,6 +19,7 @@ import com.example.llcgs.android_kotlin.material.main.fragment.home.HomeBroadcas
 import com.example.llcgs.android_kotlin.material.main.fragment.NotYetImplementedFragment
 import com.example.llcgs.android_kotlin.material.main.presenter.IHomePresenter
 import com.example.llcgs.android_kotlin.material.main.presenter.impl.HomePresenter
+import com.example.llcgs.android_kotlin.material.setting.SettingActivity
 import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.view_navigation.*
@@ -111,6 +112,7 @@ class HomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationView.OnNa
             }
             R.id.navigation_book ->{
                 // book
+
             }
             R.id.navigation_movie ->{
                 // 电影
@@ -120,12 +122,15 @@ class HomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationView.OnNa
             }
             R.id.navigation_music ->{
                 //music
+
             }
             R.id.navigation_settings ->{
                 // setting
+                startActivity(Intent(this, SettingActivity::class.java))
             }
             R.id.navigation_feedback ->{
                 // feedback
+
             }
         }
         return true

@@ -53,6 +53,8 @@ ext {
             googlePaging      : "1.0.0-alpha3",
 
             material_dialogs  : "0.9.6.0",
+            material_preference : "27.0.2.0",
+            licensesdialog    : "1.8.3",
 
     ]
     libs = [
@@ -142,6 +144,10 @@ ext {
             googlePaging         : "android.arch.paging:runtime:${versions.googlePaging}",
 
             material_dialogs     : "com.afollestad.material-dialogs:commons:${versions.material_dialogs}",
+
+            material_preference  : "com.takisoft.fix:preference-v7:${versions.material_preference}",
+
+            licensesdialog       : "de.psdev.licensesdialog:licensesdialog:${versions.licensesdialog}",
     ]
 
 }

@@ -29,4 +29,66 @@
     <string name="broadcast_likers_title_format">%1$d 人赞</string>
     <string name="broadcast_likers_title_empty">暂无赞</string>
     <string name="gallery_title_multiple_format">查看图片（%1$d/%2$d）</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_appearance_title">外观</string>
+    <string name="settings_show_title_for_link_entity_title">显示完整链接文本</string>
+    <string name="settings_show_title_for_link_entity_summary">替换经过 dou.bz 缩短的链接</string>
+    <string name="settings_night_mode_title">夜间模式</string>
+    <string name="settings_night_mode_summary">%1$s</string>
+    <string-array name="settings_night_mode_entries">
+        <!--<item>跟随系统</item>-->
+        <item>关闭</item>
+        <item>开启</item>
+        <item>自动</item>
+    </string-array>
+    <string name="settings_behavior_title">行为</string>
+    <string name="settings_auto_refresh_home_title">打开时自动刷新主页</string>
+    <string name="settings_progressive_third_party_app_title">渐进式第三方应用</string>
+    <string name="settings_progressive_third_party_app_summary">使用豆瓣官方应用打开尚未实现的页面</string>
+    <string name="settings_open_url_with_title">打开链接的方式</string>
+    <string name="settings_open_url_with_summary">%1$s</string>
+    <string-array name="settings_open_url_with_entries">
+        <item>内置浏览器</item>
+        <item>系统打开方式</item>
+        <item>Custom Tabs</item>
+    </string-array>
+    <string name="settings_open_with_native_in_webview_title">在内置浏览器中使用应用界面</string>
+    <string name="settings_open_with_native_in_webview_summary">应用界面美观易用但可能有未覆盖的功能</string>
+    <string name="settings_request_desktop_site_in_webview_title">在内置浏览器中请求桌面版网站</string>
+    <string name="settings_request_desktop_site_in_webview_summary">豆瓣移动端网站功能有限</string>
+    <string name="settings_about_title">关于</string>
+    <string name="settings_open_source_licenses_title">开放源代码许可</string>
+    <string name="settings_open_source_licenses_html_style_light" translatable="false">
+        body {
+            font-family: sans-serif;
+            overflow-wrap: break-word;
+        }
+        pre {
+            background: #eeeeee;
+            padding: 1em;
+            white-space: pre-wrap;
+        }
+        a, a:link, a:visited, a:hover, a:focus, a:active {
+            color: #4caf50;
+        }
+    </string>
+    <string name="settings_open_source_licenses_html_style_dark" translatable="false">
+        body {
+            background: #424242;
+            color: white;
+            font-family: sans-serif;
+            overflow-wrap: break-word;
+        }
+        pre {
+            background: #303030;
+            padding: 1em;
+            white-space: pre-wrap;
+        }
+        a, a:link, a:visited, a:hover, a:focus, a:active {
+            color: #4caf50;
+        }
+    </string>
+    <string name="settings_privacy_policy_title">隐私权政策</string>
+    <string name="settings_about_douya_title">关于豆芽</string>
 </resources>
