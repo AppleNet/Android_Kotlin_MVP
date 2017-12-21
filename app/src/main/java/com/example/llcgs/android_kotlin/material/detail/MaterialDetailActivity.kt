@@ -7,14 +7,11 @@ import android.content.Intent
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.SharedElementCallback
 import android.support.v4.view.ViewCompat
-import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.detail.adapter.BroadcastAdapter
@@ -25,8 +22,9 @@ import com.example.llcgs.android_kotlin.material.detail.view.DetailView
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
 import com.example.llcgs.android_kotlin.utils.TransitionUtils
 import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback.OnRefreshListener
-import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.fragment_broadcast.*
+import kotlinx.android.synthetic.main.view_broadcast_layout.*
 
 /**
  * com.example.llcgs.android_kotlin.material.detail.MaterialDetailActivity
@@ -83,16 +81,16 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
     override fun initData() {
         this@MaterialDetailActivity.setTitle(title)
 
-        Glide.with(this).load(broadcast.avatar).into(holder.circleImageView)
+        Glide.with(this).load(broadcast.avatar).into(holder.avatar)
         holder.name.text = broadcast.name
-        holder.time.text = broadcast.time
-        holder.content.text = broadcast.content
+        holder.time_action.text = broadcast.time
+        holder.text.text = broadcast.content
 
-        Glide.with(this).load(broadcast.attachmentImage).into(holder.attachmentImage)
-        holder.title.text = broadcast.attachmentTitle
-        holder.des.text = broadcast.attachmentDes
-        holder.number.visibility = View.VISIBLE
-        holder.number.setOnClickListener(this)
+        Glide.with(this).load(broadcast.attachmentImage).into(holder.attachment_image)
+        holder.attachment_title.text = broadcast.attachmentTitle
+        holder.attachment_description.text = broadcast.attachmentDes
+        holder.rebroadcastNumber.visibility = View.VISIBLE
+        holder.rebroadcastNumber.setOnClickListener(this)
 
         swipeRefreshLayout.autoRefresh()
         mPresenter.loadComments()
@@ -157,16 +155,5 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
         return super.onOptionsItemSelected(item)
     }
 
-    class HeaderViewHolder(view: View) {
-        val circleImageView: CircleImageView = view.findViewById(R.id.avatar)
-        val name: TextView = view.findViewById(R.id.name)
-        val time: TextView = view.findViewById(R.id.time_action)
-        val content: TextView = view.findViewById(R.id.text)
-        val number: AppCompatTextView = view.findViewById(R.id.rebroadcastNumber)
-
-        val attachmentImage: ImageView = view.findViewById(R.id.attachment_image)
-        val title: TextView = view.findViewById(R.id.attachment_title)
-        val des: TextView = view.findViewById(R.id.attachment_description)
-    }
-
+    class HeaderViewHolder(override val containerView: View): LayoutContainer
 }

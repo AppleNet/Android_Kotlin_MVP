@@ -26,6 +26,7 @@ import com.example.llcgs.android_kotlin.material.main.presenter.IHomePresenter
 import com.example.llcgs.android_kotlin.material.main.presenter.impl.HomePresenter
 import com.example.llcgs.android_kotlin.material.setting.MaterialSettingActivity
 import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
+import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.view_navigation.*
 import kotlinx.android.synthetic.main.view_navigation_header.*
@@ -216,8 +217,6 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
         mNavigationViewAdapter.setOnClickListener(this)
     }
 
-    class NavigationHolder(var view: View){
-        val infoLayout = view.findViewById<LinearLayout>(R.id.infoLayout)
-    }
+    class NavigationHolder(override val containerView: View?): LayoutContainer
 
 }
