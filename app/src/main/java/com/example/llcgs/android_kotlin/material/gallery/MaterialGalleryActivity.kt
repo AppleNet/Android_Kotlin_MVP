@@ -20,11 +20,11 @@ import kotlinx.android.synthetic.main.activity_gallery.*
 import me.zhanghai.android.systemuihelper.SystemUiHelper
 
 /**
- * com.example.llcgs.android_kotlin.material.gallery.GalleryActivity
+ * com.example.llcgs.android_kotlin.material.gallery.MaterialGalleryActivity
  * @author liulongchao
  * @since 2017/12/18
  */
-class GalleryActivity : BaseMaterialActivity<IGalleryPresenter>(), GalleryView, () -> Unit, ViewPager.PageTransformer {
+class MaterialGalleryActivity : BaseMaterialActivity<IGalleryPresenter>(), GalleryView, () -> Unit, ViewPager.PageTransformer {
 
     private lateinit var mSystemUiHelper: SystemUiHelper
     private lateinit var adapter: GalleryAdapter

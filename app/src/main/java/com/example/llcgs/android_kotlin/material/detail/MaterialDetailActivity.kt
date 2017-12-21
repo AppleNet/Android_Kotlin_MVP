@@ -7,7 +7,6 @@ import android.content.Intent
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.SharedElementCallback
 import android.support.v4.view.ViewCompat
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -30,11 +29,11 @@ import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.fragment_broadcast.*
 
 /**
- * com.example.llcgs.android_kotlin.material.detail.DetailActivity
+ * com.example.llcgs.android_kotlin.material.detail.MaterialDetailActivity
  * @author liulongchao
  * @since 2017/12/14
  */
-class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView, View.OnClickListener {
+class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView, View.OnClickListener {
 
     private var title: String = ""
     private var broadcastId: String = ""
@@ -82,7 +81,7 @@ class DetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener,
     }
 
     override fun initData() {
-        this@DetailActivity.setTitle(title)
+        this@MaterialDetailActivity.setTitle(title)
 
         Glide.with(this).load(broadcast.avatar).into(holder.circleImageView)
         holder.name.text = broadcast.name

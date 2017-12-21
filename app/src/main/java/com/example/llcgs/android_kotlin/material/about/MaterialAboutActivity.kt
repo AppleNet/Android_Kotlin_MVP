@@ -7,11 +7,11 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
 import kotlinx.android.synthetic.main.activity_about.*
 
 /**
- * com.example.llcgs.android_kotlin.material.about.AboutActivity
+ * com.example.llcgs.android_kotlin.material.about.MaterialAboutActivity
  * @author liulongchao
  * @since 2017/12/20
  */
-class AboutActivity: BaseMaterialActivity<IAboutPresenter>() {
+class MaterialAboutActivity : BaseMaterialActivity<IAboutPresenter>() {
 
     override fun createPresenter() = AboutPresenter()
 

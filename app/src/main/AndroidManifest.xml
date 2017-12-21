@@ -168,24 +168,25 @@
         <!-- Material Design-->
         <activity
             android:name=".material.login.MaterialLoginActivity"
-            android:theme="@style/MaterialTheme" />
+            android:theme="@style/MaterialTheme"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".material.webview.MaterialWebViewActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.main.HomeActivity"
+            android:name=".material.main.MaterialHomeActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.detail.DetailActivity"
+            android:name=".material.detail.MaterialDetailActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.gallery.GalleryActivity"
+            android:name=".material.gallery.MaterialGalleryActivity"
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.profile.ProfileActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.setting.SettingActivity"
+            android:name=".material.setting.MaterialSettingActivity"
             android:exported="false"
             android:label="设置"
             android:launchMode="singleTop"
@@ -196,10 +197,10 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".material.main.HomeActivity" />
+                android:value=".material.main.MaterialHomeActivity" />
         </activity>
         <activity
-            android:name=".material.about.AboutActivity"
+            android:name=".material.about.MaterialAboutActivity"
             android:theme="@style/MaterialTheme" />
 
     </application>

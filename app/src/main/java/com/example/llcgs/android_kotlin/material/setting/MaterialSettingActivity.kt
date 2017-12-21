@@ -6,11 +6,11 @@ import android.view.View
 import com.example.llcgs.android_kotlin.material.setting.fragment.SettingActivityFragment
 
 /**
- * com.example.llcgs.android_kotlin.material.setting.SettingActivity
+ * com.example.llcgs.android_kotlin.material.setting.MaterialSettingActivity
  * @author liulongchao
  * @since 2017/12/20
  */
-class SettingActivity : AppCompatActivity() {
+class MaterialSettingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

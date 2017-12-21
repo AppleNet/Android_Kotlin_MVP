@@ -4,21 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
-import android.support.v4.app.ActivityOptionsCompat
-import android.support.v4.util.Pair
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialFragment
-import com.example.llcgs.android_kotlin.material.detail.DetailActivity
+import com.example.llcgs.android_kotlin.material.detail.MaterialDetailActivity
 import com.example.llcgs.android_kotlin.material.main.fragment.home.adapter.BroadListAdapter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
 import com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.IHomeBroadcastListPresenter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.impl.HomeBroadcastListPresenter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.view.HomeBroadcastListView
 import kotlinx.android.synthetic.main.fragment_home_broadcastlist.*
-import java.util.ArrayList
 
 /**
  * com.example.llcgs.android_kotlin.material.main.fragment.home.HomeBroadcastListFragment
@@ -58,7 +55,7 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
     }
 
     override fun onGetBundle(bundle: Bundle) {
-        ActivityCompat.startActivity(activity!!, Intent(activity, DetailActivity::class.java).apply {
+        ActivityCompat.startActivity(activity!!, Intent(activity, MaterialDetailActivity::class.java).apply {
             putExtra("showSendComment", true)
             putExtra("title", "豆芽")
             putExtra("broadcast", item)

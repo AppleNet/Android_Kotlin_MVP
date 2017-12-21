@@ -1,9 +1,6 @@
 package com.example.llcgs.android_kotlin.material.main.fragment.home.adapter
 
 import android.content.Intent
-import android.net.Uri
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.support.v7.widget.CardView
 import android.view.View
@@ -14,9 +11,7 @@ import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.example.llcgs.android_kotlin.R
-import com.example.llcgs.android_kotlin.material.gallery.GalleryActivity
-import com.example.llcgs.android_kotlin.material.login.customtabs.CustomTabActivityHelper
-import com.example.llcgs.android_kotlin.material.login.customtabs.WebViewFallback
+import com.example.llcgs.android_kotlin.material.gallery.MaterialGalleryActivity
 import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadListContent
 import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import com.example.llcgs.android_kotlin.utils.CheatSheetUtils
@@ -99,7 +94,7 @@ class BroadListAdapter : BaseQuickAdapter<BroadListContent, BaseViewHolder>(R.la
         val imageView = helper.getView<ImageView>(R.id.attachment_image)
         imageView.setOnClickListener {
             // 查看大图
-            mContext.startActivity(Intent(mContext, GalleryActivity::class.java).apply {
+            mContext.startActivity(Intent(mContext, MaterialGalleryActivity::class.java).apply {
                 putExtra("position", 0)
                 putExtra("urlList", arrayListOf(item.attachmentImage))
             })

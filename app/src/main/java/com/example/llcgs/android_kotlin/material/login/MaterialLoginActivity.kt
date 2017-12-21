@@ -11,7 +11,7 @@ import com.example.llcgs.android_kotlin.material.login.customtabs.WebViewFallbac
 import com.example.llcgs.android_kotlin.material.login.presenter.IMaterialLoginPresenter
 import com.example.llcgs.android_kotlin.material.login.presenter.impl.MaterialLoginPresenter
 import com.example.llcgs.android_kotlin.material.login.view.MaterialLoginView
-import com.example.llcgs.android_kotlin.material.main.HomeActivity
+import com.example.llcgs.android_kotlin.material.main.MaterialHomeActivity
 import com.jakewharton.rxbinding2.support.design.widget.RxTextInputLayout
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
@@ -89,7 +89,7 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
 
     override fun onLoginSuccess() {
         //
-        startActivity(Intent(this@MaterialLoginActivity, HomeActivity::class.java))
+        startActivity(Intent(this@MaterialLoginActivity, MaterialHomeActivity::class.java))
     }
 
 }

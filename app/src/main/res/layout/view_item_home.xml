@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/account_list"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?dividerHorizontal" />
+
+    <TextView
+        android:id="@+id/add_account"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="?selectableItemBackground"
+        android:drawableStart="@drawable/add_icon_white_24dp"
+        android:drawablePadding="32dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="添加账户"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/remove_current_account"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="?selectableItemBackground"
+        android:drawableStart="@drawable/remove_icon_white_24dp"
+        android:drawablePadding="32dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="移除当前账户"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/manage_accounts"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="?selectableItemBackground"
+        android:drawableStart="@drawable/settings_icon_white_24dp"
+        android:drawablePadding="32dp"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="管理账户"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:maxLines="1" />
+
+</LinearLayout>
