@@ -6,11 +6,11 @@ import com.example.llcgs.android_kotlin.material.profile.presenter.IProfilePrese
 import com.example.llcgs.android_kotlin.material.profile.presenter.impl.ProfilePresenter
 
 /**
- * com.example.llcgs.android_kotlin.material.profile.ProfileActivity
+ * com.example.llcgs.android_kotlin.material.profile.MaterialProfileActivity
  * @author liulongchao
  * @since 2017/12/18
  */
-class ProfileActivity: BaseMaterialActivity<IProfilePresenter>() {
+class MaterialProfileActivity : BaseMaterialActivity<IProfilePresenter>() {
 
 
     override fun createPresenter()= ProfilePresenter()
@@ -18,5 +18,6 @@ class ProfileActivity: BaseMaterialActivity<IProfilePresenter>() {
     override fun getLayoutId()= R.layout.activity_profile
 
     override fun initViews() {
+
     }
 }

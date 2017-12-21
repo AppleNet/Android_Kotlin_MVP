@@ -31,7 +31,7 @@ abstract class BaseMaterialActivity<P : BaseMaterialPresenter>: AppCompatActivit
         lifecycleSubject.onNext(ActivityLifeCycleEvent.CREATE)
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         setContentView(getLayoutId())
         mPresenter = createPresenter()
 

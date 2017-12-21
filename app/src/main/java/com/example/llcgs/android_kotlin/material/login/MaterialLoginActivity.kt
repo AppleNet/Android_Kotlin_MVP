@@ -26,8 +26,6 @@ import kotlinx.android.synthetic.main.activity_material_login.*
 @RouterRule("Material_Design")
 class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), MaterialLoginView {
 
-    val sPackageNameToUse:String? = null
-
     override fun createPresenter(): IMaterialLoginPresenter= MaterialLoginPresenter(this)
 
     override fun getLayoutId(): Int = R.layout.activity_material_login

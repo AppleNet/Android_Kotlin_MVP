@@ -183,7 +183,7 @@
             android:name=".material.gallery.MaterialGalleryActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.profile.ProfileActivity"
+            android:name=".material.profile.MaterialProfileActivity"
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.setting.MaterialSettingActivity"
