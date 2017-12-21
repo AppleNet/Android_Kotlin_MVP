@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.llcgs.android_kotlin.R
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.view_item_home.*
 
 /**
  * com.example.llcgs.android_kotlin.material.main.adapter.NavigationViewAdapter
@@ -79,9 +81,9 @@ class NavigationViewAdapter(private val navigationView: NavigationView) : Recycl
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder.itemViewType == VIEW_TYPE_ACCOUNT_LIST) {
             if (holder is AccountListViewHolder) {
-                holder.addAccount.setOnClickListener(this)
-                holder.removeAccount.setOnClickListener(this)
-                holder.manageAccount.setOnClickListener(this)
+                holder.add_account.setOnClickListener(this)
+                holder.remove_current_account.setOnClickListener(this)
+                holder.manage_accounts.setOnClickListener(this)
             }
         } else {
             mMenuAdapter.onBindViewHolder(holder, position)
@@ -90,7 +92,8 @@ class NavigationViewAdapter(private val navigationView: NavigationView) : Recycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_ACCOUNT_LIST) {
-            AccountListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_item_home, parent, false))
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.view_item_home, parent, false)
+            AccountListViewHolder(view, view)
         } else {
             mMenuAdapter.onCreateViewHolder(parent, viewType)
         }
@@ -131,9 +134,5 @@ class NavigationViewAdapter(private val navigationView: NavigationView) : Recycl
         onClickListener = listener
     }
 
-    class AccountListViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
-        val addAccount: TextView = view.findViewById(R.id.add_account)
-        val removeAccount: TextView = view.findViewById(R.id.remove_current_account)
-        val manageAccount: TextView = view.findViewById(R.id.manage_accounts)
-    }
+    class AccountListViewHolder(var view: View, override val containerView: View?) : RecyclerView.ViewHolder(view), LayoutContainer
 }

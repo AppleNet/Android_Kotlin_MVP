@@ -4,12 +4,11 @@ import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.utils.ViewUtils
-import me.zhanghai.android.materialprogressbar.MaterialProgressBar
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.view_gallery_item.*
 
 /**
  * com.example.llcgs.android_kotlin.material.gallery.adapter.GalleryAdapter
@@ -42,7 +41,7 @@ class GalleryAdapter : PagerAdapter() {
         val view = LayoutInflater.from(container.context).inflate(R.layout.view_gallery_item, null)
         val holder = Holder(view)
         view.tag = holder
-        holder.imageView.setOnClickListener {
+        holder.image.setOnClickListener {
             listener?.let {
                 it
             }
@@ -63,15 +62,10 @@ class GalleryAdapter : PagerAdapter() {
 
     private fun loadImageForPosition(container: ViewGroup, position: Int, holder: Holder) {
         ViewUtils.fadeIn(holder.progress)
-        Glide.with(container.context).load(mImageList[position]).into(holder.imageView)
-        holder.imageView.visibility = View.VISIBLE
+        Glide.with(container.context).load(mImageList[position]).into(holder.image)
+        holder.image.visibility = View.VISIBLE
         ViewUtils.fadeOut(holder.progress)
     }
 
-    class Holder(view: View) {
-        val imageView: ImageView = view.findViewById(R.id.image)
-        val largeImage: ImageView = view.findViewById(R.id.largeImage)
-        val errorText: TextView = view.findViewById(R.id.error)
-        val progress: MaterialProgressBar = view.findViewById(R.id.progress)
-    }
+    class Holder(override val containerView: View?): LayoutContainer
 }
