@@ -98,12 +98,12 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
             }
             R.id.action_doumail -> {
                 val intent = Intent(this, MaterialWebViewActivity::class.java)
-                intent.putExtra("EXTRA_URL", "https://www.douban.com/search")
+                intent.putExtra("EXTRA_URL", "https://www.douban.com/doumail/")
                 startActivity(intent)
             }
             R.id.action_search -> {
                 val intent = Intent(this, MaterialWebViewActivity::class.java)
-                intent.putExtra("EXTRA_URL", "https://www.douban.com/doumail/")
+                intent.putExtra("EXTRA_URL", "https://www.douban.com/search")
                 startActivity(intent)
             }
 

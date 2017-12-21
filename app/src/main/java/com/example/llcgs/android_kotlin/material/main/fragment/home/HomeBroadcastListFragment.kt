@@ -15,6 +15,7 @@ import com.example.llcgs.android_kotlin.material.main.fragment.home.bean.BroadLi
 import com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.IHomeBroadcastListPresenter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.presenter.impl.HomeBroadcastListPresenter
 import com.example.llcgs.android_kotlin.material.main.fragment.home.view.HomeBroadcastListView
+import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import kotlinx.android.synthetic.main.fragment_home_broadcastlist.*
 
 /**
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home_broadcastlist.*
  * @author liulongchao
  * @since 2017/12/13
  */
-class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresenter>(), SwipeRefreshLayout.OnRefreshListener, HomeBroadcastListView, (BroadListContent, View, Int) -> Unit {
+class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresenter>(), SwipeRefreshLayout.OnRefreshListener, HomeBroadcastListView, (BroadListContent, View, Int) -> Unit, View.OnClickListener {
 
     private lateinit var adapter: BroadListAdapter
     private lateinit var item: BroadListContent
@@ -40,6 +41,8 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
 
         swipeRefreshLayout.isRefreshing = true
         swipeRefreshLayout.setOnRefreshListener(this)
+
+        send.setOnClickListener(this)
 
         adapter.setOpenBroadCast(this)
     }
@@ -61,6 +64,16 @@ class HomeBroadcastListFragment: BaseMaterialFragment<IHomeBroadcastListPresente
             putExtra("broadcast", item)
             putExtra("broadcastId", "broadcast-$position")
         }, bundle)
+    }
+
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.send ->{
+                startActivity(Intent(activity, MaterialWebViewActivity::class.java).apply {
+                    putExtra("EXTRA_URL", "https://www.douban.com/#isay-cont")
+                })
+            }
+        }
     }
 
     override fun invoke(item: BroadListContent, view: View, position: Int) {

@@ -71,7 +71,7 @@
         <Preference android:title="@string/settings_about_douya_title">
             <intent
                 android:targetPackage="com.example.llcgs.android_kotlin"
-                android:targetClass="com.example.llcgs.android_kotlin.material.about.AboutActivity" />
+                android:targetClass="com.example.llcgs.android_kotlin.material.about.MaterialAboutActivity" />
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>
