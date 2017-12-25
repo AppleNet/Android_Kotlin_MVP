@@ -52,6 +52,7 @@ ext {
             material_dialogs  : "0.9.6.0",
             material_preference : "27.0.2.0",
             materialsearchview : "1.4.0",
+            materialArcNavigationView : "1.0.3",
             licensesdialog    : "1.8.3",
 
     ]
@@ -144,6 +145,7 @@ ext {
             material_dialogs     : "com.afollestad.material-dialogs:commons:${versions.material_dialogs}",
             material_preference  : "com.takisoft.fix:preference-v7:${versions.material_preference}",
             materialsearchview   : "com.miguelcatalan:materialsearchview:${versions.materialsearchview}",
+            materialArcNavigationView : "com.rom4ek:arcnavigationview:${versions.materialArcNavigationView}",
             licensesdialog       : "de.psdev.licensesdialog:licensesdialog:${versions.licensesdialog}",
     ]
 
