@@ -105,4 +105,15 @@ class NBAGS {
         }
 
 
+
+    fun getSubNBA() = object: BaseNBA("", ""){
+        override val height: String
+            get() = "198"
+    }
+
+    fun getSub() = object : BaseNBA1("", "", ""){
+        override val height: String = "198"
+    }
+
+
 }

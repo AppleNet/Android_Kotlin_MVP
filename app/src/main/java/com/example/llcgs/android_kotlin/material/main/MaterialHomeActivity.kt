@@ -25,17 +25,22 @@ import com.example.llcgs.android_kotlin.material.main.presenter.IHomePresenter
 import com.example.llcgs.android_kotlin.material.main.presenter.impl.HomePresenter
 import com.example.llcgs.android_kotlin.material.setting.MaterialSettingActivity
 import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
+import com.miguelcatalan.materialsearchview.MaterialSearchView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.view_navigation.*
 import kotlinx.android.synthetic.main.view_navigation_header.*
+import android.text.TextUtils
+import android.speech.RecognizerIntent
+import android.app.Activity
+
 
 /**
  * com.example.llcgs.android_kotlin.material.main.MaterialHomeActivity
  * @author liulongchao
  * @since 2017/12/12
  */
-class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, (View) -> Unit {
+class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, (View) -> Unit, MaterialSearchView.OnQueryTextListener, MaterialSearchView.SearchViewListener {
 
     private lateinit var mDrawerToggle: ActionBarDrawerToggle
     private lateinit var adapter: TabFragmentPagerAdapter
@@ -60,6 +65,18 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
         setupAdapter()
         val holder = NavigationHolder(navigation.getHeaderView(0))
         holder.infoLayout.setOnClickListener(this)
+
+        searchView.setOnQueryTextListener(this)
+        searchView.setOnSearchViewListener(this)
+        // 设置智能提示
+        searchView.setSuggestions(resources.getStringArray(R.array.query_suggestions))
+        // 设置语音搜索
+        searchView.setVoiceSearch(true)
+        // 设置文本超长之后的操作
+        searchView.setEllipsize(true)
+        // 设置CursorDrawable 设置游标的icon
+        // searchView.setCursorDrawable()
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -78,6 +95,9 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
         aView.setOnClickListener { onMenuItemSelected(Window.FEATURE_OPTIONS_PANEL, mDouMailMenuItem) }
         val image = aView.findViewById<ImageView>(R.id.icon)
         image.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.mail_icon_white_24dp))
+
+        val searchItem = menu.findItem(R.id.action_search)
+        searchView.setMenuItem(searchItem)
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -99,11 +119,6 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
             R.id.action_doumail -> {
                 val intent = Intent(this, MaterialWebViewActivity::class.java)
                 intent.putExtra("EXTRA_URL", "https://www.douban.com/doumail/")
-                startActivity(intent)
-            }
-            R.id.action_search -> {
-                val intent = Intent(this, MaterialWebViewActivity::class.java)
-                intent.putExtra("EXTRA_URL", "https://www.douban.com/search")
                 startActivity(intent)
             }
 
@@ -186,6 +201,49 @@ class MaterialHomeActivity : BaseMaterialActivity<IHomePresenter>(), NavigationV
                 // 管理账户
                 startActivity(Intent(Settings.ACTION_SYNC_SETTINGS))
             }
+        }
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        // 文本提交的时候
+        val intent = Intent(this, MaterialWebViewActivity::class.java)
+        intent.putExtra("EXTRA_URL", "https://www.douban.com/search")
+        startActivity(intent)
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        // 文本改变的时候
+        return false
+    }
+
+    override fun onSearchViewClosed() {
+        // TODO
+    }
+
+    override fun onSearchViewShown() {
+        // TODO
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        if (requestCode == MaterialSearchView.REQUEST_VOICE && resultCode == Activity.RESULT_OK) {
+            val matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+            if (matches != null && matches.size > 0) {
+                val searchWrd = matches[0]
+                if (!TextUtils.isEmpty(searchWrd)) {
+                    searchView.setQuery(searchWrd, false)
+                }
+            }
+            return
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onBackPressed() {
+        if (searchView.isSearchOpen){
+            searchView.closeSearch()
+        }else{
+            super.onBackPressed()
         }
     }
 

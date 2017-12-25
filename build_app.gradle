@@ -115,6 +115,9 @@ dependencies {
     /* licensesdialog */
     implementation libs.licensesdialog
 
+    /* materialsearchview */
+    implementation libs.materialsearchview
+
 }
 
 task makeJar(type: Jar) {

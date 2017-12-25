@@ -43,17 +43,15 @@ ext {
             googleLifeCycle   : "1.0.3",
             googleLifeCycleJava : "1.0.0",
             googleLifeCycleExtensions : "1.0.0",
-
             googleLiveData    : "1.0.0",
             googleLiveDataReactiveStreams : "1.0.0",
-
             googleRoom        : "1.0.0",
             googleRoomRx      : "1.0.0",
-
             googlePaging      : "1.0.0-alpha3",
 
             material_dialogs  : "0.9.6.0",
             material_preference : "27.0.2.0",
+            materialsearchview : "1.4.0",
             licensesdialog    : "1.8.3",
 
     ]
@@ -144,9 +142,8 @@ ext {
             googlePaging         : "android.arch.paging:runtime:${versions.googlePaging}",
 
             material_dialogs     : "com.afollestad.material-dialogs:commons:${versions.material_dialogs}",
-
             material_preference  : "com.takisoft.fix:preference-v7:${versions.material_preference}",
-
+            materialsearchview   : "com.miguelcatalan:materialsearchview:${versions.materialsearchview}",
             licensesdialog       : "de.psdev.licensesdialog:licensesdialog:${versions.licensesdialog}",
     ]
 
