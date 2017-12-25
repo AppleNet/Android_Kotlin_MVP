@@ -40,16 +40,13 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        hello.text = "Welcome to Kotlin!"
-
+        setSupportActionBar(toolBar)
         val rxPermission = RxPermissions(this@MainActivity)
         rxPermission.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
                 .subscribe {
                     initPlugin()
                 }
-
         initViews()
-
     }
 
     private fun initViews(){

@@ -26,8 +26,10 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".home.MainActivity"
+            android:theme="@style/MainTheme"
             android:banner="@android:anim/accelerate_decelerate_interpolator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
