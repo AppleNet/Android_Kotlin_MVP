@@ -88,6 +88,7 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
     override fun onLoginSuccess() {
         //
         startActivity(Intent(this@MaterialLoginActivity, MaterialHomeActivity::class.java))
+        finish()
     }
 
 }
