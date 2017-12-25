@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.home
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -95,6 +96,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             }
             "Material Design"->{
                 Router.create("host://Material_Design").activityRoute.open(this)
+            }
+            "Rx" ->{
+                // 插件形式 接入 Rx 系列 https://github.com/AppleNet/Android_Rx
+                RePlugin.startActivity(this, RePlugin.createIntent("Rx", "com.example.llcgs.android_rx.rxbinding.MainActivity"))
             }
         }
     }

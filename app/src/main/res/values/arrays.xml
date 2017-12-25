@@ -116,6 +116,7 @@
         <item>MVVM</item>
         <item>Architecture</item>
         <item>Material Design</item>
+        <item>Rx</item>
     </string-array>
 
     <string-array name="arch_menu">
