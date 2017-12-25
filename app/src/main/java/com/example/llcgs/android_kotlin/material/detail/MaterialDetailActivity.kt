@@ -13,8 +13,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.bumptech.glide.Glide
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.detail.adapter.BroadcastAdapter
+import com.example.llcgs.android_kotlin.material.detail.bean.Comment
 import com.example.llcgs.android_kotlin.material.detail.fragmentdialog.BroadcastActivityDialogFragment
 import com.example.llcgs.android_kotlin.material.detail.view.NoChangeAnimationItemAnimator
 import com.example.llcgs.android_kotlin.material.detail.presenter.impl.DetailPresenter
@@ -31,7 +33,7 @@ import kotlinx.android.synthetic.main.view_broadcast_layout.*
  * @author liulongchao
  * @since 2017/12/14
  */
-class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView, View.OnClickListener {
+class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshListener, DetailView, View.OnClickListener, BaseQuickAdapter.OnItemClickListener {
 
     private var title: String = ""
     private var broadcastId: String = ""
@@ -68,6 +70,7 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
         holder = HeaderViewHolder(headerView)
         adapter.addHeaderView(headerView)
         recyclerView.adapter = adapter
+        adapter.setOnItemClickListener(this)
 
         progress.visibility = View.VISIBLE
         TransitionUtils.postActivityAfterTransition(this) {
@@ -111,7 +114,7 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
         mPresenter.loadComments()
     }
 
-    override fun onGetComments(list: List<String>) {
+    override fun onGetComments(list: List<Comment>) {
         if (swipeRefreshLayout.isRefreshing){
             swipeRefreshLayout.stopRefreshLayout()
             adapter.data.clear()
@@ -120,6 +123,10 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
             swipeRefreshLayout.stopRefreshLayout()
             adapter.addData(list)
         }
+    }
+
+    override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+
     }
 
     override fun onClick(v: View) {

@@ -26,7 +26,8 @@ class BroadcastActivityDialogFragment: AppCompatDialogFragment() {
 
     private lateinit var adapter: TabFragmentPagerAdapter
     private var broadcast: BroadListContent? = null
-
+    private val likeFragment = LikeFragment()
+    private val reBroadcastFragment = ReBroadcastFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +51,11 @@ class BroadcastActivityDialogFragment: AppCompatDialogFragment() {
     private fun initViews(){
         adapter = TabFragmentPagerAdapter(this.childFragmentManager)
         adapter.addTab(object : TabFragmentPagerAdapter.FragmentCreator{
-            override fun createFragment(): Fragment= LikeFragment()
+            override fun createFragment() = likeFragment
         }, "")
 
         adapter.addTab(object : TabFragmentPagerAdapter.FragmentCreator{
-            override fun createFragment(): Fragment= ReBroadcastFragment()
+            override fun createFragment() = reBroadcastFragment
         }, "")
         updateTabTitle()
         viewPager.offscreenPageLimit = 0
@@ -69,11 +70,17 @@ class BroadcastActivityDialogFragment: AppCompatDialogFragment() {
         button2.visibility = View.GONE
         button3.visibility = View.GONE
 
+        likeFragment.setListener{
+            adapter.setPageTitle(tabLayout, 0, getTabTitle(it, R.string.broadcast_likers_title_format, R.string.broadcast_likers_title_empty))
+        }
+        reBroadcastFragment.setRebroadcastListener{
+            adapter.setPageTitle(tabLayout, 1, getTabTitle(it, R.string.broadcast_title_format, R.string.broadcast_title_empty))
+        }
     }
 
     private fun updateTabTitle(){
-        adapter.setPageTitle(tabLayout, 0, getTabTitle(1, R.string.broadcast_likers_title_format, R.string.broadcast_likers_title_empty))
-        adapter.setPageTitle(tabLayout, 1, getTabTitle(2, R.string.broadcast_likers_title_format, R.string.broadcast_likers_title_empty))
+        adapter.setPageTitle(tabLayout, 0, getTabTitle(0, R.string.broadcast_likers_title_format, R.string.broadcast_likers_title_empty))
+        adapter.setPageTitle(tabLayout, 1, getTabTitle(0, R.string.broadcast_title_format, R.string.broadcast_title_empty))
     }
 
     private fun getTabTitle(count:Int, formatResId:Int, emptyResId: Int): String =

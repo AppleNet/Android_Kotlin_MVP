@@ -1,19 +1,17 @@
-package com.example.llcgs.android_kotlin.material.detail.presenter.impl
+package com.example.llcgs.android_kotlin.material.detail.fragment.model
 
-import com.example.llcgs.android_kotlin.material.detail.bean.Comment
-import com.example.llcgs.android_kotlin.material.detail.model.DetailModel
-import com.example.llcgs.android_kotlin.material.detail.presenter.IDetailPresenter
-import com.example.llcgs.android_kotlin.material.detail.view.DetailView
+import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.material.base.BaseMaterialModel
+import com.example.llcgs.android_kotlin.material.detail.fragment.bean.LikeBroadcast
+import com.example.llcgs.android_kotlin.utils.BaseUtil
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 /**
- * com.example.llcgs.android_kotlin.material.detail.presenter.impl.DetailPresenter
+ * com.example.llcgs.android_kotlin.material.detail.fragment.model.FragmentModel
  * @author liulongchao
- * @since 2017/12/14
+ * @since 2017/12/22
  */
-class DetailPresenter(private val view: DetailView) : IDetailPresenter {
+class FragmentModel : BaseMaterialModel {
 
     private var imageUriMap = mapOf(
             "Kobe" to "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1833372117,3098616043&fm=27&gp=0.jpg",
@@ -32,35 +30,33 @@ class DetailPresenter(private val view: DetailView) : IDetailPresenter {
 
     )
 
-    private val model = DetailModel()
+    fun loadLikers(): Observable<List<LikeBroadcast>>{
+        val array = BaseUtil.context().resources.getStringArray(R.array.databinding_nba)
+        val list = ArrayList<LikeBroadcast>()
+        var likeBroadCast: LikeBroadcast
+        for (i in 0..(imageUriMap.size-1)) {
+            likeBroadCast = LikeBroadcast().apply {
+                imageUrl = imageUriMap[array[i]]
+                name = array[i]
+                id = "17960$i"
+            }
+            list.add(likeBroadCast)
+        }
+        return Observable.just(list)
+    }
 
-    override fun loadComments() {
-        model.loadComments()
-                .subscribeOn(Schedulers.io())
-                .doOnSubscribe {
-                    view.addDisposable(it)
-                }
-                .flatMap{ t ->
-                    val list = ArrayList<Comment>()
-                    var comment:Comment
-                    t.forEach {
-                        comment = Comment().apply {
-                            name = it
-                            imageUrl = imageUriMap[it]
-                            content = "NBA All Star"
-                            timeDate = "2017-12-22"
-                        }
-                        list.add(comment)
-                    }
-                    Observable.just(list)
-                }
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate {
-                    //
-                    view.dismissLoadingDialog()
-                }
-                .subscribe {
-                    view.onGetComments(it)
-                }
+    fun loadRebroadcast(): Observable<List<LikeBroadcast>>{
+        val array = BaseUtil.context().resources.getStringArray(R.array.databinding_nba)
+        val list = ArrayList<LikeBroadcast>()
+        var likeBroadCast: LikeBroadcast
+        for (i in 0..(imageUriMap.size-1)) {
+            likeBroadCast = LikeBroadcast().apply {
+                imageUrl = imageUriMap[array[i]]
+                name = array[i]
+                id = "17960$i"
+            }
+            list.add(likeBroadCast)
+        }
+        return Observable.just(list)
     }
 }
