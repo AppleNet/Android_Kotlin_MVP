@@ -2,7 +2,6 @@ package com.example.llcgs.android_kotlin.base.rx
 
 import android.app.Activity
 import android.text.TextUtils
-import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.FragmentLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.rx.bean.HTTP_STATUS_ERROR
@@ -11,7 +10,6 @@ import com.example.llcgs.android_kotlin.base.rx.bean.Wrapper
 import com.example.llcgs.android_kotlin.base.rx.bean.WrapperBean
 import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
-import com.qihoo360.loader2.Constant
 import com.trello.rxlifecycle2.LifecycleTransformer
 import io.reactivex.Observable
 import io.reactivex.ObservableSource

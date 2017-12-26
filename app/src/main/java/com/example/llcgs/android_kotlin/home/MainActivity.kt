@@ -83,20 +83,28 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 Router.create("host://plugin").activityRoute.addExtras(bundle).open(this)
             }
             "Router List" ->{
+                // 聚美路由
                 Router.create("host://listPlugin").activityRoute.open(this)
             }
             "MVVM" ->{
+                // MVVM
                 Router.create("host://mvvm").activityRoute.open(this)
             }
             "Architecture" ->{
+                // Google 架构
                 Router.create("host://Architecture").activityRoute.open(this)
             }
             "Material Design"->{
+                // 材料设计
                 Router.create("host://Material_Design").activityRoute.open(this)
             }
             "Rx" ->{
                 // 插件形式 接入 Rx 系列 https://github.com/AppleNet/Android_Rx
                 RePlugin.startActivity(this, RePlugin.createIntent("Rx", "com.example.llcgs.android_rx.rxbinding.MainActivity"))
+            }
+            "Design Pattern" ->{
+                // 设计模式
+                Router.create("host://Design_Pattern").activityRoute.open(this)
             }
         }
     }

@@ -203,6 +203,7 @@
         <activity
             android:name=".material.about.MaterialAboutActivity"
             android:theme="@style/MaterialTheme" />
+        <activity android:name=".design_pattern.list.DesignPatternMainActivity" />
 
     </application>
 
