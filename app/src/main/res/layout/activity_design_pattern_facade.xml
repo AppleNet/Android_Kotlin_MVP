@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="?actionBarTheme"
+        android:background="?attr/colorPrimary"
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Facade(门面模式)"
+        android:fitsSystemWindows="true"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/fruitLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/fruitEdt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入要购买的水果"
+            android:inputType="text"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/basic_text"
+            android:textColorHint="@color/common_bg"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/vegetablesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/vegetablesEdt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入要购买的蔬菜"
+            android:inputType="text"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/basic_text"
+            android:textColorHint="@color/common_bg"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/doughLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/doughEdt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入要购买的面食"
+            android:inputType="text"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/basic_text"
+            android:textColorHint="@color/common_bg"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="确定"
+        android:textColor="@color/basic_text"
+        android:textSize="@dimen/textsize_16"/>
+</LinearLayout>

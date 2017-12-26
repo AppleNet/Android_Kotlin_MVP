@@ -29,8 +29,8 @@
 
         <activity
             android:name=".home.MainActivity"
-            android:theme="@style/MainTheme"
-            android:banner="@android:anim/accelerate_decelerate_interpolator">
+            android:banner="@android:anim/accelerate_decelerate_interpolator"
+            android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -170,7 +170,7 @@
         <!-- Material Design-->
         <activity
             android:name=".material.login.MaterialLoginActivity"
-            android:theme="@style/MaterialTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.webview.MaterialWebViewActivity"
             android:theme="@style/MaterialTheme" />
@@ -203,7 +203,12 @@
         <activity
             android:name=".material.about.MaterialAboutActivity"
             android:theme="@style/MaterialTheme" />
-        <activity android:name=".design_pattern.list.DesignPatternMainActivity" />
+
+        <!-- Design Pattern -->
+        <activity
+            android:name=".design_pattern.list.DesignPatternMainActivity" />
+        <activity
+            android:name=".design_pattern.facade.FacadeDesignPatternActivity" />
 
     </application>
 
