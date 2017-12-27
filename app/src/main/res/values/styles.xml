@@ -8,12 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MvvmTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="MainTheme" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="DesignPatternTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MaterialTheme" parent="MaterialThemeBase">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -29,10 +39,6 @@
         <item name="colorPrimary">@color/douya_primary</item>
         <item name="colorPrimaryDark">@color/douya_primary_dark</item>
         <item name="colorAccent">@color/douya_accent</item>
-    </style>
-    <style name="MaterialTheme" parent="MaterialThemeBase">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- Setting Theme-->

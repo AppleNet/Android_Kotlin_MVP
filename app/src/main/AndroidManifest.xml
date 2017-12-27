@@ -81,90 +81,90 @@
         <!-- Mvvm -->
         <activity
             android:name=".mvvm.login.MvvmActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.list.MvvmListActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.show.PhotoShowActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.layoutdetails.LayoutDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.layoutdetails.CustomBindingClassNameActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.includes.IncludesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.menu.MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.commfeatures.CommonFeaturesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.collections.CollectionsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.stringliterals.StringLiteralsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.resources.ResourcesActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.observableobjects.ObservableActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.observablefields.FieldsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.observablecollections.ObservableCollectionsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.generatedbinding.GeneratedBindingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.viewstubs.ViewStubActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.advancedbinding.AdvancedBindingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.attributesetters.AttributeSettersActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".mvvm.converters.ConvertersActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
 
         <!-- Architecture -->
         <activity
             android:name=".architecture_components.lifecycle.LifeCycleActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.livedata.use_livedata.LiveDataActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.livedata.extend_livedata.ExtendLiveDataActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.livedata.transform_livedata.TransformLiveDataActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.menu.MenuArchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.viewmodel.use_viewmodel.ViewModelActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.viewmodel.share_viewmodel.ShareViewModelActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.room.demo.RoomActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity
             android:name=".architecture_components.room.menu.RoomMenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/MvvmTheme" />
         <activity android:name=".architecture_components.room.entities.EntitiesActivity" />
 
         <!-- Material Design-->
@@ -206,9 +206,14 @@
 
         <!-- Design Pattern -->
         <activity
-            android:name=".design_pattern.list.DesignPatternMainActivity" />
+            android:name=".design_pattern.list.DesignPatternMainActivity"
+            android:theme="@style/DesignPatternTheme"/>
         <activity
-            android:name=".design_pattern.facade.FacadeDesignPatternActivity" />
+            android:name=".design_pattern.facade.FacadeDesignPatternActivity"
+            android:theme="@style/DesignPatternTheme"/>
+        <activity
+            android:name=".design_pattern.flyweight.FlyweightDesignPatternActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
     </application>
 

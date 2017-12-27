@@ -32,7 +32,7 @@ class FacadeDesignPatternActivity: BaseDesignPatternActivity<IFacadeDesignPatter
     override fun getLayoutId()= R.layout.activity_design_pattern_facade
 
     override fun initViews() {
-        //
+        setSupportActionBar(toolBar)
         confirm.setOnClickListener(this)
     }
 
