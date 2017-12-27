@@ -8,7 +8,9 @@ import com.example.llcgs.android_kotlin.design_pattern.flyweight.bean.DesignPatt
  * @author liulongchao
  * @since 2017/12/26
  */
-interface IFlyweightDesignPatternPresenter: BaseDesignPatternPresenter {
+interface IFlyweightDesignPatternPresenter : BaseDesignPatternPresenter {
 
     fun doLogin(user: DesignPatternUser)
+
+    fun getPwd(name: String)
 }

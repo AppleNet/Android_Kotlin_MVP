@@ -32,6 +32,22 @@ class FlyweightDesignPatternPresenter(private val view: FlyweightDesignPatternVi
                     it.isNotEmpty()
                 }
                 .subscribe {
+                    view.onGetLogin(it)
+                }
+    }
+
+    override fun getPwd(name: String) {
+        model.getPwd(name)
+                .doOnSubscribe {
+                    view.addDisposable(it)
+                }
+                .subscribeOn(Schedulers.io())
+                .compose(view.bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnTerminate {
+                    view.dismissLoadingDialog()
+                }
+                .subscribe {
                     view.onGetPwd(it)
                 }
     }

@@ -30,4 +30,13 @@ class UserFactory {
         }
     }
 
+    fun getPwd(name:String): Observable<String>{
+        val iUserState = map[name]
+        return if (iUserState == null){
+            Observable.just("")
+        }else{
+            Observable.just(iUserState.getUserPwd())
+        }
+    }
+
 }

@@ -15,4 +15,6 @@ class FlyweightDesignPatternModel : BaseDesignPatternModel {
     private val factory = UserFactory()
 
     fun doLogin(user: DesignPatternUser): Observable<String> = factory.getUserPwd(user)
+
+    fun getPwd(name:String): Observable<String> = factory.getPwd(name)
 }

@@ -10,5 +10,7 @@ import com.example.llcgs.android_kotlin.design_pattern.flyweight.bean.DesignPatt
  */
 interface FlyweightDesignPatternView : BaseDesignPatternView {
 
-    fun onGetPwd(boolean: Boolean)
+    fun onGetPwd(string: String)
+
+    fun onGetLogin(boolean: Boolean)
 }
