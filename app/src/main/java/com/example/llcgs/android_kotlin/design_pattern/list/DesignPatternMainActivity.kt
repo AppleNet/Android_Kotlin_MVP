@@ -12,6 +12,7 @@ import com.example.llcgs.android_kotlin.design_pattern.list.adapter.DesignPatter
 import com.example.llcgs.android_kotlin.design_pattern.list.presenter.IDesignPatternMainPresenter
 import com.example.llcgs.android_kotlin.design_pattern.list.presenter.impl.DesignPatternMainPresenter
 import com.example.llcgs.android_kotlin.design_pattern.list.view.DesignPatternMainView
+import com.example.llcgs.android_kotlin.design_pattern.proxy.ProxyDesignPatternActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_design_pattern_main.*
 
@@ -28,6 +29,8 @@ class DesignPatternMainActivity: BaseDesignPatternActivity<IDesignPatternMainPre
     override fun createPresenter(): IDesignPatternMainPresenter= DesignPatternMainPresenter(this)
 
     override fun getLayoutId(): Int= R.layout.activity_design_pattern_main
+
+    override fun getUrl() = ""
 
     override fun initViews() {
         setSupportActionBar(toolBar)
@@ -54,6 +57,9 @@ class DesignPatternMainActivity: BaseDesignPatternActivity<IDesignPatternMainPre
             }
             1 ->{
                 startActivity(Intent(this, FlyweightDesignPatternActivity::class.java))
+            }
+            2 ->{
+                startActivity(Intent(this, ProxyDesignPatternActivity::class.java))
             }
         }
     }

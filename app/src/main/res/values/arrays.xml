@@ -185,6 +185,7 @@
     <string-array name="design_pattern">
         <item>Facade(门面模式)</item>
         <item>Flyweight(享元模式)</item>
+        <item>Proxy(代理模式)</item>
     </string-array>
 
 </resources>

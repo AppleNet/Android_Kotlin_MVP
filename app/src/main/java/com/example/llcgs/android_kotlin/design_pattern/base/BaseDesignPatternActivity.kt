@@ -1,13 +1,18 @@
 package com.example.llcgs.android_kotlin.design_pattern.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import android.view.Window
 import android.view.WindowManager
+import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
 import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
+import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.RxLifecycle
 import io.reactivex.Observable
@@ -40,6 +45,7 @@ abstract class BaseDesignPatternActivity<P: BaseDesignPatternPresenter>: AppComp
 
     abstract fun createPresenter(): P
     abstract fun getLayoutId(): Int
+    abstract fun getUrl():String
 
     abstract fun initViews()
 
@@ -97,5 +103,27 @@ abstract class BaseDesignPatternActivity<P: BaseDesignPatternPresenter>: AppComp
     }
 
     override fun onObtainFail(exception: ObtainException) {
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.design_pattern, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            android.R.id.home ->{
+                finish()
+                return true
+            }
+            R.id.action_detail ->{
+                val intent = Intent(this, MaterialWebViewActivity::class.java).apply {
+                    putExtra("EXTRA_URL", getUrl())
+                }
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

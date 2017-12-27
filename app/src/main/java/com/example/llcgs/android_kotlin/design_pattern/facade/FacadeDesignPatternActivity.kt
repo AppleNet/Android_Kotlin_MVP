@@ -1,5 +1,9 @@
 package com.example.llcgs.android_kotlin.design_pattern.facade
 
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.design_pattern.base.BaseDesignPatternActivity
@@ -9,6 +13,7 @@ import com.example.llcgs.android_kotlin.design_pattern.facade.bean.Vegetables
 import com.example.llcgs.android_kotlin.design_pattern.facade.presenter.IFacadeDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.facade.presenter.impl.FacadeDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.facade.view.FacadeDesignPatternView
+import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import kotlinx.android.synthetic.main.activity_design_pattern_facade.*
 
 /**
@@ -30,6 +35,8 @@ class FacadeDesignPatternActivity: BaseDesignPatternActivity<IFacadeDesignPatter
     override fun createPresenter(): IFacadeDesignPatternPresenter= FacadeDesignPatternPresenter(this)
 
     override fun getLayoutId()= R.layout.activity_design_pattern_facade
+
+    override fun getUrl()= "http://www.cnblogs.com/java-my-life/archive/2012/05/02/2478101.html"
 
     override fun initViews() {
         setSupportActionBar(toolBar)
@@ -58,5 +65,6 @@ class FacadeDesignPatternActivity: BaseDesignPatternActivity<IFacadeDesignPatter
             doughLayout.error = any.content
         }
     }
+
 
 }

@@ -13,6 +13,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ArchitectureTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="MainTheme" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -92,8 +97,6 @@
         <item name="dividerVertical">?android:dividerVertical</item>
         <item name="toolbarStyle">@style/Base.Widget.Douya.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Widget.Douya.Toolbar.Button.Navigation</item>
-        <!--<item name="android:colorBackgroundCacheHint">#00000000</item>-->
-        <!--<item name="preferenceTheme">@style/PreferenceThemeOverlay</item>-->
     </style>
 
 

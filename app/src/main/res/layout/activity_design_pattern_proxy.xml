@@ -13,14 +13,8 @@
         android:background="?attr/colorPrimary"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="DesignPattern(设计模式)"
         app:navigationIcon="@drawable/back_icon_white_24dp"
+        app:title="Proxy(代理模式)"
         android:fitsSystemWindows="true"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"/>
 
 </LinearLayout>

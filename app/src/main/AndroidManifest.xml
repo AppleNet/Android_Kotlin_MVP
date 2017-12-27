@@ -140,32 +140,34 @@
         <!-- Architecture -->
         <activity
             android:name=".architecture_components.lifecycle.LifeCycleActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.livedata.use_livedata.LiveDataActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.livedata.extend_livedata.ExtendLiveDataActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.livedata.transform_livedata.TransformLiveDataActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.menu.MenuArchActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.viewmodel.use_viewmodel.ViewModelActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.viewmodel.share_viewmodel.ShareViewModelActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.room.demo.RoomActivity"
-            android:theme="@style/MvvmTheme" />
+            android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.room.menu.RoomMenuActivity"
-            android:theme="@style/MvvmTheme" />
-        <activity android:name=".architecture_components.room.entities.EntitiesActivity" />
+            android:theme="@style/ArchitectureTheme" />
+        <activity
+            android:name=".architecture_components.room.entities.EntitiesActivity"
+            android:theme="@style/ArchitectureTheme"/>
 
         <!-- Material Design-->
         <activity
@@ -207,13 +209,16 @@
         <!-- Design Pattern -->
         <activity
             android:name=".design_pattern.list.DesignPatternMainActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/DesignPatternTheme" />
         <activity
             android:name=".design_pattern.facade.FacadeDesignPatternActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/DesignPatternTheme" />
         <activity
             android:name=".design_pattern.flyweight.FlyweightDesignPatternActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/DesignPatternTheme" />
+        <activity
+            android:name=".design_pattern.proxy.ProxyDesignPatternActivity"
+            android:theme="@style/DesignPatternTheme" />
 
     </application>
 

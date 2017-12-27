@@ -14,6 +14,7 @@
         android:background="?attr/colorPrimary"
         app:layout_collapseMode="pin"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:navigationIcon="@drawable/back_icon_white_24dp"
         app:title="Facade(门面模式)"
         android:fitsSystemWindows="true"/>
 

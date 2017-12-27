@@ -1,5 +1,8 @@
 package com.example.llcgs.android_kotlin.design_pattern.flyweight
 
+import android.content.Intent
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
@@ -8,6 +11,7 @@ import com.example.llcgs.android_kotlin.design_pattern.flyweight.bean.DesignPatt
 import com.example.llcgs.android_kotlin.design_pattern.flyweight.presenter.IFlyweightDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.flyweight.presenter.impl.FlyweightDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.flyweight.view.FlyweightDesignPatternView
+import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import kotlinx.android.synthetic.main.activity_design_pattern_flyweight.*
@@ -29,6 +33,8 @@ class FlyweightDesignPatternActivity : BaseDesignPatternActivity<IFlyweightDesig
     override fun createPresenter() = FlyweightDesignPatternPresenter(this)
 
     override fun getLayoutId() = R.layout.activity_design_pattern_flyweight
+
+    override fun getUrl()= "http://www.cnblogs.com/java-my-life/archive/2012/04/26/2468499.html"
 
     override fun initViews() {
         setSupportActionBar(toolBar)
@@ -62,6 +68,7 @@ class FlyweightDesignPatternActivity : BaseDesignPatternActivity<IFlyweightDesig
             "用户不存在"
         }, Toast.LENGTH_SHORT).show()
     }
+
 }
 
 
