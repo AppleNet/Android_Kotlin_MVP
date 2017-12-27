@@ -7,5 +7,7 @@ import com.example.llcgs.android_kotlin.design_pattern.base.BaseDesignPatternPre
  * @author liulongchao
  * @since 2017/12/27
  */
-interface IProxyDesignPatternPresenter: BaseDesignPatternPresenter {
+interface IProxyDesignPatternPresenter : BaseDesignPatternPresenter {
+
+    fun buy(startingPlace: String, destination: String, which: String)
 }

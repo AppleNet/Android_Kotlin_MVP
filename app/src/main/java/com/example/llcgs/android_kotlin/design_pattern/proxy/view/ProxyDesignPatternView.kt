@@ -8,4 +8,6 @@ import com.example.llcgs.android_kotlin.design_pattern.base.BaseDesignPatternVie
  * @since 2017/12/27
  */
 interface ProxyDesignPatternView : BaseDesignPatternView {
+
+    fun onGetPrice(string: String)
 }
