@@ -219,6 +219,9 @@
         <activity
             android:name=".design_pattern.proxy.ProxyDesignPatternActivity"
             android:theme="@style/DesignPatternTheme" />
+        <activity
+            android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
     </application>
 
