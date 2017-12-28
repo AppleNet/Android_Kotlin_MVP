@@ -13,6 +13,7 @@ import com.example.llcgs.android_kotlin.design_pattern.list.presenter.IDesignPat
 import com.example.llcgs.android_kotlin.design_pattern.list.presenter.impl.DesignPatternMainPresenter
 import com.example.llcgs.android_kotlin.design_pattern.list.view.DesignPatternMainView
 import com.example.llcgs.android_kotlin.design_pattern.proxy.ProxyDesignPatternActivity
+import com.example.llcgs.android_kotlin.design_pattern.wrapper.WrapperDesignPatternActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_design_pattern_main.*
 
@@ -60,6 +61,9 @@ class DesignPatternMainActivity: BaseDesignPatternActivity<IDesignPatternMainPre
             }
             2 ->{
                 startActivity(Intent(this, ProxyDesignPatternActivity::class.java))
+            }
+            4 ->{
+                startActivity(Intent(this, WrapperDesignPatternActivity::class.java))
             }
         }
     }

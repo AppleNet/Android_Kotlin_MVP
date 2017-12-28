@@ -32,7 +32,7 @@
         android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
         android:contentDescription="@string/app_name"
-        app:srcCompat="@mipmap/image" />
+        app:srcCompat="@mipmap/image_girl" />
 
 
 </LinearLayout>

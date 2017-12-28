@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:src="@mipmap/back"
+        android:src="@mipmap/image_back"
         android:contentDescription="@string/app_name"/>
 
     <TextView

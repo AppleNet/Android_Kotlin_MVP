@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="170dp"
-    android:background="@mipmap/profile_header_backdrop">
+    android:background="@mipmap/image_profile_header_backdrop">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageHeader"

@@ -118,7 +118,9 @@ abstract class BaseDesignPatternActivity<P: BaseDesignPatternPresenter>: AppComp
             }
             R.id.action_detail ->{
                 val intent = Intent(this, MaterialWebViewActivity::class.java).apply {
-                    putExtra("EXTRA_URL", getUrl())
+                    if(getUrl().isNotEmpty()){
+                        putExtra("EXTRA_URL", getUrl())
+                    }
                 }
                 startActivity(intent)
                 return true
