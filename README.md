@@ -6,6 +6,12 @@
         android:background="?android:attr/selectableItemBackgroundBorderless" 波纹超出边界
 -->
 
+<!-- 
+        查看Databinding 生成的注解类 app->build->generated->source->kapt->debug->your packagename
+        
+        查看build生成的class文件 app->build->intermediates->classes->debug->your packagename
+-->
+
 
 # LiveData
     LiveData 是一个 observable 数据的持有类，和普通的 observable 不同，LiveData 是生命周期感知的，意味着它代表其它应用组件譬如 Activity、Fragment、Service 的生命周期。
