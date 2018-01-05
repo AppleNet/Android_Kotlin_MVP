@@ -62,7 +62,7 @@ class DesignPatternMainActivity: BaseDesignPatternActivity<IDesignPatternMainPre
             2 ->{
                 startActivity(Intent(this, ProxyDesignPatternActivity::class.java))
             }
-            4 ->{
+            3 ->{
                 startActivity(Intent(this, WrapperDesignPatternActivity::class.java))
             }
         }
