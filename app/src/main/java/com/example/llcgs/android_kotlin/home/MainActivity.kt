@@ -106,6 +106,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 // 设计模式
                 Router.create("host://Design_Pattern").activityRoute.open(this)
             }
+            "Material Animation" ->{
+                Router.create("host://Material_Animation").activityRoute.open(this)
+            }
         }
     }
 

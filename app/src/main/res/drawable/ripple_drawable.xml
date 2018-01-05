@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#FF00FF00">
+    <!-- 不指定id 再显示的时候 会首先显示item指定的drawable-->
+    <item android:drawable="@mipmap/icon"/>
+</ripple>

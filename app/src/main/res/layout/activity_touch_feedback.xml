@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/view_material_toolbar"/>
+    <!--
+          selectableItemBackground代表了当点击后会在当前Button区域发生一个涟漪效果，
+          而selectableItemBackgroundBorderless的效果不会局限于Button本身的大小
+    -->
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/fruitLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/fruitEdt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="UserName"
+            android:inputType="text"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/basic_text"
+            android:textColorHint="@color/common_bg"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/vegetablesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/vegetablesEdt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="UserPwd"
+            android:inputType="textPassword"
+            android:textSize="@dimen/textsize_16"
+            android:textColor="@color/basic_text"
+            android:textColorHint="@color/common_bg"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="系统的Material有边界"
+        android:textColor="@color/basic_text"
+        android:textAppearance="?android:textAppearanceButton"
+        android:theme="?darkTheme"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="?android:attr/selectableItemBackground"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="系统的Material无边界"
+        android:textColor="@color/basic_text"
+        android:textAppearance="?android:textAppearanceButton"
+        android:theme="?darkTheme"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="?android:attr/selectableItemBackgroundBorderless"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="自定义Material Drawable无id"
+        android:textColor="@color/basic_text"
+        android:textAppearance="?android:textAppearanceButton"
+        android:theme="?darkTheme"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@drawable/ripple_drawable"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="自定义Material Drawable有id"
+        android:textColor="@color/basic_text"
+        android:textAppearance="?android:textAppearanceButton"
+        android:theme="?darkTheme"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:background="@drawable/ripple_drawable_1"/>
+
+
+
+</LinearLayout>
