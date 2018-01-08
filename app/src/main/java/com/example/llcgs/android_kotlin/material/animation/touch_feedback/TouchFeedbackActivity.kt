@@ -1,10 +1,13 @@
 package com.example.llcgs.android_kotlin.material.animation.touch_feedback
 
+import android.content.Intent
 import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.material.animation.reveal_effect.RevealEffectActivity
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.ITouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.impl.TouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
 import com.lzh.nonview.router.anno.RouterRule
+import kotlinx.android.synthetic.main.activity_touch_feedback.*
 import kotlinx.android.synthetic.main.view_material_toolbar.*
 
 /**
@@ -28,5 +31,8 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
                 而selectableItemBackgroundBorderless的效果不会局限于Button本身的大小
                 -->
          * */
+        materialBorder.setOnClickListener {
+            startActivity(Intent(this, RevealEffectActivity::class.java))
+        }
     }
 }

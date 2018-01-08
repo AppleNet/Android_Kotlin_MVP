@@ -225,6 +225,9 @@
         <activity
             android:name=".material.animation.touch_feedback.TouchFeedbackActivity"
             android:theme="@style/DesignPatternTheme"/>
+        <activity
+            android:name=".material.animation.reveal_effect.RevealEffectActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
     </application>
 
