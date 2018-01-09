@@ -15,14 +15,14 @@
         android:id="@+id/action_notification"
         android:orderInCategory="100"
         android:title="提醒"
-        app:actionLayout="@layout/action_item_badge"
+        app:actionLayout="@layout/view_action_item_badge"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_doumail"
         android:orderInCategory="100"
         android:title="豆邮"
-        app:actionLayout="@layout/action_item_badge"
+        app:actionLayout="@layout/view_action_item_badge"
         app:showAsAction="always" />
 
     <item

@@ -197,4 +197,12 @@
         <item>Wrapper(装饰模式)</item>
     </string-array>
 
+    <string-array name="activity_options">
+        <item>makeCustomAnimation</item>
+        <item>makeScaleUpAnimation</item>
+        <item>makeThumbnailScaleUpAnimation</item>
+        <item>makeSceneTransitionAnimation</item>
+        <item>makeSceneTransitionAnimation2</item>
+    </string-array>
+
 </resources>

@@ -7,10 +7,13 @@
     <include
         layout="@layout/view_material_toolbar"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"/>
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="TextView" />
 
 </LinearLayout>

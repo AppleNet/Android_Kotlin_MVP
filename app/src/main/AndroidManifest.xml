@@ -205,6 +205,18 @@
         <activity
             android:name=".material.about.MaterialAboutActivity"
             android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.animation.touch_feedback.TouchFeedbackActivity"
+            android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.animation.reveal_effect.RevealEffectActivity"
+            android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.animation.activity_options.ActivityOptionsActivity"
+            android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.animation.activity_options.AnimationActivity"
+            android:theme="@style/MaterialTheme"/>
 
         <!-- Design Pattern -->
         <activity
@@ -222,18 +234,7 @@
         <activity
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
             android:theme="@style/DesignPatternTheme"/>
-        <activity
-            android:name=".material.animation.touch_feedback.TouchFeedbackActivity"
-            android:theme="@style/DesignPatternTheme"/>
-        <activity
-            android:name=".material.animation.reveal_effect.RevealEffectActivity"
-            android:theme="@style/DesignPatternTheme"/>
-        <activity
-            android:name=".material.animation.activity_options.ActivityOptionsActivity"
-            android:theme="@style/DesignPatternTheme"/>
-        <activity
-            android:name=".material.animation.activity_options.AnimationActivity"
-            android:theme="@style/DesignPatternTheme"/>
+
 
     </application>
 

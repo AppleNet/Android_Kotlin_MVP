@@ -39,5 +39,9 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
         materialBorderless.setOnClickListener {
             startActivity(Intent(this, ActivityOptionsActivity::class.java))
         }
+
+        dialogRecyclerView.setOnClickListener {
+
+        }
     }
 }

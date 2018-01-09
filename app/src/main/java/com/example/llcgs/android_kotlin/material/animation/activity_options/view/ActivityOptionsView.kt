@@ -8,4 +8,6 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
  * @since 2018/1/8
  */
 interface ActivityOptionsView: BaseMaterialView {
+
+    fun onGetActivityOptions(list: List<String>)
 }
