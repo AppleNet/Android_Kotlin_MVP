@@ -228,6 +228,12 @@
         <activity
             android:name=".material.animation.reveal_effect.RevealEffectActivity"
             android:theme="@style/DesignPatternTheme"/>
+        <activity
+            android:name=".material.animation.activity_options.ActivityOptionsActivity"
+            android:theme="@style/DesignPatternTheme"/>
+        <activity
+            android:name=".material.animation.activity_options.AnimationActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
     </application>
 

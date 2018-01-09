@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.material.animation.touch_feedback
 
 import android.content.Intent
 import com.example.llcgs.android_kotlin.R
+import com.example.llcgs.android_kotlin.material.animation.activity_options.ActivityOptionsActivity
 import com.example.llcgs.android_kotlin.material.animation.reveal_effect.RevealEffectActivity
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.ITouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.impl.TouchFeedbackPresenter
@@ -33,6 +34,10 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
          * */
         materialBorder.setOnClickListener {
             startActivity(Intent(this, RevealEffectActivity::class.java))
+        }
+
+        materialBorderless.setOnClickListener {
+            startActivity(Intent(this, ActivityOptionsActivity::class.java))
         }
     }
 }
