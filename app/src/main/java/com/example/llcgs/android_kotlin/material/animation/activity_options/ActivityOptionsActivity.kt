@@ -1,11 +1,14 @@
 package com.example.llcgs.android_kotlin.material.animation.activity_options
 
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.LinearLayout
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.animation.activity_options.adapter.ActivityOptionsAdapter
@@ -13,7 +16,9 @@ import com.example.llcgs.android_kotlin.material.animation.activity_options.pres
 import com.example.llcgs.android_kotlin.material.animation.activity_options.presenter.impl.ActivityOptionsPresenter
 import com.example.llcgs.android_kotlin.material.animation.activity_options.view.ActivityOptionsView
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
+import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_activity_options.*
+import kotlinx.android.synthetic.main.view_activity_options_footer.*
 import kotlinx.android.synthetic.main.view_material_toolbar.*
 
 /**
@@ -35,7 +40,8 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
      * */
 
     private lateinit var adapter: ActivityOptionsAdapter
-
+    private val headerView by lazy { HeaderView(LayoutInflater.from(this).inflate(R.layout.view_activity_options_header, null)) }
+    private val footerView by lazy { FooterView(LayoutInflater.from(this).inflate(R.layout.view_activity_options_footer, null)) }
     override fun createPresenter()= ActivityOptionsPresenter(this)
 
     override fun getLayoutId()= R.layout.activity_activity_options
@@ -46,8 +52,10 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
         setSupportActionBar(toolbar)
 
         adapter = ActivityOptionsAdapter()
+        adapter.addHeaderView(headerView.containerView)
+        adapter.addFooterView(footerView.containerView)
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this).apply { orientation = LinearLayout.VERTICAL }
         recyclerView.setHasFixedSize(true)
 
         adapter.onItemClickListener = this
@@ -87,8 +95,19 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
                 }, scaleUpAnimation.toBundle())
             }
             2 ->{
-
+                //
+                //val drawable = resources.getDrawable(R.mipmap.icon, theme) as BitmapDrawable
+                val makeThumbnailScaleUpAnimation = ActivityOptionsCompat.makeThumbnailScaleUpAnimation(view,
+                        (footerView.footerImg.drawable as BitmapDrawable).bitmap,
+                        footerView.footerImg.width/2, footerView.footerImg.height/2)
+                ActivityCompat.startActivity(this, Intent(this, AnimationActivity::class.java).apply {
+                    putExtra("AnimationName", "makeThumbnailScaleUpAnimation")
+                }, makeThumbnailScaleUpAnimation.toBundle())
             }
         }
     }
+
+    class HeaderView(override val containerView: View?): LayoutContainer
+    class FooterView(override val containerView: View?): LayoutContainer
+
 }
