@@ -95,14 +95,36 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
                 }, scaleUpAnimation.toBundle())
             }
             2 ->{
-                //
-                //val drawable = resources.getDrawable(R.mipmap.icon, theme) as BitmapDrawable
+                /**
+                 *  makeThumbnailScaleUpAnimation
+                 *   该方法和上面的makeScaleUpAnimation非常相似，只不过，
+                 *   这里是通过放大一个图片，
+                 *   最后过度到一个新的activity，
+                 *   第2个参数是指那个图片要放大，
+                 *   3和4参数表示从哪开始动画。
+                 * */
                 val makeThumbnailScaleUpAnimation = ActivityOptionsCompat.makeThumbnailScaleUpAnimation(view,
                         (footerView.footerImg.drawable as BitmapDrawable).bitmap,
                         footerView.footerImg.width/2, footerView.footerImg.height/2)
                 ActivityCompat.startActivity(this, Intent(this, AnimationActivity::class.java).apply {
                     putExtra("AnimationName", "makeThumbnailScaleUpAnimation")
                 }, makeThumbnailScaleUpAnimation.toBundle())
+            }
+            3 ->{
+                /**
+                 *  makeSceneTransitionAnimation
+                 *
+                 * */
+                footerView.footerImg.transitionName = "footerImg"
+                val makeSceneTransitionAnimation = ActivityOptionsCompat.makeSceneTransitionAnimation(this, footerView.footerImg, footerView.footerImg.transitionName)
+                ActivityCompat.startActivity(this, Intent(this, AnimationActivity::class.java).apply {
+                    putExtra("AnimationName", "makeSceneTransitionAnimation")
+                    putExtra("transitionName", footerView.footerImg.transitionName)
+                }, makeSceneTransitionAnimation.toBundle())
+            }
+            4 ->{
+                //
+
             }
         }
     }

@@ -8,6 +8,15 @@
         layout="@layout/view_material_toolbar"/>
 
 
+    <ImageView
+        android:id="@+id/transitionImg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@mipmap/icon"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitXY"/>
+
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"

@@ -1,8 +1,8 @@
 package com.example.llcgs.android_kotlin.material.animation.activity_options
 
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import com.example.llcgs.android_kotlin.R
 import kotlinx.android.synthetic.main.activity_animation.*
@@ -20,11 +20,14 @@ class AnimationActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
+        ViewCompat.setTransitionName(transitionImg, intent.getStringExtra("transitionName"))
         name = intent.getStringExtra("AnimationName")
         toolbar.title = name
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))
         setSupportActionBar(toolbar)
         textView5.text = name
+
+        //
     }
 
     override fun onBackPressed() {
