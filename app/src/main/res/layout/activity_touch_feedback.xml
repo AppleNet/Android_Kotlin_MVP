@@ -54,74 +54,99 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/materialBorder"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="系统的Material有边界"
-        android:textColor="@color/basic_text"
-        android:textAppearance="?android:textAppearanceButton"
-        android:theme="?darkTheme"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="?android:attr/selectableItemBackground"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/materialBorderless"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="系统的Material无边界"
-        android:textColor="@color/basic_text"
-        android:textAppearance="?android:textAppearanceButton"
-        android:theme="?darkTheme"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="?android:attr/selectableItemBackgroundBorderless"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="自定义Material Drawable无id"
-        android:textColor="@color/basic_text"
-        android:textAppearance="?android:textAppearanceButton"
-        android:theme="?darkTheme"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@drawable/ripple_drawable"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="自定义Material Drawable无id"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="@drawable/ripple_drawable"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="自定义Material Drawable有id"
-        android:textColor="@color/basic_text"
-        android:textAppearance="?android:textAppearanceButton"
-        android:theme="?darkTheme"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@drawable/ripple_drawable_1"/>
+            <Button
+                android:id="@+id/materialBorder"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="系统的Material有边界"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="?android:attr/selectableItemBackground"/>
 
-    <Button
-        android:id="@+id/dialogRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="Dialog RecyclerView"
-        android:textColor="@color/basic_text"
-        android:textAppearance="?android:textAppearanceButton"
-        android:theme="?darkTheme"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:background="@drawable/ripple_drawable_1"/>
+            <Button
+                android:id="@+id/materialBorderless"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="系统的Material无边界"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="自定义Material Drawable有id"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="@drawable/ripple_drawable_1"/>
 
+            <Button
+                android:id="@+id/dialogRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Dialog RecyclerView"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="@drawable/ripple_drawable_1"/>
+
+            <Button
+                android:id="@+id/pathAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="pathAnimation"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="@drawable/ripple_drawable_1"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

@@ -217,6 +217,9 @@
         <activity
             android:name=".material.animation.activity_options.AnimationActivity"
             android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.animation.path_animation.PathAnimationActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
         <!-- Design Pattern -->
         <activity
@@ -234,7 +237,6 @@
         <activity
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
             android:theme="@style/DesignPatternTheme"/>
-
 
     </application>
 
