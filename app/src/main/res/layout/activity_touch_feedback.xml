@@ -145,6 +145,21 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:background="@drawable/ripple_drawable_1"/>
 
+            <Button
+                android:id="@+id/viewState"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="viewState"
+                android:textColor="@color/basic_text"
+                android:textAppearance="?android:textAppearanceButton"
+                android:theme="?darkTheme"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:background="@drawable/ripple_drawable_1"/>
+
         </LinearLayout>
 
     </ScrollView>

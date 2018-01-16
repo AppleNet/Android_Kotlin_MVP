@@ -220,6 +220,9 @@
         <activity
             android:name=".material.animation.path_animation.PathAnimationActivity"
             android:theme="@style/DesignPatternTheme"/>
+        <activity
+            android:name=".material.animation.view_state.ViewStateActivity"
+            android:theme="@style/DesignPatternTheme"/>
 
         <!-- Design Pattern -->
         <activity

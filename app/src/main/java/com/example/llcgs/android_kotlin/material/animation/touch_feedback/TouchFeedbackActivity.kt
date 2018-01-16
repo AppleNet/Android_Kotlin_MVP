@@ -7,6 +7,7 @@ import com.example.llcgs.android_kotlin.material.animation.path_animation.PathAn
 import com.example.llcgs.android_kotlin.material.animation.reveal_effect.RevealEffectActivity
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.ITouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.impl.TouchFeedbackPresenter
+import com.example.llcgs.android_kotlin.material.animation.view_state.ViewStateActivity
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_touch_feedback.*
@@ -44,6 +45,12 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
         pathAnimation.setOnClickListener {
             startActivity(Intent(this, PathAnimationActivity::class.java).apply {
                 putExtra("name", "pathAnimation")
+            })
+        }
+
+        viewState.setOnClickListener {
+            startActivity(Intent(this, ViewStateActivity::class.java).apply {
+                putExtra("name", "viewState")
             })
         }
 

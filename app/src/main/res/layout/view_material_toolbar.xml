@@ -12,6 +12,7 @@
     app:navigationIcon="@drawable/back_icon_white_24dp"
     app:popupTheme="?actionBarPopupTheme"
     app:titleMarginStart="18dp"
+    app:titleTextColor="@color/white"
     app:titleTextAppearance="@android:style/TextAppearance.Holo.Large"
     app:subtitleTextAppearance="@android:style/TextAppearance.Holo.Small">
 
