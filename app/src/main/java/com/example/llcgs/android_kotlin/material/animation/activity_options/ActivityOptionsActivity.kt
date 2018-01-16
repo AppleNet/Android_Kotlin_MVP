@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
+import android.support.v4.util.Pair
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +21,7 @@ import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_activity_options.*
 import kotlinx.android.synthetic.main.view_activity_options_footer.*
 import kotlinx.android.synthetic.main.view_material_toolbar.*
+import java.util.ArrayList
 
 /**
  * com.example.llcgs.android_kotlin.material.animation.activity_options.ActivityOptionsActivity
@@ -123,8 +125,21 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
                 }, makeSceneTransitionAnimation.toBundle())
             }
             4 ->{
-                //
-
+                /**
+                 *  多个view的协作 makeSceneTransitionAnimation
+                 *  给多个View指定transitionName 保持一致
+                 * */
+                footerView.footerImg.transitionName = "footerImg"
+                val sharedElementList = ArrayList<Pair<View, String>>()
+                // 添加多个元素
+                sharedElementList.add(Pair.create(footerView.footerImg, footerView.footerImg.transitionName))
+                // convert to Pair<View, String>[]
+                val sharedElements = sharedElementList.toTypedArray<Pair<View, String>>()
+                val makeSceneTransitionAnimation = ActivityOptionsCompat.makeSceneTransitionAnimation(this, *sharedElements)
+                ActivityCompat.startActivity(this, Intent(this, AnimationActivity::class.java).apply {
+                    putExtra("AnimationName", "makeSceneTransitionAnimation")
+                    putExtra("transitionName", footerView.footerImg.transitionName)
+                }, makeSceneTransitionAnimation.toBundle())
             }
         }
     }

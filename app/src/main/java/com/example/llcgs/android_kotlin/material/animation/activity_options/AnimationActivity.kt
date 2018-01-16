@@ -20,7 +20,10 @@ class AnimationActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_animation)
-        ViewCompat.setTransitionName(transitionImg, intent.getStringExtra("transitionName"))
+        val transitionName = intent.getStringExtra("transitionName")
+        if(transitionName.isNotEmpty()){
+            ViewCompat.setTransitionName(transitionImg, transitionName)
+        }
         name = intent.getStringExtra("AnimationName")
         toolbar.title = name
         toolbar.setTitleTextColor(ContextCompat.getColor(this, R.color.white))

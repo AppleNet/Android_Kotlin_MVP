@@ -70,7 +70,7 @@ class MaterialDetailActivity : BaseDetailActivity<DetailPresenter>(), OnRefreshL
         holder = HeaderViewHolder(headerView)
         adapter.addHeaderView(headerView)
         recyclerView.adapter = adapter
-        adapter.setOnItemClickListener(this)
+        adapter.onItemClickListener = this
 
         progress.visibility = View.VISIBLE
         TransitionUtils.postActivityAfterTransition(this) {
