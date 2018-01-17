@@ -1,10 +1,13 @@
 package com.example.llcgs.android_kotlin.material.animation.touch_feedback
 
 import android.content.Intent
+import android.view.Window
+import android.view.WindowManager
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.animation.activity_options.ActivityOptionsActivity
 import com.example.llcgs.android_kotlin.material.animation.path_animation.PathAnimationActivity
 import com.example.llcgs.android_kotlin.material.animation.reveal_effect.RevealEffectActivity
+import com.example.llcgs.android_kotlin.material.animation.svg.SvgActivity
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.ITouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.animation.touch_feedback.presenter.impl.TouchFeedbackPresenter
 import com.example.llcgs.android_kotlin.material.animation.view_state.ViewStateActivity
@@ -23,9 +26,13 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
 
     override fun createPresenter()= TouchFeedbackPresenter()
 
-    override fun getLayoutId()= R.layout.activity_touch_feedback
+    override fun getLayoutId(): Int{
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        return R.layout.activity_touch_feedback
+    }
 
     override fun initViews() {
+
         setSupportActionBar(toolbar)
         /**
          *
@@ -51,6 +58,12 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
         viewState.setOnClickListener {
             startActivity(Intent(this, ViewStateActivity::class.java).apply {
                 putExtra("name", "viewState")
+            })
+        }
+
+        svg.setOnClickListener {
+            startActivity(Intent(this, SvgActivity::class.java).apply {
+                putExtra("name", "svg")
             })
         }
 

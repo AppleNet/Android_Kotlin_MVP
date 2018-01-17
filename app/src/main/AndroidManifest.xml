@@ -167,7 +167,7 @@
             android:theme="@style/ArchitectureTheme" />
         <activity
             android:name=".architecture_components.room.entities.EntitiesActivity"
-            android:theme="@style/ArchitectureTheme"/>
+            android:theme="@style/ArchitectureTheme" />
 
         <!-- Material Design-->
         <activity
@@ -207,22 +207,25 @@
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.touch_feedback.TouchFeedbackActivity"
-            android:theme="@style/MaterialTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.reveal_effect.RevealEffectActivity"
-            android:theme="@style/MaterialTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.activity_options.ActivityOptionsActivity"
-            android:theme="@style/MaterialTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.activity_options.AnimationActivity"
-            android:theme="@style/MaterialTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.path_animation.PathAnimationActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.view_state.ViewStateActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.animation.svg.SvgActivity"
+            android:theme="@style/MaterialTheme" />
 
         <!-- Design Pattern -->
         <activity
@@ -239,7 +242,7 @@
             android:theme="@style/DesignPatternTheme" />
         <activity
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
-            android:theme="@style/DesignPatternTheme"/>
+            android:theme="@style/DesignPatternTheme" />
 
     </application>
 
