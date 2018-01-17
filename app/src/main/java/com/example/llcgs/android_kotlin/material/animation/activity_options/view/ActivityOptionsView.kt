@@ -10,4 +10,5 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialView
 interface ActivityOptionsView: BaseMaterialView {
 
     fun onGetActivityOptions(list: List<String>)
+    fun onGetActivityTransition(list: List<String>)
 }

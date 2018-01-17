@@ -5,6 +5,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.animation.activity_options.ActivityOptionsActivity
+import com.example.llcgs.android_kotlin.material.animation.activity_options.ActivityTransitionActivity
 import com.example.llcgs.android_kotlin.material.animation.path_animation.PathAnimationActivity
 import com.example.llcgs.android_kotlin.material.animation.reveal_effect.RevealEffectActivity
 import com.example.llcgs.android_kotlin.material.animation.svg.SvgActivity
@@ -43,6 +44,10 @@ class TouchFeedbackActivity: BaseMaterialActivity<ITouchFeedbackPresenter>() {
          * */
         materialBorder.setOnClickListener {
             startActivity(Intent(this, RevealEffectActivity::class.java))
+        }
+
+        activityOptions.setOnClickListener {
+            startActivity(Intent(this, ActivityTransitionActivity::class.java))
         }
 
         materialBorderless.setOnClickListener {

@@ -205,4 +205,11 @@
         <item>makeSceneTransitionAnimation2</item>
     </string-array>
 
+    <string-array name="activity_transitions">
+        <item>Transitions</item>
+        <item>Shared Elements</item>
+        <item>View animations</item>
+        <item>Circular Reveal Animation</item>
+    </string-array>
+
 </resources>

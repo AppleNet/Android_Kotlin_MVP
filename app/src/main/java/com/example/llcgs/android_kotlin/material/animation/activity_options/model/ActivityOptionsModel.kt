@@ -18,4 +18,9 @@ class ActivityOptionsModel : BaseMaterialModel {
         return Observable.just(array)
     }
 
+    fun getActivityTransition(): Observable<List<String>>{
+        val array = BaseUtil.context().resources.getStringArray(R.array.activity_transitions).toMutableList()
+        return Observable.just(array)
+    }
+
 }

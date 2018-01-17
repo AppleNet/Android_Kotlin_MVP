@@ -10,4 +10,5 @@ import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
 interface IActivityOptionsPresenter : BaseMaterialPresenter {
 
     fun getActivityOptions()
+    fun getActivityTransition()
 }

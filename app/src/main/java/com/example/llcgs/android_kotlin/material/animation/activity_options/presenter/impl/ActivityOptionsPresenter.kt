@@ -20,4 +20,11 @@ class ActivityOptionsPresenter(private val view: ActivityOptionsView) : IActivit
                 }
     }
 
+    override fun getActivityTransition() {
+        model.getActivityTransition()
+                .subscribe {
+                    view.onGetActivityTransition(it)
+                }
+    }
+
 }

@@ -69,6 +69,9 @@ class ActivityOptionsActivity : BaseMaterialActivity<IActivityOptionsPresenter>(
         adapter.setNewData(list)
     }
 
+    override fun onGetActivityTransition(list: List<String>) {
+    }
+
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View, position: Int) {
         when(position){
             0 ->{
