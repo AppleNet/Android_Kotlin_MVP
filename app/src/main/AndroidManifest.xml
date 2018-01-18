@@ -171,25 +171,25 @@
 
         <!-- Material Design-->
         <activity
-            android:name=".material.login.MaterialLoginActivity"
+            android:name=".material.douya.login.MaterialLoginActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.webview.MaterialWebViewActivity"
+            android:name=".material.douya.webview.MaterialWebViewActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.main.MaterialHomeActivity"
+            android:name=".material.douya.main.MaterialHomeActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.detail.MaterialDetailActivity"
+            android:name=".material.douya.detail.MaterialDetailActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.gallery.MaterialGalleryActivity"
+            android:name=".material.douya.gallery.MaterialGalleryActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.profile.MaterialProfileActivity"
+            android:name=".material.douya.profile.MaterialProfileActivity"
             android:theme="@style/MaterialTheme" />
         <activity
-            android:name=".material.setting.MaterialSettingActivity"
+            android:name=".material.douya.setting.MaterialSettingActivity"
             android:exported="false"
             android:label="设置"
             android:launchMode="singleTop"
@@ -200,10 +200,10 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".material.main.MaterialHomeActivity" />
+                android:value=".material.douya.main.MaterialHomeActivity" />
         </activity>
         <activity
-            android:name=".material.about.MaterialAboutActivity"
+            android:name=".material.douya.about.MaterialAboutActivity"
             android:theme="@style/MaterialTheme" />
         <activity
             android:name=".material.animation.touch_feedback.TouchFeedbackActivity"

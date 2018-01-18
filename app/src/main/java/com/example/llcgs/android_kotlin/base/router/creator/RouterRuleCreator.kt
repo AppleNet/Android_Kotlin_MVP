@@ -1,13 +1,12 @@
 package com.example.llcgs.android_kotlin.base.router.creator
 
-import com.example.llcgs.android_kotlin.architecture_components.lifecycle.LifeCycleActivity
 import com.example.llcgs.android_kotlin.architecture_components.menu.MenuArchActivity
 import com.example.llcgs.android_kotlin.base.router.action.HostAction
 import com.example.llcgs.android_kotlin.base.router.action.UninstallAction
 import com.example.llcgs.android_kotlin.design_pattern.list.DesignPatternMainActivity
 import com.example.llcgs.android_kotlin.home.MainActivity
 import com.example.llcgs.android_kotlin.list.MyListActivity
-import com.example.llcgs.android_kotlin.material.login.MaterialLoginActivity
+import com.example.llcgs.android_kotlin.material.douya.login.MaterialLoginActivity
 import com.example.llcgs.android_kotlin.mvvm.login.MvvmActivity
 import com.example.llcgs.android_kotlin.replugin.plugin.PluginActivity
 import com.example.llcgs.android_kotlin.replugin.pluginlist.PluginListActivity

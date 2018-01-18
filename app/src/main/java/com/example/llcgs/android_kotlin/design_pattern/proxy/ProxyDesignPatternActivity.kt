@@ -1,8 +1,5 @@
 package com.example.llcgs.android_kotlin.design_pattern.proxy
 
-import android.content.Intent
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,7 +8,6 @@ import com.example.llcgs.android_kotlin.design_pattern.base.BaseDesignPatternAct
 import com.example.llcgs.android_kotlin.design_pattern.proxy.presenter.IProxyDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.proxy.presenter.impl.ProxyDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.proxy.view.ProxyDesignPatternView
-import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import kotlinx.android.synthetic.main.activity_design_pattern_proxy.*
 
 /**

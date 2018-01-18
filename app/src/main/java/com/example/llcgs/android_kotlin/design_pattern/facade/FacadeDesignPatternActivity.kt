@@ -1,9 +1,5 @@
 package com.example.llcgs.android_kotlin.design_pattern.facade
 
-import android.content.Intent
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.design_pattern.base.BaseDesignPatternActivity
@@ -13,7 +9,6 @@ import com.example.llcgs.android_kotlin.design_pattern.facade.bean.Vegetables
 import com.example.llcgs.android_kotlin.design_pattern.facade.presenter.IFacadeDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.facade.presenter.impl.FacadeDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.facade.view.FacadeDesignPatternView
-import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
 import kotlinx.android.synthetic.main.activity_design_pattern_facade.*
 
 /**

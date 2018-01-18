@@ -12,7 +12,7 @@ import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEve
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
 import com.example.llcgs.android_kotlin.base.rx.exception.ObtainException
-import com.example.llcgs.android_kotlin.material.webview.MaterialWebViewActivity
+import com.example.llcgs.android_kotlin.material.douya.webview.MaterialWebViewActivity
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.RxLifecycle
 import io.reactivex.Observable
@@ -49,9 +49,7 @@ abstract class BaseDesignPatternActivity<P: BaseDesignPatternPresenter>: AppComp
 
     abstract fun initViews()
 
-    open protected fun initData(){
-
-    }
+    protected open fun initData() = Unit
 
     override fun addDisposable(disposable: Disposable) {
         if (compositeDisposable == null){
