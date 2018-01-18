@@ -1,16 +1,13 @@
 package com.example.llcgs.android_kotlin.material.animation.activity_options
 
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.util.Pair
 import android.support.v7.widget.LinearLayoutManager
 import android.transition.Slide
 import android.view.Gravity
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -22,10 +19,7 @@ import com.example.llcgs.android_kotlin.material.animation.activity_options.pres
 import com.example.llcgs.android_kotlin.material.animation.activity_options.view.ActivityOptionsView
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
 import de.hdodenhof.circleimageview.CircleImageView
-import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.activity_activity_options.*
-import kotlinx.android.synthetic.main.view_activity_options_footer.*
-import kotlinx.android.synthetic.main.view_broadcast_layout.*
 import kotlinx.android.synthetic.main.view_material_toolbar.*
 import java.util.ArrayList
 
@@ -95,7 +89,11 @@ class ActivityTransitionActivity : BaseMaterialActivity<IActivityOptionsPresente
 
             }
             3 -> {
-
+                startActivity(Intent(this, RevealActivity::class.java).apply {
+                    putExtra("AnimationName", view.findViewById<TextView>(R.id.textView5).text)
+                }, addPair(false, ArrayList<Pair<View, String>>().apply {
+                    add(Pair.create(view.findViewById<CircleImageView>(R.id.circleImageView), "transition_reveal1"))
+                }))
             }
         }
     }
@@ -110,6 +108,7 @@ class ActivityTransitionActivity : BaseMaterialActivity<IActivityOptionsPresente
         }
         if (navBar != null) {
             sharedElementList.add(Pair.create(navBar, navBar.transitionName))
+
         }
         if (otherParticipants != null && !(otherParticipants.size == 1 && otherParticipants[0] == null)){
             sharedElementList.addAll(otherParticipants)
