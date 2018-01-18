@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.material.animation.activity_options
 
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
+import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
@@ -36,9 +37,9 @@ import java.util.ArrayList
 class ActivityTransitionActivity : BaseMaterialActivity<IActivityOptionsPresenter>(), BaseQuickAdapter.OnItemClickListener, ActivityOptionsView {
 
     private lateinit var adapter: ActivityOptionsAdapter
-    override fun createPresenter()= ActivityOptionsPresenter(this)
+    override fun createPresenter() = ActivityOptionsPresenter(this)
 
-    override fun getLayoutId()= R.layout.activity_activity_options
+    override fun getLayoutId() = R.layout.activity_activity_options
 
     override fun initViews() {
         // 跳转下一个界面的动画
@@ -57,7 +58,7 @@ class ActivityTransitionActivity : BaseMaterialActivity<IActivityOptionsPresente
         mPresenter.getActivityTransition()
     }
 
-    private fun setupWindowAnimations(){
+    private fun setupWindowAnimations() {
         val slideTransition = Slide()
         slideTransition.slideEdge = Gravity.START
         slideTransition.duration = 500.toLong()
@@ -74,45 +75,48 @@ class ActivityTransitionActivity : BaseMaterialActivity<IActivityOptionsPresente
     }
 
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View, position: Int) {
+
+        when (position) {
+            0 -> {
+                //
+                startActivity(Intent(this, AnimationTransitionActivity::class.java).apply {
+                    putExtra("AnimationName", "Transitions")
+                }, addPair(true, null))
+            }
+            1 -> {
+                startActivity(Intent(this, SharedElementsActivity::class.java).apply {
+                    putExtra("AnimationName", view.findViewById<TextView>(R.id.textView5).text)
+                }, addPair(false, ArrayList<Pair<View, String>>().apply {
+                    add(Pair.create(view.findViewById<CircleImageView>(R.id.circleImageView), view.findViewById<CircleImageView>(R.id.circleImageView).transitionName))
+                    add(Pair.create(view.findViewById<TextView>(R.id.textView5), view.findViewById<TextView>(R.id.textView5).transitionName))
+                }))
+            }
+            2 -> {
+
+            }
+            3 -> {
+
+            }
+        }
+    }
+
+    private fun addPair(boolean: Boolean, otherParticipants: List<Pair<View, String>>?): Bundle? {
         val sharedElementList = ArrayList<Pair<View, String>>()
         val decor = window.decorView
         val statusBar = decor.findViewById<View>(android.R.id.statusBarBackground)
         val navBar = decor.findViewById<View>(android.R.id.navigationBarBackground)
-        if (statusBar != null){
+        if (boolean && statusBar != null){
             sharedElementList.add(Pair.create(statusBar, statusBar.transitionName))
         }
-        if (navBar != null){
+        if (navBar != null) {
             sharedElementList.add(Pair.create(navBar, navBar.transitionName))
         }
-        when(position){
-            0 ->{
-                //
-                val sharedElements = sharedElementList.toTypedArray<Pair<View, String>>()
-                val makeSceneTransitionAnimation = ActivityOptionsCompat.makeSceneTransitionAnimation(this, *sharedElements)
-                val intent = Intent(this, AnimationTransitionActivity::class.java).apply {
-                    putExtra("AnimationName",  "Transitions")
-                }
-                startActivity(intent, makeSceneTransitionAnimation.toBundle())
-            }
-            1 ->{
-                val image = view.findViewById<CircleImageView>(R.id.circleImageView)
-                sharedElementList.add(Pair.create(image, image.transitionName))
-                val textView = view.findViewById<TextView>(R.id.textView5)
-                sharedElementList.add(Pair.create(textView, textView.transitionName))
-                val sharedElements = sharedElementList.toTypedArray<Pair<View, String>>()
-                val makeSceneTransitionAnimation = ActivityOptionsCompat.makeSceneTransitionAnimation(this, *sharedElements)
-                val intent = Intent().apply {
-                    putExtra("AnimationName",  textView.text)
-                }
-                startActivity(intent, makeSceneTransitionAnimation.toBundle())
-            }
-            2 ->{
-
-            }
-            3 ->{
-
-            }
+        if (otherParticipants != null && !(otherParticipants.size == 1 && otherParticipants[0] == null)){
+            sharedElementList.addAll(otherParticipants)
         }
+        val sharedElements = sharedElementList.toTypedArray<Pair<View, String>>()
+        val makeSceneTransitionAnimation = ActivityOptionsCompat.makeSceneTransitionAnimation(this, *sharedElements)
+        return makeSceneTransitionAnimation.toBundle()
     }
 
 }

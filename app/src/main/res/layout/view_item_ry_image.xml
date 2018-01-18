@@ -19,7 +19,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:gravity="center"
+            android:gravity="start|center_vertical"
             android:layout_marginStart="10dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:text="TextView" />

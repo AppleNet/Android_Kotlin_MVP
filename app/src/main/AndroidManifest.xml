@@ -232,6 +232,9 @@
         <activity
             android:name=".material.animation.activity_options.AnimationTransitionActivity"
             android:theme="@style/MaterialTheme" />
+        <activity
+            android:name=".material.animation.activity_options.SharedElementsActivity"
+            android:theme="@style/MaterialTheme" />
 
         <!-- Design Pattern -->
         <activity
