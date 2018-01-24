@@ -118,6 +118,17 @@ dependencies {
     /* materialsearchview */
     implementation libs.materialsearchview
 
+    /* wearable */
+    provided libs.wearable
+    /* wearable_support */
+    implementation libs.wearable_support
+    /* gms */
+    implementation libs.gms
+    /* mediarouter */
+    implementation libs.mediarouter
+    /* exoplayer */
+    implementation libs.exoplayer
+
 }
 
 task makeJar(type: Jar) {

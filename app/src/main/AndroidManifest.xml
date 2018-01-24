@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.llcgs.android_kotlin">
 
     <uses-feature
@@ -255,7 +256,16 @@
         <activity
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
             android:theme="@style/DesignPatternTheme" />
+        <activity android:name=".material.mediaplayer.player.MusicPlayerActivity" />
 
+        <service
+            android:name=".material.mediaplayer.service.MusicService"
+            android:exported="true"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -55,6 +55,10 @@ ext {
             materialArcNavigationView : "1.0.3",
             licensesdialog    : "1.8.3",
 
+            wearable          : "2.0.3",
+            gms               : "11.0.1",
+            exoplayer         : "r2.5.0",
+
     ]
     libs = [
             junit                : "junit:junit:4.12",
@@ -148,6 +152,12 @@ ext {
             materialsearchview   : "com.miguelcatalan:materialsearchview:${versions.materialsearchview}",
             materialArcNavigationView : "com.rom4ek:arcnavigationview:${versions.materialArcNavigationView}",
             licensesdialog       : "de.psdev.licensesdialog:licensesdialog:${versions.licensesdialog}",
+
+            wearable             : "com.google.android.wearable:wearable:${versions.wearable}",
+            wearable_support     : "com.google.android.support:wearable:${versions.wearable}",
+            gms                  : "com.google.android.gms:play-services-cast-framework:${versions.gms}",
+            mediarouter          : "com.android.support:mediarouter-v7:${versions.supportVersion}",
+            exoplayer            : "com.google.android.exoplayer:exoplayer:${versions.exoplayer}",
     ]
 
 }

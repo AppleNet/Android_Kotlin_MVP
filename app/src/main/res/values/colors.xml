@@ -84,5 +84,6 @@
     <color name="dark_50_percent">#80000000</color>
     <color name="system_window_scrim">#44000000</color>
     <color name="dark_70_percent">#b3000000</color>
+    <color name="bt_accent">#00B8D4</color>
 
 </resources>
