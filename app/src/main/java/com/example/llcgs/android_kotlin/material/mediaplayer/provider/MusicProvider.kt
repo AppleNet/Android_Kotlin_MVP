@@ -123,9 +123,9 @@ class MusicProvider() {
 
     fun isFavorite(musicId: String): Boolean = mFavoriteTracks.contains(musicId)
 
-    fun retrieveMediaAsync(callback: Callback){
+    fun retrieveMediaAsync(callback: Callback?){
         if (mCurrentState == State.INITIALIZED) {
-            callback.onMusicCatalogReady(true)
+            callback?.onMusicCatalogReady(true)
             return
         }
         //
@@ -137,7 +137,7 @@ class MusicProvider() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
-                    callback.onMusicCatalogReady(it == State.INITIALIZED)
+                    callback?.onMusicCatalogReady(it == State.INITIALIZED)
                 }
 
     }

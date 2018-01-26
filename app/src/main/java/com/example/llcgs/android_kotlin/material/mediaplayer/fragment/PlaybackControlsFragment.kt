@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.material.mediaplayer.playback.fragment
+package com.example.llcgs.android_kotlin.material.mediaplayer.fragment
 
 import android.app.Fragment
 import android.content.Intent
@@ -50,9 +50,12 @@ class PlaybackControlsFragment: Fragment(), View.OnClickListener {
             }
             startActivity(intent)
         }
+        return rootView
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         play_pause.isEnabled = true
         play_pause.setOnClickListener(this)
-        return rootView
     }
 
     override fun onStart() {
@@ -78,13 +81,13 @@ class PlaybackControlsFragment: Fragment(), View.OnClickListener {
         controller.registerCallback(mCallback)
     }
 
-    private fun onMetadataChanged(metadata: MediaMetadataCompat){
-        title.text = metadata.description.title
-        artist.text = metadata.description.subtitle
-        val artUrl = metadata.description.iconUri.toString()
+    private fun onMetadataChanged(metadata: MediaMetadataCompat?){
+        title.text = metadata?.description?.title
+        artist.text = metadata?.description?.subtitle
+        val artUrl = metadata?.description?.iconUri.toString()
         if (!TextUtils.equals(artUrl, mArtUrl)){
             mArtUrl = artUrl
-            var art = metadata.description.iconBitmap
+            var art = metadata?.description?.iconBitmap
             val cache = AlbumArtCache.getInstance()
             if (art == null){
                 art = cache.getIconImage(mArtUrl)
@@ -104,14 +107,14 @@ class PlaybackControlsFragment: Fragment(), View.OnClickListener {
 
     }
 
-    fun setExtraInfo(extraInfo: String?){
+    private fun setExtraInfo(extraInfo: String?){
         extra_info.text = extraInfo?:""
         extra_info.visibility = if (!TextUtils.isEmpty(extraInfo)) View.VISIBLE else View.GONE
     }
 
-    private fun onPlaybackStateChanged(state: PlaybackStateCompat){
+    private fun onPlaybackStateChanged(state: PlaybackStateCompat?){
         var enablePlay = false
-        when(state.state){
+        when(state?.state){
             PlaybackStateCompat.STATE_PAUSED, PlaybackStateCompat.STATE_STOPPED ->{
                 enablePlay = true
             }

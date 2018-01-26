@@ -13,14 +13,16 @@
 
         <include
             android:id="@+id/toolbar_container"
-            layout="@layout/view_media_toolbar" />
+            layout="@layout/view_media_toolbar"/>
 
-        <FrameLayout
-            android:id="@+id/container"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/controls_container"
-            android:layout_below="@+id/toolbar_container" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="This is a placeholder for your application code."
+            android:drawableTop="@mipmap/ic_info_outline_grey600_48dp"/>
 
         <android.support.v7.widget.CardView
             android:id="@+id/controls_container"
@@ -29,9 +31,8 @@
             android:layout_alignParentBottom="true"
             app:cardElevation="8dp">
 
-            <fragment
+            <fragment android:name="com.example.llcgs.android_kotlin.material.mediaplayer.fragment.PlaybackControlsFragment"
                 android:id="@+id/fragment_playback_controls"
-                android:name="com.example.llcgs.android_kotlin.material.mediaplayer.fragment.PlaybackControlsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -47,7 +48,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/view_nav_header"
-        app:menu="@menu/drawer" />
-
+        app:menu="@menu/drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

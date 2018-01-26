@@ -178,8 +178,7 @@ import static com.example.llcgs.android_kotlin.utils.media.MediaIDHelper.MEDIA_I
                  MediaButtonReceiver.handleIntent(mSession, startIntent);
              }
          }
-         // Reset the delay handler to enqueue a message to stop the service if
-         // nothing is playing.
+         // Reset the delay handler to enqueue a message to stop the service if nothing is playing.
          mDelayedStopHandler.removeCallbacksAndMessages(null);
          mDelayedStopHandler.sendEmptyMessageDelayed(0, STOP_DELAY);
          return START_STICKY;

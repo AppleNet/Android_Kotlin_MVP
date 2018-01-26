@@ -17,7 +17,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialPresenter
 import com.example.llcgs.android_kotlin.material.mediaplayer.player.MusicPlayerActivity
-import com.example.llcgs.android_kotlin.material.mediaplayer.place.PlaceholderActivity
+import com.example.llcgs.android_kotlin.material.mediaplayer.placeholder.PlaceHolderActivity
 import com.google.android.gms.cast.framework.*
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -57,43 +57,7 @@ abstract class ActionBarCastActivity<P: BaseMaterialPresenter>: BaseMaterialActi
         }
     }
 
-    private val mDrawerListener = object : DrawerLayout.DrawerListener{
-        override fun onDrawerStateChanged(newState: Int) {
-            if (mDrawerToggle != null) mDrawerToggle?.onDrawerStateChanged(newState)
-        }
-
-        override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-            if (mDrawerToggle != null) mDrawerToggle?.onDrawerSlide(drawerView, slideOffset)
-        }
-
-        override fun onDrawerClosed(drawerView: View) {
-            if (mDrawerToggle != null) mDrawerToggle?.onDrawerClosed(drawerView)
-            if (mItemToOpenWhenDrawerCloses >= 0){
-                val extras = ActivityOptions.makeCustomAnimation(this@ActionBarCastActivity, R.anim.anim_fade_in, R.anim.anim_fade_out).toBundle()
-                var activityClass: Class<*>? = null
-                when(mItemToOpenWhenDrawerCloses){
-                    R.id.navigation_allmusic ->{
-                        activityClass = MusicPlayerActivity::class.java
-                    }
-                    R.id.navigation_playlists ->{
-                        activityClass = PlaceholderActivity::class.java
-                    }
-                }
-                if (activityClass != null){
-                    startActivity(Intent(this@ActionBarCastActivity, activityClass), extras)
-                    finish()
-                }
-            }
-        }
-
-        override fun onDrawerOpened(drawerView: View) {
-            if (mDrawerToggle != null) mDrawerToggle?.onDrawerOpened(drawerView)
-            supportActionBar?.title = resources.getString(R.string.app_name)
-        }
-    }
-
     private val mBackStackChangedListener = FragmentManager.OnBackStackChangedListener { updateDrawerToggle() }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,10 +65,6 @@ abstract class ActionBarCastActivity<P: BaseMaterialPresenter>: BaseMaterialActi
         if (playServicesAvailable == ConnectionResult.SUCCESS){
             mCastContext= CastContext.getSharedInstance(this)
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -184,7 +144,40 @@ abstract class ActionBarCastActivity<P: BaseMaterialPresenter>: BaseMaterialActi
         if (mDrawerLayout != null){
             val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
             mDrawerToggle = ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_content_drawer, R.string.close_content_drawer)
-            mDrawerLayout?.setDrawerListener(mDrawerListener)
+            mDrawerLayout?.setDrawerListener(object : DrawerLayout.DrawerListener{
+                override fun onDrawerStateChanged(newState: Int) {
+                    if (mDrawerToggle != null) mDrawerToggle?.onDrawerStateChanged(newState)
+                }
+
+                override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+                    if (mDrawerToggle != null) mDrawerToggle?.onDrawerSlide(drawerView, slideOffset)
+                }
+
+                override fun onDrawerClosed(drawerView: View) {
+                    if (mDrawerToggle != null) mDrawerToggle?.onDrawerClosed(drawerView)
+                    if (mItemToOpenWhenDrawerCloses >= 0){
+                        val extras = ActivityOptions.makeCustomAnimation(this@ActionBarCastActivity, R.anim.anim_fade_in, R.anim.anim_fade_out).toBundle()
+                        var activityClass: Class<*>? = null
+                        when(mItemToOpenWhenDrawerCloses){
+                            R.id.navigation_allmusic ->{
+                                activityClass = MusicPlayerActivity::class.java
+                            }
+                            R.id.navigation_playlists ->{
+                                activityClass = PlaceHolderActivity::class.java
+                            }
+                        }
+                        if (activityClass != null){
+                            startActivity(Intent(this@ActionBarCastActivity, activityClass), extras)
+                            finish()
+                        }
+                    }
+                }
+
+                override fun onDrawerOpened(drawerView: View) {
+                    if (mDrawerToggle != null) mDrawerToggle?.onDrawerOpened(drawerView)
+                    supportActionBar?.title = resources.getString(R.string.app_name)
+                }
+            })
             populateDrawerItems(navigationView)
             setSupportActionBar(mToolbar)
             updateDrawerToggle()
@@ -203,7 +196,7 @@ abstract class ActionBarCastActivity<P: BaseMaterialPresenter>: BaseMaterialActi
         }
         if (MusicPlayerActivity::class.java.isAssignableFrom(javaClass)) {
             navigationView.setCheckedItem(R.id.navigation_allmusic)
-        } else if (PlaceholderActivity::class.java.isAssignableFrom(javaClass)) {
+        } else if (PlaceHolderActivity::class.java.isAssignableFrom(javaClass)) {
             navigationView.setCheckedItem(R.id.navigation_playlists)
         }
     }

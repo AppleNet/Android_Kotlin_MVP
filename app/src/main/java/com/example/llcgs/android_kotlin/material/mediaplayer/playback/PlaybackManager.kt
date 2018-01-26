@@ -144,7 +144,7 @@ class PlaybackManager(private val mServiceCallback: PlaybackServiceCallback, pri
 
     private fun setCustomAction(stateBuilder: PlaybackStateCompat.Builder) {
         val currentMusic = mQueueManager.currentMusic ?: return
-// Set appropriate "Favorite" icon on Custom action:
+        // Set appropriate "Favorite" icon on Custom action:
         val mediaId = currentMusic.description.mediaId ?: return
         val musicId = MediaIDHelper.extractMusicIDFromMediaID(mediaId)
         val favoriteIcon = if (mMusicProvider.isFavorite(musicId!!))

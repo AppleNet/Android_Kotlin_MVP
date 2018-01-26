@@ -3,13 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.llcgs.android_kotlin">
 
-    <uses-feature
-        android:name="android.software.leanback"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.touchscreen"
-        android:required="false" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -18,6 +11,16 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Set android.software.leanback to false, so the APK will be available to both TV and regular devices. -->
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <application
         android:name=".base.app.KotlinApplication"
@@ -27,6 +30,13 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.gms.car.application"
+            android:resource="@xml/automotive_app_desc" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".home.MainActivity"
@@ -240,6 +250,25 @@
             android:name=".material.animation.activity_options.RevealActivity"
             android:theme="@style/MaterialTheme" />
 
+        <!-- MediaPLayer -->
+        <activity
+            android:name=".material.mediaplayer.player.MusicPlayerActivity"
+            android:theme="@style/MaterialTheme">
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".material.mediaplayer.fullscreen.FullScreenPlayerActivity"
+            android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.mediaplayer.now.NowPlayingActivity"
+            android:theme="@style/MaterialTheme"/>
+        <activity
+            android:name=".material.mediaplayer.placeholder.PlaceHolderActivity"
+            android:theme="@style/MaterialTheme"/>
+
         <!-- Design Pattern -->
         <activity
             android:name=".design_pattern.list.DesignPatternMainActivity"
@@ -256,7 +285,6 @@
         <activity
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
             android:theme="@style/DesignPatternTheme" />
-        <activity android:name=".material.mediaplayer.player.MusicPlayerActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
@@ -266,6 +294,23 @@
                 <action android:name="android.media.browse.MediaBrowserService"/>
             </intent-filter>
         </service>
+
+        <!-- A receiver that will receive media buttons and send as
+            intents to your MediaBrowserServiceCompat implementation.
+            Required on pre-Lollipop. More information at
+            http://developer.android.com/reference/android/support/v4/media/session/MediaButtonReceiver.html -->
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <!--
+             (REQUIRED) use this meta data to to declare the app OptionsProvider.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+            android:value="com.example.android.uamp.CastOptionsProvider" />
+
     </application>
 
 </manifest>

@@ -109,6 +109,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Material Animation" ->{
                 Router.create("host://Material_Animation").activityRoute.open(this)
             }
+            "Material MediaPlayer" ->{
+                Router.create("host://Material_MediaPlayer").activityRoute.open(this)
+            }
         }
     }
 
