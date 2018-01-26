@@ -26,6 +26,7 @@ import com.example.llcgs.android_kotlin.utils.itemdecoration.CustomerDecoration
 import com.example.llcgs.android_kotlin.utils.media.LogHelper
 import com.example.llcgs.android_kotlin.utils.media.MediaIDHelper
 import com.example.llcgs.android_kotlin.utils.media.NetworkHelper
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.fragment_list.*
 
 /**
@@ -68,6 +69,7 @@ class MediaBrowserFragment: Fragment(), BaseQuickAdapter.OnItemClickListener {
 
     private val mSubscriptionCallback = object: MediaBrowserCompat.SubscriptionCallback(){
         override fun onChildrenLoaded(parentId: String, children: MutableList<MediaBrowserCompat.MediaItem>) {
+            "children.isEmpty(): ${children.isEmpty()}".logD()
             checkForUserVisibleErrors(children.isEmpty())
             adapter.data.clear()
             adapter.setNewData(children)
@@ -136,6 +138,7 @@ class MediaBrowserFragment: Fragment(), BaseQuickAdapter.OnItemClickListener {
         if (mMediaId == null){
             mMediaId = mMediaFragmentListener?.getMediaBrowser()?.root
         }
+        "mMediaId: ${mMediaId}".logD()
         updateTitle()
         mMediaFragmentListener?.getMediaBrowser()?.unsubscribe(mMediaId?:"Kotlin")
         mMediaFragmentListener?.getMediaBrowser()?.subscribe(mMediaId?:"Kotlin", mSubscriptionCallback)

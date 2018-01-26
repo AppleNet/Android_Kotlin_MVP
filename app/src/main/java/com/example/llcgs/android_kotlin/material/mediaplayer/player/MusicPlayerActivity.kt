@@ -52,6 +52,7 @@ class MusicPlayerActivity : BaseMediaActivity<IMusicPlayerPresenter>(), MediaBro
         item.isPlayable ->
             MediaControllerCompat.getMediaController(this@MusicPlayerActivity).transportControls.playFromMediaId(item.mediaId, null)
         item.isBrowsable -> {
+            "item.mediaId: ${item.mediaId}".logD()
             navigateToBrowser(item.mediaId)
         }
         else -> {

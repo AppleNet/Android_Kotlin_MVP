@@ -20,11 +20,9 @@ import java.util.concurrent.ConcurrentHashMap
  * @author liulongchao
  * @since 2018/1/19
  */
-class MusicProvider() {
+class MusicProvider(private var mSource: MusicProviderSource?) {
 
-    private var mSource: MusicProviderSource? = null
-    constructor(source: MusicProviderSource): this(){
-        this.mSource = source
+    constructor(): this(RemoteJSONSource()){
     }
 
     private val TAG = LogHelper.makeLogTag(MusicProvider::class.java)
