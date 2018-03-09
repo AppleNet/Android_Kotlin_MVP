@@ -112,6 +112,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Material MediaPlayer" ->{
                 Router.create("host://Material_MediaPlayer").activityRoute.open(this)
             }
+            "Activity" ->{
+                Router.create("host://Activity").activityRoute.open(this)
+            }
         }
     }
 

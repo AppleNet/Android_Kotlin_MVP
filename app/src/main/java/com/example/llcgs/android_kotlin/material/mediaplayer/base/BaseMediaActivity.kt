@@ -17,6 +17,7 @@ import com.example.llcgs.android_kotlin.material.mediaplayer.fragment.PlaybackCo
 import com.example.llcgs.android_kotlin.material.mediaplayer.service.MusicService
 import com.example.llcgs.android_kotlin.utils.media.LogHelper
 import com.example.llcgs.android_kotlin.utils.media.ResourceHelper
+import com.gomejr.myf.core.kotlin.logD
 
 /**
  * com.example.llcgs.android_kotlin.material.mediaplayer.base.BaseMediaActivity
@@ -43,6 +44,8 @@ abstract class BaseMediaActivity<P: BaseMaterialPresenter>: ActionBarCastActivit
         mMediaBrowser = MediaBrowserCompat(this, ComponentName(this, MusicService::class.java), object : MediaBrowserCompat.ConnectionCallback(){
             override fun onConnected() {
                 try {
+                    "mMediaBrowser connected success....".logD()
+                    "mMediaBrowser.sessionToken：${mMediaBrowser.sessionToken}".logD()
                     connectToSession(mMediaBrowser.sessionToken)
                 } catch (e: RemoteException) {
                     LogHelper.e(TAG, e, "could not connect media controller")
@@ -101,6 +104,9 @@ abstract class BaseMediaActivity<P: BaseMaterialPresenter>: ActionBarCastActivit
 
     protected fun shouldShowControls(): Boolean{
         val mediaController = MediaControllerCompat.getMediaController(this)
+        "mediaController == null: ${(mediaController == null)}".logD()
+        "mediaController.metadata == null: ${(mediaController.metadata == null)}".logD()
+        "mediaController.playbackState == null: ${(mediaController.playbackState == null)}".logD()
         if (mediaController == null || mediaController.metadata == null || mediaController.playbackState == null) {
             return false
         }
@@ -112,20 +118,21 @@ abstract class BaseMediaActivity<P: BaseMaterialPresenter>: ActionBarCastActivit
 
     @Throws(RemoteException::class)
     private fun connectToSession(token: MediaSessionCompat.Token) {
-        // TODO 锁屏展示
         val mediaController = MediaControllerCompat(this, token)
         MediaControllerCompat.setMediaController(this, mediaController)
         mediaController.registerCallback(object : MediaControllerCompat.Callback() {
             override fun onPlaybackStateChanged(state: PlaybackStateCompat) {
+                "onPlaybackStateChanged - shouldShowControls: ${shouldShowControls()}".logD()
                 if (shouldShowControls()) {
                     showPlaybackControls()
                 } else {
-                    LogHelper.d(TAG, "mediaControllerCallback.onPlaybackStateChanged: " + "hiding controls because state is ", state.state)
+                    "mediaControllerCallback.onPlaybackStateChanged: " + "hiding controls because state is ${state.state}".logD()
                     hidePlaybackControls()
                 }
             }
 
             override fun onMetadataChanged(metadata: MediaMetadataCompat?) {
+                "onMetadataChanged - shouldShowControls: ${shouldShowControls()}".logD()
                 if (shouldShowControls()) {
                     showPlaybackControls()
                 } else {
@@ -134,7 +141,7 @@ abstract class BaseMediaActivity<P: BaseMaterialPresenter>: ActionBarCastActivit
                 }
             }
         })
-
+        "connectToSession - shouldShowControls: ${shouldShowControls()}".logD()
         if (shouldShowControls()) {
             showPlaybackControls()
         } else {

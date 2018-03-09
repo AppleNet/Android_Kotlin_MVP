@@ -120,6 +120,7 @@
         <item>Design Pattern</item>
         <item>Material Animation</item>
         <item>Material MediaPlayer</item>
+        <item>Activity</item>
     </string-array>
 
     <string-array name="arch_menu">
@@ -211,6 +212,13 @@
         <item>Shared Elements</item>
         <item>View animations</item>
         <item>Circular Reveal Animation</item>
+    </string-array>
+
+    <string-array name="activity_list">
+        <item>standard</item>
+        <item>singleTop</item>
+        <item>singleTask</item>
+        <item>singleInstance</item>
     </string-array>
 
 </resources>

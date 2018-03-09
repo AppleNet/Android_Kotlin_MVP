@@ -85,7 +85,7 @@ class MusicProvider(private var mSource: MusicProviderSource?) {
             return emptyList()
         }
         val result = java.util.ArrayList<MediaMetadataCompat>()
-        query = query.toLowerCase(Locale.US)
+        query = query.toLowerCase(Locale.getDefault())
         for (track in mMusicListById.values) {
             if (track.metadata.getString(metadataField).toLowerCase(Locale.US)
                             .contains(query)) {

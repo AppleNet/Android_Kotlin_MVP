@@ -286,6 +286,18 @@
             android:name=".design_pattern.wrapper.WrapperDesignPatternActivity"
             android:theme="@style/DesignPatternTheme" />
 
+        <activity android:name=".modules.activity.ActivityListActivity" />
+        <activity android:name=".modules.activity.standard.StandardActivity" />
+
+        <!-- SingleTop-->
+        <activity
+            android:name=".modules.activity.singleTop.SingleTopActivity" />
+        <activity
+            android:name=".modules.activity.singleTop.SingleTop2Activity" />
+        <activity
+            android:name=".modules.activity.singleTop.SingleTop1Activity"
+            android:launchMode="singleTop"/>
+
         <service
             android:name=".material.mediaplayer.service.MusicService"
             android:exported="true"
