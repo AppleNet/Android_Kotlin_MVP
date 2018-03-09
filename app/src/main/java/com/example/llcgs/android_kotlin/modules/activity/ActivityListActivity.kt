@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
+import com.example.llcgs.android_kotlin.modules.activity.singleTask.SingleTaskActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTop.SingleTopActivity
 import com.example.llcgs.android_kotlin.modules.activity.standard.StandardActivity
 import com.lzh.nonview.router.anno.RouterRule
@@ -47,7 +48,7 @@ class ActivityListActivity : Activity() {
                         startActivity(Intent(this@ActivityListActivity, SingleTopActivity::class.java))
                     }
                     2 ->{
-
+                        startActivity(Intent(this@ActivityListActivity, SingleTaskActivity::class.java))
                     }
                     3 ->{
 

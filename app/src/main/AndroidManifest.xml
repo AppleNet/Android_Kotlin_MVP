@@ -298,6 +298,15 @@
             android:name=".modules.activity.singleTop.SingleTop1Activity"
             android:launchMode="singleTop"/>
 
+        <!-- SingleTask-->
+        <activity
+            android:name=".modules.activity.singleTask.SingleTaskActivity" />
+        <activity
+            android:name=".modules.activity.singleTask.SingleTask1Activity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".modules.activity.singleTask.SingleTask2Activity" />
+
         <service
             android:name=".material.mediaplayer.service.MusicService"
             android:exported="true"
