@@ -22,6 +22,7 @@ class SingleTask1Activity : BaseActivity<SingleTaskView, SingleTaskPresenter>(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_singletask)
         "SingleTask1Activity ---- onCreate()".logD()
+        titleTextView.text = "SingleTask1Activity"
         button30.setOnClickListener {
             startActivity(Intent(this, SingleTaskActivity::class.java))
         }
