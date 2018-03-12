@@ -22,6 +22,7 @@ class SingleTopActivity: BaseActivity<SingleView, SinglePresenter>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_singletop)
         "SingleTopActivity ---- onCreate()".logD()
+        titleTextView.text = "SingleTopActivity"
         button30.setOnClickListener {
             startActivity(Intent(this, SingleTopActivity::class.java))
         }

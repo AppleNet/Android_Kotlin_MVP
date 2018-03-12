@@ -3,6 +3,7 @@ package com.example.llcgs.android_kotlin.modules.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.activity_activity_list.*
  * @since 2018/3/9
  */
 @RouterRule("Activity")
-class ActivityListActivity : Activity() {
+class ActivityListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
