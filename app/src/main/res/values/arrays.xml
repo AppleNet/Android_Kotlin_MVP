@@ -121,6 +121,7 @@
         <item>Material Animation</item>
         <item>Material MediaPlayer</item>
         <item>Activity</item>
+        <item>Service</item>
     </string-array>
 
     <string-array name="arch_menu">
@@ -219,6 +220,11 @@
         <item>singleTop</item>
         <item>singleTask</item>
         <item>singleInstance</item>
+    </string-array>
+
+    <string-array name="service_list">
+        <item>startService</item>
+        <item>bindService</item>
     </string-array>
 
 </resources>

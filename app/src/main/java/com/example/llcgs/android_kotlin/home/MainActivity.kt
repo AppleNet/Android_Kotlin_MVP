@@ -115,6 +115,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Activity" ->{
                 Router.create("host://Activity").activityRoute.open(this)
             }
+            "Service" ->{
+                Router.create("host://Service").activityRoute.open(this)
+            }
         }
     }
 
