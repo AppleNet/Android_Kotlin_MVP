@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.modules.service.bind.BindServiceActivity
+import com.example.llcgs.android_kotlin.modules.service.intentservice.IntentServiceActivity
 import com.example.llcgs.android_kotlin.modules.service.start.StartServiceActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_service_list.*
@@ -44,6 +45,9 @@ class ServiceListActivity: AppCompatActivity() {
                     }
                     1 ->{
                         startActivity(Intent(this@ServiceListActivity, BindServiceActivity::class.java))
+                    }
+                    2 ->{
+                        startActivity(Intent(this@ServiceListActivity, IntentServiceActivity::class.java))
                     }
                 }
             }

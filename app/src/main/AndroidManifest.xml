@@ -322,6 +322,7 @@
         <activity android:name=".modules.service.start.Start1ServiceActivity" />
         <activity android:name=".modules.service.bind.BindServiceActivity" />
         <activity android:name=".modules.service.bind.Bind1ServiceActivity" />
+        <activity android:name=".modules.service.intentservice.IntentServiceActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
@@ -333,6 +334,7 @@
         </service>
         <service android:name=".modules.service.start.service.StartService" />
         <service android:name=".modules.service.bind.service.BindService" />
+        <service android:name=".modules.service.intentservice.service.MyIntentService" />
 
         <!-- A receiver that will receive media buttons and send as
             intents to your MediaBrowserServiceCompat implementation.

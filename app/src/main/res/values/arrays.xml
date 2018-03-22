@@ -225,6 +225,7 @@
     <string-array name="service_list">
         <item>startService</item>
         <item>bindService</item>
+        <item>intentService</item>
     </string-array>
 
 </resources>
