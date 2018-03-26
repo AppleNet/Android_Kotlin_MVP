@@ -129,6 +129,7 @@ ext {
 
             replugin_host        : "com.qihoo360.replugin:replugin-host-lib:${versions.replugin_host_version}",
             router_host          : "com.github.yjfnypeu.Router:router-host:${versions.router_version}",
+            router_api           : "com.github.yjfnypeu.Router:router-api:${versions.router_version}",
             router_replugin_host : "com.github.yjfnypeu.Router-RePlugin:host:${versions.router_replugin_version}",
             parceler             : "org.lzh.compiler.parceler:parceler-api:${versions.parceler_version}",
             update_plugin        : "org.lzh.nonview.updateplugin:UpdatePlugin:${versions.updateplugin_version}",

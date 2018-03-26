@@ -92,7 +92,7 @@ dependencies {
 
 
     /* RouterHost */
-    implementation libs.router_host
+    implementation libs.router_api
     kapt "com.github.yjfnypeu.Router:router-compiler:$router_version"
 
     /* 针对RePlugin的RouterHost */
