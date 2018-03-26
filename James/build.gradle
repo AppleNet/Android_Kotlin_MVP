@@ -20,6 +20,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "jamesMvp.apk"
+                }
+            }
         }
     }
 
@@ -39,17 +45,6 @@ android {
     androidExtensions {
         experimental = true
     }
-
-    /*sourceSets{
-        main{
-            if (IsBuildMudle.toBoolean()){
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            }else{
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-            }
-        }
-    }*/
-    /*resourcePrefix "james_"*/
 
 }
 

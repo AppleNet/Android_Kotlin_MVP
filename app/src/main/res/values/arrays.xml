@@ -122,6 +122,7 @@
         <item>Material MediaPlayer</item>
         <item>Activity</item>
         <item>Service</item>
+        <item>Modularization</item>
     </string-array>
 
     <string-array name="arch_menu">

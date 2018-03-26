@@ -6,7 +6,9 @@ import com.alibaba.fastjson.JSON
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
+import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
 import com.example.llcgs.android_kotlin.base.router.interceptor.DefaultInterceptor
+import com.example.llcgs.android_kotlin.base.router.packages.ComponentPackages
 import com.example.llcgs.android_kotlin.base.router.remotefactory.HostRemoteFactory
 import com.example.llcgs.android_kotlin.base.router.update.HostUpdateCombine
 import com.example.llcgs.android_kotlin.base.router.update.JsonParser
@@ -18,7 +20,7 @@ import com.gomejr.myf.core.kotlin.logD
 import com.lzh.nonview.router.RouterConfiguration
 import com.lzh.nonview.router.anno.RouteConfig
 import com.lzh.nonview.router.host.RouterHostService
-import com.lzh.router.RouterRuleCreator
+import com.lzh.nonview.router.module.RouteCreator
 import com.lzh.router.replugin.host.HostRouterConfiguration
 import com.lzh.router.replugin.update.UpdateRePluginCallbacks
 import com.qihoo360.replugin.RePlugin
@@ -38,14 +40,20 @@ import org.lzh.framework.updatepluginlib.model.Update
  * @since 2017/7/26
  */
 
-@RouteConfig(baseUrl = "host://")
+@RouteConfig(baseUrl = "host://", pack = "com.example.llcgs.android_kotlin.base.app")
 class KotlinApplication: RePluginApplication() {
 
     override fun onCreate() {
         super.onCreate()
         BaseUtil.init(this)
         initRouter()
+    }
 
+    override fun attachBaseContext(base: Context?) {
+        MultiDex.install(base)
+        super.attachBaseContext(base)
+        RePlugin.enableDebugger(base, true)
+        //checkUpdata()
     }
 
     private fun initRouter(){
@@ -53,6 +61,7 @@ class KotlinApplication: RePluginApplication() {
         // 安全验证接口只存在于route-host依赖中。用于对启动的远程路由数据提供服务进行安全验证。避免被外部app随意连接，重置注册到远程服务中的路由表
         RouterHostService.setVerify(RePluginVerification())
         // 添加路由规则
+        //loadRouteRulesIfExist()
         RouterConfiguration.get().addRouteCreator(RouterRuleCreator())
         // 添加全局拦截器
         RouterConfiguration.get().interceptor = DefaultInterceptor()
@@ -74,11 +83,23 @@ class KotlinApplication: RePluginApplication() {
         HostRouterConfiguration.get().setRouteCallback(KRouterCallBack())
     }
 
-    override fun attachBaseContext(base: Context?) {
-        MultiDex.install(base)
-        super.attachBaseContext(base)
-        RePlugin.enableDebugger(base, true)
-        //checkUpdata()
+    /**
+     * 通过反射加载通过Router框架生成的路由映射表。此处会加载各个组件中通过运行时注解生成的路由表
+     */
+    private fun loadRouteRulesIfExist() {
+        val packs = ComponentPackages.Packages
+        val clzNameRouteRules = ".RouterRuleCreator"
+        for (pack in packs) {
+            try {
+                pack.logD()
+                val creator = Class.forName(pack + clzNameRouteRules)
+                val instance = creator.newInstance() as RouteCreator
+                // 添加路由规则
+                RouterConfiguration.get().addRouteCreator(instance)
+            } catch (ignore: Exception) {
+                "反射失败...".logD()
+            }
+        }
     }
 
     override fun createConfig(): RePluginConfig {

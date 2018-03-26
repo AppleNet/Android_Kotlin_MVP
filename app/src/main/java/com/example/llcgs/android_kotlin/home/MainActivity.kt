@@ -118,6 +118,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Service" ->{
                 Router.create("host://Service").activityRoute.open(this)
             }
+            "Modularization" ->{
+                Router.create("plugin://James").open(this)
+            }
         }
     }
 
