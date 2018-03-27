@@ -36,13 +36,13 @@ dependencies {
 //    implementation libs.rxbinding_support_v4
 //    implementation libs.rxbinding_appcompat_v7
 //    implementation libs.rxbinding_recyclerview_v7
+//    implementation libs.rxbinding_design
+//    implementation libs.rxlifecycle_kotlin2
+    implementation libs.rxpermission2
     implementation libs.rxbinding2
     implementation libs.rxandroid2
-    implementation libs.rxbinding_design
     implementation libs.rxjava2
     implementation libs.rxlifecycle2
-    implementation libs.rxlifecycle_kotlin2
-    implementation libs.rxpermission2
 
     /* retrofit */
     implementation libs.retrofit2
@@ -114,7 +114,9 @@ dependencies {
     implementation (libs.adapter_helper)
 
     /* material_preference */
-    implementation libs.material_preference
+    implementation (libs.material_preference){
+        exclude group:'com.android.support', module:'recyclerview-v7'
+    }
 
     /* licensesdialog */
     implementation libs.licensesdialog
@@ -128,10 +130,13 @@ dependencies {
     compileOnly libs.wearable
     /* wearable_support */
     implementation libs.wearable_support
+
     /* gms */
     implementation libs.gms
+
     /* mediarouter */
     implementation libs.mediarouter
+
     /* exoplayer */
     implementation libs.exoplayer
 

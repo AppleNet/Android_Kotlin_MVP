@@ -11,7 +11,6 @@ import com.example.llcgs.android_kotlin.material.douya.login.presenter.IMaterial
 import com.example.llcgs.android_kotlin.material.douya.login.presenter.impl.MaterialLoginPresenter
 import com.example.llcgs.android_kotlin.material.douya.login.view.MaterialLoginView
 import com.example.llcgs.android_kotlin.material.douya.main.MaterialHomeActivity
-import com.jakewharton.rxbinding2.support.design.widget.RxTextInputLayout
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.lzh.nonview.router.anno.RouterRule
@@ -31,9 +30,13 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
 
     override fun initViews() {
 
-        RxTextView.textChanges(userName).subscribe { RxTextInputLayout.error(usernameLayout).accept(null) }
+        RxTextView.textChanges(userName).subscribe {
+            //RxTextInputLayout.error(usernameLayout).accept(null)
+        }
 
-        RxTextView.textChanges(password).subscribe { RxTextInputLayout.error(userPwdLayout).accept(null) }
+        RxTextView.textChanges(password).subscribe {
+            //RxTextInputLayout.error(userPwdLayout).accept(null)
+        }
 
         RxTextView.editorActions(password).subscribe {
             // 登录
@@ -55,13 +58,13 @@ class MaterialLoginActivity : BaseMaterialActivity<IMaterialLoginPresenter>(), M
         val name = userName.text.toString()
         val pwd = password.text.toString()
         if (name.isEmpty()){
-            RxTextInputLayout.error(usernameLayout).accept("请输入用户名")
+            //RxTextInputLayout.error(usernameLayout).accept("请输入用户名")
             userName.requestFocus()
             return
         }
 
         if (pwd.isEmpty()){
-            RxTextInputLayout.error(userPwdLayout).accept("请输入密码")
+            //RxTextInputLayout.error(userPwdLayout).accept("请输入密码")
             password.requestFocus()
             return
         }

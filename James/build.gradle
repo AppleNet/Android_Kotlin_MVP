@@ -37,9 +37,9 @@ android {
         }
     }
 
-    lintOptions {
-        abortOnError false
-    }
+//    lintOptions {
+//        abortOnError false
+//    }
 
     kapt {
         generateStubs = true
