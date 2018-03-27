@@ -13,28 +13,32 @@ repositories {
 dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    compile(name:'library-1.0.0', ext:'aar')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation(name:'library-1.0.0', ext:'aar')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     kapt "com.android.databinding:compiler:$android_plugin_version"
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
-
-    implementation project(':vlayout')
+    println IsBuildMudle.toBoolean()
+    if(!IsBuildMudle.toBoolean()){
+        implementation project(':James')
+    }else{
+        implementation project(':vlayout')
+    }
 
     implementation libs.constraint_layout
     implementation libs.cardview_v7
     implementation libs.customtabs
 
     /* ---Rx--- */
+//    implementation libs.rxbinding_support_v4
+//    implementation libs.rxbinding_appcompat_v7
+//    implementation libs.rxbinding_recyclerview_v7
     implementation libs.rxbinding2
-    implementation libs.rxbinding_support_v4
-    implementation libs.rxbinding_appcompat_v7
-    implementation libs.rxbinding_design
-    implementation libs.rxbinding_recyclerview_v7
     implementation libs.rxandroid2
+    implementation libs.rxbinding_design
     implementation libs.rxjava2
     implementation libs.rxlifecycle2
     implementation libs.rxlifecycle_kotlin2
@@ -88,7 +92,7 @@ dependencies {
     implementation libs.googleRoomRx
 
     /* Paging */
-    implementation libs.googlePaging
+    //implementation libs.googlePaging
 
 
     /* RouterHost */
@@ -107,7 +111,7 @@ dependencies {
     implementation libs.fastjson
 
     /* QuickAdapter */
-    implementation libs.adapter_helper
+    implementation (libs.adapter_helper)
 
     /* material_preference */
     implementation libs.material_preference
@@ -116,10 +120,12 @@ dependencies {
     implementation libs.licensesdialog
 
     /* materialsearchview */
-    implementation libs.materialsearchview
+    implementation (libs.materialsearchview){
+        exclude module: 'design'
+    }
 
     /* wearable */
-    provided libs.wearable
+    compileOnly libs.wearable
     /* wearable_support */
     implementation libs.wearable_support
     /* gms */

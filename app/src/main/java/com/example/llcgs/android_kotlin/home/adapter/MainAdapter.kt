@@ -25,8 +25,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainAdapterHolder>() {
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MainAdapterHolder =
-            MainAdapterHolder(LayoutInflater.from(parent?.context).inflate(R.layout.view_main_adapter_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapterHolder =
+            MainAdapterHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_main_adapter_item, parent, false))
 
     override fun getItemCount(): Int = list.size
 

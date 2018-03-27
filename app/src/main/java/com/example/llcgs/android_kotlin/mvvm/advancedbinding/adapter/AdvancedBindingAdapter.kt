@@ -26,11 +26,11 @@ class AdvancedBindingAdapter:RecyclerView.Adapter<AdvancedBindingAdapter.Advance
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvancedBindingViewHolder =
             AdvancedBindingViewHolder(ViewAdvancedBindingItemBinding.inflate(LayoutInflater.from(parent.context)))
 
-    override fun onBindViewHolder(holder: AdvancedBindingViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: AdvancedBindingViewHolder, position: Int) {
         // Dynamic Variables
-        holder?.bindData(list[position])
-        holder?.bindingItem?.setVariable(BR.advancedBindingItemViewModel, holder.bindingItem.advancedBindingItemViewModel)
-        holder?.bindingItem?.executePendingBindings() //立即更新UI
+        holder.bindData(list[position])
+        holder.bindingItem.setVariable(BR.advancedBindingItemViewModel, holder.bindingItem.advancedBindingItemViewModel)
+        holder.bindingItem.executePendingBindings() //立即更新UI
     }
 
     class AdvancedBindingViewHolder(binding: ViewAdvancedBindingItemBinding): RecyclerView.ViewHolder(binding.root), (AdvancedBindingModel) -> Unit {

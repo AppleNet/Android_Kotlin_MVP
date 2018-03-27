@@ -19,9 +19,9 @@ class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>(), (MenuA
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuAdapterHolder =
             MenuAdapterHolder(ViewMenuAdapterItemBinding.inflate(LayoutInflater.from(parent.context)))
 
-    override fun onBindViewHolder(holder: MenuAdapterHolder?, position: Int) {
-        holder?.bindData(list[position])
-        holder?.binding?.menuAdapterViewModel?.setListener(this)
+    override fun onBindViewHolder(holder: MenuAdapterHolder, position: Int) {
+        holder.bindData(list[position])
+        holder.binding.menuAdapterViewModel?.setListener(this)
     }
 
     override fun getItemCount(): Int = list.size

@@ -1,6 +1,6 @@
 ext {
     compileSdkVersion = 26
-    buildToolsVersion = "26.0.2"
+    buildToolsVersion = "27.0.3"
     minSdkVersion = 21
     targetSdkVersion = 25
 
@@ -9,7 +9,7 @@ ext {
 
     versions = [
             kotlin_version    : kotlin_version,
-            supportVersion    : "26.1.0",
+            supportVersion    : "27.1.0",
             glide             : "3.8.0",
             butterknife       : "8.7.0",
             dagger2           : "2.11",
