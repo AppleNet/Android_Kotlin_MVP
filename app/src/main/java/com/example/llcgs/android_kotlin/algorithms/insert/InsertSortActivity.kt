@@ -72,5 +72,4 @@ class InsertSortActivity: BaseAlgorithmsActivity<IInsertSortPresenter>(), View.O
                 arraySortText.text = stringBuilder.toString()
             }
     }
-
 }
