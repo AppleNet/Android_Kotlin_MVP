@@ -323,9 +323,12 @@
         <activity android:name=".modules.service.bind.BindServiceActivity" />
         <activity android:name=".modules.service.bind.Bind1ServiceActivity" />
         <activity android:name=".modules.service.intentservice.IntentServiceActivity" />
-        <activity android:name=".algorithms.bubble.BubbleSortActivity" />
+
+        <!-- Algorithms -->
         <activity android:name=".algorithms.AlgorithmsListActivity" />
+        <activity android:name=".algorithms.bubble.BubbleSortActivity" />
         <activity android:name=".algorithms.insert.InsertSortActivity" />
+        <activity android:name=".algorithms.shell.ShellSortActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
