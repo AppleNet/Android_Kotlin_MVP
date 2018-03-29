@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.algorithms.bubble.BubbleSortActivity
+import com.example.llcgs.android_kotlin.algorithms.insert.InsertSortActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.modules.activity.singleInstance.SingleInstanceActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTask.SingleTaskActivity
@@ -46,7 +47,7 @@ class AlgorithmsListActivity : AppCompatActivity() {
                         startActivity(Intent(this@AlgorithmsListActivity, BubbleSortActivity::class.java))
                     }
                     1 ->{
-                        startActivity(Intent(this@AlgorithmsListActivity, SingleTopActivity::class.java))
+                        startActivity(Intent(this@AlgorithmsListActivity, InsertSortActivity::class.java))
                     }
                     2 ->{
                         startActivity(Intent(this@AlgorithmsListActivity, SingleTaskActivity::class.java))

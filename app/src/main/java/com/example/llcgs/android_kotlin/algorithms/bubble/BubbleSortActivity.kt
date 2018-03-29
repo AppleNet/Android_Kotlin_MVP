@@ -22,19 +22,12 @@ import java.util.concurrent.TimeUnit
 
 class BubbleSortActivity: BaseAlgorithmsActivity<IBubbleSortPresenter>(), View.OnClickListener, BubbleSortView {
 
-    private val score : Array<Int> = arrayOf(67, 75, 69, 89, 87, 99, 90, 100, 1)
-
     override fun createPresenter()= BubbleSortPresenter(this)
 
     override fun getLayoutId()= R.layout.activity_bubble
 
     override fun initViews() {
-        val sb = StringBuilder()
-        score.forEach {
-            sb.append(it)
-            sb.append(",")
-        }
-        arrayText.text = sb.toString()
+        arrayText.text = stringBuilder.toString()
         button38.setOnClickListener(this)
     }
 
@@ -48,7 +41,7 @@ class BubbleSortActivity: BaseAlgorithmsActivity<IBubbleSortPresenter>(), View.O
     }
 
     override fun onGetBubbleSortArray(array: Array<Int>) {
-        val sb = StringBuilder()
+        stringBuilder = StringBuilder()
         Observable.interval(1, TimeUnit.SECONDS)
             .take(array.size.toLong())
             .doOnSubscribe {
@@ -64,8 +57,8 @@ class BubbleSortActivity: BaseAlgorithmsActivity<IBubbleSortPresenter>(), View.O
                 "$temp,"
             }
             .subscribe {
-                sb.append(it)
-                arraySortText.text = sb.toString()
+                stringBuilder.append(it)
+                arraySortText.text = stringBuilder.toString()
             }
     }
 }

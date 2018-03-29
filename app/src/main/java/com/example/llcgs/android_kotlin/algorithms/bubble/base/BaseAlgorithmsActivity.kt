@@ -14,15 +14,17 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.subjects.BehaviorSubject
+import java.lang.StringBuilder
 
 /**
  * com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
  * @author liulongchao
  * @since 2017/12/11
  */
-abstract class BaseAlgorithmsActivity<P : BaseAlgorithmsPresenter>: AppCompatActivity(),
-    BaseAlgorithmsView {
+abstract class BaseAlgorithmsActivity<P : BaseAlgorithmsPresenter>: AppCompatActivity(), BaseAlgorithmsView {
 
+    protected val score : Array<Int> = arrayOf(67, 75, 69, 89, 87, 99, 90, 100, 1)
+    protected var stringBuilder = StringBuilder()
     protected lateinit var mPresenter: P
     private var compositeDisposable: CompositeDisposable? = null
     private val lifecycleSubject: BehaviorSubject<LifeCycleEvent> = BehaviorSubject.create()
@@ -34,7 +36,10 @@ abstract class BaseAlgorithmsActivity<P : BaseAlgorithmsPresenter>: AppCompatAct
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         setContentView(getLayoutId())
         mPresenter = createPresenter()
-
+        score.forEach {
+            stringBuilder.append(it)
+            stringBuilder.append(",")
+        }
         initViews()
         initData()
     }

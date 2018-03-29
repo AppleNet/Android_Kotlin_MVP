@@ -226,6 +226,8 @@
 
     <string-array name="algorithms_list">
         <item>冒泡排序法</item>
+        <item>插入排序法</item>
+        <item>希尔排序法</item>
     </string-array>
 
     <string-array name="service_list">
