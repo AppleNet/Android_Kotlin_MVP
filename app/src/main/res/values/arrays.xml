@@ -123,6 +123,7 @@
         <item>Activity</item>
         <item>Service</item>
         <item>Modularization</item>
+        <item>Algorithms</item>
     </string-array>
 
     <string-array name="arch_menu">
@@ -221,6 +222,10 @@
         <item>singleTop</item>
         <item>singleTask</item>
         <item>singleInstance</item>
+    </string-array>
+
+    <string-array name="algorithms_list">
+        <item>冒泡排序法</item>
     </string-array>
 
     <string-array name="service_list">

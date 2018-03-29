@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSON
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
-import com.example.llcgs.android_kotlin.base.router.creator.RouterRuleCreator
 import com.example.llcgs.android_kotlin.base.router.interceptor.DefaultInterceptor
 import com.example.llcgs.android_kotlin.base.router.packages.ComponentPackages
 import com.example.llcgs.android_kotlin.base.router.remotefactory.HostRemoteFactory
