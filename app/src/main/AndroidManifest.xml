@@ -329,6 +329,7 @@
         <activity android:name=".algorithms.bubble.BubbleSortActivity" />
         <activity android:name=".algorithms.insert.InsertSortActivity" />
         <activity android:name=".algorithms.shell.ShellSortActivity" />
+        <activity android:name=".algorithms.select.SelectSortActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
