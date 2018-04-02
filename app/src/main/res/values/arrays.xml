@@ -230,6 +230,7 @@
         <item>希尔排序法</item>
         <item>选择排序法</item>
         <item>堆排序法</item>
+        <item>快速排序法</item>
     </string-array>
 
     <string-array name="service_list">

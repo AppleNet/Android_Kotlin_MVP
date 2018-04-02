@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.algorithms.bubble.BubbleSortActivity
+import com.example.llcgs.android_kotlin.algorithms.fast.FastSortActivity
 import com.example.llcgs.android_kotlin.algorithms.heap.HeapSortActivity
 import com.example.llcgs.android_kotlin.algorithms.insert.InsertSortActivity
 import com.example.llcgs.android_kotlin.algorithms.select.SelectSortActivity
@@ -60,6 +61,9 @@ class AlgorithmsListActivity : AppCompatActivity() {
                     }
                     4 ->{
                         startActivity(Intent(this@AlgorithmsListActivity, HeapSortActivity::class.java))
+                    }
+                    5 ->{
+                        startActivity(Intent(this@AlgorithmsListActivity, FastSortActivity::class.java))
                     }
                 }
             }
