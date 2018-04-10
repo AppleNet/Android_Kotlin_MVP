@@ -332,6 +332,7 @@
         <activity android:name=".algorithms.select.SelectSortActivity" />
         <activity android:name=".algorithms.heap.HeapSortActivity" />
         <activity android:name=".algorithms.fast.FastSortActivity" />
+        <activity android:name=".algorithms.merge.MergeSortActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"

@@ -10,6 +10,7 @@ import com.example.llcgs.android_kotlin.algorithms.bubble.BubbleSortActivity
 import com.example.llcgs.android_kotlin.algorithms.fast.FastSortActivity
 import com.example.llcgs.android_kotlin.algorithms.heap.HeapSortActivity
 import com.example.llcgs.android_kotlin.algorithms.insert.InsertSortActivity
+import com.example.llcgs.android_kotlin.algorithms.merge.MergeSortActivity
 import com.example.llcgs.android_kotlin.algorithms.select.SelectSortActivity
 import com.example.llcgs.android_kotlin.algorithms.shell.ShellSortActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
@@ -64,6 +65,9 @@ class AlgorithmsListActivity : AppCompatActivity() {
                     }
                     5 ->{
                         startActivity(Intent(this@AlgorithmsListActivity, FastSortActivity::class.java))
+                    }
+                    6 ->{
+                        startActivity(Intent(this@AlgorithmsListActivity, MergeSortActivity::class.java))
                     }
                 }
             }
