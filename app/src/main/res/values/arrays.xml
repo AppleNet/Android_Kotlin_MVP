@@ -232,6 +232,7 @@
         <item>堆排序法</item>
         <item>快速排序法</item>
         <item>合并排序法</item>
+        <item>基数排序法</item>
     </string-array>
 
     <string-array name="service_list">

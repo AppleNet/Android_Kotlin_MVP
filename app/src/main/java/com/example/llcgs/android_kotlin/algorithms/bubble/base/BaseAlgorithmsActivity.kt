@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.algorithms.bubble.base
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
@@ -35,6 +36,7 @@ abstract class BaseAlgorithmsActivity<P : BaseAlgorithmsPresenter>: AppCompatAct
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         setContentView(getLayoutId())
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT
         mPresenter = createPresenter()
         score.forEach {
             stringBuilder.append(it)

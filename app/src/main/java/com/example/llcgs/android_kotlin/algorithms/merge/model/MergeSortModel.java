@@ -13,6 +13,9 @@ import io.reactivex.Observable;
 public class MergeSortModel implements BaseAlgorithmsModel {
 
     /**
+     *  合并两个已经排序的表。因为这两个表已经排序，所以若将输出放入到第三个表中，则该算法可以通过对输入数据一趟排序来完成
+     *  原理：基本的合并算法是取两个输入数组A和B，一个输出数组C，以及3个计数器Actr、Bctr、Cctr，它们初始于对应数组的开始端。
+     *       A[Actr]和B[Bctr]中较小者被拷贝到C中的下一个位置，相关的计数器向前推进一步，当两个输入表有一个用完的时候，则将另一个表中剩余部分拷贝到C中
      *  时间复杂度为O(nlogn)
      *  速度仅次于快速排序，为稳定排序算法，一般用于对总体无序，但是各子项相对有序的数列
      *
