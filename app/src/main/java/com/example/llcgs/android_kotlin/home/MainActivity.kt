@@ -123,6 +123,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Algorithms" ->{
                 Router.create("host://Algorithms").activityRoute.open(this)
             }
+            "NetWork" ->{
+                Router.create("host://NetWork").activityRoute.open(this)
+            }
         }
     }
 

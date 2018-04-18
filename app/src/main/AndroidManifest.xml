@@ -334,6 +334,8 @@
         <activity android:name=".algorithms.fast.FastSortActivity" />
         <activity android:name=".algorithms.merge.MergeSortActivity" />
         <activity android:name=".algorithms.cardinality.CardinalitySortActivity" />
+        <activity android:name=".net.NetWorkListActivity" />
+        <activity android:name=".net.socket_tcp.SocketTCPActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"

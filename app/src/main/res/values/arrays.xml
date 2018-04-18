@@ -124,6 +124,7 @@
         <item>Service</item>
         <item>Modularization</item>
         <item>Algorithms</item>
+        <item>NetWork</item>
     </string-array>
 
     <string-array name="arch_menu">
@@ -233,6 +234,11 @@
         <item>快速排序法</item>
         <item>合并排序法</item>
         <item>基数排序法</item>
+    </string-array>
+
+    <string-array name="network_list">
+        <item>Socket_TCP</item>
+        <item>Socket_UDP</item>
     </string-array>
 
     <string-array name="service_list">
