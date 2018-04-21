@@ -21,7 +21,7 @@ import org.ksoap2.transport.HttpTransportSE
 class WebServiceModel: BaseNetWorkModel {
 
     private val NAME_SPACE = "http://WebXml.com.cn"
-    private val URL = "http://www.webxml.com.cn/webservices/weatherwebservices.asmx"
+    private val URL = "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx"
     private val METHOD_NAME = "getWeatherbyCityName"
     private val SOAP_ACTION = "http://WebXml.com.cn/getWeatherbyCityName"
 
@@ -37,7 +37,7 @@ class WebServiceModel: BaseNetWorkModel {
                 // 设置debug模式
                 ht.debug = true
                 // 获得序列化的envelope
-                val envelope = SoapSerializationEnvelope(SoapEnvelope.VER10)
+                val envelope = SoapSerializationEnvelope(SoapEnvelope.VER11)
                 // 设置bodyOut属性的值为SoapObject对象rpc
                 envelope.bodyOut = rpc
                 // 指定webservice的类型为doNot
