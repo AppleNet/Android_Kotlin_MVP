@@ -19,6 +19,7 @@ import com.example.llcgs.android_kotlin.modules.activity.singleInstance.SingleIn
 import com.example.llcgs.android_kotlin.modules.activity.singleTask.SingleTaskActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTop.SingleTopActivity
 import com.example.llcgs.android_kotlin.net.socket_tcp.SocketTCPActivity
+import com.example.llcgs.android_kotlin.net.webservice.WebServiceActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_activity_list.*
 
@@ -57,7 +58,7 @@ class NetWorkListActivity : AppCompatActivity() {
                         //startActivity(Intent(this@NetWorkListActivity, InsertSortActivity::class.java))
                     }
                     2 ->{
-                        startActivity(Intent(this@NetWorkListActivity, ShellSortActivity::class.java))
+                        startActivity(Intent(this@NetWorkListActivity, WebServiceActivity::class.java))
                     }
                     3 ->{
                         startActivity(Intent(this@NetWorkListActivity, SelectSortActivity::class.java))

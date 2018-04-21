@@ -336,6 +336,7 @@
         <activity android:name=".algorithms.cardinality.CardinalitySortActivity" />
         <activity android:name=".net.NetWorkListActivity" />
         <activity android:name=".net.socket_tcp.SocketTCPActivity" />
+        <activity android:name=".net.webservice.WebServiceActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
