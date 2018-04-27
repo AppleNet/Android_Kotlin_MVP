@@ -337,6 +337,7 @@
         <activity android:name=".net.NetWorkListActivity" />
         <activity android:name=".net.socket_tcp.SocketTCPActivity" />
         <activity android:name=".net.webservice.WebServiceActivity" />
+        <activity android:name=".net.rss.RssActivity" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"

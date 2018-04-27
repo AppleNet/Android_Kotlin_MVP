@@ -48,6 +48,11 @@ dependencies {
     implementation libs.retrofit2
     implementation libs.retrofit2_converter
     implementation libs.retrofit2_adapter
+    implementation (libs.retrofit2_converter_xml){
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
 
     /* leakCanary */
     implementation libs.leakcanary_release

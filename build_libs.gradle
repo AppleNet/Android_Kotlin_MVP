@@ -105,6 +105,7 @@ ext {
 
             retrofit2            : "com.squareup.retrofit2:retrofit:${versions.retrofit2}",
             retrofit2_converter  : "com.squareup.retrofit2:converter-gson:${versions.retrofit2}",
+            retrofit2_converter_xml:"com.squareup.retrofit2:converter-simplexml:${versions.retrofit2}",
             retrofit2_adapter    : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit2}",
 
             kotlin_stdlib        : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin_version}",

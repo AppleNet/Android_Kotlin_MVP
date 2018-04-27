@@ -1,9 +1,9 @@
 package com.example.llcgs.android_kotlin.base.network
 
 import com.example.llcgs.android_kotlin.mvvm.list.model.StudentResponse
+import com.example.llcgs.android_kotlin.net.rss.bean.retrofit.XmlRss
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Url
+import retrofit2.http.*
 
 /**
  * com.example.llcgs.android_kotlin.base.network.ApiService
@@ -16,4 +16,7 @@ interface ApiService {
 
     @GET
     fun fetchPeople(@Url url: String): Observable<StudentResponse>
+
+    @POST("xml/news-0.aspx?news=0")
+    fun getRssContent(): Observable<XmlRss>
 }

@@ -31,6 +31,9 @@ import org.lzh.framework.updatepluginlib.UpdateConfig
 import org.lzh.framework.updatepluginlib.model.CheckEntity
 import org.lzh.framework.updatepluginlib.model.HttpMethod
 import org.lzh.framework.updatepluginlib.model.Update
+import com.example.llcgs.android_kotlin.base.error.CrashHandler
+
+
 
 
 /**
@@ -46,6 +49,7 @@ class KotlinApplication: RePluginApplication() {
         super.onCreate()
         BaseUtil.init(this)
         initRouter()
+        initCrash()
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -80,6 +84,10 @@ class KotlinApplication: RePluginApplication() {
         RouterConfiguration.get().remoteFactory = HostRemoteFactory()
         HostRouterConfiguration.get().setCallback(KPluginCallback())
         HostRouterConfiguration.get().setRouteCallback(KRouterCallBack())
+    }
+
+    private fun initCrash(){
+        CrashHandler(this, "LLC/crash.log")
     }
 
     /**

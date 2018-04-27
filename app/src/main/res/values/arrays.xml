@@ -240,6 +240,7 @@
         <item>Socket_TCP</item>
         <item>Socket_UDP</item>
         <item>WebService</item>
+        <item>RSS阅读器</item>
     </string-array>
 
     <string-array name="service_list">

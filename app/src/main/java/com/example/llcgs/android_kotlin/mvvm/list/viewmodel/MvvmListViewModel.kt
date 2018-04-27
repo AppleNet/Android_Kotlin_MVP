@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.mvvm.list.viewmodel
 
 import android.databinding.ObservableInt
 import android.view.View
-import com.example.llcgs.android_kotlin.base.network.BaseFactory
+import com.example.llcgs.android_kotlin.base.network.RetrofitHelper
 import com.example.llcgs.android_kotlin.mvvm.base.BaseViewModel
 import com.example.llcgs.android_kotlin.mvvm.list.model.Student
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,7 +23,7 @@ class MvvmListViewModel : BaseViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     fun fetchStudentList() {
-        compositeDisposable.add(BaseFactory.create().fetchPeople(BaseFactory.RANDOM_USER_URL)
+        compositeDisposable.add(RetrofitHelper.getService().fetchPeople(RetrofitHelper.RANDOM_USER_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
