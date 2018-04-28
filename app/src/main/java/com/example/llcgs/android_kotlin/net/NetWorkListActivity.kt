@@ -21,6 +21,7 @@ import com.example.llcgs.android_kotlin.modules.activity.singleTop.SingleTopActi
 import com.example.llcgs.android_kotlin.net.rss.RssActivity
 import com.example.llcgs.android_kotlin.net.socket_tcp.SocketTCPActivity
 import com.example.llcgs.android_kotlin.net.webservice.WebServiceActivity
+import com.example.llcgs.android_kotlin.net.wifi.WiFiActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_activity_list.*
 
@@ -65,7 +66,7 @@ class NetWorkListActivity : AppCompatActivity() {
                         startActivity(Intent(this@NetWorkListActivity, RssActivity::class.java))
                     }
                     4 ->{
-                        startActivity(Intent(this@NetWorkListActivity, HeapSortActivity::class.java))
+                        startActivity(Intent(this@NetWorkListActivity, WiFiActivity::class.java))
                     }
                     5 ->{
                         startActivity(Intent(this@NetWorkListActivity, FastSortActivity::class.java))

@@ -82,6 +82,8 @@ dependencies {
     /* LiveData */
     implementation (libs.googleLiveData){
         exclude module: 'common'
+        // 为本依赖关闭依赖传递特性
+        transitive = false
     }
     //To use LiveData with ReactiveStreams API
     implementation (libs.googleLiveDataReactiveStreams){
@@ -145,6 +147,10 @@ dependencies {
     /* exoplayer */
     implementation libs.exoplayer
 
+}
+
+configurations {
+    implementation.exclude group:'android.arch.lifecycle', module: 'viewmodel'
 }
 
 task makeJar(type: Jar) {

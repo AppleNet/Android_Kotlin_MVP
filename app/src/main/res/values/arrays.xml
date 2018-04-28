@@ -241,6 +241,7 @@
         <item>Socket_UDP</item>
         <item>WebService</item>
         <item>RSS阅读器</item>
+        <item>WiFi</item>
     </string-array>
 
     <string-array name="service_list">
