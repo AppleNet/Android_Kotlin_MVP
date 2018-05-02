@@ -351,6 +351,7 @@
         <activity android:name=".net.webservice.WebServiceActivity" />
         <activity android:name=".net.rss.RssActivity" />
         <activity android:name=".net.wifi.WiFiActivity" />
+        <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 
         <service
             android:name=".material.mediaplayer.service.MusicService"
