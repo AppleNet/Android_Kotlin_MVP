@@ -18,6 +18,5 @@ class NfcActivity: BaseNetWorkActivity<INfcPresenter>(), NfcView {
     override fun getLayoutId()= R.layout.activity_nfc
 
     override fun initViews() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
