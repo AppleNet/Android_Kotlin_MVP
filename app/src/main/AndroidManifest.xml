@@ -352,6 +352,10 @@
         <activity android:name=".net.rss.RssActivity" />
         <activity android:name=".net.wifi.WiFiActivity" />
         <activity android:name=".net.nfc.NfcActivity" />
+        <activity android:name=".net.xmpp.XmppActivity" />
+        <activity android:name=".net.xmpp.XmppRegisterActivity" />
+        <activity android:name=".net.xmpp.XmppListActivity" />
+        <activity android:name=".net.xmpp.XmppAddActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

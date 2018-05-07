@@ -18,10 +18,12 @@ import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.modules.activity.singleInstance.SingleInstanceActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTask.SingleTaskActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTop.SingleTopActivity
+import com.example.llcgs.android_kotlin.net.nfc.NfcActivity
 import com.example.llcgs.android_kotlin.net.rss.RssActivity
 import com.example.llcgs.android_kotlin.net.socket_tcp.SocketTCPActivity
 import com.example.llcgs.android_kotlin.net.webservice.WebServiceActivity
 import com.example.llcgs.android_kotlin.net.wifi.WiFiActivity
+import com.example.llcgs.android_kotlin.net.xmpp.XmppActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_activity_list.*
 
@@ -69,10 +71,10 @@ class NetWorkListActivity : AppCompatActivity() {
                         startActivity(Intent(this@NetWorkListActivity, WiFiActivity::class.java))
                     }
                     5 ->{
-                        startActivity(Intent(this@NetWorkListActivity, FastSortActivity::class.java))
+                        startActivity(Intent(this@NetWorkListActivity, NfcActivity::class.java))
                     }
                     6 ->{
-                        startActivity(Intent(this@NetWorkListActivity, MergeSortActivity::class.java))
+                        startActivity(Intent(this@NetWorkListActivity, XmppActivity::class.java))
                     }
                     7 ->{
                         startActivity(Intent(this@NetWorkListActivity, CardinalitySortActivity::class.java))

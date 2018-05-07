@@ -2,9 +2,12 @@ package com.example.llcgs.android_kotlin.net.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Toast
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifecycleHelper
@@ -91,11 +94,23 @@ abstract class BaseNetWorkActivity<P : BaseNetWorkPresenter>: AppCompatActivity(
     override fun <T : Any?> bindToLifecycle(): LifecycleTransformer<T> = RxLifecycle.bind(lifecycleSubject, LifecycleHelper.activityLifecycle())
 
     override fun showLoadingDialog() {
-        //Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()
+        }else{
+            runOnUiThread {
+                Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun dismissLoadingDialog() {
-        //Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
+        if (Looper.myLooper() == Looper.getMainLooper()){
+            Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
+        }else{
+            runOnUiThread {
+                Toast.makeText(this, "dismiss loading", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onObtainFail(exception: ObtainException) {

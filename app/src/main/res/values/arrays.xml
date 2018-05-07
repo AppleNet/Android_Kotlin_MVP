@@ -242,6 +242,8 @@
         <item>WebService</item>
         <item>RSS阅读器</item>
         <item>WiFi</item>
+        <item>NFC</item>
+        <item>XMPP</item>
     </string-array>
 
     <string-array name="service_list">
