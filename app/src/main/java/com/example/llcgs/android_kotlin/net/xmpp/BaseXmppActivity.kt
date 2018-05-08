@@ -1,7 +1,5 @@
 package com.example.llcgs.android_kotlin.net.xmpp
 
-import android.content.Context
-import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkActivity
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkPresenter

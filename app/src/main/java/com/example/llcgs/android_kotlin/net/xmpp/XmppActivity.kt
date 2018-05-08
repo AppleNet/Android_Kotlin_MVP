@@ -1,14 +1,16 @@
 package com.example.llcgs.android_kotlin.net.xmpp
 
 import android.content.Intent
+import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
-import com.example.llcgs.android_kotlin.R.id.*
+import com.example.llcgs.android_kotlin.net.xmpp.helper.XmppConnection
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.IXmppPresenter
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.impl.XmppPresenter
+import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_xmpp.*
-import org.jivesoftware.smack.RosterEntry
+import org.jivesoftware.smack.packet.Presence
 
 /**
  * com.example.llcgs.android_kotlin.net.xmpp.XmppActivity
@@ -17,6 +19,7 @@ import org.jivesoftware.smack.RosterEntry
  */
 class XmppActivity : BaseXmppActivity<IXmppPresenter>(), View.OnClickListener {
 
+    private var isLogin = false
 
     override fun createPresenter(): IXmppPresenter = XmppPresenter(this)
 
@@ -57,12 +60,18 @@ class XmppActivity : BaseXmppActivity<IXmppPresenter>(), View.OnClickListener {
                 startActivity(Intent(this@XmppActivity, XmppRegisterActivity::class.java))
             }
             R.id.add ->{
-                startActivity(Intent(this@XmppActivity, XmppAddActivity::class.java))
+                if(!TextUtils.isEmpty(userName) && isLogin){
+                    startActivity(Intent(this@XmppActivity, XmppAddActivity::class.java))
+                }else{
+                    //
+                    Toast.makeText(this, "未登录,请先登录!", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
     override fun onLoginSuccess(boolean: Boolean) {
+        isLogin = boolean
         if (boolean){
             Toast.makeText(this, "login success", Toast.LENGTH_LONG).show()
             startActivity(Intent(this@XmppActivity, XmppListActivity::class.java))

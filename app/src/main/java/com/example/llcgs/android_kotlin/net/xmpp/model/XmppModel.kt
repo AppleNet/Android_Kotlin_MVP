@@ -1,11 +1,9 @@
 package com.example.llcgs.android_kotlin.net.xmpp.model
 
-import com.example.llcgs.android_kotlin.base.app.KotlinApplication
 import com.example.llcgs.android_kotlin.base.rx.RxBus
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkModel
 import com.example.llcgs.android_kotlin.net.xmpp.bean.XmppUser
 import com.example.llcgs.android_kotlin.net.xmpp.helper.XmppConnection
-import com.example.llcgs.android_kotlin.utils.BaseUtil
 import io.reactivex.Observable
 import org.jivesoftware.smack.PacketListener
 import org.jivesoftware.smack.RosterEntry
@@ -16,7 +14,6 @@ import org.jivesoftware.smack.filter.PacketTypeFilter
 import org.jivesoftware.smack.filter.PacketIDFilter
 import org.jivesoftware.smack.filter.AndFilter
 import org.jivesoftware.smack.filter.PacketFilter
-import org.jivesoftware.smack.packet.Packet
 import org.jivesoftware.smack.packet.Presence
 
 
@@ -124,7 +121,7 @@ class XmppModel: BaseNetWorkModel {
             }
     }
 
-    fun addSubscriptionListener(){
+    fun addSubscriptionListener(): Observable<Boolean>{
         //创建包过滤器
         val filter = PacketFilter { packet ->
             if (packet is Presence){
@@ -140,7 +137,21 @@ class XmppModel: BaseNetWorkModel {
             RxBus.getInstance().post(it)
         }
 
-        //开启监听
-        XmppConnection.getConnection().addPacketListener(subscriptionPacketListener, filter)
+        return Observable.just("")
+            .map {
+                //开启监听
+                XmppConnection.getConnection().addPacketListener(subscriptionPacketListener, filter)
+                true
+            }
+    }
+
+    fun acceptFriend(name: String): Observable<Boolean>{
+        return Observable.just("")
+            .map {
+                val roster = XmppConnection.getConnection().roster
+                // 添加联系人 参数分别为：用户名 昵称 分组
+                roster.createEntry("$name@gomejr", null, arrayOf("friends"))
+                true
+            }
     }
 }

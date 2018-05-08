@@ -100,6 +100,15 @@ class XmppPresenter(private val view: XmppView): IXmppPresenter {
 
     override fun addSubscriptionListener() {
         model.addSubscriptionListener()
+            .doOnSubscribe {
+                view.addDisposable(it)
+            }
+            .compose(view.bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+
+            }
         RxBus.getInstance().tObservable(Packet::class.java)
             .subscribe {
                 view.onGetRequest(it)
@@ -107,6 +116,9 @@ class XmppPresenter(private val view: XmppView): IXmppPresenter {
     }
 
     override fun acceptFriend(name: String) {
+        model.acceptFriend(name)
+            .subscribe {
 
+            }
     }
 }
