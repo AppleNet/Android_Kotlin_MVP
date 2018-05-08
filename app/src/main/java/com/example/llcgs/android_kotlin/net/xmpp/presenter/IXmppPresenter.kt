@@ -23,4 +23,6 @@ interface IXmppPresenter: BaseNetWorkPresenter {
     fun addSubscriptionListener()
 
     fun acceptFriend(name: String)
+
+    fun refuseFriend(name: String)
 }

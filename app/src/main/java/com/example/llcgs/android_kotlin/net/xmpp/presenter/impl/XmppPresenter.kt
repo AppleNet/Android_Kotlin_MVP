@@ -121,4 +121,9 @@ class XmppPresenter(private val view: XmppView): IXmppPresenter {
 
             }
     }
+
+    override fun refuseFriend(name: String) {
+        model.refuseFriend(name)
+            .subscribe()
+    }
 }

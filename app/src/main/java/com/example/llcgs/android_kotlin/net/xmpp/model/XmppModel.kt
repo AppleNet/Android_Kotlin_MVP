@@ -1,9 +1,12 @@
 package com.example.llcgs.android_kotlin.net.xmpp.model
 
+import android.os.Handler
+import android.os.Looper
 import com.example.llcgs.android_kotlin.base.rx.RxBus
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkModel
 import com.example.llcgs.android_kotlin.net.xmpp.bean.XmppUser
 import com.example.llcgs.android_kotlin.net.xmpp.helper.XmppConnection
+import com.gomejr.myf.core.kotlin.logD
 import io.reactivex.Observable
 import org.jivesoftware.smack.PacketListener
 import org.jivesoftware.smack.RosterEntry
@@ -14,6 +17,7 @@ import org.jivesoftware.smack.filter.PacketTypeFilter
 import org.jivesoftware.smack.filter.PacketIDFilter
 import org.jivesoftware.smack.filter.AndFilter
 import org.jivesoftware.smack.filter.PacketFilter
+import org.jivesoftware.smack.packet.Packet
 import org.jivesoftware.smack.packet.Presence
 
 
@@ -125,16 +129,20 @@ class XmppModel: BaseNetWorkModel {
         //创建包过滤器
         val filter = PacketFilter { packet ->
             if (packet is Presence){
-                if (packet.type == Presence.Type.subscribe) {
-                    //是好友邀请状态就返回true 向下执行
-                    return@PacketFilter true
-                }
+            "add callback packet.type: ${packet.type}".logD()
+            if (packet.type == Presence.Type.subscribe) {
+                // 是好友邀请状态就返回true 向下执行
+                return@PacketFilter true
             }
+        }
             false
         }
 
         val subscriptionPacketListener = PacketListener {
-            RxBus.getInstance().post(it)
+            "add callback packet: ${it.from}".logD()
+            Handler(Looper.getMainLooper()).post {
+                RxBus.getInstance().post(it)
+            }
         }
 
         return Observable.just("")
@@ -151,6 +159,16 @@ class XmppModel: BaseNetWorkModel {
                 val roster = XmppConnection.getConnection().roster
                 // 添加联系人 参数分别为：用户名 昵称 分组
                 roster.createEntry("$name@gomejr", null, arrayOf("friends"))
+                true
+            }
+    }
+
+    fun refuseFriend(name: String): Observable<Boolean>{
+        return Observable.just(name)
+            .map{
+                val subscription: Packet = Presence(Presence.Type.unsubscribe)
+                subscription.to = "$it@gomejr"
+                XmppConnection.getConnection().sendPacket(subscription)
                 true
             }
     }

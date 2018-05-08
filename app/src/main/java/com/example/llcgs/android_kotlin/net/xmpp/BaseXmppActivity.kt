@@ -28,6 +28,7 @@ abstract class BaseXmppActivity<P : BaseNetWorkPresenter> : BaseNetWorkActivity<
             (mPresenter as XmppPresenter).acceptFriend(name)
         }
         dialog.setNegativeButton("取消"){ dialog, _ ->
+            (mPresenter as XmppPresenter).refuseFriend(name)
             dialog.dismiss()
         }
         dialog.create().show()
