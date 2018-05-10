@@ -1,7 +1,5 @@
 package com.example.llcgs.android_kotlin.net.xmpp.presenter.impl
 
-import android.content.Context
-import android.support.v7.app.AlertDialog
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.rx.RxBus
 import com.example.llcgs.android_kotlin.net.xmpp.model.XmppModel
