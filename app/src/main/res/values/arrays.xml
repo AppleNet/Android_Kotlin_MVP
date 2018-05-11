@@ -244,6 +244,7 @@
         <item>WiFi</item>
         <item>NFC</item>
         <item>XMPP</item>
+        <item>WebView</item>
     </string-array>
 
     <string-array name="service_list">

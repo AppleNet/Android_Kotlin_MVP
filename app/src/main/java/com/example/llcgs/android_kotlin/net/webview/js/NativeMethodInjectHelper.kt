@@ -5,12 +5,6 @@ import android.util.ArrayMap
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
 
-
-
-
-
-
-
 /**
  * com.example.llcgs.android_kotlin.net.webview.js.NativeMethodInjectHelper
  * @author liulongchao

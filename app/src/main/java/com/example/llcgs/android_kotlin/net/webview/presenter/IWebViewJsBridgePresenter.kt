@@ -8,4 +8,7 @@ import com.example.llcgs.android_kotlin.net.base.BaseNetWorkPresenter
  * @since 2018/5/9
  */
 interface IWebViewJsBridgePresenter: BaseNetWorkPresenter {
+
+    fun getToken(jsonStr: String)
+
 }

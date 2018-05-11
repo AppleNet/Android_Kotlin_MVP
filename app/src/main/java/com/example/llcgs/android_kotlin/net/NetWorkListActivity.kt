@@ -22,6 +22,7 @@ import com.example.llcgs.android_kotlin.net.nfc.NfcActivity
 import com.example.llcgs.android_kotlin.net.rss.RssActivity
 import com.example.llcgs.android_kotlin.net.socket_tcp.SocketTCPActivity
 import com.example.llcgs.android_kotlin.net.webservice.WebServiceActivity
+import com.example.llcgs.android_kotlin.net.webview.WebViewJsBridgeActivity
 import com.example.llcgs.android_kotlin.net.wifi.WiFiActivity
 import com.example.llcgs.android_kotlin.net.xmpp.XmppActivity
 import com.lzh.nonview.router.anno.RouterRule
@@ -77,7 +78,7 @@ class NetWorkListActivity : AppCompatActivity() {
                         startActivity(Intent(this@NetWorkListActivity, XmppActivity::class.java))
                     }
                     7 ->{
-                        startActivity(Intent(this@NetWorkListActivity, CardinalitySortActivity::class.java))
+                        startActivity(Intent(this@NetWorkListActivity, WebViewJsBridgeActivity::class.java))
                     }
                 }
             }
