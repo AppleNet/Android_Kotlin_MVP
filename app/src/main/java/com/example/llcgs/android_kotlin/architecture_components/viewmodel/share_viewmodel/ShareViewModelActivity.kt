@@ -1,7 +1,5 @@
 package com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel
 
-import android.app.Fragment
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.view.ViewPager
@@ -13,9 +11,8 @@ import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel.fragments.MineFragment
 import com.example.llcgs.android_kotlin.architecture_components.viewmodel.share_viewmodel.viewmodel.ShareViewModel
 import com.example.llcgs.android_kotlin.base.fragment.BaseFragment
-import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
 import com.example.llcgs.android_kotlin.base.presenter.SuperPresenter
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_share_view_model.*
 import kotlinx.android.synthetic.main.view_title.*
 

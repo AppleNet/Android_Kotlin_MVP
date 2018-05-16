@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.equals.bean.Equals
 import com.example.llcgs.android_kotlin.kotlin.other.equals.presenter.impl.TwentySixPresenter
 import com.example.llcgs.android_kotlin.kotlin.other.equals.view.TwentySixView
 import com.example.llcgs.android_kotlin.kotlin.other.operator.TwentySevenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_six.*
 

@@ -6,7 +6,6 @@ import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.OnLifecycleEvent
 import android.os.Looper
 import android.support.annotation.MainThread
-import com.gomejr.myf.core.kotlin.logD
 
 import io.reactivex.Observable
 import io.reactivex.ObservableSource

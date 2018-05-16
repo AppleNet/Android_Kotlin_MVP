@@ -10,7 +10,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.classandextends.be
 import com.example.llcgs.android_kotlin.kotlin.classandobject.classandextends.presenter.impl.FivePresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.classandextends.view.FiveView
 import com.example.llcgs.android_kotlin.kotlin.classandobject.propertyandfield.SixActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_five.*
 

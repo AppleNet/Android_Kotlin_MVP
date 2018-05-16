@@ -41,7 +41,7 @@ import com.example.llcgs.android_kotlin.kotlin.stringandregex.ThirtyTwoActivity
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
 import com.example.llcgs.android_kotlin.list.presenter.impl.ListPresenter
 import com.example.llcgs.android_kotlin.list.view.ListView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_list.*
 

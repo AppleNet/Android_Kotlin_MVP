@@ -5,10 +5,9 @@ import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.classandobject.enumclass.FourteenActivity
-import com.example.llcgs.android_kotlin.kotlin.classandobject.nestclass.bean.Button
 import com.example.llcgs.android_kotlin.kotlin.classandobject.nestclass.presenter.impl.ThirteenPresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.nestclass.view.ThirteenView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_thirteen.*
 

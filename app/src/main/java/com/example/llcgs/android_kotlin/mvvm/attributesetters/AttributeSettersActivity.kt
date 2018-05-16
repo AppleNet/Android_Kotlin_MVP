@@ -12,7 +12,7 @@ import com.example.llcgs.android_kotlin.databinding.ActivityAttributeSettersBind
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.adapter.MenuAdapter
 import com.example.llcgs.android_kotlin.mvvm.attributesetters.viewmodel.AttributeSettersViewModel
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.view_drawerlayout.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 import java.util.*

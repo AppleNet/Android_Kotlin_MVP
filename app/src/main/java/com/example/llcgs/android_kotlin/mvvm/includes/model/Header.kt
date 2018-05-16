@@ -1,6 +1,6 @@
 package com.example.llcgs.android_kotlin.mvvm.includes.model
 
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.mvvm.includes.model.Header

@@ -6,7 +6,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleInstance.presenter.impl.SingleInstancePresenter
 import com.example.llcgs.android_kotlin.modules.activity.singleInstance.view.SingleInstanceView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_singletask.*
 
 /**

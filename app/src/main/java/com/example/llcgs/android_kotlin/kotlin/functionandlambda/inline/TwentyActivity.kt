@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.inline.presenter.impl.TwentyPresenter
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.inline.view.TwentyView
 import com.example.llcgs.android_kotlin.kotlin.other.structdeclarations.TwentyOneActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty.*
 

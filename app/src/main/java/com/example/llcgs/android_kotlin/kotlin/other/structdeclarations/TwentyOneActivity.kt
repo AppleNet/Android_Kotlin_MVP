@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.structdeclarations.bean.Per
 import com.example.llcgs.android_kotlin.kotlin.other.structdeclarations.bean.User
 import com.example.llcgs.android_kotlin.kotlin.other.structdeclarations.presenter.impl.TwentyOnePresenter
 import com.example.llcgs.android_kotlin.kotlin.other.structdeclarations.view.TwentyOneView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_one.*
 

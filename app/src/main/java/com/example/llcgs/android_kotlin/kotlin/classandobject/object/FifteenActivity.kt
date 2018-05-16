@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.classandobject.`object`.presenter.impl.FifteenPresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.`object`.view.FifteenView
 import com.example.llcgs.android_kotlin.kotlin.classandobject.delegation.SixteenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_fifteen.*
 
 /**

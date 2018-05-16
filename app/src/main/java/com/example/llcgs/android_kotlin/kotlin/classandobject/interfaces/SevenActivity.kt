@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.interfaces.model.S
 import com.example.llcgs.android_kotlin.kotlin.classandobject.interfaces.presenter.impl.SevenPresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.interfaces.view.SevenView
 import com.example.llcgs.android_kotlin.kotlin.classandobject.modifier.EightActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_seven.*
 

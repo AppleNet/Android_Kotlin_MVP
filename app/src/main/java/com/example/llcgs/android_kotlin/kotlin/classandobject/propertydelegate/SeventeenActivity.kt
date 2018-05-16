@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.classandobject.propertydelegate.presenter.impl.SeventeenPresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.propertydelegate.view.SeventeenView
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.EighteenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_seventenn.*
 import kotlin.properties.Delegates

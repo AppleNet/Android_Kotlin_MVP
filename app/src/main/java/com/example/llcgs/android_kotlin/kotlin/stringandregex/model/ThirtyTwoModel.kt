@@ -3,7 +3,7 @@ package com.example.llcgs.android_kotlin.kotlin.stringandregex.model
 import com.example.llcgs.android_kotlin.base.model.BaseModel
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.bean.User
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.bean.validateBeforeSave
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.stringandregex.model.ThirtyTwoModel

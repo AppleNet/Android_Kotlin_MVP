@@ -10,7 +10,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.reflect.bean.User
 import com.example.llcgs.android_kotlin.kotlin.other.reflect.presenter.impl.ThirtyOnePresenter
 import com.example.llcgs.android_kotlin.kotlin.other.reflect.view.ThirtyOneView
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.ThirtyTwoActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_thirty_one.*
 import kotlin.reflect.KClass

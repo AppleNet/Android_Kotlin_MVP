@@ -5,12 +5,9 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
-import com.example.llcgs.android_kotlin.net.xmpp.helper.XmppConnection
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.IXmppPresenter
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.impl.XmppPresenter
-import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_xmpp.*
-import org.jivesoftware.smack.packet.Presence
 
 /**
  * com.example.llcgs.android_kotlin.net.xmpp.XmppActivity

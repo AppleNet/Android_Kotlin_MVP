@@ -1,7 +1,5 @@
 package com.example.llcgs.android_kotlin.architecture_components.livedata.transform_livedata
 
-import android.arch.core.util.Function
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.Transformations
@@ -15,7 +13,7 @@ import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerAc
 import com.example.llcgs.android_kotlin.architecture_components.livedata.transform_livedata.presenter.ITransformLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.transform_livedata.presenter.impl.TransformLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.transform_livedata.view.TransformLiveDataView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_transform_livedata.*
 import kotlinx.android.synthetic.main.view_title.*

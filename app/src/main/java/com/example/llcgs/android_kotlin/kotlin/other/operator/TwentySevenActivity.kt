@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.airsafety.TwentyEightActivi
 import com.example.llcgs.android_kotlin.kotlin.other.operator.bean.Person
 import com.example.llcgs.android_kotlin.kotlin.other.operator.presenter.impl.TwentySevenPresenter
 import com.example.llcgs.android_kotlin.kotlin.other.operator.view.TwentySevenView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_seven.*
 import java.math.BigDecimal

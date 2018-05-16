@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.stringandregex.model.ThirtyTwoMod
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.model.ThirtyTwoModelJava
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.presenter.impl.ThirtyTwoPresenter
 import com.example.llcgs.android_kotlin.kotlin.stringandregex.view.ThirtyTwoView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_thirty_two.*
 

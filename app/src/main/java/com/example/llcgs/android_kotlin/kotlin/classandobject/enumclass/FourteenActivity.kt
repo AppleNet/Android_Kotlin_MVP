@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.`object`.FifteenAc
 import com.example.llcgs.android_kotlin.kotlin.classandobject.enumclass.bean.User
 import com.example.llcgs.android_kotlin.kotlin.classandobject.enumclass.presenter.impl.FourteenPresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.enumclass.view.FourteenView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_fourteen.*
 

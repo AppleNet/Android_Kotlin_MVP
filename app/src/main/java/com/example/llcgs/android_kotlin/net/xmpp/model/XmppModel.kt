@@ -6,7 +6,7 @@ import com.example.llcgs.android_kotlin.base.rx.RxBus
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkModel
 import com.example.llcgs.android_kotlin.net.xmpp.bean.XmppUser
 import com.example.llcgs.android_kotlin.net.xmpp.helper.XmppConnection
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import io.reactivex.Observable
 import org.jivesoftware.smack.PacketListener
 import org.jivesoftware.smack.RosterEntry

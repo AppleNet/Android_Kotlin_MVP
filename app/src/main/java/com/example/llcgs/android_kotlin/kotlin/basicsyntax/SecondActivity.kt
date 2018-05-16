@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.presenter.impl.SecondPresenter
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.view.SecondView
 import com.example.llcgs.android_kotlin.kotlin.idiom.ThirdActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import com.jakewharton.rxbinding2.widget.RxTextView
 import io.reactivex.Observable

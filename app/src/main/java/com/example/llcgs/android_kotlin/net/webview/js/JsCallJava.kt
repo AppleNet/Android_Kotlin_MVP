@@ -3,7 +3,7 @@ package com.example.llcgs.android_kotlin.net.webview.js
 import android.net.Uri
 import android.text.TextUtils
 import com.example.llcgs.android_kotlin.net.webview.presenter.impl.WebViewJsBridgePresenter
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import org.json.JSONObject
 
 /**

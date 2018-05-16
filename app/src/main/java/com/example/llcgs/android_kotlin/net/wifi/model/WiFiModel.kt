@@ -1,8 +1,6 @@
 package com.example.llcgs.android_kotlin.net.wifi.model
 
-import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -11,8 +9,7 @@ import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkModel
-import com.gomejr.myf.core.kotlin.logD
-import com.tbruyelle.rxpermissions2.RxPermissions
+import com.example.llcgs.android_kotlin.utils.log.logD
 import io.reactivex.Observable
 
 /**

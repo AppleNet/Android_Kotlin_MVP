@@ -11,7 +11,7 @@ import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.presen
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.presenter.impl.getPresenter
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.view.EighteenView
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.lambda.NineteenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_eighteen.*
 

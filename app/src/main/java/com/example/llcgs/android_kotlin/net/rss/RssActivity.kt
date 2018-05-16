@@ -13,7 +13,7 @@ import com.example.llcgs.android_kotlin.net.rss.bean.xml.Rss
 import com.example.llcgs.android_kotlin.net.rss.presenter.IRssPresenter
 import com.example.llcgs.android_kotlin.net.rss.presenter.impl.RssPresenter
 import com.example.llcgs.android_kotlin.net.rss.view.RssView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_rss.*
 
 /**

@@ -1,7 +1,7 @@
 package com.example.llcgs.android_kotlin.base.router.callback
 
 import android.net.Uri
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.exception.NotFoundException
 import com.lzh.nonview.router.launcher.Launcher
 import com.lzh.nonview.router.module.RouteRule

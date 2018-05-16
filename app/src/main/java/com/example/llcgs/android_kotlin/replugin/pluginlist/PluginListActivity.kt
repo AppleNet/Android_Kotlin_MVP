@@ -10,7 +10,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.replugin.plugin.adapter.PluginAdapter
 import com.example.llcgs.android_kotlin.replugin.pluginlist.presenter.impl.PluginListPresenter
 import com.example.llcgs.android_kotlin.replugin.pluginlist.view.PluginListView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.anno.RouterRule
 import com.qihoo360.replugin.RePlugin
 import kotlinx.android.synthetic.main.activity_plugin_list.*

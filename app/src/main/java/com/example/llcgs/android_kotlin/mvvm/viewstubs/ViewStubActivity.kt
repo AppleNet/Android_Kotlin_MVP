@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityViewStubBinding
@@ -12,7 +11,6 @@ import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.viewstubs.model.ViewStubModel
 import com.example.llcgs.android_kotlin.mvvm.viewstubs.view.ViewStubView
 import com.example.llcgs.android_kotlin.mvvm.viewstubs.viewmodel.ViewStubViewModel
-import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.view_title.*
 
 /**

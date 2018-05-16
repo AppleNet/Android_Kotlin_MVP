@@ -1,7 +1,7 @@
 package com.example.llcgs.android_kotlin.base.router.update
 
 import com.alibaba.fastjson.JSON
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import org.lzh.framework.updatepluginlib.model.Update
 import org.lzh.framework.updatepluginlib.model.UpdateParser
 

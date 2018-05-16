@@ -4,7 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.Binder
 import android.os.IBinder
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.modules.service.bind.service.BindService

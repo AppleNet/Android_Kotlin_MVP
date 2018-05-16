@@ -5,7 +5,7 @@ import android.view.View
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.IXmppPresenter
 import com.example.llcgs.android_kotlin.net.xmpp.presenter.impl.XmppPresenter
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_xmpp_add.*
 
 /**

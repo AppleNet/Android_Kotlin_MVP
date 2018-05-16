@@ -12,7 +12,7 @@ import com.example.llcgs.android_kotlin.kotlin.idiom.bean.NBAWith
 import com.example.llcgs.android_kotlin.kotlin.idiom.kt.prefix
 import com.example.llcgs.android_kotlin.kotlin.idiom.presenter.impl.ThirdPresenter
 import com.example.llcgs.android_kotlin.kotlin.idiom.view.ThirdView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_third.*
 

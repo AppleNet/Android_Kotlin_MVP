@@ -15,7 +15,7 @@ import com.example.llcgs.android_kotlin.base.router.update.PluginChecker
 import com.example.llcgs.android_kotlin.base.router.update.PluginStrategy
 import com.example.llcgs.android_kotlin.base.router.verify.RePluginVerification
 import com.example.llcgs.android_kotlin.utils.BaseUtil
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.RouterConfiguration
 import com.lzh.nonview.router.anno.RouteConfig
 import com.lzh.nonview.router.host.RouterHostService

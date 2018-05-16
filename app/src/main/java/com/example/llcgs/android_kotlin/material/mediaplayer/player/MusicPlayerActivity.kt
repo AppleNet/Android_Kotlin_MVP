@@ -14,7 +14,7 @@ import com.example.llcgs.android_kotlin.material.mediaplayer.fragment.MediaBrows
 import com.example.llcgs.android_kotlin.material.mediaplayer.player.presenter.IMusicPlayerPresenter
 import com.example.llcgs.android_kotlin.material.mediaplayer.player.presenter.impl.MusicPlayerPresenter
 import com.example.llcgs.android_kotlin.utils.media.LogHelper
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.anno.RouterRule
 
 /**

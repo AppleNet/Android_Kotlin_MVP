@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatDelegate
 import android.text.TextUtils
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.utils.BaseUtil
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompatDividers
 
 /**

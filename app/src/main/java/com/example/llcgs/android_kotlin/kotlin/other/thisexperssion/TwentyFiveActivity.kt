@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.other.equals.TwentySixActivity
 import com.example.llcgs.android_kotlin.kotlin.other.thisexperssion.presenter.impl.TwentyFivePresenter
 import com.example.llcgs.android_kotlin.kotlin.other.thisexperssion.view.TwentyFiveView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_five.*
 

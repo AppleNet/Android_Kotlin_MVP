@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.other.annotation.ThirtyActivity
 import com.example.llcgs.android_kotlin.kotlin.other.exception.presenter.impl.TwentyNinePresenter
 import com.example.llcgs.android_kotlin.kotlin.other.exception.view.TwentyNineView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_nine.*
 import java.io.BufferedReader

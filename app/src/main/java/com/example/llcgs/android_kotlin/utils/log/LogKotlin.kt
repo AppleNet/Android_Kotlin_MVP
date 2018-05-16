@@ -1,6 +1,6 @@
 @file:Suppress("unused", "VARIABLE_WITH_REDUNDANT_INITIALIZER")
 
-package com.gomejr.myf.core.kotlin
+package com.example.llcgs.android_kotlin.utils.log
 
 import android.text.TextUtils
 import android.util.Log
@@ -8,9 +8,9 @@ import com.example.llcgs.android_kotlin.utils.BaseUtil
 
 
 /**
- * 作者：Alex
- * 时间：2017/5/31 9:38
- * 简述：
+ * com.example.llcgs.android_kotlin.utils.log.LogKotlin
+ * @author liulongchao
+ * @since 2018/5/11
  */
 fun Any.logV() {
     printLog(false, 1, "", *arrayOf(this.toString()))
@@ -116,7 +116,7 @@ private fun printLog(isPrintTrack: Boolean, type: Int, tagStr: String, vararg ob
         val countOfSub = msg.length / maxLength
         var index = 0
         if (countOfSub > 0) {
-            for (i in 0..countOfSub - 1) {
+            for (i in 0 until countOfSub) {
                 val sub = msg.substring(index, index + maxLength)
                 printSub(type, tag, sub)
                 index += maxLength.toInt()

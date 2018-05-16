@@ -3,7 +3,6 @@ package com.example.llcgs.android_kotlin.mvvm.observablecollections
 import android.databinding.DataBindingUtil
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableArrayMap
-import android.databinding.ObservableMap
 import android.os.Bundle
 import com.android.databinding.library.baseAdapters.BR
 import com.example.llcgs.android_kotlin.R
@@ -11,9 +10,7 @@ import com.example.llcgs.android_kotlin.databinding.ActivityObservableCollection
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.observablecollections.view.ObservableCollectionsView
 import com.example.llcgs.android_kotlin.mvvm.observablecollections.viewmodel.ObservableCollectionsViewModel
-import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.view_title.*
-import java.util.*
 import kotlin.collections.ArrayList
 
 /**

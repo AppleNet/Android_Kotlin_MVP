@@ -8,7 +8,7 @@ import android.net.wifi.p2p.WifiP2pManager
 import android.util.Log
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.net.wifi.WiFiActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.net.wifi.receiver.WiFiBroadcastReceiver

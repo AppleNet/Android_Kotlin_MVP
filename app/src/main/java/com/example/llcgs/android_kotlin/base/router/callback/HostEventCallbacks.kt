@@ -1,7 +1,7 @@
 package com.example.llcgs.android_kotlin.base.router.callback
 
 import android.content.Context
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.qihoo360.replugin.RePluginEventCallbacks
 
 /**

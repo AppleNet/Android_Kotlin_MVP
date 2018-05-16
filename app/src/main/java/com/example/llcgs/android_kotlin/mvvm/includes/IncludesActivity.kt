@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.includes.model.Footer
 import com.example.llcgs.android_kotlin.mvvm.includes.model.Header
 import com.example.llcgs.android_kotlin.mvvm.includes.viewmodel.IncludesViewModel
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.view_title.*
 
 /**

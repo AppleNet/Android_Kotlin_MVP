@@ -1,10 +1,8 @@
 package com.example.llcgs.android_kotlin.net.webservice.model
 
 import com.example.llcgs.android_kotlin.base.rx.RxBus
-import com.example.llcgs.android_kotlin.base.rx.RxUtils
 import com.example.llcgs.android_kotlin.net.base.BaseNetWorkModel
-import com.gomejr.myf.core.kotlin.logD
-import com.google.android.gms.internal.ht
+import com.example.llcgs.android_kotlin.utils.log.logD
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

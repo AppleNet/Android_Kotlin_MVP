@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import com.example.llcgs.android_kotlin.material.douya.webview.MaterialWebViewActivity
-import com.gomejr.myf.core.kotlin.logD
 
 /**
  * com.example.llcgs.android_kotlin.material.login.customtabs.WebViewFallback

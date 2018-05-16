@@ -14,7 +14,7 @@ import com.example.llcgs.android_kotlin.replugin.plugin.adapter.PluginAdapter
 import com.example.llcgs.android_kotlin.replugin.plugin.interceptor.PluginInterceptor
 import com.example.llcgs.android_kotlin.replugin.plugin.presenter.impl.PluginPresenter
 import com.example.llcgs.android_kotlin.replugin.plugin.view.PluginView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule
 import com.lzh.nonview.router.exception.NotFoundException

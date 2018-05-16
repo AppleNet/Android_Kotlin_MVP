@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.classandobject.genericity.presenter.impl.TwelvePresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.genericity.view.TwelveView
 import com.example.llcgs.android_kotlin.kotlin.classandobject.nestclass.ThirteenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twelve.*
 

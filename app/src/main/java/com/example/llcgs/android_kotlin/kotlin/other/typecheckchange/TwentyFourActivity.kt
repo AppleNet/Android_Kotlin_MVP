@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.thisexperssion.TwentyFiveAc
 import com.example.llcgs.android_kotlin.kotlin.other.typecheckchange.bean.Person
 import com.example.llcgs.android_kotlin.kotlin.other.typecheckchange.presenter.impl.TwentyFourPresenter
 import com.example.llcgs.android_kotlin.kotlin.other.typecheckchange.view.TwentyFourView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_four.*
 

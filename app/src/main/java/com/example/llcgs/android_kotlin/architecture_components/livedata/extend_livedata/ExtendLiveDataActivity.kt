@@ -6,11 +6,10 @@ import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.architecture_components.base.BaseOwnerActivity
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.ld.SecondsLiveData
-import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.ld.SingletonSecondsLiveData
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.presenter.IExtendLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.presenter.impl.ExtendLiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_livedata.view.ExtendLiveDataView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_extend_livedata.*
 import kotlinx.android.synthetic.main.view_title.*
 import java.util.*

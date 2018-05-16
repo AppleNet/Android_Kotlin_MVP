@@ -17,7 +17,7 @@ import com.example.llcgs.android_kotlin.material.mediaplayer.fragment.PlaybackCo
 import com.example.llcgs.android_kotlin.material.mediaplayer.service.MusicService
 import com.example.llcgs.android_kotlin.utils.media.LogHelper
 import com.example.llcgs.android_kotlin.utils.media.ResourceHelper
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.material.mediaplayer.base.BaseMediaActivity

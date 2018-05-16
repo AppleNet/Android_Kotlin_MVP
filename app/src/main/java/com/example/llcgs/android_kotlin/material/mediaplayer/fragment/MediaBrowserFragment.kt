@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.support.v4.media.MediaBrowserCompat
 import android.support.v4.media.MediaMetadataCompat
 import android.support.v4.media.session.MediaControllerCompat
@@ -16,17 +15,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.mediaplayer.base.MediaBrowserProvider
 import com.example.llcgs.android_kotlin.material.mediaplayer.fragment.adapter.BrowseAdapter
-import com.example.llcgs.android_kotlin.utils.itemdecoration.CustomerDecoration
 import com.example.llcgs.android_kotlin.utils.media.LogHelper
 import com.example.llcgs.android_kotlin.utils.media.MediaIDHelper
 import com.example.llcgs.android_kotlin.utils.media.NetworkHelper
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.fragment_list.*
 
 /**

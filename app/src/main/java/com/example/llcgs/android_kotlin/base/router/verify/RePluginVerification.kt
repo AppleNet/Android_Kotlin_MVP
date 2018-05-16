@@ -2,7 +2,7 @@ package com.example.llcgs.android_kotlin.base.router.verify
 
 import android.content.Context
 import android.os.Binder
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.host.RemoteVerify
 
 /**

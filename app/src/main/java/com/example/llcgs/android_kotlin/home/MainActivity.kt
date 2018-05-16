@@ -20,7 +20,7 @@ import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresenter
 import com.example.llcgs.android_kotlin.home.view.LoginView
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.SecondActivity
 import com.example.llcgs.android_kotlin.utils.itemdecoration.CustomerDecoration
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.Router
 import com.lzh.nonview.router.anno.RouterRule
 import com.qihoo360.replugin.RePlugin

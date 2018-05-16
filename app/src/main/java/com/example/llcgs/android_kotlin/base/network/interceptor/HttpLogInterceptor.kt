@@ -2,9 +2,9 @@ package com.example.llcgs.android_kotlin.base.network.interceptor
 
 import android.text.TextUtils
 import com.example.llcgs.android_kotlin.BuildConfig
-import com.gomejr.myf.core.kotlin.logD
-import com.gomejr.myf.core.kotlin.logI
-import com.gomejr.myf.core.kotlin.wtf
+import com.example.llcgs.android_kotlin.utils.log.logD
+import com.example.llcgs.android_kotlin.utils.log.logI
+import com.example.llcgs.android_kotlin.utils.log.wtf
 import okhttp3.*
 import okio.Buffer
 import java.lang.StringBuilder

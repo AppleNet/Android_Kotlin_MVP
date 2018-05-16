@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.databinding.ActivityPhotoShowBinding
 import com.example.llcgs.android_kotlin.mvvm.base.BaseActivity
 import com.example.llcgs.android_kotlin.mvvm.show.viewmodel.PhotoShowViewModel
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.view_title.*
 import java.util.*
 

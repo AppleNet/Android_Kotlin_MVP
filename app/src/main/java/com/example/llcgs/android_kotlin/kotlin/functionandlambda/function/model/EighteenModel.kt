@@ -1,9 +1,6 @@
 package com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.model
 
-import android.view.View
-import android.widget.Button
 import com.example.llcgs.android_kotlin.base.model.BaseModel
-import com.gomejr.myf.core.kotlin.logD
 
 /**
  * com.example.llcgs.android_kotlin.functionandlambda.function.EighteenModel

@@ -7,8 +7,6 @@ import com.example.llcgs.android_kotlin.algorithms.merge.presenter.IMergeSortPre
 import com.example.llcgs.android_kotlin.algorithms.merge.presenter.impl.MergeSortPresenter
 import com.example.llcgs.android_kotlin.algorithms.merge.view.MergeSortView
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
-import com.gomejr.myf.core.kotlin.logD
-import com.google.gson.GsonBuilder
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

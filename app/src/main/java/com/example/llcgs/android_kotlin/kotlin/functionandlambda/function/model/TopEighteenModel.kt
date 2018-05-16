@@ -5,7 +5,7 @@ import android.widget.Button
 import com.example.llcgs.android_kotlin.base.model.BaseModel
 import com.example.llcgs.android_kotlin.base.presenter.SuperPresenter
 import com.example.llcgs.android_kotlin.base.view.BaseView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.functionandlambda.function.model.TopEighteenModel

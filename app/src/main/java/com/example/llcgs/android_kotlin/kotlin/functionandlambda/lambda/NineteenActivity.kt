@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.inline.TwentyActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.lambda.presenter.impl.NineteenPresenter
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.lambda.view.NineteenView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_nineteen.*
 import java.util.concurrent.TimeUnit

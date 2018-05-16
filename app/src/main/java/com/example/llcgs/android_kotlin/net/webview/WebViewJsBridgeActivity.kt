@@ -12,7 +12,7 @@ import com.example.llcgs.android_kotlin.net.webview.js.JsCallJava
 import com.example.llcgs.android_kotlin.net.webview.presenter.IWebViewJsBridgePresenter
 import com.example.llcgs.android_kotlin.net.webview.presenter.impl.WebViewJsBridgePresenter
 import com.example.llcgs.android_kotlin.net.webview.view.WebViewJsBridgeView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.activity_webview_jsbridge.*
 
 /**

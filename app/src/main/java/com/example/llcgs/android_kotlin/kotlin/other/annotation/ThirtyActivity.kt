@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.support.annotation.VisibleForTesting
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
-import com.example.llcgs.android_kotlin.kotlin.classandobject.classandextends.bean.Inject
 import com.example.llcgs.android_kotlin.kotlin.other.annotation.presenter.impl.ThirtyPresenter
 import com.example.llcgs.android_kotlin.kotlin.other.annotation.view.ThirtyView
 import com.example.llcgs.android_kotlin.kotlin.other.reflect.ThirtyOneActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_thirty.*
 import kotlin.reflect.KClass

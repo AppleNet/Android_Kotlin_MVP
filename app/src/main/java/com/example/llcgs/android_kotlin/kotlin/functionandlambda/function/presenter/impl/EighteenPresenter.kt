@@ -4,7 +4,7 @@ import com.example.llcgs.android_kotlin.base.presenter.BasePresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.modifier.presenter.IEightPresenter
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.model.EighteenModel
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.view.EighteenView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.functionandlambda.function.EighteenPresenter

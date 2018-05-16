@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.kotlin.other.airsafety.bean.Person
 import com.example.llcgs.android_kotlin.kotlin.other.airsafety.presenter.impl.TwentyEightPresenter
 import com.example.llcgs.android_kotlin.kotlin.other.airsafety.view.TwentyEightView
 import com.example.llcgs.android_kotlin.kotlin.other.exception.TwentyNineActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_twenty_eight.*
 

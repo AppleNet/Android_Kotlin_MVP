@@ -8,7 +8,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.dataclass.bean.Use
 import com.example.llcgs.android_kotlin.kotlin.classandobject.dataclass.presenter.impl.TenPreseneter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.dataclass.view.TenView
 import com.example.llcgs.android_kotlin.kotlin.classandobject.sealedclass.ElevenActivity
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_ten.*
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.kotlin.variable.presenter.impl.VariablePresenter
 import com.example.llcgs.android_kotlin.kotlin.variable.view.VariableView
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 
 /**
  * com.example.llcgs.android_kotlin.variable.VariableActivity

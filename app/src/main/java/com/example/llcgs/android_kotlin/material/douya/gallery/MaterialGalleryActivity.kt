@@ -10,11 +10,6 @@ import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
-import com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter
-import com.example.llcgs.android_kotlin.material.douya.gallery.presenter.IGalleryPresenter
-import com.example.llcgs.android_kotlin.material.douya.gallery.presenter.impl.GalleryPresenter
-import com.example.llcgs.android_kotlin.material.douya.gallery.view.GalleryView
-import com.gomejr.myf.core.kotlin.logD
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_gallery.*
 import me.zhanghai.android.systemuihelper.SystemUiHelper

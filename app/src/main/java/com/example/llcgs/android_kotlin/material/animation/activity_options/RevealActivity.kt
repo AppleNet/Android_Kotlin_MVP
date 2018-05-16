@@ -15,7 +15,6 @@ import com.example.llcgs.android_kotlin.material.animation.activity_options.pres
 import com.example.llcgs.android_kotlin.material.animation.activity_options.presenter.impl.ActivityOptionsPresenter
 import com.example.llcgs.android_kotlin.material.animation.activity_options.view.ActivityOptionsView
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
-import com.gomejr.myf.core.kotlin.logD
 import kotlinx.android.synthetic.main.activity_reveal.*
 
 /**

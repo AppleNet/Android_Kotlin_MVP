@@ -9,7 +9,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.dataclass.TenActiv
 import com.example.llcgs.android_kotlin.kotlin.classandobject.extensions.presenter.impl.NinePresenter
 import com.example.llcgs.android_kotlin.kotlin.classandobject.extensions.view.NineView
 import com.example.llcgs.android_kotlin.kotlin.idiom.kt.lastChar
-import com.gomejr.myf.core.kotlin.logD
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
 import kotlinx.android.synthetic.main.activity_nine.*
 
