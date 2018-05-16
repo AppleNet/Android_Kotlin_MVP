@@ -1,19 +1,17 @@
 package com.example.llcgs.android_kotlin.base.network
 
-import android.annotation.SuppressLint
 import android.content.Context
+import com.example.llcgs.android_kotlin.base.network.interceptor.HttpLogInterceptor
+import com.example.llcgs.android_kotlin.base.network.interceptor.SimpleHttpIgnoredKeyProvider
 import com.example.llcgs.android_kotlin.utils.BaseUtil
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import java.io.IOException
 import java.util.concurrent.TimeUnit
-import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLSession
 
 /**
  * com.example.llcgs.android_kotlin.base.network.RetrofitHelper
@@ -63,9 +61,7 @@ object RetrofitHelper {
             okHttpBuilder.readTimeout(20 * 1000, TimeUnit.MILLISECONDS)
             okHttpBuilder.writeTimeout(20 * 1000, TimeUnit.MILLISECONDS)
             okHttpBuilder.retryOnConnectionFailure(true)
-
-            // TODO addInterceptor
-
+            okHttpBuilder.addInterceptor(HttpLogInterceptor.setIgnoredKeyProvider(SimpleHttpIgnoredKeyProvider()))
             val client = okHttpBuilder.hostnameVerifier { _, _ -> true }
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager).build()
             return Retrofit.Builder().client(client)
@@ -86,8 +82,7 @@ object RetrofitHelper {
             okHttpBuilder.readTimeout(20 * 1000, TimeUnit.MILLISECONDS)
             okHttpBuilder.writeTimeout(20 * 1000, TimeUnit.MILLISECONDS)
             okHttpBuilder.retryOnConnectionFailure(true)
-
-            // TODO addInterceptor
+            okHttpBuilder.addInterceptor(HttpLogInterceptor.setIgnoredKeyProvider(SimpleHttpIgnoredKeyProvider()))
             okHttpBuilder.addInterceptor(Interceptor { chain ->
                 val originalRequest = chain.request()
                 if (originalRequest.body() == null){
