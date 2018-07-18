@@ -3,7 +3,7 @@
 buildscript {
     ext.router_version = '2.4.3'
     ext.router_replugin_version = '0.3'
-    ext.android_plugin_version = '2.3.3'
+    ext.android_plugin_version = '3.1.3' // 对应AndroidStudio 版本号
     ext.replugin_version = '2.2.1'
     ext.databinder_version = '1.0-rc1'
     repositories {
@@ -14,7 +14,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.1.3'
         // 添加kotlin支持
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // 添加qihoo replugin

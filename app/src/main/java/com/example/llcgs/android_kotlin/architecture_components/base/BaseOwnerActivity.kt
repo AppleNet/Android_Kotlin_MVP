@@ -36,6 +36,7 @@ abstract class BaseOwnerActivity<P : BaseArchPresenter> : AppCompatActivity(), B
         mPresenter = createPresenter()
 
         mLifecycleRegistry = LifecycleRegistry(this)
+        mLifecycleRegistry.addObserver(BaseObserverActivity())
         mLifecycleRegistry.markState(Lifecycle.State.CREATED)
 
     }
