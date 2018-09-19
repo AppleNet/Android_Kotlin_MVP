@@ -15,7 +15,9 @@ import com.example.llcgs.android_kotlin.utils.log.logD
  * @author liulongchao
  * @since 2018/5/2
  */
-class WiFiBroadcastReceiver(var manager: WifiP2pManager, var channel: WifiP2pManager.Channel, var activity: WiFiActivity): BroadcastReceiver(), WifiP2pManager.PeerListListener {
+class WiFiBroadcastReceiver(var manager: WifiP2pManager?, var channel: WifiP2pManager.Channel?, var activity: WiFiActivity?): BroadcastReceiver(), WifiP2pManager.PeerListListener {
+
+    constructor() : this(null, null, null)
 
     override fun onReceive(context: Context, intent: Intent) {
         val action = intent.action
@@ -43,7 +45,7 @@ class WiFiBroadcastReceiver(var manager: WifiP2pManager, var channel: WifiP2pMan
             WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION -> {
                 // 当设备的详细信息改变时进行广播，比如设备的名称
                 Log.d("MainActivity", "channel: $channel")
-                manager.requestPeers(channel, this@WiFiBroadcastReceiver)
+                manager?.requestPeers(channel, this@WiFiBroadcastReceiver)
             }
         }
     }

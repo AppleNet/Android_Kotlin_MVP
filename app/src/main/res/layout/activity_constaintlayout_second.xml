@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="水平参照物"
+        android:background="#00f"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <!--
+        以center为参照物，Right_toLeftOf button的右边与参照物的左边对齐
+        Bottom_toTopOf button的底部对参照物的顶部对齐
+    -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Right_toLeftOf"
+        android:background="#0f0"
+        app:layout_constraintBottom_toTopOf="@id/center"
+        app:layout_constraintRight_toLeftOf="@id/center"/>
+
+
+    <!--
+        以center为参照物，Left_toLeftOf
+        Bottom_toTopOf button的底部对参照物的顶部对齐
+    -->
+    <!--<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Left_toLeftOf"
+        android:background="#f00"
+        app:layout_constraintBottom_toTopOf="@id/center"
+        app:layout_constrainttLeft_toLeftOf="@id/center" />-->
+
+    <!--
+        以center为参照物，Right_toRightOf
+        Top_toBottomOf button的顶部对参照物的底部对齐
+    -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#0f0"
+        android:text="Right_toRightOf"
+        app:layout_constraintRight_toRightOf="@id/center"
+        app:layout_constraintTop_toBottomOf="@id/center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Left_toRightOf"
+        android:background="#f00"
+        app:layout_constraintLeft_toRightOf="@id/center"
+        app:layout_constraintTop_toBottomOf="@id/center"/>
+
+</android.support.constraint.ConstraintLayout>
