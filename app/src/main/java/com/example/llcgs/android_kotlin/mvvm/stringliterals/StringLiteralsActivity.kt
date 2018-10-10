@@ -43,15 +43,15 @@ class StringLiteralsActivity:BaseActivity<StringLiteralsViewModel, ActivityStrin
     override fun update(o: Observable?, arg: Any?) {
         if (o is StringLiteralsViewModel){
             when(o.index){
-                "firstName" -> binding.show.text = binding.map["secondName"]
-                "secondName" -> binding.show.text = binding.map["0"]
-                "thirdName" -> binding.show.text = binding.map["1"]
-                "forthName" -> binding.show.text = binding.map["2"]
-                "fifthName" -> binding.show.text = binding.map["3"]
-                "sixthName" -> binding.show.text = binding.map["4"]
-                "seventhName" -> binding.show.text = binding.map["5"]
-                "eighthName" -> binding.show.text = binding.map["6"]
-                else -> binding.show.text = binding.map["secondName"]
+                "firstName" -> binding.show.text = binding.map?.get("secondName") ?:""
+                "secondName" -> binding.show.text = binding.map?.get("0") ?:""
+                "thirdName" -> binding.show.text = binding.map?.get("1") ?:""
+                "forthName" -> binding.show.text = binding.map?.get("2") ?:""
+                "fifthName" -> binding.show.text = binding.map?.get("3") ?:""
+                "sixthName" -> binding.show.text = binding.map?.get("4") ?:""
+                "seventhName" -> binding.show.text = binding.map?.get("5") ?:""
+                "eighthName" -> binding.show.text = binding.map?.get("6") ?:""
+                else -> binding.show.text = binding.map?.get("secondName") ?:""
             }
         }
     }

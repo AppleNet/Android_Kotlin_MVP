@@ -35,7 +35,7 @@ class StudentAdapter: RecyclerView.Adapter<StudentAdapter.StudentAdapterHolder>(
             if (viewItemListBinding.viewmodel == null){
                 viewItemListBinding.viewmodel = ItemListViewModel().apply { this@apply.student = student }
             }else{
-                viewItemListBinding.viewmodel.student = student
+                viewItemListBinding.viewmodel!!.student = student
             }
         }
     }

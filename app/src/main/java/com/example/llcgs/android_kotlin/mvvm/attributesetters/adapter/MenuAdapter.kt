@@ -32,7 +32,9 @@ class MenuAdapter: RecyclerView.Adapter<MenuAdapter.MenuAdapterHolder>(), (MenuA
             if (binding.menuAdapterViewModel== null){
                 binding.menuAdapterViewModel = MenuAdapterViewModel().apply { this@apply.model = model }
             }else{
-                binding.menuAdapterViewModel.model = model
+                binding.menuAdapterViewModel.apply {
+                    this@apply!!.model = model
+                }
             }
         }
     }

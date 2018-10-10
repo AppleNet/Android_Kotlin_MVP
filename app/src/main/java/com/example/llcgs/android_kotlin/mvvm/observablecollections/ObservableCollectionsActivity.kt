@@ -61,6 +61,6 @@ class ObservableCollectionsActivity:BaseActivity<ObservableCollectionsViewModel,
     }
 
     override fun onGetList(list: ArrayList<String>) {
-        binding.arraylist.addAll(list)
+        binding.arraylist?.addAll(list)
     }
 }

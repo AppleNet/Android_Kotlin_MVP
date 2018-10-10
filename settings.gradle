@@ -1,3 +1,2 @@
 include ':vlayout'
 include ':app'
-include ':James'
