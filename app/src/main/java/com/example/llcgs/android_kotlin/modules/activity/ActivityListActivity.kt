@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
+import com.example.llcgs.android_kotlin.modules.activity.saveinstance.OnSaveInstanceActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleInstance.SingleInstanceActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTask.SingleTaskActivity
 import com.example.llcgs.android_kotlin.modules.activity.singleTop.SingleTopActivity
@@ -54,6 +55,9 @@ class ActivityListActivity : AppCompatActivity() {
                     }
                     3 ->{
                         startActivity(Intent(this@ActivityListActivity, SingleInstanceActivity::class.java))
+                    }
+                    4 ->{
+                        startActivity(Intent(this@ActivityListActivity, OnSaveInstanceActivity::class.java))
                     }
                 }
             }
