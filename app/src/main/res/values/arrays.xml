@@ -126,6 +126,7 @@
         <item>Algorithms</item>
         <item>NetWork</item>
         <item>ConstraintLayout</item>
+        <item>Animator</item>
     </string-array>
 
     <string-array name="arch_menu">
