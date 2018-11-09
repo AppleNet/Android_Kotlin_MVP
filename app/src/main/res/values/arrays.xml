@@ -225,6 +225,7 @@
         <item>singleTop</item>
         <item>singleTask</item>
         <item>singleInstance</item>
+        <item>onSaveInstance</item>
     </string-array>
 
     <string-array name="algorithms_list">
