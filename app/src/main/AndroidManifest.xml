@@ -357,6 +357,7 @@
         <activity android:name=".net.xmpp.XmppListActivity" />
         <activity android:name=".net.xmpp.XmppAddActivity" />
         <activity android:name=".net.webview.WebViewJsBridgeActivity" />
+        <activity android:name=".constraintlayout.ConstraintLayoutActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

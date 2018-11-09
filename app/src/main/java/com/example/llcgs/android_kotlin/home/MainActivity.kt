@@ -126,6 +126,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "NetWork" ->{
                 Router.create("host://NetWork").activityRoute.open(this)
             }
+            "ConstraintLayout" ->{
+                Router.create("host://ConstraintLayout").activityRoute.open(this)
+            }
         }
     }
 
