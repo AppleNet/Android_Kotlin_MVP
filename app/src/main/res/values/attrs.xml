@@ -49,4 +49,8 @@
         <attr name="drawableTint" format="color" />
         <attr name="drawableTintMode" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="MyRadioButton">
+        <attr name="value" format="string"/>
+    </declare-styleable>
 </resources>

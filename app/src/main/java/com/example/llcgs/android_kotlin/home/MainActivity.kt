@@ -132,6 +132,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "Animator" ->{
                 Router.create("host://Animator").activityRoute.open(this)
             }
+            "CustomView" ->{
+                Router.create("host://CustomView").activityRoute.open(this)
+            }
         }
     }
 
