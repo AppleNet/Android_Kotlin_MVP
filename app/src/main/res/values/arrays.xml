@@ -127,6 +127,7 @@
         <item>NetWork</item>
         <item>ConstraintLayout</item>
         <item>Animator</item>
+        <item>CustomView</item>
     </string-array>
 
     <string-array name="arch_menu">

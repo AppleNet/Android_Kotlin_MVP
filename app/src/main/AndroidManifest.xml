@@ -376,6 +376,7 @@
         <activity android:name=".net.webview.WebViewJsBridgeActivity" />
         <activity android:name=".constraintlayout.ConstraintLayoutActivity" />
         <activity android:name=".animator.AnimatorActivity" />
+        <activity android:name=".customview.CustomViewActivity" />
 
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
