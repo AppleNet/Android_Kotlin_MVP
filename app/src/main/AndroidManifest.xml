@@ -60,6 +60,19 @@
             </intent-filter>
         </activity>
 
+        <!-- Scheme -->
+        <activity
+            android:name="com.example.llcgs.android_kotlin.modules.activity.scheme.SchemeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <data android:scheme="llc"/>
+                <!-- 下面这几行也必须得设置 -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
         <!-- Kotlin -->
         <activity android:name=".kotlin.basicsyntax.SecondActivity" />
         <activity android:name=".kotlin.idiom.ThirdActivity" />
@@ -327,6 +340,10 @@
         <activity
             android:name=".modules.activity.singleInstance.SingleInstance2Activity" />
 
+        <!-- OnSaveInstance -->
+        <activity android:name=".modules.activity.saveinstance.OnSaveInstanceActivity" />
+
+
         <activity android:name=".modules.service.ServiceListActivity" />
         <activity android:name=".modules.service.start.StartServiceActivity" />
         <activity android:name=".modules.service.start.Start1ServiceActivity" />
@@ -359,7 +376,7 @@
         <activity android:name=".net.webview.WebViewJsBridgeActivity" />
         <activity android:name=".constraintlayout.ConstraintLayoutActivity" />
         <activity android:name=".animator.AnimatorActivity" />
-        <activity android:name=".modules.activity.saveinstance.OnSaveInstanceActivity" />
+
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.modules.activity
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -59,6 +60,11 @@ class ActivityListActivity : AppCompatActivity() {
                     4 ->{
                         startActivity(Intent(this@ActivityListActivity, OnSaveInstanceActivity::class.java))
                     }
+                    5 ->{
+                        // scheme 跳转 app内部跳转 H5跳转等等
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("llc://liulongchao/123123123")))
+                    }
+
                 }
             }
         })

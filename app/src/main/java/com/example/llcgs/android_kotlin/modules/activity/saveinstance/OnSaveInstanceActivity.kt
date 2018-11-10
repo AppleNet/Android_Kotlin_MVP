@@ -2,7 +2,6 @@ package com.example.llcgs.android_kotlin.modules.activity.saveinstance
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.home.MainActivity
