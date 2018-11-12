@@ -14,7 +14,23 @@ android {
         versionName rootProject.ext.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        /**
+         * you can use multiDex and install it in your ApplicationLifeCycle implement
+         */
         multiDexEnabled true
+
+        /**
+         * buildConfig can change during patch!
+         * we can use the newly value when patch
+         */
+        buildConfigField "String", "MESSAGE", "\"I am the base apk\""
+        // buildConfigField "String", "MESSAGE", "\"I am the patch apk\""
+        /**
+         * client version would update with patch
+         * so we can get the newly git version easily!
+         */
+        buildConfigField "String", "TINKER_ID", "\"${getTinkerIdValue()}\""
+        buildConfigField "String", "PLATFORM", "\"all\""
     }
 
     buildTypes {
@@ -54,3 +70,8 @@ android {
 }
 
 apply from: '../build_app.gradle'
+// ========================================= Tinker ========================================= //
+apply from: "../tinker.gradle"
+def getTinkerIdValue() {
+    return hasProperty("TINKER_ID") ? TINKER_ID : rootProject.ext.tinker_id
+}
