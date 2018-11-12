@@ -377,6 +377,7 @@
         <activity android:name=".constraintlayout.ConstraintLayoutActivity" />
         <activity android:name=".animator.AnimatorActivity" />
         <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".tinker.TinkerActivity" />
 
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />

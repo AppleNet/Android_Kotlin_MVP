@@ -13,4 +13,20 @@
         android:textSize="@dimen/textsize_18"
         llc:value="@string/cast_tracks_chooser_dialog_audio"/>
 
+    <com.example.llcgs.android_kotlin.customview.selfview.MyView
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        Text="@string/login_tip"
+        android:background="@color/red"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyAttrView
+        android:id="@+id/myAttrView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        llc:Text="@string/login_tip"
+        llc:Oriental="Vertical"
+        android:background="@color/douya_primary"/>
+
 </LinearLayout>

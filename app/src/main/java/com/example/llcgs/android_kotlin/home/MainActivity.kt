@@ -135,6 +135,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             "CustomView" ->{
                 Router.create("host://CustomView").activityRoute.open(this)
             }
+            "Tinker" ->{
+                Router.create("host://Tinker").activityRoute.open(this)
+            }
         }
     }
 

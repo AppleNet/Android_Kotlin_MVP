@@ -53,4 +53,12 @@
     <declare-styleable name="MyRadioButton">
         <attr name="value" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="MyAttrView">
+        <attr name="Text" format="reference|string"/>
+        <attr name="Oriental">
+            <enum name="Horizontal" value="1"/>
+            <enum name="Vertical" value="0"/>
+        </attr>
+    </declare-styleable>
 </resources>

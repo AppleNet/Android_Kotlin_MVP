@@ -147,6 +147,10 @@ dependencies {
     /* exoplayer */
     implementation libs.exoplayer
 
+    /* Tinker */
+    implementation("com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}") { changing = true }
+    annotationProcessor("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    compileOnly("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
 }
 
 configurations {
