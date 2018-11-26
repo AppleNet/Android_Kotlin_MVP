@@ -18,7 +18,7 @@ public class MyRadioButton extends AppCompatRadioButton implements CompoundButto
 
     /**
      *  简易版自定义View
-     *   继承已有控件 实现自定义View
+     *      继承已有控件 实现自定义View
      * */
     private String value;
 
