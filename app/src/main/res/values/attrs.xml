@@ -61,4 +61,13 @@
             <enum name="Vertical" value="0"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="MyCustomView">
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyCompositionView">
+
+    </declare-styleable>
 </resources>

@@ -20,6 +20,11 @@ import com.example.llcgs.android_kotlin.R;
  */
 public class MyAttrView extends LinearLayout {
 
+    /**
+     *  简易版自定义View
+     *      继承布局控件，添加系统控件，使用attrs.xml文件设置属性
+     * */
+
     private Context context;
     private AttributeSet attrs;
     private String text;

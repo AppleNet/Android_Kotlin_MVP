@@ -16,6 +16,11 @@ import android.widget.TextView;
  */
 public class MyView extends LinearLayout {
 
+    /**
+     *  简易版自定义View
+     *      继承布局控件，添加系统控件，不适用attrs.xml文件设置属性
+     * */
+
     private Context context;
     private AttributeSet attrs;
     private String text;

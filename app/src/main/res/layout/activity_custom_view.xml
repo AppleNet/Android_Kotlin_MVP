@@ -29,4 +29,18 @@
         llc:Oriental="Vertical"
         android:background="@color/douya_primary"/>
 
+    <com.example.llcgs.android_kotlin.customview.selfview.MyCustomView
+        android:id="@+id/myCustomView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/dp_10"
+        llc:textSize="@dimen/textsize_20"
+        llc:textColor="@color/basic_text"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyCompositionView
+        android:id="@+id/myCompositionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10dp"/>
+
 </LinearLayout>
