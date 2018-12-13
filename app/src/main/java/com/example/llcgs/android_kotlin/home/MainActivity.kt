@@ -146,6 +146,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 // @Link TinkerActivity
                 Router.create("host://Tinker").activityRoute.open(this)
             }
+            "ViewDispatcher" ->{
+                // @Link ViewDispatcherActivity
+                Router.create("host://ViewDispatcher").activityRoute.open(this)
+            }
         }
     }
 

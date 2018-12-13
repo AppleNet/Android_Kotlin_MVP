@@ -129,6 +129,7 @@
         <item>Animator</item>
         <item>CustomView</item>
         <item>Tinker</item>
+        <item>ViewDispatcher</item>
     </string-array>
 
     <string-array name="arch_menu">
