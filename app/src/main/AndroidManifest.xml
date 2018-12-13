@@ -378,6 +378,7 @@
         <activity android:name=".animator.AnimatorActivity" />
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".tinker.TinkerActivity" />
+        <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
 
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
