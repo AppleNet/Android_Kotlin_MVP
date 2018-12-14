@@ -45,7 +45,7 @@ public class MyButton extends Button {
             default:
                 break;
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 
     @Override
