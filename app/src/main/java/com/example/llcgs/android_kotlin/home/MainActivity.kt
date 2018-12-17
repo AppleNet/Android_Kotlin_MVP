@@ -150,6 +150,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 // @Link ViewDispatcherActivity
                 Router.create("host://ViewDispatcher").activityRoute.open(this)
             }
+            "Window" ->{
+                // WindowActivity
+                Router.create("host://Window").activityRoute.open(this)
+            }
         }
     }
 

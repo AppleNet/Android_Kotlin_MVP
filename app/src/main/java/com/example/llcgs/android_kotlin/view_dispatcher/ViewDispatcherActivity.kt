@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_view_dispatcher.*
  * @since 2018/12/12
  */
 @RouterRule("ViewDispatcher")
-class ViewDispatcherActivity :BaseActivity<ViewDispatcherView, ViewDispatcherPresenter>(){
+class ViewDispatcherActivity :BaseActivity<ViewDispatcherView, ViewDispatcherPresenter>(), ViewDispatcherView{
 
-    override fun createPresenter()= ViewDispatcherPresenter()
+    override fun createPresenter()= ViewDispatcherPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +65,10 @@ class ViewDispatcherActivity :BaseActivity<ViewDispatcherView, ViewDispatcherPre
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    override fun onViewDispatcher() {
+        //
     }
 
 }

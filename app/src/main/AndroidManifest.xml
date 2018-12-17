@@ -20,7 +20,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
 
     <uses-feature
         android:name="android.software.leanback"
@@ -379,6 +380,7 @@
         <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".tinker.TinkerActivity" />
         <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
+        <activity android:name=".window.WindowActivity" />
 
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
