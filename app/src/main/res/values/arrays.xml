@@ -130,6 +130,7 @@
         <item>CustomView</item>
         <item>Tinker</item>
         <item>ViewDispatcher</item>
+        <item>Window</item>
     </string-array>
 
     <string-array name="arch_menu">
