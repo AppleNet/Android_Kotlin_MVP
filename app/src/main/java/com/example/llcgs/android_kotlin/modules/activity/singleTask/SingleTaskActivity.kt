@@ -32,7 +32,14 @@ class SingleTaskActivity : BaseActivity<SingleTaskView, SingleTaskPresenter>(){
         button32.setOnClickListener {
             startActivity(Intent(this, SingleTask2Activity::class.java))
         }
-
+        button33.setOnClickListener {
+            // 操作流程：
+            // 单击按钮启动 SingleTaskAffinityActivity，在 SingleTaskAffinityActivity 中启动 SingleTaskAffinity1Activity
+            // 在 SingleTaskAffinity1Activity 中启动 SingleTaskActivity
+            // 在 SingleTaskActivity 中启动 SingleTaskAffinityActivity
+            // 按 两次 back 键， 观察结果。
+            startActivity(Intent(this, SingleTaskAffinityActivity::class.java))
+        }
     }
 
     override fun onStart() {

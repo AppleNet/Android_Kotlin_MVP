@@ -325,12 +325,20 @@
 
         <!-- SingleTask-->
         <activity
-            android:name=".modules.activity.singleTask.SingleTaskActivity" />
+            android:name=".modules.activity.singleTask.SingleTaskActivity"
+            android:launchMode="standard"/>
         <activity
             android:name=".modules.activity.singleTask.SingleTask1Activity"
             android:launchMode="singleTask"/>
         <activity
             android:name=".modules.activity.singleTask.SingleTask2Activity" />
+        <activity
+            android:name=".modules.activity.singleTask.SingleTaskAffinityActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.llc.task"/>
+        <activity android:name=".modules.activity.singleTask.SingleTaskAffinity1Activity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.llc.task"/>
 
         <!-- SingleInstance-->
         <activity
@@ -381,7 +389,6 @@
         <activity android:name=".tinker.TinkerActivity" />
         <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
         <activity android:name=".window.WindowActivity" />
-
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 
