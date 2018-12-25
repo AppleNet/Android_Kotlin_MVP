@@ -389,6 +389,7 @@
         <activity android:name=".tinker.TinkerActivity" />
         <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
         <activity android:name=".window.WindowActivity" />
+        <activity android:name=".modules.activity.intentfilter.IntentFilterActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

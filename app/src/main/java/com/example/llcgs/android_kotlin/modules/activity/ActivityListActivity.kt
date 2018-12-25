@@ -64,7 +64,9 @@ class ActivityListActivity : AppCompatActivity() {
                         // scheme 跳转 app内部跳转 H5跳转等等
                         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("llc://liulongchao/123123123")))
                     }
+                    6 ->{
 
+                    }
                 }
             }
         })
