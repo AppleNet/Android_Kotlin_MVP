@@ -18,6 +18,31 @@ import kotlinx.android.synthetic.main.activity_viewpager.*
  */
 class ViewPagerActivity : BaseActivity<ViewPagerView, ViewPagerPresenter>(){
 
+    /**
+     *
+     *  private List<View> mViews = new ArrayList<View>();
+        private ActivityAdapter adapter = new ActivityAdapter(mViews);
+        private LocalActivityManager manager;
+        private Intent intentMain,intentCircle,intentMy;
+
+        manager = new LocalActivityManager(this, true);
+        manager.dispatchCreate(savedInstanceState);
+
+        intentMain = new Intent(StartActivity.this, MainActivity.class);
+        View tab01 = manager.startActivity("viewID", intentMain).getDecorView();
+        intentCircle = new Intent(StartActivity.this, CircleActivity.class);
+        View tab02 = manager.startActivity("viewID", intentCircle).getDecorView();
+        intentMy = new Intent(StartActivity.this, MyActivity.class);
+        View tab03 = manager.startActivity("viewID", intentMy).getDecorView();
+
+        mViews.add(tab01);//将页面添加到View集合
+        mViews.add(tab02);
+        mViews.add(tab03);
+        id_ViewPager.setAdapter(adapter);// 配置适配器
+     *
+     *
+     *
+     * */
 
     override fun createPresenter()= ViewPagerPresenter ()
 
