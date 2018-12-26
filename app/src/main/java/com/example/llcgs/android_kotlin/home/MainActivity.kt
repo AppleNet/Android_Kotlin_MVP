@@ -154,6 +154,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 // WindowActivity
                 Router.create("host://Window").activityRoute.open(this)
             }
+            "ViewPager_Activity_TabLayout" ->{
+                Router.create("host://ViewPager_Activity_TabLayout").activityRoute.open(this)
+            }
         }
     }
 

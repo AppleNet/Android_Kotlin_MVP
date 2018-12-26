@@ -390,6 +390,8 @@
         <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
         <activity android:name=".window.WindowActivity" />
         <activity android:name=".modules.activity.intentfilter.IntentFilterActivity" />
+        <activity android:name=".ui.UIListActivity" />
+        <activity android:name=".ui.viewpager.ViewPagerActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 
