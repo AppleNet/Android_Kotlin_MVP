@@ -22,4 +22,8 @@ class GitTest {
         "test".logD()
     }
 
+    fun testAnother(){
+        "testAnother".logD()
+    }
+
 }
