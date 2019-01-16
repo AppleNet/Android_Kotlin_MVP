@@ -10,6 +10,10 @@ import com.example.llcgs.android_kotlin.utils.log.logD
 class GitTest {
 
 
+    fun another(){
+        "another".logD()
+    }
+
     fun myself(){
         "myself".logD()
     }
