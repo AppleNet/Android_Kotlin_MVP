@@ -211,3 +211,230 @@ Service
     2、bindService开启服务以后，与activity存在关联，退出activity时必须调用unbindService方法，否则会报ServiceConnection泄漏的错误。
     最后还有一点，同一个服务可以用两种方式一同开启，没有先后顺序的要求，MyService的onCreate只会执行一次。
     关闭服务需要stopService和unbindService都被调用，也没有先后顺序的影响，MyService的onDestroy也只执行一次。但是如果只用一种方式关闭服务，不论是哪种关闭方式，onDestroy都不会被执行，服务也不会被关闭。这一点需要注意
+
+
+Retrofit 动态代理 核心模式
+    fun getService(url: String = BASE_URL): ApiService =
+            getRetrofitBuilderCommon().baseUrl(url).build().create<ApiService>(ApiService::class.java)
+
+    执行create方法的时候，进入Retrofit的create方法中：
+    public <T> T create(final Class<T> service) {
+        // TODO 核心代码1
+        return (T) Proxy.newProxyInstance(service.getClassLoader(), new Class<?>[] { service },
+            new InvocationHandler() {
+              private final Platform platform = Platform.get();
+
+              @Override
+              public Object invoke(Object proxy, Method method, @Nullable Object[] args) throws Throwable {
+                if (method.getDeclaringClass() == Object.class) {
+                  return method.invoke(this, args);
+                }
+                if (platform.isDefaultMethod(method)) {
+                  return platform.invokeDefaultMethod(method, service, proxy, args);
+                }
+                // TODO 核心代码2
+                ServiceMethod<Object, Object> serviceMethod = (ServiceMethod<Object, Object>) loadServiceMethod(method);
+                // TODO 核心代码3
+                OkHttpCall<Object> okHttpCall = new OkHttpCall<>(serviceMethod, args);
+                // TODO 核心代码4
+                return serviceMethod.callAdapter.adapt(okHttpCall);
+              }
+            });
+    }
+    // TODO 核心代码1
+    newProxyInstance方法，通过ApiService的 ApiService.getClassLoader()方法拿到ApiService的classloader，然后解析这个ApiService类，拿到构造方法，生成ApiService对象。并将这个对象中的要调用的那个方法和参数通过invoke方法
+    回传回来。
+    // TODO 核心代码2
+    构建ServiceMethod对象，通过获取到的method，通过调用ServiceMethod的build方法
+
+    public ServiceMethod build() {
+          // TODO ServiceMethod的build方法核心代码1
+          callAdapter = createCallAdapter();
+          responseType = callAdapter.responseType();
+          if (responseType == Response.class || responseType == okhttp3.Response.class) {
+            throw methodError("'"
+                + Utils.getRawType(responseType).getName()
+                + "' is not a valid response body type. Did you mean ResponseBody?");
+          }
+          // TODO ServiceMethod的build方法核心代码2
+          responseConverter = createResponseConverter();
+
+          for (Annotation annotation : methodAnnotations) {
+            parseMethodAnnotation(annotation);
+          }
+
+          if (httpMethod == null) {
+            throw methodError("HTTP method annotation is required (e.g., @GET, @POST, etc.).");
+          }
+
+          if (!hasBody) {
+            if (isMultipart) {
+              throw methodError(
+                  "Multipart can only be specified on HTTP methods with request body (e.g., @POST).");
+            }
+            if (isFormEncoded) {
+              throw methodError("FormUrlEncoded can only be specified on HTTP methods with "
+                  + "request body (e.g., @POST).");
+            }
+          }
+
+          int parameterCount = parameterAnnotationsArray.length;
+          parameterHandlers = new ParameterHandler<?>[parameterCount];
+          for (int p = 0; p < parameterCount; p++) {
+            Type parameterType = parameterTypes[p];
+            if (Utils.hasUnresolvableType(parameterType)) {
+              throw parameterError(p, "Parameter type must not include a type variable or wildcard: %s",
+                  parameterType);
+            }
+
+            Annotation[] parameterAnnotations = parameterAnnotationsArray[p];
+            if (parameterAnnotations == null) {
+              throw parameterError(p, "No Retrofit annotation found.");
+            }
+
+            parameterHandlers[p] = parseParameter(p, parameterType, parameterAnnotations);
+          }
+
+          if (relativeUrl == null && !gotUrl) {
+            throw methodError("Missing either @%s URL or @Url parameter.", httpMethod);
+          }
+          if (!isFormEncoded && !isMultipart && !hasBody && gotBody) {
+            throw methodError("Non-body HTTP method cannot contain @Body.");
+          }
+          if (isFormEncoded && !gotField) {
+            throw methodError("Form-encoded method must contain at least one @Field.");
+          }
+          if (isMultipart && !gotPart) {
+            throw methodError("Multipart method must contain at least one @Part.");
+          }
+
+          return new ServiceMethod<>(this);
+     }
+
+     // TODO ServiceMethod的build方法核心代码1
+     createCallAdapter() 本例子创建的是RxJava2CallAdapter对象。也就是说serviceMethod对象中持有RxJava2CallAdapter对象
+
+     // TODO 核心代码3
+     创建OkHttpCall对象，通过serviceMethod来创建，主要是用来生成OKHttp的call
+
+     // TODO 核心代码4
+     当执行adapt方法的时候，实际执行的是RxJava2CallAdapter对象中的adapt方法
+     public Object adapt(Call<R> call) {
+         Observable<Response<R>> responseObservable = isAsync
+             ? new CallEnqueueObservable<>(call)
+             // TODO adapt方法中的核心代码1
+             : new CallExecuteObservable<>(call);
+
+         Observable<?> observable;
+         if (isResult) {
+           observable = new ResultObservable<>(responseObservable);
+         } else if (isBody) {
+           observable = new BodyObservable<>(responseObservable);
+         } else {
+           observable = responseObservable;
+         }
+
+         if (scheduler != null) {
+           observable = observable.subscribeOn(scheduler);
+         }
+
+         if (isFlowable) {
+           return observable.toFlowable(BackpressureStrategy.LATEST);
+         }
+         if (isSingle) {
+           return observable.singleOrError();
+         }
+         if (isMaybe) {
+           return observable.singleElement();
+         }
+         if (isCompletable) {
+           return observable.ignoreElements();
+         }
+         return observable;
+     }
+
+     // TODO adapt方法中的核心代码1
+     进入到 CallExecuteObservable 中
+     protected void subscribeActual(Observer<? super Response<T>> observer) {
+         // Since Call is a one-shot type, clone it for each new observer.
+         Call<T> call = originalCall.clone();
+         CallCallback<T> callback = new CallCallback<>(call, observer);
+         observer.onSubscribe(callback);
+         call.enqueue(callback);
+     }
+
+     当我们执行subscribe方法，订阅的时候，就会执行subscribeActual这个方法，然后调用OkHttpCall中的enqueue方法
+
+     进入到OkHttpCall中的enqueue方法
+
+     public void enqueue(final Callback<T> callback) {
+         checkNotNull(callback, "callback == null");
+
+         // TODO 核心代码
+         okhttp3.Call call;
+         Throwable failure;
+
+         synchronized (this) {
+           if (executed) throw new IllegalStateException("Already executed.");
+           executed = true;
+
+           call = rawCall;
+           failure = creationFailure;
+           if (call == null && failure == null) {
+             try {
+               call = rawCall = createRawCall();
+             } catch (Throwable t) {
+               failure = creationFailure = t;
+             }
+           }
+         }
+
+         if (failure != null) {
+           callback.onFailure(this, failure);
+           return;
+         }
+
+         if (canceled) {
+           call.cancel();
+         }
+
+         call.enqueue(new okhttp3.Callback() {
+           @Override public void onResponse(okhttp3.Call call, okhttp3.Response rawResponse)
+               throws IOException {
+             Response<T> response;
+             try {
+               response = parseResponse(rawResponse);
+             } catch (Throwable e) {
+               callFailure(e);
+               return;
+             }
+             callSuccess(response);
+           }
+
+           @Override public void onFailure(okhttp3.Call call, IOException e) {
+             try {
+               callback.onFailure(OkHttpCall.this, e);
+             } catch (Throwable t) {
+               t.printStackTrace();
+             }
+           }
+
+           private void callFailure(Throwable e) {
+             try {
+               callback.onFailure(OkHttpCall.this, e);
+             } catch (Throwable t) {
+               t.printStackTrace();
+             }
+           }
+
+           private void callSuccess(Response<T> response) {
+             try {
+               callback.onResponse(OkHttpCall.this, response);
+             } catch (Throwable t) {
+               t.printStackTrace();
+             }
+           }
+         });
+      }
+
+      创建OkHttp的call 并执行enqueue 异步网络请求方法。到此 解析结束

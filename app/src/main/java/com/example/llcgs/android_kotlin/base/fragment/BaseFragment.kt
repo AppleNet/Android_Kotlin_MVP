@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.llcgs.android_kotlin.base.view.BaseView
 import com.example.llcgs.android_kotlin.base.lifecycleevent.FragmentLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.lifecycleevent.LifeCycleEvent
@@ -123,6 +124,14 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
     }
 
     override fun dismissLoadingDialog() {
+    }
+
+    override fun showToast(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun showException(imageRes: Int, message: String) {
+
     }
 
     override fun lifecycle(): Observable<LifeCycleEvent> = lifecycleSubject.hide()
