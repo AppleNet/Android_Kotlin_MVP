@@ -13,4 +13,9 @@ class GitTest {
     fun myself(){
         "myself".logD()
     }
+
+    fun another(){
+        "another".logD()
+    }
+
 }
