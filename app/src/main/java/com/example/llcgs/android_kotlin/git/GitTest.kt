@@ -38,7 +38,7 @@ class GitTest {
         "test222".logD()
     }
 
-    fun test333(){
+    fun test333() {
         "test333".logD()
     }
 
@@ -56,5 +56,9 @@ class GitTest {
 
     fun test777(){
         "test777".logD()
+    }
+
+    fun test444(){
+        "test444".logD()
     }
 }
