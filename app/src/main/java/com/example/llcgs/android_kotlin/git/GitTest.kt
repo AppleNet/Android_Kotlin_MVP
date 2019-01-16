@@ -1,7 +1,5 @@
 package com.example.llcgs.android_kotlin.git;
 
-import com.example.llcgs.android_kotlin.utils.log.logD
-
 /**
  * com.example.llcgs.android_kotlin.git.GitTest
  * @author liulongchao
@@ -10,6 +8,9 @@ import com.example.llcgs.android_kotlin.utils.log.logD
 class GitTest {
 
 
+    fun myself(){
+        "myself".logD()
+    }
     fun another(){
         "another".logD()
     }
