@@ -12,4 +12,8 @@ class GitAddTest {
     fun test(){
         "add".logD()
     }
+
+    fun add(){
+        "test".logD()
+    }
 }
