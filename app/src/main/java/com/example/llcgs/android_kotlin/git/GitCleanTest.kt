@@ -12,4 +12,8 @@ class GitCleanTest {
     fun windowAmend(){
         "windowAmend".logD()
     }
+
+    fun windowAmend1(){
+        "windowAmend1".logD()
+    }
 }
