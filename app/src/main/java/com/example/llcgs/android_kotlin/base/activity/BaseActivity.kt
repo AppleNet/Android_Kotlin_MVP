@@ -72,6 +72,15 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
         super.onDestroy()
     }
 
+    override fun showContentView() {
+    }
+
+    override fun showToast(message: String) {
+    }
+
+    override fun showException(imageRes: Int, message: String) {
+    }
+
     override fun lifecycle(): Observable<LifeCycleEvent> = lifecycleSubject.hide()
 
     override fun <T : Any?> bindUntilEvent(event: LifeCycleEvent): LifecycleTransformer<T> = RxLifecycle.bindUntilEvent(lifecycleSubject, event)

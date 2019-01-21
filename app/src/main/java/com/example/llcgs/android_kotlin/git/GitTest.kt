@@ -58,7 +58,4 @@ class GitTest {
         "test777".logD()
     }
 
-    fun test444(){
-        "test444".logD()
-    }
 }

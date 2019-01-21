@@ -15,14 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:onClick="@{viewmodel.onItemClickListener}"
+        android:onClick="@{viewmodel::onItemClickListener}"
         android:padding="@dimen/custom_list_1">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_people"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:onClick="@{viewmodel.onImageViewClickListener}"
+            android:onClick="@{viewmodel::onImageViewClickListener}"
             bind:imageUrl="@{viewmodel.student.picture.medium}"/>
 
         <TextView

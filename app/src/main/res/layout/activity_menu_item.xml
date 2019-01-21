@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:onClick="@{menuItemViewModel.onItemClickListener}">
+        android:onClick="@{menuItemViewModel::onItemClickListener}">
 
         <TextView
             android:id="@+id/mentu_title"
