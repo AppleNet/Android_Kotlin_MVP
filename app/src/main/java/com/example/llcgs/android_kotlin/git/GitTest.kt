@@ -42,10 +42,13 @@ class GitTest {
         "test333".logD()
     }
 
+<<<<<<< HEAD
     fun test444(){
         "test444".logD()
     }
 
+=======
+>>>>>>> b3101b7805d9728073067039fcd666e56a2e27a2
     fun test555(){
         "test555".logD()
     }
