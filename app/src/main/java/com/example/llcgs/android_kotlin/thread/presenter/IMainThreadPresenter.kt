@@ -13,4 +13,5 @@ interface IMainThreadPresenter: SuperPresenter {
     fun testWait()
     fun testNotify()
     fun testJoin()
+    fun testJoin1()
 }

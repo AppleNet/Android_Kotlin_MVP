@@ -179,4 +179,29 @@ class MainThreadModel : BaseModel {
         threadOne.join()
         threadTwo.join()
     }
+
+    fun testJoin1(){
+        val threadOne = Thread{
+            "threadOne begin run!".logD()
+            while (true) {
+
+            }
+        }
+
+        // 获取主线程
+        val mainThread = Thread.currentThread()
+
+        // 线程two
+        val threadTwo = Thread{
+            Thread.sleep(1000)
+            mainThread.interrupt()
+        }
+
+        // 启动子线程
+        threadOne.start()
+        // 延迟1s启动线程
+        threadTwo.start()
+        // 等待线程one执行结束
+        threadOne.join()
+    }
 }

@@ -29,4 +29,8 @@ class MainThreadPresenter: IMainThreadPresenter, BasePresenter<MainThreadView>()
     override fun testJoin() {
         model.testJoin()
     }
+
+    override fun testJoin1() {
+        model.testJoin1()
+    }
 }
