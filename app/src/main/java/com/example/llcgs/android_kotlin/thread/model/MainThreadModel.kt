@@ -10,6 +10,7 @@ import com.example.llcgs.android_kotlin.utils.log.logD
 import java.util.*
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.FutureTask
+import java.util.concurrent.locks.ReentrantLock
 import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
 /**
@@ -203,5 +204,39 @@ class MainThreadModel : BaseModel {
         threadTwo.start()
         // 等待线程one执行结束
         threadOne.join()
+    }
+
+    private val lock = ReentrantLock()
+    fun testSleep(){
+        val threadA = Thread{
+            // 获取独占锁
+            lock.lock()
+            "child threadA is in sleep".logD()
+            Thread.sleep(10000)
+            "child threadA is in awaked".logD()
+            // 释放锁
+            lock.unlock()
+        }
+
+        val threadB = Thread{
+            lock.lock()
+            "child threadB is in sleep".logD()
+            Thread.sleep(10000)
+            "child threadB is in awaked".logD()
+            lock.unlock()
+        }
+    }
+
+    fun testSleepInterrupt(){
+
+        val threadA = Thread{
+            Thread.sleep(10000)
+        }
+
+        threadA.start()
+
+        Thread.sleep(2000)
+
+        threadA.interrupt()
     }
 }

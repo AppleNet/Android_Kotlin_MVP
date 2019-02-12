@@ -33,4 +33,12 @@ class MainThreadPresenter: IMainThreadPresenter, BasePresenter<MainThreadView>()
     override fun testJoin1() {
         model.testJoin1()
     }
+
+    override fun testSleep() {
+        model.testSleep()
+    }
+
+    override fun testSleepInterrupt() {
+        model.testSleepInterrupt()
+    }
 }

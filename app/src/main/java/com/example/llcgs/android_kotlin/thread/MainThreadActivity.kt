@@ -17,11 +17,12 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_thread)
-        // initThread();
-        // testWait();
-        // testNotify();
-        // testJoin();
-        testJoin1()
+        // initThread()
+        // testWait()
+        // testNotify()
+        // testJoin()
+        // testJoin1()
+        testSleep()
     }
 
     private fun initThread() {
@@ -42,5 +43,13 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
 
     private fun testJoin1() {
         mPresenter.testJoin1()
+    }
+
+    private fun testSleep(){
+        mPresenter.testSleep()
+    }
+
+    private fun testSleepInterrupt(){
+        mPresenter.testSleepInterrupt()
     }
 }

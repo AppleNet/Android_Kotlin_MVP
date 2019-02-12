@@ -14,4 +14,6 @@ interface IMainThreadPresenter: SuperPresenter {
     fun testNotify()
     fun testJoin()
     fun testJoin1()
+    fun testSleep()
+    fun testSleepInterrupt()
 }
