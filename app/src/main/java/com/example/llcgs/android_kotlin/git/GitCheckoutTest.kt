@@ -24,6 +24,10 @@ class GitCheckoutTest {
      *   git reset HEAD app/src/main/java/com/example/llcgs/android_kotlin/git/GitCheckoutTest.kt
      *   git reset命令即可以回退版本，也可以把暂存区的修改回退到工作区。当我们使用HEAD时，表示最新的版本。
      *
+     *   小结：
+     *      1.当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file
+     *      2.当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按照场景1操作。
+     *
      * */
 
     public fun checkoutTest(){
