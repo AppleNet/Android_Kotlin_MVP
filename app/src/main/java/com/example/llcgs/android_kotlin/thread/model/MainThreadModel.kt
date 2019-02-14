@@ -239,4 +239,18 @@ class MainThreadModel : BaseModel {
 
         threadA.interrupt()
     }
+
+    fun testYield(){
+        val thread = Thread{
+            for (i in 0..5){
+                // 当i==0的时候，让出cpu执行权，放弃时间片，进行下一轮调度
+                if ((i % 5) == 0){
+                    "${Thread.currentThread()} yield cpu...".logD()
+                    // 当前线程让出cpu执行权，放弃时间片，进行下一轮调度
+                    Thread.yield()
+                }
+            }
+            "${Thread.currentThread()} is over".logD()
+        }
+    }
 }

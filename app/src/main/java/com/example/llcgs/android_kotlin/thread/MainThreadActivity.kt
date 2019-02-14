@@ -22,7 +22,8 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
         // testNotify()
         // testJoin()
         // testJoin1()
-        testSleep()
+        // testSleep()
+        testYield()
     }
 
     private fun initThread() {
@@ -51,5 +52,9 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
 
     private fun testSleepInterrupt(){
         mPresenter.testSleepInterrupt()
+    }
+
+    private fun testYield(){
+        mPresenter.testYield()
     }
 }
