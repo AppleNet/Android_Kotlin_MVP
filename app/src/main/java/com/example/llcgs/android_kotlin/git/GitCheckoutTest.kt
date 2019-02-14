@@ -20,6 +20,9 @@ class GitCheckoutTest {
      *   2. GitCheckoutTest.kt已经添加到了暂存区后，又做了修改，现在，撤销修改就回到添加暂存区后的状态。
      *   总之，就是让这个文件回到最近一次的git commit 或 git add时的状态
      *
+     *   Git同样告诉我们，用命令git reset HEAD --file可以把暂存区的修改撤销掉(unstage)，重新放回工作区：
+     *   git reset HEAD app/src/main/java/com/example/llcgs/android_kotlin/git/GitCheckoutTest.kt
+     *   git reset命令即可以回退版本，也可以把暂存区的修改回退到工作区。当我们使用HEAD时，表示最新的版本。
      *
      * */
 
@@ -29,5 +32,9 @@ class GitCheckoutTest {
 
     fun checkout(){
         "checkout".logD()
+    }
+
+    fun reset(){
+        "reset".logD()
     }
 }
