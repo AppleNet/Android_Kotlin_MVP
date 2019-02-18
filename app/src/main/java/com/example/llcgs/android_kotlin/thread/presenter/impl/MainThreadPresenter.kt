@@ -10,7 +10,7 @@ import com.example.llcgs.android_kotlin.thread.view.MainThreadView
  * @author liulongchao
  * @since 2019/1/30
  */
-class MainThreadPresenter: IMainThreadPresenter, BasePresenter<MainThreadView>() {
+class MainThreadPresenter : IMainThreadPresenter, BasePresenter<MainThreadView>() {
 
     val model = MainThreadModel()
 
@@ -44,5 +44,13 @@ class MainThreadPresenter: IMainThreadPresenter, BasePresenter<MainThreadView>()
 
     override fun testYield() {
         model.testYield()
+    }
+
+    override fun testInterrupted() {
+        model.testInterrupted()
+    }
+
+    override fun testInterrupted1() {
+        model.testInterrupted1()
     }
 }

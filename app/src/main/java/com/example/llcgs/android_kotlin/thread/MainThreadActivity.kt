@@ -12,7 +12,7 @@ import com.lzh.nonview.router.anno.RouterRule
 class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
 
 
-    override fun createPresenter()= MainThreadPresenter()
+    override fun createPresenter() = MainThreadPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,8 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
         // testJoin()
         // testJoin1()
         // testSleep()
-        testYield()
+        // testYield()
+        testInterrupted()
     }
 
     private fun initThread() {
@@ -46,15 +47,23 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
         mPresenter.testJoin1()
     }
 
-    private fun testSleep(){
+    private fun testSleep() {
         mPresenter.testSleep()
     }
 
-    private fun testSleepInterrupt(){
+    private fun testSleepInterrupt() {
         mPresenter.testSleepInterrupt()
     }
 
-    private fun testYield(){
+    private fun testYield() {
         mPresenter.testYield()
+    }
+
+    private fun testInterrupted() {
+        mPresenter.testInterrupted()
+    }
+
+    private fun testInterrupted1() {
+        mPresenter.testInterrupted1()
     }
 }

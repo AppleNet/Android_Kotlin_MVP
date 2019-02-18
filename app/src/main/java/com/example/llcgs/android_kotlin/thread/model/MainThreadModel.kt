@@ -162,12 +162,12 @@ class MainThreadModel : BaseModel {
     }
 
     fun testJoin() {
-        val threadOne = Thread{
+        val threadOne = Thread {
             Thread.sleep(1000)
             "child threadOne over".logD()
         }
 
-        val threadTwo = Thread{
+        val threadTwo = Thread {
             Thread.sleep(1000)
             "child threadTwo over".logD()
         }
@@ -181,8 +181,8 @@ class MainThreadModel : BaseModel {
         threadTwo.join()
     }
 
-    fun testJoin1(){
-        val threadOne = Thread{
+    fun testJoin1() {
+        val threadOne = Thread {
             "threadOne begin run!".logD()
             while (true) {
 
@@ -193,7 +193,7 @@ class MainThreadModel : BaseModel {
         val mainThread = Thread.currentThread()
 
         // 线程two
-        val threadTwo = Thread{
+        val threadTwo = Thread {
             Thread.sleep(1000)
             mainThread.interrupt()
         }
@@ -207,8 +207,8 @@ class MainThreadModel : BaseModel {
     }
 
     private val lock = ReentrantLock()
-    fun testSleep(){
-        val threadA = Thread{
+    fun testSleep() {
+        val threadA = Thread {
             // 获取独占锁
             lock.lock()
             "child threadA is in sleep".logD()
@@ -218,7 +218,7 @@ class MainThreadModel : BaseModel {
             lock.unlock()
         }
 
-        val threadB = Thread{
+        val threadB = Thread {
             lock.lock()
             "child threadB is in sleep".logD()
             Thread.sleep(10000)
@@ -227,9 +227,9 @@ class MainThreadModel : BaseModel {
         }
     }
 
-    fun testSleepInterrupt(){
+    fun testSleepInterrupt() {
 
-        val threadA = Thread{
+        val threadA = Thread {
             Thread.sleep(10000)
         }
 
@@ -240,11 +240,11 @@ class MainThreadModel : BaseModel {
         threadA.interrupt()
     }
 
-    fun testYield(){
-        val thread = Thread{
-            for (i in 0..5){
+    fun testYield() {
+        val thread = Thread {
+            for (i in 0..5) {
                 // 当i==0的时候，让出cpu执行权，放弃时间片，进行下一轮调度
-                if ((i % 5) == 0){
+                if ((i % 5) == 0) {
                     "${Thread.currentThread()} yield cpu...".logD()
                     // 当前线程让出cpu执行权，放弃时间片，进行下一轮调度
                     Thread.yield()
@@ -252,5 +252,45 @@ class MainThreadModel : BaseModel {
             }
             "${Thread.currentThread()} is over".logD()
         }
+    }
+
+    fun testInterrupted() {
+        val thread = Thread {
+            // 如果当前线程被中断，则退出循环
+            while (!Thread.currentThread().isInterrupted) {
+                "${Thread.currentThread()} + hello".logD()
+            }
+        }
+
+        thread.start()
+        Thread.sleep(1000)
+        // 中断子线程
+        "main thread interrupt thread".logD()
+        thread.interrupt()
+
+        thread.join()
+        "main is over".logD()
+    }
+
+    fun testInterrupted1() {
+        val thread = Thread {
+            "thread begin sleep for 2000 seconds".logD()
+            try {
+                Thread.sleep(2000000)
+            } catch (e: InterruptedException) {
+                "thread is interrupted while sleeping".logD()
+                return@Thread
+            }
+            "thread awaking".logD()
+        }
+
+        thread.start()
+        // 确保子线程进入休眠状态
+        Thread.sleep(1000)
+        // 打断子线程的休眠，让子线程从sleep函数返回
+        thread.interrupt()
+        // 等待子线程执行完毕
+        thread.join()
+        "main thread is over".logD()
     }
 }

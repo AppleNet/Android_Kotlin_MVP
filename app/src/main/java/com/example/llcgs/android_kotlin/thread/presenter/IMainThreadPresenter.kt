@@ -7,7 +7,7 @@ import com.example.llcgs.android_kotlin.base.presenter.SuperPresenter
  * @author liulongchao
  * @since 2019/1/30
  */
-interface IMainThreadPresenter: SuperPresenter {
+interface IMainThreadPresenter : SuperPresenter {
 
     fun initThread()
     fun testWait()
@@ -17,4 +17,6 @@ interface IMainThreadPresenter: SuperPresenter {
     fun testSleep()
     fun testSleepInterrupt()
     fun testYield()
+    fun testInterrupted()
+    fun testInterrupted1()
 }
