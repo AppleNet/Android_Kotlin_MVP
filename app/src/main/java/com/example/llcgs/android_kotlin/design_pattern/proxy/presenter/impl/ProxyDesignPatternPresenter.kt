@@ -1,5 +1,6 @@
 package com.example.llcgs.android_kotlin.design_pattern.proxy.presenter.impl
 
+import com.example.llcgs.android_kotlin.base.rx.MyObserver
 import com.example.llcgs.android_kotlin.design_pattern.proxy.model.ProxyDesignPatternModel
 import com.example.llcgs.android_kotlin.design_pattern.proxy.presenter.IProxyDesignPatternPresenter
 import com.example.llcgs.android_kotlin.design_pattern.proxy.view.ProxyDesignPatternView
@@ -15,8 +16,10 @@ class ProxyDesignPatternPresenter(private val view: ProxyDesignPatternView) : IP
 
     override fun buy(startingPlace: String, destination: String, which: String) {
         model.buy(startingPlace, destination, which)
-                .subscribe {
-                    view.onGetPrice(it)
-                }
+                .subscribe(object : MyObserver<String>() {
+                    override fun onNext(t: String) {
+                        view.onGetPrice(t)
+                    }
+                })
     }
 }

@@ -19,4 +19,5 @@ interface IMainThreadPresenter : SuperPresenter {
     fun testYield()
     fun testInterrupted()
     fun testInterrupted1()
+    fun testInterrupted2()
 }

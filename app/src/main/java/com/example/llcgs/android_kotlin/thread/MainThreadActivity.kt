@@ -66,4 +66,8 @@ class MainThreadActivity : BaseActivity<MainThreadView, MainThreadPresenter>() {
     private fun testInterrupted1() {
         mPresenter.testInterrupted1()
     }
+
+    private fun testInterrupted2() {
+        mPresenter.testInterrupted2()
+    }
 }

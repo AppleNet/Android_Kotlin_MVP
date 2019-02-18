@@ -53,4 +53,8 @@ class MainThreadPresenter : IMainThreadPresenter, BasePresenter<MainThreadView>(
     override fun testInterrupted1() {
         model.testInterrupted1()
     }
+
+    override fun testInterrupted2() {
+        model.testInterrupted2()
+    }
 }

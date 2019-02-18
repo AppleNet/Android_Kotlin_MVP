@@ -1,6 +1,7 @@
 package com.example.llcgs.android_kotlin.design_pattern.list.presenter.impl
 
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
+import com.example.llcgs.android_kotlin.base.rx.MyObserver
 import com.example.llcgs.android_kotlin.design_pattern.list.model.DesignPatternMainModel
 import com.example.llcgs.android_kotlin.design_pattern.list.presenter.IDesignPatternMainPresenter
 import com.example.llcgs.android_kotlin.design_pattern.list.view.DesignPatternMainView
@@ -27,8 +28,10 @@ class DesignPatternMainPresenter(private val view: DesignPatternMainView) : IDes
                     view.dismissLoadingDialog()
                 }
                 .compose(view.bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
-                .subscribe {
-                    view.onGetDesignPattern(it)
-                }
+                .subscribe(object : MyObserver<List<String>>(){
+                    override fun onNext(t: List<String>) {
+                        view.onGetDesignPattern(t)
+                    }
+                })
     }
 }

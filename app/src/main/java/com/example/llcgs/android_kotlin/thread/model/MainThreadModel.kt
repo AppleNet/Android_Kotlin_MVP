@@ -293,4 +293,36 @@ class MainThreadModel : BaseModel {
         thread.join()
         "main thread is over".logD()
     }
+
+    fun testInterrupted2() {
+        val thread = Thread{
+            while (true) {
+
+            }
+        }
+
+        thread.start()
+        thread.interrupt()
+
+        "isInterrupted: ${thread.isInterrupted}".logD()
+        "isInterrupted: ${Thread.interrupted()}".logD()
+        "isInterrupted: ${thread.isInterrupted}".logD()
+
+        thread.join()
+
+        "main thread is over".logD()
+    }
+
+    fun testInterrupted3() {
+        val thread = Thread{
+            while (!Thread.currentThread().isInterrupted) {
+
+            }
+            "thread inInterrupted: ${Thread.currentThread().isInterrupted}".logD()
+        }
+
+        thread.start()
+        thread.interrupt()
+        "main thread is over".logD()
+    }
 }
