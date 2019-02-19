@@ -21,10 +21,6 @@ class GitCheckoutTest {
      *   总之，就是让这个文件回到最近一次的git commit 或 git add时的状态
      *
      *
-     *   小结：
-     *      1.当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file
-     *      2.当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按照场景1操作。
-     *
      * */
 
     public fun checkoutTest(){
