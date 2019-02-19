@@ -209,6 +209,7 @@
         <item>Flyweight(享元模式)</item>
         <item>Proxy(代理模式)</item>
         <item>Wrapper(装饰模式)</item>
+        <item>SimpleFactory(简单工厂模式)</item>
     </string-array>
 
     <string-array name="activity_options">
