@@ -25,59 +25,59 @@ object RetrofitHelper {
     val GITHUB_BASE_URL = "http://api.github.com/"
     val PROJECT_URL = "https://github.com/erikcaffrey/People-MVVM"
 
-    private fun getContext():Context = BaseUtil.context()
+    private fun getContext(): Context = BaseUtil.context()
 
     /**
      *  获取基础Service
      *
      * */
     fun getService(url: String = BASE_URL): ApiService =
-        getRetrofitBuilderCommon().baseUrl(url).build().create<ApiService>(ApiService::class.java)
+            getRetrofitBuilderCommon().baseUrl(url).build().create(ApiService::class.java)
 
     /**
      *  获取自定义Service
      *
      * */
     fun <T> getService(baseUrl: String = BASE_URL, service: Class<T>): T =
-        getRetrofitBuilderCommon().baseUrl(baseUrl).build().create(service)
+            getRetrofitBuilderCommon().baseUrl(baseUrl).build().create(service)
 
     /**
      *  获取带请求进度的基础Service
      *
      * */
     fun getProgressService(url: String = BASE_URL, requestBody: ProgressRequestBody): ApiService =
-        getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create<ApiService>(ApiService::class.java)
+            getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create(ApiService::class.java)
 
     /**
      *  获取带请求进度的自定义Service
      *
      * */
     fun <T> getProgressService(url: String = BASE_URL, requestBody: ProgressRequestBody, clazz: Class<T>): T =
-        getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create(clazz)
+            getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create(clazz)
 
     /**
      *  获取带加密认证的基础Service
      *
      * */
     fun getSslService(url: String = BASE_URL): ApiService =
-        getRetrofitBuilderSsl().baseUrl(url).build().create(ApiService::class.java)
+            getRetrofitBuilderSsl().baseUrl(url).build().create(ApiService::class.java)
 
     /**
      *  获取带加密认证的自定义Service
      *
      * */
-    fun <T> getSslService(url: String = BASE_URL, clazz: Class<T>) : T =
-        getRetrofitBuilderSsl().baseUrl(url).build().create(clazz)
+    fun <T> getSslService(url: String = BASE_URL, clazz: Class<T>): T =
+            getRetrofitBuilderSsl().baseUrl(url).build().create(clazz)
 
     /**
      *  获取基础RetrofitBuilder
      *
      * */
-    private fun getRetrofitBuilderCommon(): Retrofit.Builder{
+    private fun getRetrofitBuilderCommon(): Retrofit.Builder {
         return Retrofit.Builder()
-            .addConverterFactory(SimpleXmlConverterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
     }
 
@@ -85,7 +85,7 @@ object RetrofitHelper {
      *  获取SSL RetrofitBuilder
      *
      * */
-    private fun getRetrofitBuilderSsl(): Retrofit.Builder{
+    private fun getRetrofitBuilderSsl(): Retrofit.Builder {
         try {
             val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(null, null, getContext().assets.open("gome.cer"))
             val okHttpBuilder = OkHttpClient.Builder()
@@ -95,12 +95,12 @@ object RetrofitHelper {
             okHttpBuilder.retryOnConnectionFailure(true)
             okHttpBuilder.addInterceptor(HttpLogInterceptor.setIgnoredKeyProvider(SimpleHttpIgnoredKeyProvider()))
             val client = okHttpBuilder.hostnameVerifier { _, _ -> true }
-                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager).build()
+                    .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager).build()
             return Retrofit.Builder().client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(SimpleXmlConverterFactory.create())
-        }catch (e: IOException){
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(SimpleXmlConverterFactory.create())
+        } catch (e: IOException) {
             e.printStackTrace()
         }
         return Retrofit.Builder()
@@ -110,7 +110,7 @@ object RetrofitHelper {
      *  获取Progress RetrofitBuilder
      *
      * */
-    private fun getRetrofitBuilderProgress(progressRequestBody: ProgressRequestBody): Retrofit.Builder{
+    private fun getRetrofitBuilderProgress(progressRequestBody: ProgressRequestBody): Retrofit.Builder {
         try {
             val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(null, null, getContext().assets.open("gome.cer"))
             val okHttpBuilder = OkHttpClient.Builder()
@@ -121,7 +121,7 @@ object RetrofitHelper {
             okHttpBuilder.addInterceptor(HttpLogInterceptor.setIgnoredKeyProvider(SimpleHttpIgnoredKeyProvider()))
             okHttpBuilder.addInterceptor(Interceptor { chain ->
                 val originalRequest = chain.request()
-                if (originalRequest.body() == null){
+                if (originalRequest.body() == null) {
                     return@Interceptor chain.proceed(originalRequest)
                 }
                 progressRequestBody.setDelegate(originalRequest.body())
@@ -130,12 +130,12 @@ object RetrofitHelper {
             })
 
             val client = okHttpBuilder.hostnameVerifier { _, _ -> true }
-                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager).build()
+                    .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager).build()
             return Retrofit.Builder().client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(SimpleXmlConverterFactory.create())
-        }catch (e: IOException){
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(SimpleXmlConverterFactory.create())
+        } catch (e: IOException) {
             e.printStackTrace()
         }
         return Retrofit.Builder()
