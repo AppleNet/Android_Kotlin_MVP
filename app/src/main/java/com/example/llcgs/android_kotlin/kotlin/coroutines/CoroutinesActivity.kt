@@ -11,6 +11,7 @@ import com.example.llcgs.android_kotlin.kotlin.coroutines.presenter.impl.Corouti
 import com.example.llcgs.android_kotlin.kotlin.coroutines.viewmodel.CoroutinesViewModel
 import com.example.llcgs.android_kotlin.kotlin.variable.bean.Repo
 import com.example.llcgs.android_kotlin.kotlin.coroutines.view.CoroutinesView
+import com.example.llcgs.android_kotlin.utils.log.logD
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -40,33 +41,33 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
 
         launch(Dispatchers.Main){
             //
-            println("hello launch coroutines 0: ${Thread.currentThread().name}")
+            "hello launch coroutines 0: ${Thread.currentThread().name}".logD()
         }
 
         /**
          *  输出当前线程名字
          * */
-        println("hello coroutines main: ${Thread.currentThread().name}")
+        "hello coroutines main: ${Thread.currentThread().name}".logD()
 
         /**
          *  声明一个协程，默认Default
          * */
         launch {
-            println("hello coroutines 1: ${Thread.currentThread().name}")
+            "hello coroutines 1: ${Thread.currentThread().name}".logD()
         }
 
         /**
          *  Kotlin中声明一个线程
          * */
         Thread {
-            println("hello coroutines 2: ${Thread.currentThread().name}")
+            "hello coroutines 2: ${Thread.currentThread().name}".logD()
         }.start()
 
         /**
          *  Kotlin中另一种写法创建一个线程
          * */
         thread {
-            println("hello coroutines 3: ${Thread.currentThread().name}")
+            "hello coroutines 3: ${Thread.currentThread().name}".logD()
         }
 
         //
@@ -131,13 +132,13 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
                     }
 
                     override fun onResponse(call: Call<List<Repo>?>, response: Response<List<Repo>?>) {
-                        println("Retrofit与协程 -> Retrofit -> name: ${response.body()?.get(0)?.name}")
+                        "Retrofit与协程 -> Retrofit -> name: ${response.body()?.get(0)?.name}".logD()
                     }
                 })
         // Retrofit 与协程结合使用
         launch(Dispatchers.Main) {
             val repos = RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet")
-            println("Retrofit与协程 -> Coroutines -> name: ${repos[0].name}}")
+            "Retrofit与协程 -> Coroutines -> name: ${repos[0].name}}".logD()
         }
 
         // =================== 非协程 与协程 ================ //
@@ -165,7 +166,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<List<Repo>?> {
                     override fun onSuccess(t: List<Repo>) {
-                        println("RxJava与协程 -> RxJava -> name: " + t[0].name)
+                        "RxJava与协程 -> RxJava -> name: ${t[0].name}".logD()
                         textView.text = "RxJava与协程 -> RxJava -> name: " + t[0].name
                     }
 
@@ -184,7 +185,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<Boolean?> {
                     override fun onSuccess(t: Boolean) {
-                        println("RxJava与协程 -> RxJava -> value:  $t")
+                        "RxJava与协程 -> RxJava -> value:  $t".logD()
                         textView2.text = "RxJava与协程 -> RxJava -> value:  $t"
                     }
 
@@ -198,14 +199,14 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
             val one = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet") }
             val two = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet") }
             val value = one.await()[0].name == two.await()[0].name
-            println("RxJava与协程 - > Coroutines -> value: $value")
+            "RxJava与协程 - > Coroutines -> value: $value".logD()
             textView3.text = "RxJava与协程 - > Coroutines -> value: $value"
         }
 
         //=================== LiveData/ViewModel 与协程 ===================//
         val model: CoroutinesViewModel by viewModel()
         model.getRepos().observe(this, Observer {
-            println("ViewModel与协程 -> ViewModel -> name: ${it?.get(0)?.name}")
+            "ViewModel与协程 -> ViewModel -> name: ${it?.get(0)?.name}".logD()
         })
 
         val liveData = CoroutinesLiveData()
@@ -222,7 +223,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
      * */
     private suspend fun ioCode1() {
         withContext(Dispatchers.IO) {
-            println("hello coroutines io1: ${Thread.currentThread().name}")
+            "hello coroutines io1: ${Thread.currentThread().name}".logD()
         }
     }
 
@@ -232,7 +233,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
      * */
     private suspend fun ioCode2() {
         withContext(Dispatchers.IO) {
-            println("hello coroutines io2: ${Thread.currentThread().name}")
+            "hello coroutines io2: ${Thread.currentThread().name}".logD()
         }
     }
 
@@ -242,20 +243,20 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
      * */
     private suspend fun ioCode3() {
         withContext(Dispatchers.IO) {
-            println("hello coroutines io3: ${Thread.currentThread().name}")
+            "hello coroutines io3: ${Thread.currentThread().name}".logD()
         }
     }
 
     private fun uiCode1() {
-        println("hello coroutines ui1: ${Thread.currentThread().name}")
+        "hello coroutines ui1: ${Thread.currentThread().name}".logD()
     }
 
     private fun uiCode2() {
-        println("hello coroutines ui2: ${Thread.currentThread().name}")
+        "hello coroutines ui2: ${Thread.currentThread().name}".logD()
     }
 
     private fun uiCode3() {
-        println("hello coroutines ui3: ${Thread.currentThread().name}")
+        "hello coroutines ui3: ${Thread.currentThread().name}".logD()
     }
 
     /**
@@ -264,7 +265,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
      * */
     private fun classicIoCode1(uiThread: Boolean = true, rumain: () -> Unit) {
         thread {
-            println("hello coroutines classic io1: ${Thread.currentThread().name}")
+            "hello coroutines classic io1: ${Thread.currentThread().name}".logD()
             if (uiThread) {
                 runOnUiThread {
                     rumain()
@@ -282,7 +283,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), C
      * */
     private fun classicIoCode2(uiThread: Boolean = true, rumain: () -> Unit) {
         exector.execute {
-            println("hello coroutines classic io1: ${Thread.currentThread().name}")
+            "hello coroutines classic io1: ${Thread.currentThread().name}".logD()
             if (uiThread) {
                 runOnUiThread {
                     rumain()

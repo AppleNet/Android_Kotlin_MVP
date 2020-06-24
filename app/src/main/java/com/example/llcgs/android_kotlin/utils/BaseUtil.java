@@ -11,7 +11,7 @@ import android.content.Context;
 public class BaseUtil {
     private static Application application;
     private static boolean debug = true;
-    private static String headTag = "MainActivity";
+    private static String headTag = "Android_Kotlin_MVP";
 
     public static void init(Application app) {
         application = app;
