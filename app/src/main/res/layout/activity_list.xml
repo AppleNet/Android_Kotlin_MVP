@@ -3,16 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.example.llcgs.android_kotlin.list.MyListActivity">
 
-    <TextView
-        android:id="@+id/textView2"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:background="@color/colorAccent"
-        android:text="语法列表" />
+        android:layout_height="?attr/actionBarSize"
+        android:theme="?actionBarTheme"
+        android:background="?attr/colorPrimary"
+        app:layout_collapseMode="pin"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="语法列表"
+        android:fitsSystemWindows="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"

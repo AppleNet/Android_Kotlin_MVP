@@ -33,6 +33,7 @@
         <item>注解</item>
         <item>反射</item>
         <item>字符串和正则表达式</item>
+        <item>Coroutines</item>
     </string-array>
 
     <string-array name="plugin_array">

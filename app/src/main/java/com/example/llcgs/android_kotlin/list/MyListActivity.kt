@@ -22,6 +22,7 @@ import com.example.llcgs.android_kotlin.kotlin.classandobject.propertyandfield.S
 import com.example.llcgs.android_kotlin.kotlin.classandobject.propertydelegate.SeventeenActivity
 import com.example.llcgs.android_kotlin.kotlin.classandobject.sealedclass.ElevenActivity
 import com.example.llcgs.android_kotlin.kotlin.codestandards.FourActivity
+import com.example.llcgs.android_kotlin.kotlin.coroutines.CoroutinesActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.function.EighteenActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.inline.TwentyActivity
 import com.example.llcgs.android_kotlin.kotlin.functionandlambda.lambda.NineteenActivity
@@ -44,6 +45,7 @@ import com.example.llcgs.android_kotlin.list.view.ListView
 import com.example.llcgs.android_kotlin.utils.log.logD
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_list.*
+import kotlinx.android.synthetic.main.activity_list.toolBar
 
 @RouterRule("list")
 class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
@@ -53,13 +55,16 @@ class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        setSupportActionBar(toolBar)
         val intent = intent
         val bundle = intent.extras
-        val id = bundle.get("id")
-        val user:User = bundle.getParcelable("user")
-        id.logD()
-        user.name.logD()
-        user.pwd.logD()
+        if (bundle != null) {
+            val id = bundle.get("id")
+            val user:User = bundle.getParcelable("user")
+            id?.logD()
+            user.name.logD()
+            user.pwd.logD()
+        }
         initRecyclerView()
         // 获取数据
         mPresenter.getListData()
@@ -77,9 +82,9 @@ class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
         val listAdapter = MyListAdapter(list)
         recyclerview.adapter = listAdapter
         listAdapter.setOnClickListener(object : MyListAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) {
-                position.logD()
-                when(position){
+            override fun onItemClick(text: Int) {
+                text.logD()
+                when(text){
                     0 ->{
                         startActivity(Intent(this@MyListActivity, SecondActivity::class.java).apply {
                             putExtra("id", "id")
@@ -175,6 +180,9 @@ class MyListActivity : BaseActivity<ListView, ListPresenter>(), ListView {
                     }
                     30 ->{
                         startActivity(Intent(this@MyListActivity, ThirtyTwoActivity::class.java))
+                    }
+                    32 ->{
+                        startActivity(Intent(this@MyListActivity, CoroutinesActivity::class.java))
                     }
                 }
             }

@@ -1,24 +1,23 @@
 package com.example.llcgs.android_kotlin.kotlin.coroutines;
 
-import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.base.network.RetrofitHelper
+import com.example.llcgs.android_kotlin.kotlin.coroutines.livedata.CoroutinesLiveData
 import com.example.llcgs.android_kotlin.kotlin.coroutines.presenter.impl.CoroutinesPresenter
 import com.example.llcgs.android_kotlin.kotlin.coroutines.viewmodel.CoroutinesViewModel
 import com.example.llcgs.android_kotlin.kotlin.variable.bean.Repo
-import com.example.llcgs.android_kotlin.kotlin.variable.view.CoroutinesView
-import io.reactivex.Scheduler
+import com.example.llcgs.android_kotlin.kotlin.coroutines.view.CoroutinesView
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.BiFunction
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_coroutines.*
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,15 +28,20 @@ import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 import kotlin.reflect.KProperty
 
-class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
+class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>(), CoroutinesView {
 
     val scope = MainScope()
 
-    override fun createPresenter()= CoroutinesPresenter()
+    override fun createPresenter()= CoroutinesPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines)
+
+        launch(Dispatchers.Main){
+            //
+            println("hello launch coroutines 0: ${Thread.currentThread().name}")
+        }
 
         /**
          *  输出当前线程名字
@@ -47,7 +51,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
         /**
          *  声明一个协程，默认Default
          * */
-        GlobalScope.launch {
+        launch {
             println("hello coroutines 1: ${Thread.currentThread().name}")
         }
 
@@ -65,12 +69,15 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
             println("hello coroutines 3: ${Thread.currentThread().name}")
         }
 
+        //
+        mPresenter.getUser("AppleNet")
+
         /**
          *  协程中调用方法，方法必须被suspend标记
          *
          *  默认开始在主线程，uiXXX方法不需要挂起
          * */
-        GlobalScope.launch(Dispatchers.Main) {
+        launch(Dispatchers.Main) {
             uiCode1()
             ioCode1()
             uiCode2()
@@ -83,10 +90,10 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
          *  协程中除了launch创建一个协程之外，还可以用async来创建一个协程
          *
          * */
-        val async = GlobalScope.async(Dispatchers.Main) {
+        val async = async(Dispatchers.Main) {
             ioCode1()
         }
-        GlobalScope.launch(Dispatchers.Main) {
+        launch(Dispatchers.Main) {
             async.await()
         }
 
@@ -118,7 +125,7 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
         // =================== Retrofit 与协程 =================== //
         // Retrofit的一次简单实现
         RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listRepos("rengwuxian")
+                .listRepos("AppleNet")
                 .enqueue(object : Callback<List<Repo>?> {
                     override fun onFailure(call: Call<List<Repo>?>, t: Throwable) {
                     }
@@ -128,8 +135,8 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
                     }
                 })
         // Retrofit 与协程结合使用
-        GlobalScope.launch(Dispatchers.Main) {
-            val repos = RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("rengwuxian")
+        launch(Dispatchers.Main) {
+            val repos = RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet")
             println("Retrofit与协程 -> Coroutines -> name: ${repos[0].name}}")
         }
 
@@ -152,13 +159,14 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
 
         // =================== RxJava 与协程 =================== //
         RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listReposRxJava("rengwuxian")
+                .listReposRxJava("AppleNet")
                 .subscribeOn(Schedulers.io())
                 .compose(bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<List<Repo>?> {
                     override fun onSuccess(t: List<Repo>) {
                         println("RxJava与协程 -> RxJava -> name: " + t[0].name)
+                        textView.text = "RxJava与协程 -> RxJava -> name: " + t[0].name
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -169,14 +177,15 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
                 })
 
         Single.zip(RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listReposRxJava("rengwuxian"), RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listReposRxJava("rengwuxian"), BiFunction<List<Repo>, List<Repo>, Boolean> { list1, list2 -> list1[0].name == list2[0].name })
+                .listReposRxJava("AppleNet"), RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
+                .listReposRxJava("AppleNet"), BiFunction<List<Repo>, List<Repo>, Boolean> { list1, list2 -> list1[0].name == list2[0].name })
                 .subscribeOn(Schedulers.io())
                 .compose(bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : SingleObserver<Boolean?> {
                     override fun onSuccess(t: Boolean) {
                         println("RxJava与协程 -> RxJava -> value:  $t")
+                        textView2.text = "RxJava与协程 -> RxJava -> value:  $t"
                     }
 
                     override fun onSubscribe(d: Disposable) {
@@ -185,20 +194,26 @@ class CoroutinesActivity: BaseActivity<CoroutinesView, CoroutinesPresenter>() {
                     override fun onError(e: Throwable) {
                     }
                 })
-        GlobalScope.launch(Dispatchers.Main) {
-            val one = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("rengwuxian") }
-            val two = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("rengwuxian") }
+        launch(Dispatchers.Main) {
+            val one = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet") }
+            val two = async { RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL).listReposRetrofit("AppleNet") }
             val value = one.await()[0].name == two.await()[0].name
             println("RxJava与协程 - > Coroutines -> value: $value")
+            textView3.text = "RxJava与协程 - > Coroutines -> value: $value"
         }
 
         //=================== LiveData/ViewModel 与协程 ===================//
         val model: CoroutinesViewModel by viewModel()
         model.getRepos().observe(this, Observer {
-            println("ViewModel与协程 -> ViewModel -> name: n${it?.get(0)?.name}")
+            println("ViewModel与协程 -> ViewModel -> name: ${it?.get(0)?.name}")
         })
 
         val liveData = CoroutinesLiveData()
+    }
+
+    override fun onGetUser(users: List<Repo>) {
+        // MVP + Retrofit + Coroutines
+        textView4.text = "MVP + Retrofit + Coroutines -> user: " + users[0].name
     }
 
     /**

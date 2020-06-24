@@ -20,7 +20,7 @@ class CoroutinesViewModel: ViewModel() {
 
     private fun loadUsers() {
         RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listRepos("rengwuxian")
+                .listRepos("AppleNet")
                 .enqueue(object : Callback<List<Repo>?> {
                     override fun onFailure(call: Call<List<Repo>?>, t: Throwable) {
                     }

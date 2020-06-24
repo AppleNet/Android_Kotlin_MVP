@@ -13,17 +13,14 @@ import com.example.llcgs.android_kotlin.home.view.LoginView
  */
 
 
-class LoginPresenter(loginView : LoginView) : BasePresenter<LoginView>(), ILoginPresenter {
-
-    var loginView: LoginView = loginView
+class LoginPresenter(private var loginView: LoginView) : BasePresenter<LoginView>(), ILoginPresenter {
 
     override fun doLogin(user: User) {
-        var model : LoginModel = LoginModel()
-        var flag :Boolean = model.doLogin(user)?: false
+        val model = LoginModel()
+        val flag :Boolean = model.doLogin(user)?: false
         if (flag){
             loginView.doLoginSuccess()
         }
-
     }
 
 }

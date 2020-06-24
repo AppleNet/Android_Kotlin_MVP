@@ -88,7 +88,8 @@
         <activity android:name=".kotlin.classandobject.genericity.TwelveActivity" />
         <activity android:name=".kotlin.classandobject.nestclass.ThirteenActivity" />
         <activity android:name=".kotlin.classandobject.enumclass.FourteenActivity" />
-        <activity android:name=".list.MyListActivity" />
+        <activity android:name=".list.MyListActivity"
+            android:theme="@style/MainTheme"/>
         <activity android:name=".kotlin.classandobject.object.FifteenActivity" />
         <activity android:name=".kotlin.classandobject.delegation.SixteenActivity" />
         <activity android:name=".kotlin.classandobject.propertydelegate.SeventeenActivity" />

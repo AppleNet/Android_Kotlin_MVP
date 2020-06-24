@@ -1,4 +1,4 @@
-package com.example.llcgs.android_kotlin.kotlin.coroutines;
+package com.example.llcgs.android_kotlin.kotlin.coroutines.livedata;
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
@@ -19,6 +19,6 @@ class CoroutinesLiveData: ViewModel() {
 
     private suspend fun loadUsers(): List<Repo> {
         return RetrofitHelper.getService(RetrofitHelper.GITHUB_BASE_URL)
-                .listReposRetrofit("rengwuxian")
+                .listReposRetrofit("AppleNet")
     }
 }
