@@ -38,7 +38,7 @@ class GeneratedAdapter: RecyclerView.Adapter<GeneratedAdapter.GeneratedViewHolde
             if (bindingView.generatedAdapterViewModel == null){
                 bindingView.generatedAdapterViewModel = GeneratedAdapterViewModel().apply { this@apply.generatedItemModel = generatedItemModel }
             }else{
-                bindingView.generatedAdapterViewModel.generatedItemModel = generatedItemModel
+                bindingView.generatedAdapterViewModel?.generatedItemModel = generatedItemModel
             }
         }
 

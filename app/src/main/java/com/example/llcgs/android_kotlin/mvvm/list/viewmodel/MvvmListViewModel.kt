@@ -23,7 +23,7 @@ class MvvmListViewModel : BaseViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     fun fetchStudentList() {
-        compositeDisposable.add(RetrofitHelper.getService().fetchPeople(RetrofitHelper.RANDOM_USER_URL)
+        compositeDisposable.add(RetrofitHelper.getService().fetchPeople(RetrofitHelper.RANDOM_USER_BASE_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {

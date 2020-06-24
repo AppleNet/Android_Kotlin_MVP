@@ -41,15 +41,15 @@ class AdvancedBindingAdapter:RecyclerView.Adapter<AdvancedBindingAdapter.Advance
             if (bindingItem.advancedBindingItemViewModel == null){
                 bindingItem.advancedBindingItemViewModel = AdvancedBindingItemViewModel().apply { this@apply.advancedBindingModel = advancedBindingModel }
             }else{
-                bindingItem.advancedBindingItemViewModel.advancedBindingModel = advancedBindingModel
+                bindingItem.advancedBindingItemViewModel?.advancedBindingModel = advancedBindingModel
             }
-            bindingItem.advancedBindingItemViewModel.setItemClickListener(this)
+            bindingItem.advancedBindingItemViewModel?.setItemClickListener(this)
         }
 
         var inflate: View? = null
         override fun invoke(advancedBindingModel: AdvancedBindingModel) {
             if (!bindingItem.viewStub.isInflated){
-                inflate = bindingItem.viewStub.viewStub.inflate()
+                inflate = bindingItem.viewStub.viewStub?.inflate()
                 inflate?.findViewById<TextView>(R.id.sub1)?.text = advancedBindingModel.title
             }else{
                 val linearLayout = inflate?.findViewById<LinearLayout>(R.id.subLayout)

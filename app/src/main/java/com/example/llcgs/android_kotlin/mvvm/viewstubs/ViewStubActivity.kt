@@ -51,7 +51,7 @@ class ViewStubActivity:BaseActivity<ViewStubViewModel, ActivityViewStubBinding>(
             R.id.unfold ->{
                 if (!binding.viewStub.isInflated){
                     viewModel.viewStubModel = viewStubModel
-                    inflate = binding.viewStub.viewStub.inflate()
+                    inflate = binding.viewStub.viewStub?.inflate()
                 }else{
                     val linearLayout = inflate?.findViewById<LinearLayout>(R.id.subLayout)
                     if (linearLayout?.visibility == View.GONE) {

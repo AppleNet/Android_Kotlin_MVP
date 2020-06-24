@@ -393,6 +393,7 @@
         <activity android:name=".ui.UIListActivity" />
         <activity android:name=".ui.viewpager.ViewPagerActivity" />
         <activity android:name=".kotlin.variable.VariableActivity" />
+        <activity android:name=".kotlin.coroutines.CoroutinesActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

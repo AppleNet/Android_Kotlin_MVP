@@ -9,6 +9,7 @@ import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEve
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.presenter.impl.SecondPresenter
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.view.SecondView
+import com.example.llcgs.android_kotlin.kotlin.coroutines.CoroutinesActivity
 import com.example.llcgs.android_kotlin.kotlin.idiom.ThirdActivity
 import com.example.llcgs.android_kotlin.utils.log.logD
 import com.jakewharton.rxbinding2.view.RxView
@@ -51,13 +52,17 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
         // ${} 表示字符串模板，进行字符串的拼接于替换
         textView.text = "time: ${System.currentTimeMillis()}, id: ${id}, name: ${user.name}, pwd${user.pwd}"
 
-        RxView.clicks(textView)
-                .compose(bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
-                .subscribe {
-                    startActivity(Intent(this@SecondActivity, ThirdActivity::class.java))
-                }.addDisposable(compositeDisposable)
+        textView.setOnClickListener {
+            startActivity(Intent(this@SecondActivity, ThirdActivity::class.java))
+        }
 
-
+        /**
+         *  点击跳转到协程
+         *
+         * */
+         coroutines.setOnClickListener {
+             startActivity(Intent(this@SecondActivity, CoroutinesActivity::class.java))
+         }
 
         // 使用条件表达式
         if (user.name.equals("McGrady", true)){

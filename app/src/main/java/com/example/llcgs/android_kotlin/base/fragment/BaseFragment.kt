@@ -134,6 +134,9 @@ abstract class BaseFragment<P : SuperPresenter> : Fragment(), BaseView, Lifecycl
 
     }
 
+    override fun showContentView() {
+    }
+
     override fun lifecycle(): Observable<LifeCycleEvent> = lifecycleSubject.hide()
 
     override fun <T : Any?> bindUntilEvent(event: LifeCycleEvent): LifecycleTransformer<T> = RxLifecycle.bindUntilEvent(lifecycleSubject, event)

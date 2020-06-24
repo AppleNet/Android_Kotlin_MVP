@@ -30,7 +30,7 @@ class ThirteenActivity : BaseActivity<ThirteenView, ThirteenPresenter>(), Thirte
 
         RxView.clicks(button11).subscribe {
             startActivity(Intent(this@ThirteenActivity, FourteenActivity::class.java))
-        }
+        }.addDisposable(compositeDisposable)
 
         // 嵌套类
         // 在kotlin中 类也可以嵌套在其他类中。

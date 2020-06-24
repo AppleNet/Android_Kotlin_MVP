@@ -21,30 +21,58 @@ import java.util.concurrent.TimeUnit
 object RetrofitHelper {
 
     val BASE_URL = "http://api.randomuser.me/"
-    val RANDOM_USER_URL = "http://api.randomuser.me/?results=10&nat=en"
+    val RANDOM_USER_BASE_URL = "http://api.randomuser.me/?results=10&nat=en"
+    val GITHUB_BASE_URL = "http://api.github.com/"
     val PROJECT_URL = "https://github.com/erikcaffrey/People-MVVM"
 
     private fun getContext():Context = BaseUtil.context()
 
+    /**
+     *  获取基础Service
+     *
+     * */
     fun getService(url: String = BASE_URL): ApiService =
         getRetrofitBuilderCommon().baseUrl(url).build().create<ApiService>(ApiService::class.java)
 
+    /**
+     *  获取自定义Service
+     *
+     * */
     fun <T> getService(baseUrl: String = BASE_URL, service: Class<T>): T =
         getRetrofitBuilderCommon().baseUrl(baseUrl).build().create(service)
 
-
+    /**
+     *  获取带请求进度的基础Service
+     *
+     * */
     fun getProgressService(url: String = BASE_URL, requestBody: ProgressRequestBody): ApiService =
-        getProgressRetrofitBuilder(requestBody).baseUrl(url).build().create<ApiService>(ApiService::class.java)
+        getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create<ApiService>(ApiService::class.java)
 
-    fun <T>getProgressService(url: String = BASE_URL, requestBody: ProgressRequestBody, clazz: Class<T>): T =
-        getProgressRetrofitBuilder(requestBody).baseUrl(url).build().create(clazz)
+    /**
+     *  获取带请求进度的自定义Service
+     *
+     * */
+    fun <T> getProgressService(url: String = BASE_URL, requestBody: ProgressRequestBody, clazz: Class<T>): T =
+        getRetrofitBuilderProgress(requestBody).baseUrl(url).build().create(clazz)
 
+    /**
+     *  获取带加密认证的基础Service
+     *
+     * */
     fun getSslService(url: String = BASE_URL): ApiService =
-        getRetrofitBuilder().baseUrl(url).build().create(ApiService::class.java)
+        getRetrofitBuilderSsl().baseUrl(url).build().create(ApiService::class.java)
 
-    fun <T>getSslService(url: String = BASE_URL, clazz: Class<T>) : T =
-        getRetrofitBuilder().baseUrl(url).build().create(clazz)
+    /**
+     *  获取带加密认证的自定义Service
+     *
+     * */
+    fun <T> getSslService(url: String = BASE_URL, clazz: Class<T>) : T =
+        getRetrofitBuilderSsl().baseUrl(url).build().create(clazz)
 
+    /**
+     *  获取基础RetrofitBuilder
+     *
+     * */
     private fun getRetrofitBuilderCommon(): Retrofit.Builder{
         return Retrofit.Builder()
             .addConverterFactory(SimpleXmlConverterFactory.create())
@@ -53,7 +81,11 @@ object RetrofitHelper {
 
     }
 
-    private fun getRetrofitBuilder(): Retrofit.Builder{
+    /**
+     *  获取SSL RetrofitBuilder
+     *
+     * */
+    private fun getRetrofitBuilderSsl(): Retrofit.Builder{
         try {
             val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(null, null, getContext().assets.open("gome.cer"))
             val okHttpBuilder = OkHttpClient.Builder()
@@ -74,7 +106,11 @@ object RetrofitHelper {
         return Retrofit.Builder()
     }
 
-    private fun getProgressRetrofitBuilder(progressRequestBody: ProgressRequestBody): Retrofit.Builder{
+    /**
+     *  获取Progress RetrofitBuilder
+     *
+     * */
+    private fun getRetrofitBuilderProgress(progressRequestBody: ProgressRequestBody): Retrofit.Builder{
         try {
             val sslParams: HttpsUtils.SSLParams = HttpsUtils.getSslSocketFactory(null, null, getContext().assets.open("gome.cer"))
             val okHttpBuilder = OkHttpClient.Builder()
