@@ -20,7 +20,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
-
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
 
     <uses-feature
         android:name="android.software.leanback"
@@ -57,6 +58,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Scheme -->
+        <activity
+            android:name="com.example.llcgs.android_kotlin.modules.activity.scheme.SchemeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <data android:scheme="llc"/>
+                <!-- 下面这几行也必须得设置 -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
         </activity>
 
@@ -311,12 +325,20 @@
 
         <!-- SingleTask-->
         <activity
-            android:name=".modules.activity.singleTask.SingleTaskActivity" />
+            android:name=".modules.activity.singleTask.SingleTaskActivity"
+            android:launchMode="standard"/>
         <activity
             android:name=".modules.activity.singleTask.SingleTask1Activity"
             android:launchMode="singleTask"/>
         <activity
             android:name=".modules.activity.singleTask.SingleTask2Activity" />
+        <activity
+            android:name=".modules.activity.singleTask.SingleTaskAffinityActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.llc.task"/>
+        <activity android:name=".modules.activity.singleTask.SingleTaskAffinity1Activity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.llc.task"/>
 
         <!-- SingleInstance-->
         <activity
@@ -326,6 +348,10 @@
             android:launchMode="singleInstance"/>
         <activity
             android:name=".modules.activity.singleInstance.SingleInstance2Activity" />
+
+        <!-- OnSaveInstance -->
+        <activity android:name=".modules.activity.saveinstance.OnSaveInstanceActivity" />
+
 
         <activity android:name=".modules.service.ServiceListActivity" />
         <activity android:name=".modules.service.start.StartServiceActivity" />
@@ -359,6 +385,13 @@
         <activity android:name=".net.webview.WebViewJsBridgeActivity" />
         <activity android:name=".constraintlayout.ConstraintLayoutActivity" />
         <activity android:name=".animator.AnimatorActivity" />
+        <activity android:name=".customview.CustomViewActivity" />
+        <activity android:name=".tinker.TinkerActivity" />
+        <activity android:name=".view_dispatcher.ViewDispatcherActivity" />
+        <activity android:name=".window.WindowActivity" />
+        <activity android:name=".modules.activity.intentfilter.IntentFilterActivity" />
+        <activity android:name=".ui.UIListActivity" />
+        <activity android:name=".ui.viewpager.ViewPagerActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

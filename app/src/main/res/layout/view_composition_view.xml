@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginNameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/loginNameEdt"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:labelFor="@+id/loginNameEdt"
+            android:text="@string/editText" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginPwdLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginNameLayout"
+        android:layout_marginTop="@dimen/dividing_5"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/loginPwdEdt"
+            android:layout_width="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:labelFor="@id/loginPwdEdt"
+            android:text="@string/editText2" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_below="@id/loginPwdLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/dp_5dp"
+        android:layout_marginEnd="@dimen/dp_30dp"/>
+
+</RelativeLayout>

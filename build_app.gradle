@@ -18,7 +18,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    kapt "com.android.databinding:compiler:$android_plugin_version"
+    // kapt "com.android.databinding:compiler:$android_plugin_version"
     testImplementation 'junit:junit:4.12'
 
     println IsBuildMudle.toBoolean()
@@ -147,6 +147,10 @@ dependencies {
     /* exoplayer */
     implementation libs.exoplayer
 
+    /* Tinker */
+    implementation("com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}") { changing = true }
+    annotationProcessor("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    compileOnly("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
 }
 
 configurations {

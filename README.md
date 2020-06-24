@@ -200,4 +200,14 @@ ViewModel
     AAC中提供ViewModel可以很方便的用来管理数据。我们可以利用它来管理UI组件与数据的绑定关系。ViewModel提供自动绑定的形式，当数据源有更新的时候，可以自动立即的更新UI
     
 CoordinatorLayout 协调布局
-ConstraintLayout 约束布局    
+ConstraintLayout 约束布局
+
+Service
+
+    网址：https://www.jianshu.com/p/d870f99b675c
+    网址：https://blog.csdn.net/veryitman/article/details/7600008
+    Service的onCreate、onStartCommand、onDestory等全部生命周期方法都运行在UI线程，ServiceConnection里面的回调方法也是运行在UI线程
+    1、startService开启服务以后，与activity就没有关联，不受影响，独立运行。
+    2、bindService开启服务以后，与activity存在关联，退出activity时必须调用unbindService方法，否则会报ServiceConnection泄漏的错误。
+    最后还有一点，同一个服务可以用两种方式一同开启，没有先后顺序的要求，MyService的onCreate只会执行一次。
+    关闭服务需要stopService和unbindService都被调用，也没有先后顺序的影响，MyService的onDestroy也只执行一次。但是如果只用一种方式关闭服务，不论是哪种关闭方式，onDestroy都不会被执行，服务也不会被关闭。这一点需要注意

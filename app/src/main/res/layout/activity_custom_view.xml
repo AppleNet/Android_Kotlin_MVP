@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:llc="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyRadioButton
+        android:id="@+id/myRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/textsize_18"
+        llc:value="@string/cast_tracks_chooser_dialog_audio"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyView
+        android:id="@+id/myView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        Text="@string/login_tip"
+        android:background="@color/red"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyAttrView
+        android:id="@+id/myAttrView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        llc:Text="@string/login_tip"
+        llc:Oriental="Vertical"
+        android:background="@color/douya_primary"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyCustomView
+        android:id="@+id/myCustomView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="@dimen/dp_10"
+        llc:textSize="@dimen/textsize_20"
+        llc:textColor="@color/basic_text"/>
+
+    <com.example.llcgs.android_kotlin.customview.selfview.MyCompositionView
+        android:id="@+id/myCompositionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10dp"/>
+
+</LinearLayout>

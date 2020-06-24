@@ -49,4 +49,25 @@
         <attr name="drawableTint" format="color" />
         <attr name="drawableTintMode" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="MyRadioButton">
+        <attr name="value" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyAttrView">
+        <attr name="Text" format="reference|string"/>
+        <attr name="Oriental">
+            <enum name="Horizontal" value="1"/>
+            <enum name="Vertical" value="0"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomView">
+        <attr name="textColor" format="color"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyCompositionView">
+
+    </declare-styleable>
 </resources>

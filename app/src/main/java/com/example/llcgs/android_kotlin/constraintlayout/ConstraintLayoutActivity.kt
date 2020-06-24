@@ -61,10 +61,6 @@ class ConstraintLayoutActivity: BaseActivity<ConstraintLayoutView, ConstraintLay
 
         Guideline
 
-        ---------------------
-
-        本文来自 鸿洋_ 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/lmj623565791/article/details/78011599?utm_source=copy
-
      * */
 
 
@@ -73,9 +69,9 @@ class ConstraintLayoutActivity: BaseActivity<ConstraintLayoutView, ConstraintLay
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_constraintlayout)
+        setContentView(R.layout.activity_constraintlayout_second)
 
-        vh.setOnClickListener(this)
+        //vh.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

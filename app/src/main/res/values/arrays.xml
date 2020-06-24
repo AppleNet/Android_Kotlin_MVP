@@ -127,6 +127,11 @@
         <item>NetWork</item>
         <item>ConstraintLayout</item>
         <item>Animator</item>
+        <item>CustomView</item>
+        <item>Tinker</item>
+        <item>ViewDispatcher</item>
+        <item>Window</item>
+        <item>ViewPager_Activity_TabLayout</item>
     </string-array>
 
     <string-array name="arch_menu">
@@ -225,6 +230,9 @@
         <item>singleTop</item>
         <item>singleTask</item>
         <item>singleInstance</item>
+        <item>onSaveInstance</item>
+        <item>scheme</item>
+        <item>intentFilter</item>
     </string-array>
 
     <string-array name="algorithms_list">
@@ -236,6 +244,11 @@
         <item>快速排序法</item>
         <item>合并排序法</item>
         <item>基数排序法</item>
+    </string-array>
+
+    <string-array name="ui_list">
+        <item>viewpager</item>
+        <item>tabLayout</item>
     </string-array>
 
     <string-array name="network_list">

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- tabLayout + viewpager-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="?dividerHorizontal" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/subKingTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@android:color/holo_green_light"
+            app:tabIndicatorHeight="4dp"
+            app:tabTextColor="@color/black"
+            app:tabSelectedTextColor="@color/blue_3"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabTextAppearance="@android:style/TextAppearance.Holo.Large"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="48dp">
+
+        <com.example.llcgs.android_kotlin.ui.viewpager.customview.CoherentViewPager
+            android:id="@+id/subKingViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="bottom"
+            android:background="?attr/colorControlHighlight" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

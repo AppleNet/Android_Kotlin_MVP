@@ -14,6 +14,7 @@ import android.view.WindowManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.base.rx.MyObserver
 import com.example.llcgs.android_kotlin.home.adapter.MainAdapter
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresenter
@@ -42,9 +43,13 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
         setSupportActionBar(toolBar)
         val rxPermission = RxPermissions(this@MainActivity)
         rxPermission.request(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
-                .subscribe {
-                    initPlugin()
-                }
+                .subscribe(object : MyObserver<Boolean>(){
+                    override fun onNext(t: Boolean) {
+                        if (t){
+                            initPlugin()
+                        }
+                    }
+                })
         initViews()
     }
 
@@ -130,7 +135,27 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
                 Router.create("host://ConstraintLayout").activityRoute.open(this)
             }
             "Animator" ->{
+                // @Link AnimatorActivity
                 Router.create("host://Animator").activityRoute.open(this)
+            }
+            "CustomView" ->{
+                // @Link CustomViewActivity
+                Router.create("host://CustomView").activityRoute.open(this)
+            }
+            "Tinker" ->{
+                // @Link TinkerActivity
+                Router.create("host://Tinker").activityRoute.open(this)
+            }
+            "ViewDispatcher" ->{
+                // @Link ViewDispatcherActivity
+                Router.create("host://ViewDispatcher").activityRoute.open(this)
+            }
+            "Window" ->{
+                // WindowActivity
+                Router.create("host://Window").activityRoute.open(this)
+            }
+            "ViewPager_Activity_TabLayout" ->{
+                Router.create("host://ViewPager_Activity_TabLayout").activityRoute.open(this)
             }
         }
     }
