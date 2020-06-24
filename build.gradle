@@ -7,6 +7,10 @@ buildscript {
     ext.replugin_version = '2.2.1'
     ext.databinder_version = '1.0-rc1'
     repositories {
+        // 添加阿里云镜像
+        maven{
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         mavenLocal()
         jcenter()
         google()
@@ -15,7 +19,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "com.android.tools.build:gradle:$android_gradle_plugin"
         // 添加kotlin支持
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // 添加qihoo replugin
@@ -33,6 +37,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         mavenLocal()
         jcenter()
         google()
