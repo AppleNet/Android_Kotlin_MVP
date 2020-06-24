@@ -26,7 +26,7 @@ import io.reactivex.subjects.BehaviorSubject
 abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), BaseView, LifecycleProvider<LifeCycleEvent> {
 
     protected lateinit var mPresenter: P
-    private var compositeDisposable: CompositeDisposable? = null
+    protected var compositeDisposable: CompositeDisposable? = null
     private val lifecycleSubject: BehaviorSubject<LifeCycleEvent> = BehaviorSubject.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +42,10 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
             compositeDisposable = CompositeDisposable()
         }
         compositeDisposable?.add(disposable)
+    }
+
+    fun Disposable.addDisposable(compositeDisposable: CompositeDisposable?){
+        addDisposable(this)
     }
 
     override fun onStart() {
@@ -77,6 +81,15 @@ abstract class BaseActivity<V, P : BasePresenter<V>> : AppCompatActivity(), Base
     override fun <T : Any?> bindUntilEvent(event: LifeCycleEvent): LifecycleTransformer<T> = RxLifecycle.bindUntilEvent(lifecycleSubject, event)
 
     override fun <T : Any?> bindToLifecycle(): LifecycleTransformer<T> = RxLifecycle.bind(lifecycleSubject, LifecycleHelper.activityLifecycle())
+
+    override fun showContentView() {
+    }
+
+    override fun showToast(message: String) {
+    }
+
+    override fun showException(imageRes: Int, message: String) {
+    }
 
     override fun showLoadingDialog() {
         Toast.makeText(this, "show loading", Toast.LENGTH_SHORT).show()

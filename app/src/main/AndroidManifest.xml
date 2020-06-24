@@ -392,6 +392,7 @@
         <activity android:name=".modules.activity.intentfilter.IntentFilterActivity" />
         <activity android:name=".ui.UIListActivity" />
         <activity android:name=".ui.viewpager.ViewPagerActivity" />
+        <activity android:name=".kotlin.variable.VariableActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
+import com.example.llcgs.android_kotlin.base.lifecycleevent.ActivityLifeCycleEvent
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.presenter.impl.SecondPresenter
 import com.example.llcgs.android_kotlin.kotlin.basicsyntax.view.SecondView
@@ -16,6 +17,7 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_second.*
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -49,9 +51,12 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
         // ${} 表示字符串模板，进行字符串的拼接于替换
         textView.text = "time: ${System.currentTimeMillis()}, id: ${id}, name: ${user.name}, pwd${user.pwd}"
 
-        RxView.clicks(textView).subscribe {
-            startActivity(Intent(this@SecondActivity, ThirdActivity::class.java))
-        }
+        RxView.clicks(textView)
+                .compose(bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
+                .subscribe {
+                    startActivity(Intent(this@SecondActivity, ThirdActivity::class.java))
+                }.addDisposable(compositeDisposable)
+
 
 
         // 使用条件表达式
@@ -59,11 +64,12 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
             Observable.just(user.name)
                     .subscribeOn(Schedulers.io())
                     .delay(2,TimeUnit.SECONDS)
+                    .compose(bindUntilEvent(ActivityLifeCycleEvent.DESTROY))
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe { t ->
                         RxTextView.text(textView).accept(t)
-                        Log.d("MainActivity",t.toString())
-                    }
+                        Log.d("MainActivity", t)
+                    }.addDisposable(compositeDisposable)
         }
 
         // 使用for循环
@@ -134,7 +140,7 @@ class SecondActivity : BaseActivity<SecondView, SecondPresenter>() {
         //使⽤ lambda 表达式来过滤（filter）和映射（map）集合
         // filter 从集合中将McGrady取出来之后转大写 并且打印出来，而不是丢掉不要
         items.filter { it == "McGrady" }
-                .map { it.toUpperCase() }
+                .map { it.toUpperCase(Locale.getDefault()) }
                 .forEach { it.logD() }
     }
 

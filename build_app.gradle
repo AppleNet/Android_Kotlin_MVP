@@ -17,7 +17,7 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
     // kapt "com.android.databinding:compiler:$android_plugin_version"
     testImplementation 'junit:junit:4.12'
 
@@ -33,11 +33,11 @@ dependencies {
     implementation libs.customtabs
 
     /* ---Rx--- */
-//    implementation libs.rxbinding_support_v4
-//    implementation libs.rxbinding_appcompat_v7
-//    implementation libs.rxbinding_recyclerview_v7
-//    implementation libs.rxbinding_design
-//    implementation libs.rxlifecycle_kotlin2
+    // implementation libs.rxbinding_support_v4
+    // implementation libs.rxbinding_appcompat_v7
+    // implementation libs.rxbinding_recyclerview_v7
+    // implementation libs.rxbinding_design
+    // implementation libs.rxlifecycle_kotlin2
     implementation libs.rxpermission2
     implementation libs.rxbinding2
     implementation libs.rxandroid2
@@ -57,8 +57,13 @@ dependencies {
     /* leakCanary */
     implementation libs.leakcanary_release
 
-    /* Kotlin */
+    /* Kotlin 标准 */
+    implementation libs.kotlin_stdlib
+    /* Kotlin 反射 */
     implementation libs.kotlin_reflect
+    /* Kotlin 协程 */
+    implementation libs.kotlinx_coroutines_android
+    implementation libs.kotlinx_coroutines_core
 
     implementation libs.replugin_host
 
@@ -93,9 +98,9 @@ dependencies {
     /* Room */
     implementation libs.googleRoom
     /* 使用java 需要配置annotationProcessor */
-//    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    // annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
     /* 使用kotlin 需要配置kapt */
-    kapt "android.arch.persistence.room:compiler:1.0.0"
+    kapt libs.googleRoomCompile
     implementation libs.googleRoomRx
 
     /* Paging */
@@ -148,9 +153,9 @@ dependencies {
     implementation libs.exoplayer
 
     /* Tinker */
-    implementation("com.tencent.tinker:tinker-android-lib:${TINKER_VERSION}") { changing = true }
-    annotationProcessor("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
-    compileOnly("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    implementation libs.tinker_stdlib
+    annotationProcessor libs.tinker_annotation_processor
+    compileOnly libs.tinker_annotation_processor
 }
 
 configurations {

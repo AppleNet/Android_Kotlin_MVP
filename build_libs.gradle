@@ -21,7 +21,8 @@ ext {
             rxkotlin2         : "2.0.3",
             retrofit2         : "2.3.0",
             anko              : "0.10.0",
-            kotlinx_coroutines: "0.16",
+            kotlinx_coroutines_android: "1.3.0",
+            kotlinx_coroutines_core: "1.3.0",
             adapter_helper    : "2.9.16",
             pickerview        : "3.2.5",
             multidex          : "1.0.1",
@@ -47,6 +48,7 @@ ext {
             googleLiveDataReactiveStreams : "1.0.0",
             googleRoom        : "1.0.0",
             googleRoomRx      : "1.0.0",
+            googleRoomCompile : "1.0.0",
             googlePaging      : "1.0.0-alpha3",
 
             material_dialogs  : "0.9.6.0",
@@ -58,6 +60,7 @@ ext {
             wearable          : "2.0.3",
             gms               : "11.0.1",
             exoplayer         : "r2.5.0",
+            tinker            : TINKER_VERSION,
 
     ]
     libs = [
@@ -108,8 +111,9 @@ ext {
             retrofit2_converter_xml:"com.squareup.retrofit2:converter-simplexml:${versions.retrofit2}",
             retrofit2_adapter    : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit2}",
 
-            kotlin_stdlib        : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin_version}",
-            kotlinx_coroutines   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx_coroutines}",
+            kotlin_stdlib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}",
+            kotlinx_coroutines_android   : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinx_coroutines_android}",
+            kotlinx_coroutines_core    : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx_coroutines_core}",
             kotlin_reflect       : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin_version}",
 
             anko                 : "org.jetbrains.anko:anko:${versions.anko}",
@@ -146,6 +150,7 @@ ext {
 
             googleRoom           : "android.arch.persistence.room:runtime:${versions.googleRoom}",
             googleRoomRx         : "android.arch.persistence.room:rxjava2:${versions.googleRoomRx}",
+            googleRoomCompile    : "android.arch.persistence.room:compiler:${versions.googleRoomCompile}",
 
             googlePaging         : "android.arch.paging:runtime:${versions.googlePaging}",
 
@@ -160,6 +165,9 @@ ext {
             gms                  : "com.google.android.gms:play-services-cast-framework:${versions.gms}",
             mediarouter          : "com.android.support:mediarouter-v7:${versions.supportVersion}",
             exoplayer            : "com.google.android.exoplayer:exoplayer:${versions.exoplayer}",
+
+            tinker_stdlib        : "com.tencent.tinker:tinker-android-lib:${versions.tinker}",
+            tinker_annotation_processor : "com.tencent.tinker:tinker-android-anno:${versions.tinker}",
     ]
 
 }
