@@ -27,6 +27,8 @@ dependencies {
     }else{
         implementation project(':vlayout')
     }
+    implementation project(':hotfix-lib')
+    implementation project(':plugin-lib')
 
     implementation libs.constraint_layout
     implementation libs.cardview_v7
