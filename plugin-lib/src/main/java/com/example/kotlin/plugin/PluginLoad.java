@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 
 import dalvik.system.DexClassLoader;
 
-public class LoadUtils {
+public class PluginLoad {
 
     /**
      *  可以是 apk 路径，dex 路径，jar 路径。8.0之后 使用 DexClassLoader 和 PathClassLoader 没有任何区别
@@ -25,20 +25,22 @@ public class LoadUtils {
     public static void loadClass(Context context) {
 
         try {
+            // Element[]
             Class<?> dexPathList = Class.forName("dalvik.system.DexPathList");
             Field dexElementsFiled = dexPathList.getDeclaredField("dexElements");
             dexElementsFiled.setAccessible(true);
 
+            // DexPathList
             Class<?> baseDexClassLoader = Class.forName("dalvik.system.BaseDexClassLoader");
             Field pathListFiled = baseDexClassLoader.getDeclaredField("pathList");
             pathListFiled.setAccessible(true);
 
             // 1. 获取宿主的类加载器
             ClassLoader pathClassLoader = context.getClassLoader();
-            // 获取宿主PathClassLoader中的 PathList 对象
+            // 获取宿主PathClassLoader中的 DexPathList 对象
             Object hostPathList = pathListFiled.get(pathClassLoader);
-            // 获取宿主PathClassLoader中的 DexElements[]
-            Object[] hostDexElements = (Object[]) dexElementsFiled.get(pathClassLoader);
+            // 获取宿主PathClassLoader中的 Elements[]
+            Object[] hostDexElements = (Object[]) dexElementsFiled.get(hostPathList);
 
             // 2. 获取插件的类加载器
             /*
@@ -51,7 +53,7 @@ public class LoadUtils {
             // 获取宿主PathClassLoader中的 PathList 对象
             Object pluginPathList = pathListFiled.get(pluginClassLoader);
             // 获取宿主PathClassLoader中的 DexElements[]
-            Object[] pluginDexElements = (Object[]) dexElementsFiled.get(pluginClassLoader);
+            Object[] pluginDexElements = (Object[]) dexElementsFiled.get(pluginPathList);
 
             // 3. 合并
             // 反射创建一个新的数组。 与热修复的原理不同的地方在于 这里不需要放到最前面，因为它本身就是一个没有被加载过的类，

@@ -81,7 +81,7 @@ public class HotFix {
             System.arraycopy(newDexElements, 0,newElements, 0, newDexElements.length);
             System.arraycopy(oldDexElements, 0,newElements, newDexElements.length, oldDexElements.length);
 
-            pathListField.set(pathList, newElements);
+            dexElementsField.set(pathList, newElements);
         } catch (Exception e) {
             e.printStackTrace();
         }
