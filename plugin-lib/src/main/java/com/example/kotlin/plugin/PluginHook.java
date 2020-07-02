@@ -2,12 +2,14 @@ package com.example.kotlin.plugin;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.List;
 
 public class PluginHook {
 
@@ -18,8 +20,16 @@ public class PluginHook {
         // 动态代理需要替换的是IActivityManager对象
         try {
             // 1. Singleton对象
-            Class<?> clazz = Class.forName("android.app.ActivityManager");
-            Field iActivityManagerSingletonField = clazz.getDeclaredField("IActivityManagerSingleton");
+            Field iActivityManagerSingletonField;
+            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+                Class<?> clazz = Class.forName("android.app.ActivityManager");
+                iActivityManagerSingletonField = clazz.getDeclaredField("IActivityManagerSingleton");
+            } else {
+                // 适配8.0之前版本
+                Class<?> clazz = Class.forName("android.app.ActivityManagerNative");
+                iActivityManagerSingletonField = clazz.getDeclaredField("gDefault");
+            }
+
             iActivityManagerSingletonField.setAccessible(true);
             Object singleton = iActivityManagerSingletonField.get(null);
 
@@ -95,6 +105,7 @@ public class PluginHook {
                         case 100:
                             // 拿到message
                             try {
+                                // ActivityClientRecord === msg.obj
                                 Field intentField = msg.obj.getClass().getDeclaredField("intent");
                                 intentField.setAccessible(true);
                                 // 启动代理的intent
@@ -104,6 +115,33 @@ public class PluginHook {
                                 if (intent != null) {
                                     intentField.set(msg.obj, intent);
                                 }
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                        case 159:
+                            // ClientTransaction === msg.obj
+                            Class<?> transactionClass = msg.obj.getClass();
+                            try {
+                                Field mActivityCallbacksField = transactionClass.getDeclaredField("mActivityCallbacks");
+                                mActivityCallbacksField.setAccessible(true);
+
+                                List list = (List) mActivityCallbacksField.get(msg.obj);
+                                for (int i = 0; i < list.size(); i++) {
+                                    if (list.get(i).getClass().getName()
+                                            .equals("android.app.servertransaction.LaunchActivityItem")) {
+                                        Object launchActivityItem = list.get(i);
+                                        Field mIntentField = launchActivityItem.getClass().getDeclaredField("mIntent");
+                                        mIntentField.setAccessible(true);
+
+                                        Intent intentProxy = (Intent) mIntentField.get(launchActivityItem);
+                                        Intent intent = intentProxy.getParcelableExtra(TARGET_INTENT);
+                                        if (intent != null) {
+                                            mIntentField.set(launchActivityItem, intent);
+                                        }
+                                    }
+                                }
+
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

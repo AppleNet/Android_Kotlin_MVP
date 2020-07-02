@@ -1,11 +1,14 @@
 package com.example.kotlin.plugin;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Environment;
 
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import dalvik.system.DexClassLoader;
 
@@ -68,5 +71,23 @@ public class PluginLoad {
             e.printStackTrace();
         }
 
+    }
+
+    public static Resources loadResources(Context context) {
+        // 1. 创建一个AssetManager
+        try {
+            AssetManager assetManager = AssetManager.class.newInstance();
+
+            // 2. 添加插件资源
+            Method addAssetPathMethod = assetManager.getClass().getMethod("addAssetPath", String.class);
+            addAssetPathMethod.invoke(assetManager, apkPath);
+
+            // 3. 创建Resources，传入创建的AssetManager
+            Resources resources = context.getResources();
+            return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

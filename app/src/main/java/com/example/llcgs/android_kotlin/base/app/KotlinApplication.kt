@@ -1,8 +1,10 @@
 package com.example.llcgs.android_kotlin.base.app
 
 import android.content.Context
+import android.content.res.Resources
 import android.support.multidex.MultiDex
 import com.alibaba.fastjson.JSON
+import com.example.kotlin.plugin.PluginLoad
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
@@ -45,11 +47,15 @@ import com.example.llcgs.android_kotlin.base.error.CrashHandler
 @RouteConfig(baseUrl = "host://", pack = "com.example.llcgs.android_kotlin.base.app")
 class KotlinApplication: RePluginApplication() {
 
+    private var mResources: Resources? = null
+
     override fun onCreate() {
         super.onCreate()
         BaseUtil.init(this)
         initRouter()
         initCrash()
+
+        mResources = PluginLoad.loadResources(this)
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -156,6 +162,11 @@ class KotlinApplication: RePluginApplication() {
                     JSON.parseObject(httpResponse, Update::class.java)
                 }
         UpdateBuilder.create().check()
+    }
+
+
+    fun getResource(): Resources? {
+        return if (mResources == null) super.getResources() else mResources
     }
 
 }
