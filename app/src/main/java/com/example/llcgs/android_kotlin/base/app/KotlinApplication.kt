@@ -1,10 +1,9 @@
 package com.example.llcgs.android_kotlin.base.app
 
 import android.content.Context
-import android.content.res.Resources
 import android.support.multidex.MultiDex
 import com.alibaba.fastjson.JSON
-import com.example.kotlin.plugin.PluginLoad
+import com.example.kotlin.plugin.PluginHook
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
@@ -35,19 +34,14 @@ import org.lzh.framework.updatepluginlib.model.HttpMethod
 import org.lzh.framework.updatepluginlib.model.Update
 import com.example.llcgs.android_kotlin.base.error.CrashHandler
 
-
-
-
 /**
  * com.example.llcgs.android_kotlin.base.app.KotlinApplication
  * @author liulongchao
  * @since 2017/7/26
  */
-
 @RouteConfig(baseUrl = "host://", pack = "com.example.llcgs.android_kotlin.base.app")
 class KotlinApplication: RePluginApplication() {
 
-    private var mResources: Resources? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -55,7 +49,8 @@ class KotlinApplication: RePluginApplication() {
         initRouter()
         initCrash()
 
-        mResources = PluginLoad.loadResources(this)
+        PluginHook.hookPMS()
+        packageManager.getInstalledApplications(0)
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -162,11 +157,6 @@ class KotlinApplication: RePluginApplication() {
                     JSON.parseObject(httpResponse, Update::class.java)
                 }
         UpdateBuilder.create().check()
-    }
-
-
-    fun getResource(): Resources? {
-        return if (mResources == null) super.getResources() else mResources
     }
 
 }
