@@ -15,6 +15,8 @@ import com.example.llcgs.android_kotlin.architecture_components.livedata.extend_
 import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.presenter.ILiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.presenter.impl.LiveDataPresenter
 import com.example.llcgs.android_kotlin.architecture_components.livedata.use_livedata.view.LiveDataView
+import com.example.llcgs.android_kotlin.base.livedata.LiveDataBus
+import com.example.llcgs.android_kotlin.utils.log.logD
 import com.example.llcgs.android_kotlin.utils.widget.refreshlayout.callback.OnRefreshListener
 import kotlinx.android.synthetic.main.activity_livedata.*
 import kotlinx.android.synthetic.main.view_title.*
@@ -57,6 +59,12 @@ class LiveDataActivity : BaseOwnerActivity<ILiveDataPresenter>(), LiveDataView, 
         val array = resources.getStringArray(R.array.databinding_nba)
         mPresenter.fetchList(array)
         mutableList.observe(this, this)
+
+        // 注册一个订阅者，在此处接收一个 String 类型的参数
+        LiveDataBus.get().with("", String::class.java)
+                .observe(this@LiveDataActivity, Observer<String> {
+             it?.logD()
+        })
     }
 
     override fun onGetMutableLiveData(list: List<LiveDataBean>) {
