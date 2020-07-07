@@ -19,13 +19,14 @@ open abstract class JamesBaseActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val resources = PluginLoad.getResources(application)
-        mContext = ContextThemeWrapper(baseContext, 0)
-
-        // 替换插件的
-        val clazz = mContext?.javaClass
-        val mResources = clazz?.getDeclaredField("mResources")
-        mResources?.isAccessible = true
-        mResources?.set(mContext, resources)
+        if(resources != null) {
+            mContext = ContextThemeWrapper(baseContext, 0)
+            // 替换插件的
+            val clazz = mContext?.javaClass
+            val mResources = clazz?.getDeclaredField("mResources")
+            mResources?.isAccessible = true
+            mResources?.set(mContext, resources)
+        }
 
         val view  = LayoutInflater.from(mContext).inflate(getLayoutId(), null)
         setContentView(view)

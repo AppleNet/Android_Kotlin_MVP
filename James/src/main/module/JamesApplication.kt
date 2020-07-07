@@ -1,12 +1,10 @@
-package com.example.llc.base
-
-
 import android.support.multidex.MultiDexApplication
+import com.example.llc.base.RouterRuleCreator
 import com.lzh.nonview.router.RouterConfiguration
 import com.lzh.nonview.router.anno.RouteConfig
 
 /**
- * com.example.llc.base.JamesApplication
+ * JamesApplication
  * @author liulongchao
  * @since 2018/3/23
  */

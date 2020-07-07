@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorAccent"
+        android:text="左上角"
+        android:textSize="@dimen/textsize_18"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/douya_primary"
+        android:text="右上角"
+        android:textSize="@dimen/textsize_18"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/primary_color"
+        android:text="左下角"
+        android:textSize="@dimen/textsize_18"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/blue_1"
+        android:text="右下角"
+        android:textSize="@dimen/textsize_18"/>
+
+    <TextView
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/gomemerchant_select_next_bg"
+        android:text="中间位置"
+        android:textSize="@dimen/textsize_18"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_30dp"
+        app:layout_constraintStart_toEndOf="@id/center"
+        app:layout_constraintBaseline_toBaselineOf="@id/center"
+        android:background="@color/gomemerchant_select_next_bg"
+        android:gravity="center"
+        android:text="中间位置的右边"
+        android:textSize="@dimen/textsize_18"/>
+
+</android.support.constraint.ConstraintLayout>

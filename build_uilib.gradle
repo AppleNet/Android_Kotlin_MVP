@@ -3,6 +3,7 @@ dependencies {
     Map<String, String> libs = rootProject.ext.libs
 
     api libs.recyclerview_v7
+    api libs.constraint_layout
     api(libs.design) {
         exclude module: 'support-v4'
         exclude module: 'transition'

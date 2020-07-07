@@ -19,6 +19,11 @@ public class SportsView extends View {
         super(context, attrs);
     }
 
+    {
+        paint.setTextSize(Utils.dp2px(100));
+
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -43,6 +48,8 @@ public class SportsView extends View {
                 paint);
 
         // 绘制文字
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawText("abab", getWidth() / 2 , getHeight() / 2, paint);
 
     }
 }

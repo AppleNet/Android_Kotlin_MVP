@@ -21,10 +21,12 @@ dependencies {
     // kapt "com.android.databinding:compiler:$android_plugin_version"
     testImplementation 'junit:junit:4.12'
 
-    println IsBuildMudle.toBoolean()
-    if(!IsBuildMudle.toBoolean()){
+    println IsBuildModule.toBoolean()
+    if(!IsBuildModule.toBoolean()){
         implementation project(':James')
-    }else{
+        implementation project(':login')
+        implementation project(':member')
+    } else {
         implementation project(':vlayout')
     }
     implementation project(':hotfix-lib')
