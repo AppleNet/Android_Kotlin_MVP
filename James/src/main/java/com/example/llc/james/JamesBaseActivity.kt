@@ -1,9 +1,9 @@
 package com.example.llc.james;
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
+import com.llc.kotlin.example.basic.BaseModuleActivity
 
 /**
  * com.example.llc.james.JamesBaseActivity
@@ -12,7 +12,7 @@ import android.view.LayoutInflater
  *
  * 处理AppCompatActivity
  */
-abstract class JamesBaseActivity: AppCompatActivity() {
+abstract class JamesBaseActivity: BaseModuleActivity() {
 
     private var mContextThemeWrapper: ContextThemeWrapper? = null
 
@@ -31,6 +31,4 @@ abstract class JamesBaseActivity: AppCompatActivity() {
         val view  = LayoutInflater.from(mContextThemeWrapper).inflate(getLayoutId(), null)
         setContentView(view)
     }
-
-    abstract fun getLayoutId(): Int
 }

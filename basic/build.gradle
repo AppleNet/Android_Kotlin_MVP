@@ -19,7 +19,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
+        }
     }
 }
 
 apply from: '../build_uilib.gradle'
+def getIsModuleValue() {
+    return rootProject.ext.plugin_version.is_build_module
+}
