@@ -1,12 +1,11 @@
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation libs.kotlin_stdlib
-
-    implementation project(':vlayout')
     implementation libs.multidex
 
     /* RouterHost */
     implementation libs.router_api
     kapt "com.github.yjfnypeu.Router:router-compiler:$router_version"
 }
+
+apply from: '../build_uilib.gradle'

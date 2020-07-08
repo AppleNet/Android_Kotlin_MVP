@@ -1,11 +1,24 @@
 ext {
+
     compileSdkVersion = 26
     buildToolsVersion = "27.0.3"
     minSdkVersion = 21
     targetSdkVersion = 25
-
     versionCode = 1
     versionName = "v1.0"
+
+    router_version = '2.4.3'
+    router_replugin_version = '0.3'
+    replugin_version = '2.2.1'
+
+    kotlin_version = '1.3.41'
+    android_plugin_version = '3.1.0'
+
+    databinder_version = '1.0-rc1'
+    tinker_id = "1.9.9"
+    tinker_version = "1.9.9"
+
+    is_build_module = false
 
     versions = [
             kotlin_version    : kotlin_version,
@@ -60,7 +73,7 @@ ext {
             wearable          : "2.0.3",
             gms               : "11.0.1",
             exoplayer         : "r2.5.0",
-            tinker            : TINKER_VERSION,
+            tinker            : tinker_version,
 
     ]
     libs = [

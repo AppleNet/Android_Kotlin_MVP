@@ -6,6 +6,7 @@ if(IsBuildModule.toBoolean()){
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'//kapt3插件
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -41,6 +42,19 @@ android {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
             }
         }
+    }
+
+    kapt {
+        generateStubs = true
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    androidExtensions {
+        experimental = true
     }
 
 }

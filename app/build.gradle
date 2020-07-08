@@ -37,12 +37,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
+            buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
             android.applicationVariants.all { variant ->
                 variant.outputs.all {
                     outputFileName = "kotlinMvp.apk"
                 }
             }
+        }
+
+        debug {
+            buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
         }
     }
 
@@ -74,8 +78,12 @@ android {
 }
 
 apply from: '../build_app.gradle'
+def getIsModuleValue() {
+    return rootProject.ext.plugin_version.is_build_module
+}
+
 // ========================================= Tinker ========================================= //
 apply from: "../tinker.gradle"
 def getTinkerIdValue() {
-    return hasProperty("TINKER_ID") ? TINKER_ID : rootProject.ext.tinker_id
+    return rootProject.ext.plugin_version.tinker_id
 }

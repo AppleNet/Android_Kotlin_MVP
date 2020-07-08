@@ -12,23 +12,23 @@ import android.view.LayoutInflater
  *
  * 处理AppCompatActivity
  */
-open abstract class JamesBaseActivity: AppCompatActivity() {
+abstract class JamesBaseActivity: AppCompatActivity() {
 
-    protected var mContext: ContextThemeWrapper? = null
+    private var mContextThemeWrapper: ContextThemeWrapper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val resources = PluginLoad.getResources(application)
         if(resources != null) {
-            mContext = ContextThemeWrapper(baseContext, 0)
+            mContextThemeWrapper = ContextThemeWrapper(baseContext, 0)
             // 替换插件的
-            val clazz = mContext?.javaClass
+            val clazz = mContextThemeWrapper?.javaClass
             val mResources = clazz?.getDeclaredField("mResources")
             mResources?.isAccessible = true
-            mResources?.set(mContext, resources)
+            mResources?.set(mContextThemeWrapper, resources)
         }
 
-        val view  = LayoutInflater.from(mContext).inflate(getLayoutId(), null)
+        val view  = LayoutInflater.from(mContextThemeWrapper).inflate(getLayoutId(), null)
         setContentView(view)
     }
 

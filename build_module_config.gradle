@@ -19,8 +19,8 @@ ext {
             ],
 
             other : [
-                    path: 'common',
-                    path: 'basic'
+                    'common',
+                    'basic'
             ]
     ]
 

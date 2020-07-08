@@ -1,10 +1,7 @@
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation libs.kotlin_stdlib
-
     implementation libs.multidex
-
 }
 
 apply from: '../build_uilib.gradle'
