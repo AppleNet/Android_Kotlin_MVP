@@ -11,7 +11,8 @@ buildscript {
                 replugin_version : '2.2.1',
                 databinder_version : '1.0-rc1',
                 tinker_version: "1.9.9",
-                tinker_id : "1.9.9"
+                tinker_id : "1.9.9",
+                is_build_module : IsBuildModule
         ]
 
     }

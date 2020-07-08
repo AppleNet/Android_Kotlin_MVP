@@ -26,7 +26,17 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "james.apk"
+                }
+            }
         }
     }
 
@@ -58,3 +68,6 @@ android {
 }
 
 apply from: '../build_james.gradle'
+def getIsModuleValue() {
+    return rootProject.ext.plugin_version.is_build_module
+}

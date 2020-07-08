@@ -27,7 +27,7 @@ dependencies {
         implementation project(':login')
         implementation project(':member')
     } else {
-        implementation project(':vlayout')
+        implementation project(':basic')
     }
     implementation project(':hotfix-lib')
     implementation project(':plugin-lib')
