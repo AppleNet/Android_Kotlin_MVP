@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".MemberService" />
+        <service android:name=".MemberService"
+            android:exported="true"/>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.llc.binder.Person;
 import com.example.llc.binder.Stub;
@@ -26,7 +27,7 @@ public class MemberService extends Service {
         return new Stub() {
             @Override
             public void addPerson(Person person) throws RemoteException {
-
+                Log.d("Android_Kotlin_MVP", "id: " + person.getId() + ", name: " + person.getName());
                 personArrayList.add(person);
             }
 

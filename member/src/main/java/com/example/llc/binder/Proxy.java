@@ -1,6 +1,5 @@
 package com.example.llc.binder;
 
-import android.os.Binder;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
@@ -12,7 +11,7 @@ public class Proxy implements IPersonInterface {
 
     private IBinder mRemote;
 
-    public Proxy(IBinder remote) {
+    Proxy(IBinder remote) {
         this.mRemote = remote;
     }
 

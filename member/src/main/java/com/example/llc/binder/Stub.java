@@ -9,10 +9,10 @@ import android.support.annotation.NonNull;
 
 public abstract class Stub extends Binder implements IPersonInterface {
 
-    static final int TRANSACTION_addPerson = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
+    static final int TRANSACTION_addPerson = IBinder.FIRST_CALL_TRANSACTION;
     static final int TRANSACTION_getPersons = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
 
-    public Stub() {
+    protected Stub() {
         this.attachInterface(this, DESCRIPTOR);
     }
 
