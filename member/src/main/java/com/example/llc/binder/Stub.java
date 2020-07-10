@@ -7,6 +7,13 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 
+/**
+ * com.example.llc.binder.Stub
+ *
+ * @author liulongchao
+ * @since 2020-07-09
+ *
+ * */
 public abstract class Stub extends Binder implements IPersonInterface {
 
     static final int TRANSACTION_addPerson = IBinder.FIRST_CALL_TRANSACTION;

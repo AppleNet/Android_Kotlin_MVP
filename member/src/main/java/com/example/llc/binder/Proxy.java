@@ -3,13 +3,20 @@ package com.example.llc.binder;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  com.example.llc.binder.Proxy
+ *
+ * @author liulongchao
+ * @since 2020-07-09
+ *
+ * 客户端代理对象，封装了 BinderProxy (Stub就是 BinderProxy 的具体实现)
+ *
+ * */
 public class Proxy implements IPersonInterface {
 
-    private IBinder mRemote;
+    private IBinder mRemote; // 具体实例是 Stub
 
     Proxy(IBinder remote) {
         this.mRemote = remote;
@@ -31,8 +38,10 @@ public class Proxy implements IPersonInterface {
             } else {
                 _data.writeInt(0);
             }
-
-            mRemote.transact(Stub.TRANSACTION_addPerson, _data, _reply, 0);
+            // 数据传输 分为同步和异步
+            // 0 表示同步
+            // IBinder.FLAG_ONEWAY 表示异步
+            mRemote.transact(Stub.TRANSACTION_addPerson, _data, _reply, IBinder.FLAG_ONEWAY);
             _reply.readException();
         } catch (Exception e) {
             //
@@ -47,7 +56,7 @@ public class Proxy implements IPersonInterface {
     public List<Person> getPersons() throws RemoteException {
         Parcel _data = Parcel.obtain();
         Parcel _reply = Parcel.obtain();
-        List<Person> _result = new ArrayList<>();
+        List<Person> _result;
         try {
             _data.writeInterfaceToken(DESCRIPTOR);
             mRemote.transact(Stub.TRANSACTION_getPersons, _data, _reply, 0);
@@ -59,9 +68,8 @@ public class Proxy implements IPersonInterface {
         } finally {
             _data.recycle();
             _reply.recycle();
-            _result = null;
         }
-        return _result;
+        return null;
     }
 
     @Override

@@ -4,6 +4,6 @@ import com.example.llc.binder.Person;
 
 interface IPersonInterface {
 
-    void addPerson(in Person person);
+    oneway void addPerson(in Person person);
     List<Person> getPersons();
 }
