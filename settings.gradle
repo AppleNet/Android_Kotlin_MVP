@@ -1,3 +1,3 @@
-include ':basic', ':hotfix-lib', ':plugin-lib', ':login', ':member', ':common'
+include ':basic', ':hotfix-lib', ':plugin-lib', ':login', ':member', ':common', ':arouter', ':annotation', ':annotation_compiler'
 include ':app'
 include ':James'

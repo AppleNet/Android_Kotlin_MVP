@@ -8,11 +8,13 @@ import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
+import com.example.llc.annotation.BindPath
 import com.example.llc.binder.IPersonInterface
 import com.example.llc.binder.Person
 import com.llc.kotlin.example.basic.BaseModuleActivity
 import kotlinx.android.synthetic.main.activity_module_login.*
 
+@BindPath("Login/login")
 class ModuleLoginActivity : BaseModuleActivity() {
 
     private var iPersonInterface: IPersonInterface? = null

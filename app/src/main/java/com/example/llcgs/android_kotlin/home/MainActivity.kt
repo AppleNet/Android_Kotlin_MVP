@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.view.WindowManager
 import android.widget.LinearLayout
+import com.example.llc.annotation.BindPath
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.base.rx.MyObserver
@@ -31,6 +32,7 @@ import java.io.File
 
 // 因为指定了baseUrl。 所以这里会使用baseUrl做组合。
 @RouterRule("main")
+@BindPath("Main/main")
 class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (String) -> Unit {
 
     private lateinit var adapter:MainAdapter

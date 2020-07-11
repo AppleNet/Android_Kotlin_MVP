@@ -20,7 +20,8 @@ ext {
 
             other : [
                     'common',
-                    'basic'
+                    'basic',
+                    'arouter'
             ]
     ]
 

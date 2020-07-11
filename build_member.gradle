@@ -1,9 +1,24 @@
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':basic')
-
-    /* RouterHost */
+    /**
+     *  RouterHost
+     *    聚美优品路由框架
+     * */
     implementation libs.router_api
     kapt "com.github.yjfnypeu.Router:router-compiler:$router_version"
+    /**
+     *  依赖其他模块
+     *
+     *      ':common',
+     *      ':basic',
+     *      ':arouter',
+     *      ':hotfix-lib',
+     *      ':plugin-lib'
+     *
+     * */
+    rootProject.ext.dependencies.other.each{
+        implementation project(it)
+    }
+    annotationProcessor project(path: ':annotation_compiler')
 }

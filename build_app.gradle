@@ -27,10 +27,11 @@ dependencies {
         implementation project(':login')
         implementation project(':member')
     } else {
-        implementation project(':basic')
+        rootProject.ext.dependencies.other.each{
+            implementation project(it)
+        }
     }
-    implementation project(':hotfix-lib')
-    implementation project(':plugin-lib')
+    annotationProcessor project(path: ':annotation_compiler')
 
     implementation libs.constraint_layout
     implementation libs.cardview_v7

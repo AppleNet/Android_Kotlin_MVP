@@ -1,6 +1,7 @@
 package com.example.llc.james
 
 import android.os.Bundle
+import com.example.llc.annotation.BindPath
 import com.lzh.nonview.router.anno.RouterRule
 
 /**
@@ -11,6 +12,7 @@ import com.lzh.nonview.router.anno.RouterRule
  * 处理AppCompatActivity
  */
 @RouterRule("James")
+@BindPath("James/james")
 class JamesMainActivity : JamesBaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
