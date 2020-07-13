@@ -396,6 +396,7 @@
         <activity android:name=".kotlin.variable.VariableActivity" />
         <activity android:name=".kotlin.coroutines.CoroutinesActivity" />
         <activity android:name=".replugin.proxy.ProxyActivity" />
+        <activity android:name=".customview.BigViewActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 

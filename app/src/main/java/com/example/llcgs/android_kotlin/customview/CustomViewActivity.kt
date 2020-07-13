@@ -1,11 +1,13 @@
 package com.example.llcgs.android_kotlin.customview
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.customview.presenter.impl.CustomViewPresenter
 import com.example.llcgs.android_kotlin.customview.view.CustomViewView
 import com.lzh.nonview.router.anno.RouterRule
+import kotlinx.android.synthetic.main.activity_custom_view.*
 
 /**
  * com.example.llcgs.android_kotlin.customview.CustomViewActivity
@@ -55,5 +57,9 @@ class CustomViewActivity: BaseActivity<CustomViewView, CustomViewPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_custom_view)
+
+        myCustomView.setOnClickListener {
+            startActivity(Intent(this, BigViewActivity::class.java))
+        }
     }
 }
