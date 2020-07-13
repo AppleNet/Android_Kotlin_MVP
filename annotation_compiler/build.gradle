@@ -2,6 +2,16 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // 3.4+ 使用这种方式
+    // annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+    // compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
+
+    // 其他使用这种方式
+    implementation 'com.google.auto.service:auto-service:1.0-rc1'
+    implementation project(path: ':annotation')
+    // 类文件辅助生成工具
+    implementation 'com.squareup:javapoet:1.13.0'
 }
 
 sourceCompatibility = "7"
