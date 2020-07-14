@@ -3,16 +3,16 @@ package com.example.llc.james;
 import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
-import com.llc.kotlin.example.basic.BaseModuleActivity
+import com.example.llc.kotlin.basic.BaseModuleActivity
 
 /**
- * com.example.llc.james.JamesBaseActivity
+ * com.example.llc.james.BaseModuleJamesActivity
  * @author liulongchao
  * @since 2017/7/26
  *
  * 处理AppCompatActivity
  */
-abstract class JamesBaseActivity: BaseModuleActivity() {
+abstract class BaseModuleJamesActivity: BaseModuleActivity() {
 
     private var mContextThemeWrapper: ContextThemeWrapper? = null
 

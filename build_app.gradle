@@ -31,6 +31,7 @@ dependencies {
             implementation project(it)
         }
     }
+    implementation project(path: ':annotation')
     annotationProcessor project(path: ':annotation_compiler')
 
     implementation libs.constraint_layout
@@ -165,6 +166,10 @@ dependencies {
 
 configurations {
     implementation.exclude group:'android.arch.lifecycle', module: 'viewmodel'
+}
+
+configurations.all {
+    resolutionStrategy.force 'com.android.support:recyclerview-v7:27.1.0'
 }
 
 task makeJar(type: Jar) {

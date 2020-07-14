@@ -13,7 +13,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        if (IsBuildModule) {
+        if (IsBuildModule.toBoolean()) {
             applicationId "com.example.llc.member"
         }
         minSdkVersion rootProject.ext.minSdkVersion
@@ -34,9 +34,11 @@ android {
 
         debug {
             buildConfigField 'Boolean', 'isBuildModule', "${getIsModuleValue()}"
-            android.applicationVariants.all { variant ->
-                variant.outputs.all {
-                    outputFileName = "member.apk"
+            if (IsBuildModule.toBoolean()) {
+                android.applicationVariants.all { variant ->
+                    variant.outputs.all {
+                        outputFileName = "james.apk"
+                    }
                 }
             }
         }

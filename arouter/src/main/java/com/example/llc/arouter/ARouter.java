@@ -7,7 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
+
+import dalvik.system.DexFile;
 
 /**
  * com.example.llc.arouter.ARouter
@@ -33,6 +39,19 @@ public class ARouter {
 
     public void init(Context context) {
         this.mContext = context;
+        //
+        List<String> classNames = getClassName("com.example.llc.arouter");
+        for (String className : classNames) {
+            try {
+                Class<?> utilClass = Class.forName(className);
+                if (IRouter.class.isAssignableFrom(utilClass)) {
+                    IRouter iRouter = (IRouter) utilClass.newInstance();
+                    iRouter.putActivity();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static ARouter getInstance() {
@@ -63,6 +82,27 @@ public class ARouter {
             }
             mContext.startActivity(intent);
         }
+    }
+
+    /**
+     *  通过包名获取这个包下面的所有的类名
+     *
+     * */
+    private List<String> getClassName(String packageName) {
+        List<String> classList = new ArrayList<>();
+        try {
+            DexFile df = new DexFile(mContext.getPackageCodePath());
+            Enumeration<String> entries = df.entries();
+            while (entries.hasMoreElements()) {
+                String className = entries.nextElement();
+                if (className.contains(packageName)) {
+                    classList.add(className);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return classList;
     }
 
 }

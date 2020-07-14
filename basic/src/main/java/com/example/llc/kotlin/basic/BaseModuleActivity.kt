@@ -1,4 +1,4 @@
-package com.llc.kotlin.example.basic;
+package com.example.llc.kotlin.basic
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

@@ -15,6 +15,7 @@ import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -22,7 +23,7 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 
 
-@AutoService(Process.class) // 标记注解处理器
+@AutoService(Processor.class) // 标记注解处理器
 public class AnnotationCompiler extends AbstractProcessor {
 
     // 通过注解的方式获取注解处理器要找的注解，等价于重写getSupportedAnnotationTypes()

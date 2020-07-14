@@ -8,11 +8,11 @@ dependencies {
     // compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
 
     // 其他使用这种方式
-    implementation 'com.google.auto.service:auto-service:1.0-rc1'
+    implementation 'com.google.auto.service:auto-service:1.0-rc4'
     implementation project(path: ':annotation')
     // 类文件辅助生成工具
     implementation 'com.squareup:javapoet:1.13.0'
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

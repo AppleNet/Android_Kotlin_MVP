@@ -9,7 +9,7 @@
         android:id="@+id/title_template"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Hello 组件化"
+        android:text="Hello 组件化 -> James Module -> 跳转 Login Module"
         android:textStyle="bold"
         android:textColor="@color/colorAccent"
         android:gravity="center"
