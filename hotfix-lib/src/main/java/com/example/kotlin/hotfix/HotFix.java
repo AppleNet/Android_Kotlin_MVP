@@ -61,19 +61,22 @@ public class HotFix {
             // 3.反射修改pathList的dexElements[]
             // 3.1 把补丁包path.dex转换成Element[](path)
             Method makePathElements;
+
+            // 如果是静态方法，invoke方法中的第一个参数可以传递null，如果不是静态方法，则不可以
+            Object[] newDexElements;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 makePathElements =
                         ShareReflectUtils.findMethod(pathList, "makePathElements", List.class, File.class, List.class);
+                newDexElements = (Object[]) makePathElements.invoke(pathList, fileList, dexOutputDir, suppressedExceptions);
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 makePathElements =
                         ShareReflectUtils.findMethod(pathList, "makeDexElements", ArrayList.class, File.class, ArrayList.class);
+                newDexElements = (Object[]) makePathElements.invoke(pathList, new ArrayList<File>(fileList), dexOutputDir, suppressedExceptions);
             } else {
                 makePathElements =
                         ShareReflectUtils.findMethod(pathList, "makeDexElements", ArrayList.class, File.class);
+                newDexElements = (Object[]) makePathElements.invoke(pathList, fileList, dexOutputDir);
             }
-            // 如果是静态方法，invoke方法中的第一个参数可以传递null，如果不是静态方法，则不可以
-            Object[] newDexElements = (Object[]) makePathElements.invoke(pathList, fileList, dexOutputDir, suppressedExceptions);
-
             // 3.2 获得旧的pathList的dexElements()
             Field dexElementsField = ShareReflectUtils.findFiled(pathList, "dexElements");
             Object[] oldDexElements = (Object[]) dexElementsField.get(pathList);
