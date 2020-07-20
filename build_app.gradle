@@ -14,12 +14,14 @@ dependencies {
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation(name:'library-1.0.0', ext:'aar')
+
+    testImplementation 'junit:junit:4.12'
+    // ASM框架，用来执行字节码插桩
+    testImplementation 'org.ow2.asm:asm:8.0.1'
+    testImplementation 'org.ow2.asm:asm-commons:8.0.1'
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-    // kapt "com.android.databinding:compiler:$android_plugin_version"
-    testImplementation 'junit:junit:4.12'
 
     println IsBuildModule.toBoolean()
     if(!IsBuildModule.toBoolean()){
