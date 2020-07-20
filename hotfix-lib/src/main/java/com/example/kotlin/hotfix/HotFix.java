@@ -43,7 +43,7 @@ public class HotFix {
         if (Build.VERSION.SDK_INT >= 24) {
             try {
                 // 仿 Tinker 写法
-                pathClassLoader = NewClassLoaderInjector.inject(application, pathClassLoader, dexOutputDir, fileList);
+                NewClassLoaderInjector.inject(application, pathClassLoader, dexOutputDir, fileList);
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
