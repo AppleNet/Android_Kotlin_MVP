@@ -168,10 +168,6 @@ configurations {
     implementation.exclude group:'android.arch.lifecycle', module: 'viewmodel'
 }
 
-configurations.all {
-    resolutionStrategy.force 'com.android.support:recyclerview-v7:27.1.0'
-}
-
 task makeJar(type: Jar) {
     from file('build/intermediates/classes/release')
     baseName = 'plugin'

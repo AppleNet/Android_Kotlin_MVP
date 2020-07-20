@@ -60,8 +60,17 @@ public class HotFix {
 
             // 3.反射修改pathList的dexElements[]
             // 3.1 把补丁包path.dex转换成Element[](path)
-
-            Method makePathElements = ShareReflectUtils.findMethod(pathList, "makePathElements", List.class, File.class, List.class);
+            Method makePathElements;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                makePathElements =
+                        ShareReflectUtils.findMethod(pathList, "makePathElements", List.class, File.class, List.class);
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                makePathElements =
+                        ShareReflectUtils.findMethod(pathList, "makeDexElements", ArrayList.class, File.class, ArrayList.class);
+            } else {
+                makePathElements =
+                        ShareReflectUtils.findMethod(pathList, "makeDexElements", ArrayList.class, File.class);
+            }
             // 如果是静态方法，invoke方法中的第一个参数可以传递null，如果不是静态方法，则不可以
             Object[] newDexElements = (Object[]) makePathElements.invoke(pathList, fileList, dexOutputDir, suppressedExceptions);
 
