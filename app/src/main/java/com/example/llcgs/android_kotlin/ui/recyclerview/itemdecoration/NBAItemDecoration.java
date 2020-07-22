@@ -100,10 +100,12 @@ public class NBAItemDecoration extends RecyclerView.ItemDecoration {
                 // 绘制文本
                 String groupName = adapter.getGroupName(position);
                 textPaint.getTextBounds(groupName,0, groupName.length(), textRect);
-                canvas.drawText(groupName,
-                        left + Utils.dp2px(10),
-                        top + bottom - groupHeaderHeight / 2 + textRect.height() / 2,
-                        textPaint);
+                if ((top + bottom - groupHeaderHeight / 2) - parent.getPaddingTop() >= 0) {
+                    canvas.drawText(groupName,
+                            left + Utils.dp2px(10),
+                            top + bottom - groupHeaderHeight / 2 + textRect.height() / 2,
+                            textPaint);
+                }
             } else {
                 // 绘制吸顶区域
                 canvas.drawRect(left, top, right, top + groupHeaderHeight, headerPaint);
