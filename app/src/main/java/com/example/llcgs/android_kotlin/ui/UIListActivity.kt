@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.list.adapter.MyListAdapter
+import com.example.llcgs.android_kotlin.ui.recyclerview.RecyclerViewActivity
 import com.example.llcgs.android_kotlin.ui.viewpager.ViewPagerActivity
 import com.lzh.nonview.router.anno.RouterRule
 import kotlinx.android.synthetic.main.activity_activity_list.*
@@ -44,8 +45,10 @@ class UIListActivity : AppCompatActivity() {
                         startActivity(Intent(this@UIListActivity, ViewPagerActivity::class.java))
                     }
                     1 ->{
+
                     }
                     2 ->{
+                        startActivity(Intent(this@UIListActivity, RecyclerViewActivity::class.java))
                     }
                     3 ->{
                     }
