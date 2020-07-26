@@ -53,6 +53,7 @@
 
     <!-- 补件 -->
     <color name="main_red_start">#FB4A4A</color>
+    <color name="red">#FB4A4A</color>
     <color name="main_red_end">#ff3053</color>
     <color name="color_fe">#FE3451</color>
     <color name="color_fe_light">#aaFE3451</color>
