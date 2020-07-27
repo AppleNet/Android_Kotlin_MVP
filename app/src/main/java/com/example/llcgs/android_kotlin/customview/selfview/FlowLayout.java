@@ -56,7 +56,7 @@ public class FlowLayout extends ViewGroup {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         // 测量子控件，根据子控件的大小，来决定自己的大小
 
-        // 保存当前控件的里面的子控件的总宽高
+        // 保存当前父控件的里面的子控件的总宽高
         int childCountWidth = 0;
         int childCountHeight = 0;
         if (!isMeasure) {
@@ -126,7 +126,6 @@ public class FlowLayout extends ViewGroup {
                     listLineHeight.add(lineMaxHeight);
                     list.add(viewList);
                 }
-
 
             }
         }

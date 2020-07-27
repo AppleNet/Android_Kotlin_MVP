@@ -16,7 +16,7 @@ class BigViewActivity: BaseActivity<CustomViewView, CustomViewPresenter>()  {
         setContentView(R.layout.activity_big_view)
 
         val inputStream = assets.open("house.jpeg");
-        bigView.setImage(inputStream)
+        bigView.setImageFromInputStream(inputStream)
     }
 
 }
