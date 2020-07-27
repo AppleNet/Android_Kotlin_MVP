@@ -59,7 +59,7 @@ class CustomViewActivity: BaseActivity<CustomViewView, CustomViewPresenter>() {
         setContentView(R.layout.activity_custom_view)
 
         myCustomView.setOnClickListener {
-            startActivity(Intent(this, BigViewActivity::class.java))
+            startActivity(Intent(this, FlowLayoutActivity::class.java))
         }
     }
 }
