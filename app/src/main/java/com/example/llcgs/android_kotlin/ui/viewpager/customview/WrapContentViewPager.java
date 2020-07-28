@@ -16,6 +16,7 @@ import android.view.View;
  *  解决ViewPager设置wrap_content 无效的case
  * */
 public class WrapContentViewPager extends ViewPager {
+
     public WrapContentViewPager(@NonNull Context context) {
         super(context);
     }
@@ -33,7 +34,7 @@ public class WrapContentViewPager extends ViewPager {
 
         int finalH = 0;
         int finalW = 0;
-
+        // 遍历 ViewPager 的所有子控件，获取子控件中最大的宽 和 最大的高，然后获取它俩的测量模式，赋值给 ViewPager
         for (int i = 0; i < count; i++) {
             child = getChildAt(i);
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
