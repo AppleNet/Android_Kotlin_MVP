@@ -8,6 +8,7 @@ import com.example.llcgs.android_kotlin.ui.viewpager.adapter.ParentViewPagerAdap
 import com.example.llcgs.android_kotlin.ui.viewpager.fragment.anchor.AnchorFragment
 import com.example.llcgs.android_kotlin.ui.viewpager.fragment.kinganchor.KingAnchorFragment
 import com.example.llcgs.android_kotlin.ui.viewpager.presenter.impl.ViewPagerPresenter
+import com.example.llcgs.android_kotlin.ui.viewpager.transformer.ScaleInTransformer
 import com.example.llcgs.android_kotlin.ui.viewpager.view.ViewPagerView
 import kotlinx.android.synthetic.main.activity_viewpager.*
 
@@ -62,7 +63,9 @@ class ViewPagerActivity : BaseActivity<ViewPagerView, ViewPagerPresenter>(){
             override fun createFragment(): Fragment = KingAnchorFragment()
         }, "金主榜")
         viewPager.adapter = mViewPagerAdapterAdapter
-
+        viewPager.pageMargin = 20
+        viewPager.offscreenPageLimit = 3
+        viewPager.setPageTransformer(true, ScaleInTransformer())
         // tab的字体选择器,默认黑色,选择时红色
         // tabLayout.setTabTextColors(Color.BLACK, Color.RED)
         tabLayout.setupWithViewPager(viewPager)

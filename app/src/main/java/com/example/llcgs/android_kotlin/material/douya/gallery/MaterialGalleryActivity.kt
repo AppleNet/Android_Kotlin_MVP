@@ -10,6 +10,10 @@ import android.view.View
 import android.widget.Toast
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.material.base.BaseMaterialActivity
+import com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter
+import com.example.llcgs.android_kotlin.material.douya.gallery.presenter.IGalleryPresenter
+import com.example.llcgs.android_kotlin.material.douya.gallery.presenter.impl.GalleryPresenter
+import com.example.llcgs.android_kotlin.material.douya.gallery.view.GalleryView
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_gallery.*
 import me.zhanghai.android.systemuihelper.SystemUiHelper
@@ -19,14 +23,14 @@ import me.zhanghai.android.systemuihelper.SystemUiHelper
  * @author liulongchao
  * @since 2017/12/18
  */
-class MaterialGalleryActivity : BaseMaterialActivity<com.example.llcgs.android_kotlin.material.douya.gallery.presenter.IGalleryPresenter>(), com.example.llcgs.android_kotlin.material.douya.gallery.view.GalleryView, () -> Unit, ViewPager.PageTransformer {
+class MaterialGalleryActivity : BaseMaterialActivity<IGalleryPresenter>(), GalleryView, () -> Unit, ViewPager.PageTransformer {
 
     private lateinit var mSystemUiHelper: SystemUiHelper
-    private lateinit var adapter: com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter
+    private lateinit var adapter: GalleryAdapter
     private var mImageList = ArrayList<String>()
     private var position = 0
 
-    override fun createPresenter() = com.example.llcgs.android_kotlin.material.douya.gallery.presenter.impl.GalleryPresenter(this)
+    override fun createPresenter() = GalleryPresenter(this)
 
     override fun getLayoutId() = R.layout.activity_gallery
 
@@ -34,7 +38,7 @@ class MaterialGalleryActivity : BaseMaterialActivity<com.example.llcgs.android_k
         setSupportActionBar(toolbar)
         mPresenter.setSystemUiHelper(this, toolbar = toolbar)
 
-        adapter = com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter()
+        adapter = GalleryAdapter()
         adapter.setListener(this)
         viewPager.adapter = adapter
         viewPager.setPageTransformer(true, this)

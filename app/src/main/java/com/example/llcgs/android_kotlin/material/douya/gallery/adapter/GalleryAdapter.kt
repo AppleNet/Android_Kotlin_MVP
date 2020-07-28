@@ -39,7 +39,7 @@ class GalleryAdapter : PagerAdapter() {
 
     private fun onCreateView(container: ViewGroup, position: Int): View {
         val view = LayoutInflater.from(container.context).inflate(R.layout.view_gallery_item, null)
-        val holder = com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter.Holder(view)
+        val holder = Holder(view)
         view.tag = holder
         holder.image.setOnClickListener {
             listener?.let {
@@ -60,7 +60,7 @@ class GalleryAdapter : PagerAdapter() {
         container.removeView(view)
     }
 
-    private fun loadImageForPosition(container: ViewGroup, position: Int, holder: com.example.llcgs.android_kotlin.material.douya.gallery.adapter.GalleryAdapter.Holder) {
+    private fun loadImageForPosition(container: ViewGroup, position: Int, holder: Holder) {
         ViewUtils.fadeIn(holder.progress)
         Glide.with(container.context).load(mImageList[position]).into(holder.image)
         holder.image.visibility = View.VISIBLE
