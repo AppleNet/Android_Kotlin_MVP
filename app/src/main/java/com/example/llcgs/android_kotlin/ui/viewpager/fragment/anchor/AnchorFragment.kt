@@ -10,6 +10,8 @@ import com.example.llcgs.android_kotlin.ui.viewpager.adapter.ChildViewPagerAdapt
 import com.example.llcgs.android_kotlin.ui.viewpager.fragment.anchor.child.all.AnchorAllFragment
 import com.example.llcgs.android_kotlin.ui.viewpager.fragment.anchor.child.day.AnchorDayFragment
 import com.example.llcgs.android_kotlin.ui.viewpager.fragment.anchor.child.week.AnchorWeekFragment
+import com.example.llcgs.android_kotlin.ui.viewpager.transformer.ScaleInTransformer
+import com.example.llcgs.android_kotlin.utils.log.logD
 import kotlinx.android.synthetic.main.fragment_anchor.*
 
 /**
@@ -19,13 +21,31 @@ import kotlinx.android.synthetic.main.fragment_anchor.*
  */
 class AnchorFragment : Fragment(){
 
+    // 标记当前 Fragment 是否彻底可见
+    private var isFragmentShow: Boolean = false
+    // 标记当前 View 是否创建完成
+    private var isViewCreate: Boolean = false
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_anchor, container, false)
+        val inflate = inflater.inflate(R.layout.fragment_anchor, container, false)
+        initViewPagerAndTabLayout()
+        return inflate
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewPagerAndTabLayout()
+        isViewCreate = true
+        loadData()
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if(isVisibleToUser) {
+            isFragmentShow = true
+            loadData()
+        } else {
+            isFragmentShow = false
+        }
     }
 
     private fun initViewPagerAndTabLayout(){
@@ -42,9 +62,28 @@ class AnchorFragment : Fragment(){
         }, "总榜")
 
         subViewPager.adapter = mChildViewPagerAdapter
+        subViewPager.pageMargin = 20
+        subViewPager.offscreenPageLimit = 3
+        subViewPager.setPageTransformer(true, ScaleInTransformer())
         subTabLayout.setupWithViewPager(subViewPager)
+
     }
 
+    /**
+     *  加载数据
+     * */
+    private fun loadData() {
+        if(isFragmentShow && isViewCreate){
+            "数据加载。。。。".logD()
+            isFragmentShow = false
+            isViewCreate = false
+        }
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        isFragmentShow = false
+        isViewCreate = false
+    }
 
 }
