@@ -2,6 +2,7 @@ package com.example.llcgs.android_kotlin.home
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -16,6 +17,7 @@ import com.example.llc.annotation.BindPath
 import com.example.llcgs.android_kotlin.R
 import com.example.llcgs.android_kotlin.base.activity.BaseActivity
 import com.example.llcgs.android_kotlin.base.rx.MyObserver
+import com.example.llcgs.android_kotlin.butter.ButterKnifeActivity
 import com.example.llcgs.android_kotlin.home.adapter.MainAdapter
 import com.example.llcgs.android_kotlin.home.bean.User
 import com.example.llcgs.android_kotlin.home.presenter.impl.LoginPresenter
@@ -158,6 +160,9 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView, (Stri
             }
             "ViewPager_Activity_TabLayout" ->{
                 Router.create("host://ViewPager_Activity_TabLayout").activityRoute.open(this)
+            }
+            "ButterKnife" -> {
+                startActivity(Intent(this, ButterKnifeActivity::class.java))
             }
         }
     }

@@ -133,6 +133,7 @@
         <item>ViewDispatcher</item>
         <item>Window</item>
         <item>ViewPager_Activity_TabLayout</item>
+        <item>ButterKnife</item>
     </string-array>
 
     <string-array name="arch_menu">

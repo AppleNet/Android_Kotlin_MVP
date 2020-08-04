@@ -399,6 +399,7 @@
         <activity android:name=".customview.BigViewActivity" />
         <activity android:name=".ui.recyclerview.RecyclerViewActivity" />
         <activity android:name=".customview.FlowLayoutActivity" />
+        <activity android:name=".butter.ButterKnifeActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 
