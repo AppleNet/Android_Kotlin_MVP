@@ -23,7 +23,7 @@ public class Retrofit {
 
     HttpUrl baseUrl;
     Call.Factory callFactory;
-    private Map<Method, ServiceMethod> serviceMethodCache = new ConcurrentHashMap<>();
+    private final Map<Method, ServiceMethod> serviceMethodCache = new ConcurrentHashMap<>();
 
     private Retrofit(HttpUrl baseUrl, Call.Factory callFactory) {
         this.baseUrl = baseUrl;
