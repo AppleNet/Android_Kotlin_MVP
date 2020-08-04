@@ -1,5 +1,6 @@
 package com.example.kotlin.plugin;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class PluginHook {
 
     private static final String TARGET_INTENT = "target_intent";
 
+    @SuppressLint("PrivateApi")
     public static void hookPMS() {
 
         try {
@@ -59,13 +61,17 @@ public class PluginHook {
     }
 
 
+    @SuppressLint("PrivateApi")
     public static void hookAMS() {
 
         // 动态代理需要替换的是IActivityManager对象
         try {
             // 1. Singleton对象
             Field iActivityManagerSingletonField;
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT > 28) {
+                Class<?> clazz = Class.forName("android.app.ActivityTaskManager");
+                iActivityManagerSingletonField = clazz.getDeclaredField("IActivityTaskManagerSingleton");
+            } else if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
                 Class<?> clazz = Class.forName("android.app.ActivityManager");
                 iActivityManagerSingletonField = clazz.getDeclaredField("IActivityManagerSingleton");
             } else {
@@ -82,8 +88,12 @@ public class PluginHook {
             Field mInstanceField = singletonClass.getDeclaredField("mInstance");
             mInstanceField.setAccessible(true);
             final Object mInstance = mInstanceField.get(singleton);
-
-            Class<?> iActivityManagerClass = Class.forName("android.app.IActivityManager");
+            Class<?> iActivityManagerClass;
+            if (Build.VERSION.SDK_INT > 28) {
+                iActivityManagerClass = Class.forName("android.app.IActivityTaskManager");
+            } else {
+                iActivityManagerClass = Class.forName("android.app.IActivityManager");
+            }
             Object mInstanceProxy = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{iActivityManagerClass}, new InvocationHandler() {
                 @Override
                 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -142,7 +152,7 @@ public class PluginHook {
 
     }
 
-
+    @SuppressLint("PrivateApi")
     public static void hookHandler() {
         // 用创建的callback对象替换系统ActivityThread中Handler的callback对象
         try {
