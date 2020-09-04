@@ -400,6 +400,7 @@
         <activity android:name=".ui.recyclerview.RecyclerViewActivity" />
         <activity android:name=".customview.FlowLayoutActivity" />
         <activity android:name=".butter.ButterKnifeActivity" />
+        <activity android:name=".io.InputOutputStreamActivity" />
 
         <receiver android:name=".net.wifi.receiver.WiFiBroadcastReceiver" />
 
