@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.base.rx.bean;
 
+import android.support.annotation.NonNull;
+
 /**
  * com.example.llcgs.android_kotlin.base.rx.bean.WrapperBean
  * @author liulongchao
@@ -12,6 +14,7 @@ public class WrapperBean<T> implements Wrapper {
     private String code;
     private String requestUrl;
 
+    @NonNull
     public String getMessage() {
         return message;
     }
@@ -28,6 +31,7 @@ public class WrapperBean<T> implements Wrapper {
         this.data = data;
     }
 
+    @NonNull
     public String getCode() {
         return code;
     }
@@ -56,10 +60,11 @@ public class WrapperBean<T> implements Wrapper {
     }
 
     @Override
-    public void setTag(String tag) {
+    public void setTag(@NonNull String tag) {
         this.requestUrl = tag;
     }
 
+    @NonNull
     @Override
     public String getTag() {
         return requestUrl;
