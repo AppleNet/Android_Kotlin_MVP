@@ -22,7 +22,7 @@ import java.util.List;
  *
  * 存放了所有需要换肤的 view 的属性
  * */
-public class SkinAttribute {
+class SkinAttribute {
 
     private List<SkinView> mSkinViews = new ArrayList<>();
     private static final List<String> mAttributes = new ArrayList<>();
@@ -41,7 +41,7 @@ public class SkinAttribute {
      * 寻找所有可以换肤的 view
      * 以 ？开头的 和 以 @ 开头的属性值
      * */
-    public void look(View view, AttributeSet attrs) {
+    void look(View view, AttributeSet attrs) {
         List<SkinPair> skinPairs =  new ArrayList<>();
         for (int i = 0; i < attrs.getAttributeCount(); i++) {
             // 获取属性名
@@ -76,7 +76,7 @@ public class SkinAttribute {
     /**
      *   对所有的 View 中的所有属性进行皮肤修改
      * */
-    public void applySkin() {
+    void applySkin() {
         for (SkinView mSkinView : mSkinViews) {
             mSkinView.applySkin();
         }
@@ -85,14 +85,14 @@ public class SkinAttribute {
     public static class SkinView{
         public View view;
         // 这个 View  换肤的属性与它对应的 id 的集合
-        public List<SkinPair> skinPairs;
+        List<SkinPair> skinPairs;
 
-        public SkinView(View view, List<SkinPair> skinPairs) {
+        SkinView(View view, List<SkinPair> skinPairs) {
             this.view = view;
             this.skinPairs = skinPairs;
         }
 
-        public void applySkin() {
+        void applySkin() {
             applySkinSupport();
             for (SkinPair skinPair : skinPairs) {
                 Drawable left = null, top = null, right = null, bottom = null;
@@ -146,11 +146,11 @@ public class SkinAttribute {
     static class SkinPair {
 
         // 属性名
-        public String attributeName;
+        String attributeName;
         // 对应资源 id
-        public int resId;
+        int resId;
 
-        public SkinPair(String attributeName, int resId) {
+        SkinPair(String attributeName, int resId) {
             this.attributeName = attributeName;
             this.resId = resId;
         }

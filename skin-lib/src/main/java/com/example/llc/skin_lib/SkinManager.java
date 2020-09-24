@@ -67,11 +67,12 @@ public class SkinManager extends Observable {
             try {
                 AssetManager assetManager = AssetManager.class.newInstance();
                 // 资源路径设置目录或者压缩包
+                // 同一个 key 的颜色值 就会被替换掉，所以未打开的页面，在初次打开的时候，使用的就是新的 resources 进行颜色的渲染
                 Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
                 addAssetPath.setAccessible(true);
                 addAssetPath.invoke(assetManager, skin);
 
-                // 根据当前的设备显示器信息与配置(横竖屏，语言等) 创建 Resources
+                // 根据当前的设备显示器信息与配置(横竖屏，语言等) 创建 Resources，
                 Resources skinResources = new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 // 获取外部 apk(皮肤包) 包名
                 PackageManager mPm = mContext.getPackageManager();

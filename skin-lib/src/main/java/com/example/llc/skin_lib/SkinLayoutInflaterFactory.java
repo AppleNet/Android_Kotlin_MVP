@@ -45,7 +45,7 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
     // 用于获取窗口的状态框的信息
     private Activity mActivity;
 
-    public SkinLayoutInflaterFactory(Activity activity) {
+    SkinLayoutInflaterFactory(Activity activity) {
         this.mActivity = activity;
         this.mSkinAttribute = new SkinAttribute();
     }

@@ -35,9 +35,7 @@ public class SkinResources {
         }
     }
 
-    private SkinResources(Context context) {
-
-    }
+    private SkinResources(Context context) {}
 
     public static SkinResources getInstance() {
         return instance;
@@ -61,7 +59,7 @@ public class SkinResources {
      *
      * @param resId resId
      * */
-    public int getIdentifier(int resId) {
+    private int getIdentifier(int resId) {
         if (isDefaultSkin) {
             return resId;
         }

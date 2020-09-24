@@ -22,7 +22,7 @@ public class SkinApplicationActivityLifeCycle implements Application.ActivityLif
     private Observable mObservable;
     private ArrayMap<Activity, SkinLayoutInflaterFactory> mLayoutInflaterFactory = new ArrayMap<>();
 
-    public SkinApplicationActivityLifeCycle(Observable observable) {
+    SkinApplicationActivityLifeCycle(Observable observable) {
         this.mObservable = observable;
     }
 
