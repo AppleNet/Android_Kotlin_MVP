@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.multidex.MultiDex
 import com.alibaba.fastjson.JSON
 import com.example.kotlin.plugin.PluginHook
+import com.example.llc.skin_lib.SkinManager
 import com.example.llcgs.android_kotlin.base.router.callback.HostEventCallbacks
 import com.example.llcgs.android_kotlin.base.router.callback.KPluginCallback
 import com.example.llcgs.android_kotlin.base.router.callback.KRouterCallBack
@@ -48,7 +49,7 @@ class KotlinApplication: RePluginApplication() {
         BaseUtil.init(this)
         initRouter()
         initCrash()
-
+        //SkinManager.init(this)
         PluginHook.hookPMS()
         packageManager.getInstalledApplications(0)
     }

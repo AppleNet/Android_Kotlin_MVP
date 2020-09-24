@@ -9,7 +9,6 @@ import android.view.View;
 import com.example.llc.skin_lib.utils.SkinThemeUtils;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
@@ -109,12 +108,20 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
             return null;
         }
 
-        for (int i = 0; i < mClassPrefixList.length; i++) {
-            return createView(mClassPrefixList[i] + name, context, attrs);
+        for (String s : mClassPrefixList) {
+            View view = createView(s + name, context, attrs);
+            if (view != null) {
+                return view;
+            }
         }
         return null;
     }
 
+    /**
+     *  Activity(Observable)发出通知，这里就会执行
+     *
+     *  执行换肤操作
+     * */
     @Override
     public void update(Observable o, Object arg) {
         SkinThemeUtils.updateStatusBarColor(mActivity);
