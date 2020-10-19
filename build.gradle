@@ -18,12 +18,12 @@ buildscript {
     }
 
     repositories {
+        jcenter()
         // 添加阿里云镜像
         maven{
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
         mavenLocal()
-        jcenter()
         google()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com' }
@@ -49,11 +49,11 @@ buildscript {
 
 allprojects {
     repositories {
+        jcenter()
         maven{
             url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
         mavenLocal()
-        jcenter()
         google()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com' }

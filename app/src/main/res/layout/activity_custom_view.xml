@@ -43,4 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_10dp"/>
 
+    <com.example.llcgs.android_kotlin.customview.selfview.SimpleColorChangeTextView
+        android:id="@+id/simpleColorChangeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
 </LinearLayout>

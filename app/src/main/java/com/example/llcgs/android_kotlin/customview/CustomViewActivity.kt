@@ -1,5 +1,7 @@
 package com.example.llcgs.android_kotlin.customview
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import com.example.llcgs.android_kotlin.R
@@ -54,12 +56,15 @@ class CustomViewActivity: BaseActivity<CustomViewView, CustomViewPresenter>() {
     *
     * */
 
+    @SuppressLint("ObjectAnimatorBinding")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_custom_view)
 
         myCustomView.setOnClickListener {
             startActivity(Intent(this, FlowLayoutActivity::class.java))
+
+            ObjectAnimator.ofFloat(this, "percent", 0f, 1f).setDuration(2500).start()
         }
     }
 }
