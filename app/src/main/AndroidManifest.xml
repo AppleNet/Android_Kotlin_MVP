@@ -399,6 +399,7 @@
         <activity android:name=".customview.BigViewActivity" />
         <activity android:name=".ui.recyclerview.RecyclerViewActivity" />
         <activity android:name=".customview.FlowLayoutActivity" />
+        <activity android:name=".customview.FishActivity"/>
         <activity android:name=".butter.ButterKnifeActivity" />
         <activity android:name=".io.InputOutputStreamActivity" />
 

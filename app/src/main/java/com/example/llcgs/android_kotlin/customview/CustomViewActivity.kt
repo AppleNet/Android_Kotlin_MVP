@@ -62,9 +62,8 @@ class CustomViewActivity: BaseActivity<CustomViewView, CustomViewPresenter>() {
         setContentView(R.layout.activity_custom_view)
 
         myCustomView.setOnClickListener {
-            startActivity(Intent(this, FlowLayoutActivity::class.java))
-
-            ObjectAnimator.ofFloat(this, "percent", 0f, 1f).setDuration(2500).start()
+            startActivity(Intent(this, FishActivity::class.java))
+            // ObjectAnimator.ofFloat(this, "percent", 0f, 1f).setDuration(2500).start()
         }
     }
 }
