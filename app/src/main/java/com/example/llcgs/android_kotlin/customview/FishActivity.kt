@@ -16,7 +16,7 @@ class FishActivity: BaseActivity<CustomViewView, CustomViewPresenter>()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fish)
 
-        fishImage.setImageDrawable(FishDrawable())
+        // fishImage.setImageDrawable(FishDrawable())
     }
 
 }
