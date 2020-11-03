@@ -19,10 +19,11 @@ import kotlinx.android.synthetic.main.fragment_anchor.*
  * @author liulongchao
  * @since 2018/12/25
  */
-class AnchorFragment : Fragment(){
+class AnchorFragment : Fragment() {
 
     // 标记当前 Fragment 是否彻底可见
     private var isFragmentShow: Boolean = false
+
     // 标记当前 View 是否创建完成
     private var isViewCreate: Boolean = false
 
@@ -38,9 +39,14 @@ class AnchorFragment : Fragment(){
         loadData()
     }
 
+    /**
+     *  判断Fragment是否可见
+     *
+     * @param isVisibleToUser
+     * */
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        if(isVisibleToUser) {
+        if (isVisibleToUser) {
             isFragmentShow = true
             loadData()
         } else {
@@ -48,16 +54,16 @@ class AnchorFragment : Fragment(){
         }
     }
 
-    private fun initViewPagerAndTabLayout(){
+    private fun initViewPagerAndTabLayout() {
         //
         val mChildViewPagerAdapter = ChildViewPagerAdapter(activity!!.supportFragmentManager)
-        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator{
+        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator {
             override fun createFragment(): Fragment = AnchorDayFragment()
         }, "日榜")
-        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator{
+        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator {
             override fun createFragment(): Fragment = AnchorWeekFragment()
         }, "周榜")
-        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator{
+        mChildViewPagerAdapter.addTab(object : ChildViewPagerAdapter.FragmentCreator {
             override fun createFragment(): Fragment = AnchorAllFragment()
         }, "总榜")
 
@@ -73,7 +79,7 @@ class AnchorFragment : Fragment(){
      *  加载数据
      * */
     private fun loadData() {
-        if(isFragmentShow && isViewCreate){
+        if (isFragmentShow && isViewCreate) {
             "数据加载。。。。".logD()
             isFragmentShow = false
             isViewCreate = false
