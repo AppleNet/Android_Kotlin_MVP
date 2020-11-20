@@ -11,8 +11,12 @@
 <!--        android:layout_gravity="center"-->
 <!--        android:contentDescription="@string/app_name"/>-->
 
-    <com.example.llcgs.android_kotlin.customview.selfdrawable.FishRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<!--    <com.example.llcgs.android_kotlin.customview.selfdrawable.FishRelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+    <com.example.llcgs.android_kotlin.customview.selfview.PhotoView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
