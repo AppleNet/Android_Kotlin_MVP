@@ -21,7 +21,7 @@ import java.util.Observable;
  * */
 public class SkinManager extends Observable {
 
-    private Application mContext;
+    private final Application mContext;
     private static volatile SkinManager instance;
 
     private SkinManager(Application application) {
@@ -67,7 +67,9 @@ public class SkinManager extends Observable {
             try {
                 AssetManager assetManager = AssetManager.class.newInstance();
                 // 资源路径设置目录或者压缩包
-                // 同一个 key 的颜色值 就会被替换掉，所以未打开的页面，在初次打开的时候，使用的就是新的 resources 进行颜色的渲染
+                // TODO 同一个 key 的颜色值 就会被替换掉，所以未打开的Activity页面，在初次打开的时候，使用的就是新的 resources 进行颜色的渲染
+                // TODO Resources进行getColor(R.color.xxx) 因为是同名的，这里已经替换成皮肤插件包中的值了，所以未打开过的Activity，执行onCreate方法中的setContentView
+                // TODO 中的inflate的时候 读取到的颜色值 就是插件包中的
                 Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
                 addAssetPath.setAccessible(true);
                 addAssetPath.invoke(assetManager, skin);
@@ -78,7 +80,9 @@ public class SkinManager extends Observable {
                 PackageManager mPm = mContext.getPackageManager();
                 PackageInfo info = mPm.getPackageArchiveInfo(skin, PackageManager.GET_ACTIVITIES);
                 String packageName = info.packageName;
+                // 这里就会进行一个赋值，如果皮肤插件包有值，就会给SkinResources进行赋值
                 SkinResources.getInstance().applySkin(skinResources, packageName);
+
                 // 记录
                 SkinPreference.getInstance().setSkin(skin);
             } catch (Exception e) {

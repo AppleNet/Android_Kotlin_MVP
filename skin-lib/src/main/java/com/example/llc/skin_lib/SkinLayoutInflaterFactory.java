@@ -41,9 +41,9 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
 
     // 当选择新皮肤后需要替换 View 与之对应的属性
     // 页面属性管理器
-    private SkinAttribute mSkinAttribute;
+    private final SkinAttribute mSkinAttribute;
     // 用于获取窗口的状态框的信息
-    private Activity mActivity;
+    private final Activity mActivity;
 
     SkinLayoutInflaterFactory(Activity activity) {
         this.mActivity = activity;
@@ -77,6 +77,53 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
         return view;
     }
 
+    /**
+     * @param name View的类名
+     * @param context 上下文
+     * @param attrs 属性
+     * @return View对象
+     */
+    private View createSDKView(String name, Context context, AttributeSet attrs) {
+        // 如果包含 . 则不是 SDK 中的 View 可能是自定义 View 包括 support 库中的 View
+        // 例如com.enjoy.skin.widget.MyTabLayout 或者 android.support.v7.widget.RecyclerView
+        if (-1 == name.indexOf('.')) {
+            return null;
+        }
+
+        for (String s : mClassPrefixList) {
+            View view = createView(s + name, context, attrs);
+            if (view != null) {
+                return view;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 反射创建全类名View对象
+     *
+     * @param name 全类名View
+     * @param context 上下文
+     * @param attrs 属性
+     * @return View对象
+     */
+    private View createView(String name, Context context, AttributeSet attrs) {
+        Constructor<? extends View> constructor = findConstructor(context, name);
+        try {
+            return constructor.newInstance(context, attrs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 根据全类名找到其对应的构造方法对象
+     *
+     * @param context 上下文
+     * @param name 全类名View
+     * @return 构造方法对象
+     */
     private Constructor<? extends View> findConstructor(Context context, String name) {
         Constructor<? extends View> constructor = sConstructorMap.get(name);
         if (constructor == null) {
@@ -90,31 +137,6 @@ public class SkinLayoutInflaterFactory implements LayoutInflater.Factory2, Obser
             }
         }
         return constructor;
-    }
-
-    private View createView(String name, Context context, AttributeSet attrs) {
-        Constructor<? extends View> constructor = findConstructor(context, name);
-        try {
-            return constructor.newInstance(context, attrs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    private View createSDKView(String name, Context context, AttributeSet attrs) {
-        // 如果包含 . 则不是 SDK 中的 View 可能是自定义 View 包括 support 库中的 View
-        if (-1 == name.indexOf('.')) {
-            return null;
-        }
-
-        for (String s : mClassPrefixList) {
-            View view = createView(s + name, context, attrs);
-            if (view != null) {
-                return view;
-            }
-        }
-        return null;
     }
 
     /**

@@ -7,8 +7,8 @@ import android.os.Build;
 
 public class SkinThemeUtils {
 
-    private static int[] APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS = {android.R.attr.colorPrimaryDark};
-    private static int[] STATUSBAR_COLOR_ATTRS = {android.R.attr.statusBarColor, android.R.attr.navigationBarColor};
+    private static final int[] APPCOMPAT_COLOR_PRIMARY_DARK_ATTRS = {android.R.attr.colorPrimaryDark};
+    private static final int[] STATUS_BAR_COLOR_ATTRS = {android.R.attr.statusBarColor, android.R.attr.navigationBarColor};
 
     /**
      *  获得 Theme 中属性中定义的资源 id
@@ -40,7 +40,7 @@ public class SkinThemeUtils {
 
         // 获得 statusBarColor 与 navigationBarColor
         // 当与 colorPrimaryDark 不同时 以 statusBarColor 为准
-        int[] resIds = getResId(activity, STATUSBAR_COLOR_ATTRS);
+        int[] resIds = getResId(activity, STATUS_BAR_COLOR_ATTRS);
         int statusBarColorResId = resIds[0];
         int navigationBarColor = resIds[1];
 

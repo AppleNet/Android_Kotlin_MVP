@@ -19,8 +19,8 @@ import java.util.Observable;
  * */
 public class SkinApplicationActivityLifeCycle implements Application.ActivityLifecycleCallbacks {
 
-    private Observable mObservable;
-    private ArrayMap<Activity, SkinLayoutInflaterFactory> mLayoutInflaterFactory = new ArrayMap<>();
+    private final Observable mObservable;
+    private final ArrayMap<Activity, SkinLayoutInflaterFactory> mLayoutInflaterFactory = new ArrayMap<>();
 
     SkinApplicationActivityLifeCycle(Observable observable) {
         this.mObservable = observable;
@@ -29,6 +29,10 @@ public class SkinApplicationActivityLifeCycle implements Application.ActivityLif
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         /*
+         *  onCreate方法执行之后 回调到这里，此时Activity的onCreate已经执行完毕，也就是setContentView方法已经执行结束，
+         *  mFactorySet已经被设置为true，所以要反射修改为false，否则会抛出 IllegalStateException("A factory has already been set on this LayoutInflater")
+         * */
+        /*
          * 更新状态栏
          * */
         SkinThemeUtils.updateStatusBarColor(activity);
@@ -36,6 +40,7 @@ public class SkinApplicationActivityLifeCycle implements Application.ActivityLif
          * 更新布局视图
          * */
         LayoutInflater layoutInflater = activity.getLayoutInflater();
+
         try {
             // Android布局加载器 使用 mFactorySet 标记是否设置过 Factory
             // 如设置过 抛出一次
@@ -50,6 +55,7 @@ public class SkinApplicationActivityLifeCycle implements Application.ActivityLif
         SkinLayoutInflaterFactory skinLayoutInflaterFactory = new SkinLayoutInflaterFactory(activity);
         LayoutInflaterCompat.setFactory2(layoutInflater, skinLayoutInflaterFactory);
         mLayoutInflaterFactory.put(activity, skinLayoutInflaterFactory);
+        // 观察者模式，当
         mObservable.addObserver(skinLayoutInflaterFactory);
     }
 
@@ -80,7 +86,7 @@ public class SkinApplicationActivityLifeCycle implements Application.ActivityLif
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        SkinLayoutInflaterFactory skinLayoutInflaterFactory = mLayoutInflaterFactory.get(activity);
+        SkinLayoutInflaterFactory skinLayoutInflaterFactory = mLayoutInflaterFactory.remove(activity);
         SkinManager.getInstance().deleteObserver(skinLayoutInflaterFactory);
     }
 }

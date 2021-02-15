@@ -8,11 +8,12 @@ import android.text.TextUtils;
 
 /**
  * com.example.llc.skin_lib.utils.SkinResources
+ *
  * @author liulongchao
  * @since 2020-09-23
- *
- *  换肤用的资源
- * */
+ * <p>
+ * 换肤用的资源
+ */
 public class SkinResources {
 
     // 原始 app 使用的 resources
@@ -35,7 +36,8 @@ public class SkinResources {
         }
     }
 
-    private SkinResources(Context context) {}
+    private SkinResources(Context context) {
+    }
 
     public static SkinResources getInstance() {
         return instance;
@@ -54,11 +56,11 @@ public class SkinResources {
     }
 
     /**
-     *  1. 通过原始 app 中的 resId(R.id.XX) 获取到自己的名字
-     *  2. 根据名字和类型获取皮肤包中的 ID
+     * 1. 通过原始 app 中的 resId(R.id.XX) 获取到自己的名字
+     * 2. 根据名字和类型获取皮肤包中的 ID
      *
      * @param resId resId
-     * */
+     */
     private int getIdentifier(int resId) {
         if (isDefaultSkin) {
             return resId;
@@ -71,10 +73,10 @@ public class SkinResources {
     }
 
     /**
-     *  获取颜色值
+     * 获取颜色值
      *
      * @param resId resId
-     * */
+     */
     public int getColor(int resId) {
         if (isDefaultSkin) {
             return mAppResources.getColor(resId);
@@ -99,11 +101,10 @@ public class SkinResources {
     }
 
     /**
-     *  获取 drawable
+     * 获取 drawable
      *
      * @param resId resId
-     *
-     * */
+     */
     public Drawable getDrawable(int resId) {
         if (isDefaultSkin) {
             return mAppResources.getDrawable(resId);
@@ -118,11 +119,10 @@ public class SkinResources {
     }
 
     /**
-     *  可能是颜色值，可能是 drawable
+     * 可能是颜色值，可能是 drawable
      *
      * @param resId resId
-     *
-     * */
+     */
     public Object getBackground(int resId) {
         String resourceTypeName = mAppResources.getResourceTypeName(resId);
         if ("color".equals(resourceTypeName)) {
