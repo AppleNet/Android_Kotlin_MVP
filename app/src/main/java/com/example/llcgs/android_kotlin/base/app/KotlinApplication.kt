@@ -50,7 +50,7 @@ class KotlinApplication: RePluginApplication() {
         initRouter()
         initCrash()
         //SkinManager.init(this)
-        PluginHook.hookPMS()
+        // PluginHook.hookPMS()
         packageManager.getInstalledApplications(0)
     }
 

@@ -1,14 +1,15 @@
 package com.example.kotlin.plugin;
 
 import android.annotation.SuppressLint;
+import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
@@ -16,12 +17,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
-public class PluginHook {
+public class PluginHook implements IPluginHook{
 
     private static final String TARGET_INTENT = "target_intent";
 
     @SuppressLint("PrivateApi")
-    public static void hookPMS() {
+    public void hookPMS() {
 
         try {
             Class<?> mActivityThreadClass = Class.forName("android.app.ActivityThread");
@@ -56,13 +57,13 @@ public class PluginHook {
 //            // 将动态代理创建的一个新的IPackageManager对象，设置回去
             sPackageManagerField.set(iPackageManager, proxyInstance);
         } catch (Exception e) {
-            e.printStackTrace();
+            //
         }
     }
 
 
     @SuppressLint("PrivateApi")
-    public static void hookAMS() {
+    public void hookAMS() {
 
         // 动态代理需要替换的是IActivityManager对象
         try {
@@ -153,7 +154,7 @@ public class PluginHook {
     }
 
     @SuppressLint("PrivateApi")
-    public static void hookHandler() {
+    public  void hookHandler() {
         // 用创建的callback对象替换系统ActivityThread中Handler的callback对象
         try {
             Class<?> activityThreadClass = Class.forName("android.app.ActivityThread");
@@ -234,6 +235,39 @@ public class PluginHook {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void hookInstrumentation(Context context) {
+        try {
+            Class<?> mActivityThreadClass = Class.forName("android.app.ActivityThread");
+            Field currentActivityThreadField = mActivityThreadClass.getDeclaredField("sCurrentActivityThread");
+            currentActivityThreadField.setAccessible(true);
+            // 静态变量，可以传递null，直接获取当前ActivityThread对象
+            Object activityThread = currentActivityThreadField.get(null);
+
+            Field instrumentationField = mActivityThreadClass.getDeclaredField("mInstrumentation");
+            instrumentationField.setAccessible(true);
+            Object instrumentationOriginal = instrumentationField.get(activityThread);
+
+            // hook instrumentation
+            // 1.  创建自己的 instrumentation
+
+
+
+        } catch (Exception e) {
+            //
+        }
+
+    }
+
+    @Override
+    public void hookClassLoader() {
+
+    }
+
+    private VAInstrumentation createInstrumentation(Instrumentation instrumentationOriginal) {
+        return new VAInstrumentation()
     }
 
 }

@@ -24,7 +24,7 @@ import java.util.List;
  */
 class SkinAttribute {
 
-    private List<SkinView> mSkinViews = new ArrayList<>();
+    private final List<SkinView> mSkinViews = new ArrayList<>();
     private static final List<String> mAttributes = new ArrayList<>();
 
     static {
