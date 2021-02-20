@@ -18,4 +18,5 @@ dependencies {
     /* material_dialogs */
     api libs.material_dialogs
 
+    api libs.aspectj
 }

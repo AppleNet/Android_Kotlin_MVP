@@ -1,3 +1,4 @@
+include ':permission'
 include ':basic', ':hotfix-lib', ':plugin-lib', ':login', ':member', ':common', ':arouter', ':annotation', ':annotation_compiler', ':reinforce-lib', ':skin-lib'
 include ':app'
 include ':James'

@@ -91,6 +91,7 @@ ext {
             gms               : "11.0.1",
             exoplayer         : "r2.5.0",
             tinker            : tinker_version,
+            aspectj           : "1.8.13",
 
     ]
     libs = [
@@ -198,6 +199,8 @@ ext {
 
             tinker_stdlib        : "com.tencent.tinker:tinker-android-lib:${versions.tinker}",
             tinker_annotation_processor : "com.tencent.tinker:tinker-android-anno:${versions.tinker}",
+
+            aspectj              : "org.aspectj:aspectjrt:${versions.aspectj}",
     ]
 
 }
